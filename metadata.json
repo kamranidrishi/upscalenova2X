@@ -1,0 +1,6 @@
+{
+  "name": "Upscale Nova",
+  "description": "Digital agency, custom website development, Google Business, NFC review cards, and QR solutions.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
