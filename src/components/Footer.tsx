@@ -1,6 +1,7 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { Phone, Mail, MapPin, MessageSquare, Instagram } from 'lucide-react';
 import { COMPANY_PHONE_DISPLAY, COMPANY_EMAIL, COMPANY_LOCATION, WHATSAPP_LINK, CALL_LINK, COMPANY_LOGO, INSTAGRAM_LINK } from '../data/content';
+import { UpscaleNovaLogo } from './UpscaleNovaLogo';
 
 interface FooterProps {
   onOpenPrivacyPolicy?: () => void;
@@ -13,6 +14,8 @@ export const Footer: React.FC<FooterProps> = ({
   onOpenRefundPolicy,
   onOpenTerms 
 }) => {
+  const [logoLoadFailed, setLogoLoadFailed] = useState(false);
+
   return (
     <footer className="bg-slate-950 text-slate-400 text-sm border-t border-slate-900">
       
@@ -23,12 +26,17 @@ export const Footer: React.FC<FooterProps> = ({
           {/* Brand Info */}
           <div className="lg:col-span-5 space-y-4">
             <div className="flex items-center gap-3">
-              <div className="w-10 h-10 flex items-center justify-center shrink-0 rounded-full overflow-hidden">
-                <img 
-                  src={COMPANY_LOGO} 
-                  alt="Upscale Nova" 
-                  className="w-full h-full object-contain rounded-full" 
-                />
+              <div className="w-10 h-10 flex items-center justify-center shrink-0 p-1 rounded-xl bg-white border border-slate-700 shadow-xs overflow-hidden">
+                {!logoLoadFailed ? (
+                  <img 
+                    src={COMPANY_LOGO} 
+                    alt="Upscale Nova Logo" 
+                    className="w-full h-full object-contain" 
+                    onError={() => setLogoLoadFailed(true)}
+                  />
+                ) : (
+                  <UpscaleNovaLogo className="w-full h-full" />
+                )}
               </div>
               <span className="text-xl font-extrabold text-white tracking-tight">Upscale Nova</span>
             </div>
