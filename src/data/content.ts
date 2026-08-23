@@ -14,7 +14,7 @@ export const WHATSAPP_NUMBER = "919137283810";
 export const WHATSAPP_LINK = `https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent("Hello Upscale Nova, I am interested in your services. Please provide more information.")}`;
 export const CALL_LINK = `tel:+919137283810`;
 export const INSTAGRAM_LINK = "https://www.instagram.com/upscalenova/";
-export const COMPANY_LOGO = upscaleNovaLogo;
+export const COMPANY_LOGO = "/assets/upscale-nova-logo.png";
 
 export const INDUSTRIES: IndustryItem[] = [
   { id: 'cafes', title: 'Cafes', iconName: 'Coffee' },

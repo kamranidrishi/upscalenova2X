@@ -40,6 +40,9 @@ async function startServer() {
     next();
   });
 
+  // Serve static files from public directory
+  app.use(express.static(path.join(process.cwd(), 'public')));
+
   // Vite middleware for development
   if (process.env.NODE_ENV !== "production") {
     const { createServer: createViteServer } = await import("vite");
