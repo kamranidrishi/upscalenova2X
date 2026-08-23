@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { Mail, Phone, MapPin, Send, Instagram, MessageSquare, CheckCircle, Sparkles } from 'lucide-react';
-import { COMPANY_PHONE_DISPLAY, COMPANY_EMAIL, COMPANY_LOCATION, WHATSAPP_LINK, CALL_LINK } from '../data/content';
+import { COMPANY_PHONE_DISPLAY, COMPANY_EMAIL, COMPANY_LOCATION, WHATSAPP_LINK, CALL_LINK, INSTAGRAM_LINK } from '../data/content';
 import { QuoteFormData } from '../types';
 
 interface ContactProps {
@@ -10,17 +10,45 @@ interface ContactProps {
 export const ContactSection: React.FC<ContactProps> = ({ prefilledService }) => {
   const [formData, setFormData] = useState<QuoteFormData>({
     name: '',
-    businessName: '',
-    email: '',
+    countryCode: '+91',
     phone: '',
     service: prefilledService || 'Custom Website Design',
-    details: ''
   });
+  const [phoneError, setPhoneError] = useState('');
 
   const [submitted, setSubmitted] = useState(false);
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
+    setPhoneError('');
+    
+    if (formData.phone.length !== 10) {
+      setPhoneError("Please enter a valid 10-digit mobile number.");
+      return;
+    }
+
+    const message = `Hello Upscale Nova
+
+I would like to request a quote.
+
+Customer Details
+Name: ${formData.name}
+Phone: ${formData.countryCode}${formData.phone}
+
+Service Interested In
+${formData.service}
+
+
+Thank you.`;
+
+    const encodedMessage = encodeURIComponent(message);
+    const whatsappUrl = `https://wa.me/919137283810?text=${encodedMessage}`;
+    
+    const link = document.createElement('a');
+    link.href = whatsappUrl;
+    link.target = '_blank';
+    link.rel = 'noopener noreferrer';
+    link.click();
     setSubmitted(true);
   };
 
@@ -102,9 +130,11 @@ export const ContactSection: React.FC<ContactProps> = ({ prefilledService }) => 
               </a>
 
               <a
-                href="#"
+                href={INSTAGRAM_LINK}
+                target="_blank"
+                rel="noopener noreferrer"
                 className="w-10 h-10 rounded-full bg-slate-800 border border-slate-700 flex items-center justify-center text-slate-300 hover:text-pink-400 hover:border-pink-500/50 transition-colors"
-                aria-label="Instagram"
+                aria-label="Instagram @upscalenova"
               >
                 <Instagram className="w-4 h-4" />
               </a>
@@ -150,7 +180,7 @@ export const ContactSection: React.FC<ContactProps> = ({ prefilledService }) => 
                 </div>
               ) : (
                 <form onSubmit={handleSubmit} className="space-y-4">
-                  <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                  <div className="space-y-4">
                     <div>
                       <label className="block text-xs font-bold text-slate-700 mb-1">Name *</label>
                       <input
@@ -164,69 +194,48 @@ export const ContactSection: React.FC<ContactProps> = ({ prefilledService }) => 
                     </div>
 
                     <div>
-                      <label className="block text-xs font-bold text-slate-700 mb-1">Business Name</label>
-                      <input
-                        type="text"
-                        value={formData.businessName}
-                        onChange={(e) => setFormData({ ...formData, businessName: e.target.value })}
-                        placeholder="e.g. Leopold Cafe"
-                        className="w-full bg-slate-50 border border-slate-200 rounded-xl px-4 py-3 text-sm font-semibold text-slate-800 focus:outline-none focus:ring-2 focus:ring-indigo-500"
-                      />
-                    </div>
-                  </div>
-
-                  <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-                    <div>
-                      <label className="block text-xs font-bold text-slate-700 mb-1">Email *</label>
-                      <input
-                        type="email"
-                        required
-                        value={formData.email}
-                        onChange={(e) => setFormData({ ...formData, email: e.target.value })}
-                        placeholder="name@company.com"
-                        className="w-full bg-slate-50 border border-slate-200 rounded-xl px-4 py-3 text-sm font-semibold text-slate-800 focus:outline-none focus:ring-2 focus:ring-indigo-500"
-                      />
-                    </div>
-
-                    <div>
                       <label className="block text-xs font-bold text-slate-700 mb-1">Phone Number *</label>
-                      <input
-                        type="tel"
-                        required
-                        value={formData.phone}
-                        onChange={(e) => setFormData({ ...formData, phone: e.target.value })}
-                        placeholder="Your Mobile Number"
-                        className="w-full bg-slate-50 border border-slate-200 rounded-xl px-4 py-3 text-sm font-semibold text-slate-800 focus:outline-none focus:ring-2 focus:ring-indigo-500"
-                      />
+                      <div className="flex gap-2">
+                        <select
+                          value={formData.countryCode}
+                          onChange={(e) => setFormData({ ...formData, countryCode: e.target.value })}
+                          className="bg-slate-50 border border-slate-200 rounded-xl px-3 py-3 text-sm font-semibold text-slate-800 focus:outline-none focus:ring-2 focus:ring-indigo-500 max-w-[100px]"
+                        >
+                          <option value="+91">🇮🇳 +91</option>
+                        </select>
+                        <input
+                          type="tel"
+                          required
+                          maxLength={10}
+                          value={formData.phone}
+                          onChange={(e) => {
+                            const val = e.target.value.replace(/\D/g, '').slice(0, 10);
+                            setFormData({ ...formData, phone: val });
+                            if (val.length === 10) setPhoneError('');
+                          }}
+                          placeholder="10-digit number"
+                          className="w-full bg-slate-50 border border-slate-200 rounded-xl px-4 py-3 text-sm font-semibold text-slate-800 focus:outline-none focus:ring-2 focus:ring-indigo-500"
+                        />
+                      </div>
+                      {phoneError && <p className="text-red-500 text-xs mt-1 font-bold">{phoneError}</p>}
                     </div>
-                  </div>
 
-                  <div>
-                    <label className="block text-xs font-bold text-slate-700 mb-1">Service Interested In</label>
-                    <select
-                      value={formData.service}
-                      onChange={(e) => setFormData({ ...formData, service: e.target.value })}
-                      className="w-full bg-slate-50 border border-slate-200 rounded-xl px-4 py-3 text-sm font-semibold text-slate-800 focus:outline-none focus:ring-2 focus:ring-indigo-500"
-                    >
-                      <option value="Custom Website Design">Custom Website Design</option>
-                      <option value="Google Review NFC Card">Google Review NFC Card</option>
-                      <option value="Google Review QR Stand">Google Review QR Stand</option>
-                      <option value="Digital Menu Solution">Digital Menu Solution</option>
-                      <option value="Google Business Profile Optimization">Google Business Profile Optimization</option>
-                      <option value="Website Hosting & Maintenance">Website Hosting & Maintenance</option>
-                      <option value="Custom Enterprise App">Custom Enterprise App</option>
-                    </select>
-                  </div>
-
-                  <div>
-                    <label className="block text-xs font-bold text-slate-700 mb-1">Project Details</label>
-                    <textarea
-                      rows={3}
-                      value={formData.details}
-                      onChange={(e) => setFormData({ ...formData, details: e.target.value })}
-                      placeholder="Tell us about your requirements..."
-                      className="w-full bg-slate-50 border border-slate-200 rounded-xl px-4 py-3 text-sm font-semibold text-slate-800 focus:outline-none focus:ring-2 focus:ring-indigo-500"
-                    />
+                    <div>
+                      <label className="block text-xs font-bold text-slate-700 mb-1">Service Interested In</label>
+                      <select
+                        value={formData.service}
+                        onChange={(e) => setFormData({ ...formData, service: e.target.value })}
+                        className="w-full bg-slate-50 border border-slate-200 rounded-xl px-4 py-3 text-sm font-semibold text-slate-800 focus:outline-none focus:ring-2 focus:ring-indigo-500"
+                      >
+                        <option value="Custom Website Design">Custom Website Design</option>
+                        <option value="Google Review NFC Card">Google Review NFC Card</option>
+                        <option value="Google Review QR Stand">Google Review QR Stand</option>
+                        <option value="Digital Menu Solution">Digital Menu Solution</option>
+                        <option value="Google Business Profile Optimization">Google Business Profile Optimization</option>
+                        <option value="Website Hosting & Maintenance">Website Hosting & Maintenance</option>
+                        <option value="Custom Enterprise App">Custom Enterprise App</option>
+                      </select>
+                    </div>
                   </div>
 
                   <button

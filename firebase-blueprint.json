@@ -1,0 +1,56 @@
+{
+  "entities": {
+    "ContactSubmission": {
+      "title": "Contact Submission",
+      "description": "A quote request or contact form submission from a user",
+      "type": "object",
+      "properties": {
+        "name": {
+          "type": "string",
+          "description": "User's full name",
+          "maxLength": 128
+        },
+        "businessName": {
+          "type": "string",
+          "description": "User's business name",
+          "maxLength": 128
+        },
+        "email": {
+          "type": "string",
+          "description": "User's email",
+          "format": "email",
+          "maxLength": 128
+        },
+        "phone": {
+          "type": "string",
+          "description": "User's phone number",
+          "maxLength": 32
+        },
+        "service": {
+          "type": "string",
+          "description": "Requested service",
+          "maxLength": 64
+        },
+        "details": {
+          "type": "string",
+          "description": "Project details",
+          "maxLength": 2048
+        },
+        "createdAt": {
+          "type": "string",
+          "description": "Server timestamp of creation",
+          "format": "date-time"
+        }
+      },
+      "required": ["name", "email", "phone", "service", "createdAt"]
+    }
+  },
+  "firestore": {
+    "/submissions/{submissionId}": {
+      "schema": {
+        "$ref": "#/entities/ContactSubmission"
+      },
+      "description": "Stores user contact and quote requests"
+    }
+  }
+}

@@ -31,7 +31,7 @@ export interface PricingPlan {
   monthlyPrice?: string;
   originalMonthlyPrice?: string;
   isPopular?: boolean;
-  features: string[];
+  features: { name: string; value: string | boolean }[];
   ctaText: string;
 }
 
@@ -59,9 +59,7 @@ export interface ProcessStep {
 
 export interface QuoteFormData {
   name: string;
-  businessName: string;
-  email: string;
+  countryCode: string;
   phone: string;
   service: string;
-  details: string;
 }

@@ -1,5 +1,11 @@
-import React, { useState, useMemo } from 'react';
-import { DemoItem, PlanType } from '../data/demos';
+import React, { useState, useMemo } from "react";
+import { MegaExerciseLibrary } from "./MegaExerciseLibrary";
+import { DemoItem, PlanType } from "../data/demos";
+import { PRICING_PLANS } from '../data/content';
+const basePrice = PRICING_PLANS.find(p => p.id === 'base')?.price || '₹24,999';
+const proPrice = PRICING_PLANS.find(p => p.id === 'pro')?.price || '₹39,999';
+const maxPrice = PRICING_PLANS.find(p => p.id === 'max')?.price || '₹59,999';
+
 import {
   GYM_PROGRAMS,
   GYM_PLANS,
@@ -11,17 +17,56 @@ import {
   NUTRITION_MEALS,
   GymMembershipPlan,
   GymLead,
-  WorkoutExercise
-} from '../data/gymData';
+  WorkoutExercise,
+} from "../data/gymData";
 import {
-  Dumbbell, Flame, CheckCircle, Shield, Award, Users, Star,
-  Calendar, Clock, MapPin, Phone, MessageSquare, ArrowRight, Lock,
-  ChevronRight, Play, QrCode, Check, Plus, Minus, UserCheck,
-  TrendingUp, Activity, BarChart3, PieChart, Sparkles, Send,
-  Zap, AlertCircle, RefreshCw, Layers, CheckCircle2, ChevronDown,
-  CreditCard, Smartphone, Heart, Eye, Bell, Bot, Copy, HelpCircle,
-  ExternalLink, FileText, CheckSquare, MessageCircle, X
-} from 'lucide-react';
+  Dumbbell,
+  Flame,
+  CheckCircle,
+  Shield,
+  Award,
+  Users,
+  Star,
+  Calendar,
+  Clock,
+  MapPin,
+  Phone,
+  MessageSquare,
+  ArrowRight,
+  Lock,
+  ChevronRight,
+  Play,
+  QrCode,
+  Check,
+  Plus,
+  Minus,
+  UserCheck,
+  TrendingUp,
+  Activity,
+  BarChart3,
+  PieChart,
+  Sparkles,
+  Send,
+  Zap,
+  AlertCircle,
+  RefreshCw,
+  Layers,
+  CheckCircle2,
+  ChevronDown,
+  CreditCard,
+  Smartphone,
+  Heart,
+  Eye,
+  Bell,
+  Bot,
+  Copy,
+  HelpCircle,
+  ExternalLink,
+  FileText,
+  CheckSquare,
+  MessageCircle,
+  X,
+} from "lucide-react";
 
 interface GymDemoProps {
   demo: DemoItem;
@@ -30,94 +75,345 @@ interface GymDemoProps {
   onPlanChange?: (plan: PlanType) => void;
 }
 
-export const GymDemo: React.FC<GymDemoProps> = ({ demo, isMobile, onPlanChange }) => {
+export const GymDemo: React.FC<GymDemoProps> = ({
+  demo,
+  isMobile,
+  onPlanChange,
+}) => {
   const plan = demo.plan;
-  const isBase = plan === 'Base';
-  const isPro = plan === 'Pro';
-  const isMega = plan === 'Mega';
+  const isBase = plan === "Base";
+  const isPro = plan === "Pro";
+  const isMax = plan === "Max";
 
   // Navigation & View State
-  const [activeTab, setActiveTab] = useState<'public' | 'portal' | 'leads' | 'admin' | 'trainer' | 'compare'>('public');
-  const [activeRole, setActiveRole] = useState<'Owner' | 'Admin' | 'Trainer' | 'Member'>('Member');
-  const [selectedCategory, setSelectedCategory] = useState<string>('All');
-  
+  const [activeTab, setActiveTab] = useState<
+    "public" | "portal" | "leads" | "admin" | "trainer" | "compare" | "library"
+  >("public");
+  const [activeRole, setActiveRole] = useState<
+    "Owner" | "Admin" | "Trainer" | "Member"
+  >("Member");
+  const [selectedCategory, setSelectedCategory] = useState<string>("All");
+
   // Modals & Interactive States
   const [isTrialModalOpen, setIsTrialModalOpen] = useState(false);
   const [isQrModalOpen, setIsQrModalOpen] = useState(false);
   const [isLoginModalOpen, setIsLoginModalOpen] = useState(false);
   const [isPaymentModalOpen, setIsPaymentModalOpen] = useState(false);
-  const [selectedPlanForPayment, setSelectedPlanForPayment] = useState<GymMembershipPlan>(GYM_PLANS[1]);
-  const [paymentMethod, setPaymentMethod] = useState<'UPI' | 'Card' | 'NetBanking'>('UPI');
+  const [selectedPlanForPayment, setSelectedPlanForPayment] =
+    useState<GymMembershipPlan>(GYM_PLANS[1]);
+  const [paymentMethod, setPaymentMethod] = useState<
+    "UPI" | "Card" | "NetBanking"
+  >("UPI");
   const [paymentSuccess, setPaymentSuccess] = useState(false);
 
   // Member Portal & Workout State
-  const [workoutList, setWorkoutList] = useState<WorkoutExercise[]>(TODAY_WORKOUT_EXERCISES);
+  const [workoutList, setWorkoutList] = useState<WorkoutExercise[]>(
+    TODAY_WORKOUT_EXERCISES,
+  );
   const [attendanceCheckedIn, setAttendanceCheckedIn] = useState(true);
   const [attendanceHistory, setAttendanceHistory] = useState([
-    { day: 'Mon', date: '10 Aug', status: 'Present (06:30 AM)' },
-    { day: 'Tue', date: '11 Aug', status: 'Present (06:45 AM)' },
-    { day: 'Wed', date: '12 Aug', status: 'Rest Day' },
-    { day: 'Thu', date: '13 Aug', status: 'Present (07:00 AM)' },
-    { day: 'Fri', date: '14 Aug', status: 'Present (06:30 AM)' },
-    { day: 'Sat', date: '15 Aug', status: 'Scheduled' },
-    { day: 'Sun', date: '16 Aug', status: 'Rest Day' }
+    { day: "Mon", date: "10 Aug", status: "Present (06:30 AM)" },
+    { day: "Tue", date: "11 Aug", status: "Present (06:45 AM)" },
+    { day: "Wed", date: "12 Aug", status: "Rest Day" },
+    { day: "Thu", date: "13 Aug", status: "Present (07:00 AM)" },
+    { day: "Fri", date: "14 Aug", status: "Present (06:30 AM)" },
+    { day: "Sat", date: "15 Aug", status: "Scheduled" },
+    { day: "Sun", date: "16 Aug", status: "Rest Day" },
   ]);
 
-  // Lead State for Pro & Mega
+  // Lead State for Pro & Max
   const [leads, setLeads] = useState<GymLead[]>(INITIAL_LEADS);
-  const [leadFilter, setLeadFilter] = useState<'All' | 'New' | 'Contacted' | 'Trial Booked' | 'Converted'>('All');
-  const [searchQuery, setSearchQuery] = useState('');
+  const [leadFilter, setLeadFilter] = useState<
+    "All" | "New" | "Contacted" | "Trial Booked" | "Converted"
+  >("All");
+  const [searchQuery, setSearchQuery] = useState("");
 
   // AI Fitness Coach State
   const [isAiOpen, setIsAiOpen] = useState(false);
-  const [aiChatMessages, setAiChatMessages] = useState<Array<{ sender: 'user' | 'ai'; text: string; time: string }>>([
-    { sender: 'ai', text: "Hey Alex 👋 I'm your IronFit AI Coach. What would you like help with today? Form check, workout split, or macronutrient goals?", time: 'Just now' }
+  const [aiChatMessages, setAiChatMessages] = useState<
+    Array<{ sender: "user" | "ai"; text: string; time: string }>
+  >([
+    {
+      sender: "ai",
+      text: "Hey Alex 👋 I'm your IronFit AI Coach. What would you like help with today? Form check, workout split, or macronutrient goals?",
+      time: "Just now",
+    },
   ]);
-  const [aiInputText, setAiInputText] = useState('');
+  const [aiInputText, setAiInputText] = useState("");
 
   // Form State
   const [trialForm, setTrialForm] = useState({
-    name: '',
-    phone: '',
-    email: '',
-    fitnessGoal: 'Weight Loss & Toning',
-    preferredMembership: 'Quarterly Pro',
-    message: ''
+    name: "",
+    phone: "",
+    email: "",
+    fitnessGoal: "Weight Loss & Toning",
+    preferredMembership: "Quarterly Pro",
+    message: "",
   });
   const [formSubmitted, setFormSubmitted] = useState(false);
 
   const handleToggleExercise = (id: string) => {
-    setWorkoutList(prev => prev.map(ex => ex.id === id ? { ...ex, completed: !ex.completed } : ex));
+    setWorkoutList((prev) =>
+      prev.map((ex) =>
+        ex.id === id ? { ...ex, completed: !ex.completed } : ex,
+      ),
+    );
   };
 
-  const completedExercisesCount = workoutList.filter(e => e.completed).length;
-  const workoutProgressPercent = Math.round((completedExercisesCount / workoutList.length) * 100);
+  const completedExercisesCount = workoutList.filter((e) => e.completed).length;
+  const workoutProgressPercent = Math.round(
+    (completedExercisesCount / workoutList.length) * 100,
+  );
 
   const handleAiSend = (textToSend?: string) => {
     const text = textToSend || aiInputText;
     if (!text.trim()) return;
 
-    setAiChatMessages(prev => [...prev, { sender: 'user', text, time: 'Just now' }]);
-    setAiInputText('');
+    setAiChatMessages((prev) => [
+      ...prev,
+      { sender: "user", text, time: "Just now" },
+    ]);
+    setAiInputText("");
 
     setTimeout(() => {
-      let reply = "Great question! Keep your core braced and remember to hit at least 160g-180g protein daily for optimal hypertrophy and muscle recovery.";
+      let reply =
+        "Great question! Keep your core braced and remember to hit at least 160g-180g protein daily for optimal hypertrophy and muscle recovery.";
       const lower = text.toLowerCase();
-      if (lower.includes('train today') || lower.includes('workout')) {
-        reply = "Today is your scheduled Chest & Triceps power session! Focus on the Barbell Bench (4x8 @ 85kg) followed by Cable Flys and Parallel Dips.";
-      } else if (lower.includes('protein') || lower.includes('diet') || lower.includes('nutrition')) {
-        reply = "Based on your 76kg body weight, your target is 180g protein (2.4g/kg). Your post-workout whey shake gives you 34g, and dinner will cover 45g.";
-      } else if (lower.includes('progress') || lower.includes('weight')) {
-        reply = "You've lost 6kg fat over 12 weeks while your bench press increased by +18%! Your current workout streak is on fire at 12 continuous days! 🔥";
-      } else if (lower.includes('membership') || lower.includes('expire')) {
-        reply = "Your Premium Annual Plan is active until 28 Dec 2026. You have 12 complimentary PT sessions remaining in your account.";
+      if (lower.includes("train today") || lower.includes("workout")) {
+        reply =
+          "Today is your scheduled Chest & Triceps power session! Focus on the Barbell Bench (4x8 @ 85kg) followed by Cable Flys and Parallel Dips.";
+      } else if (
+        lower.includes("protein") ||
+        lower.includes("diet") ||
+        lower.includes("nutrition")
+      ) {
+        reply =
+          "Based on your 76kg body weight, your target is 180g protein (2.4g/kg). Your post-workout whey shake gives you 34g, and dinner will cover 45g.";
+      } else if (lower.includes("progress") || lower.includes("weight")) {
+        reply =
+          "You've lost 6kg fat over 12 weeks while your bench press increased by +18%! Your current workout streak is on fire at 12 continuous days! 🔥";
+      } else if (lower.includes("membership") || lower.includes("expire")) {
+        reply =
+          "Your Premium Annual Plan is active until 28 Dec 2026. You have 12 complimentary PT sessions remaining in your account.";
       }
-      setAiChatMessages(prev => [...prev, { sender: 'ai', text: reply, time: 'Just now' }]);
+      setAiChatMessages((prev) => [
+        ...prev,
+        { sender: "ai", text: reply, time: "Just now" },
+      ]);
     }, 600);
   };
 
   return (
-    <div className="w-full h-full bg-[#060B14] text-slate-100 overflow-y-auto overflow-x-hidden font-sans custom-scrollbar select-none">
+    <div
+      className={`w-full h-full bg-[#060B14] text-slate-100 overflow-y-auto overflow-x-hidden font-sans custom-scrollbar select-none ${isMax ? "mega-theme" : ""} ${isPro ? "pro-theme" : ""} ${isBase ? "base-theme" : ""}`}
+    >
+      {isMax && (
+        <style
+          dangerouslySetInnerHTML={{
+            __html: `
+          .mega-theme { background-color: #030303 !important; }
+          .mega-theme .bg-\\[\\#060B14\\] { background-color: #030303 !important; }
+          .mega-theme .bg-\\[\\#0A1426\\] { 
+            background-color: #121212 !important; 
+            border: 1px solid rgba(212, 175, 55, 0.15) !important;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.5) !important;
+          }
+          .mega-theme .bg-\\[\\#070D18\\],
+          .mega-theme .bg-\\[\\#070E1C\\],
+          .mega-theme .bg-\\[\\#0A1122\\],
+          .mega-theme .bg-\\[\\#0B1528\\],
+          .mega-theme .bg-\\[\\#0D1A30\\],
+          .mega-theme .bg-\\[\\#0E1C38\\],
+          .mega-theme .bg-\\[\\#0F1C36\\],
+          .mega-theme .bg-\\[\\#121E36\\],
+          .mega-theme .bg-\\[\\#12203A\\] { background-color: #0A0A0A !important; border-color: rgba(212, 175, 55, 0.1) !important; }
+          
+          /* Gradients to Gold */
+          .mega-theme .from-cyan-400 { --tw-gradient-from: #FBBF24 !important; --tw-gradient-stops: var(--tw-gradient-from), var(--tw-gradient-to) !important; }
+          .mega-theme .via-blue-500 { --tw-gradient-via: #D4AF37 !important; --tw-gradient-stops: var(--tw-gradient-from), var(--tw-gradient-via), var(--tw-gradient-to) !important; }
+          .mega-theme .to-indigo-600 { --tw-gradient-to: #B45309 !important; }
+          
+          .mega-theme .from-blue-600 { --tw-gradient-from: #D4AF37 !important; --tw-gradient-stops: var(--tw-gradient-from), var(--tw-gradient-to) !important; }
+          
+          /* Texts to Gold/Champagne */
+          .mega-theme .text-cyan-400 { color: #FCD34D !important; }
+          .mega-theme .text-blue-500 { color: #FBBF24 !important; }
+          .mega-theme .text-cyan-500 { color: #D4AF37 !important; }
+          .mega-theme .text-blue-600 { color: #D4AF37 !important; }
+          .mega-theme .text-indigo-400 { color: #FDE68A !important; }
+          .mega-theme .text-emerald-400 { color: #FDE68A !important; }
+          .mega-theme .text-emerald-500 { color: #FDE68A !important; }
+          
+          /* Backgrounds to Gold */
+          .mega-theme .bg-cyan-400 { background-color: #FBBF24 !important; }
+          .mega-theme .bg-cyan-500 { background-color: #D4AF37 !important; }
+          .mega-theme .bg-blue-500 { background-color: #FBBF24 !important; }
+          .mega-theme .bg-blue-600 { background-color: #D4AF37 !important; }
+          .mega-theme .bg-emerald-500 { background-color: #FBBF24 !important; }
+          .mega-theme .bg-emerald-600 { background-color: #D4AF37 !important; }
+          
+          /* Borders */
+          .mega-theme .border-cyan-400 { border-color: #FBBF24 !important; }
+          .mega-theme .border-cyan-500\\/30 { border-color: rgba(212, 175, 55, 0.3) !important; }
+          .mega-theme .border-cyan-500\\/40 { border-color: rgba(212, 175, 55, 0.4) !important; }
+          .mega-theme .border-blue-500\\/30 { border-color: rgba(212, 175, 55, 0.3) !important; }
+          .mega-theme .border-slate-800 { border-color: rgba(212, 175, 55, 0.25) !important; }
+          .mega-theme .border-slate-700 { border-color: rgba(212, 175, 55, 0.35) !important; }
+          
+          /* Shadows */
+          .mega-theme .shadow-cyan-400\\/20 { --tw-shadow-color: rgba(212, 175, 55, 0.2) !important; --tw-shadow: var(--tw-shadow-colored) !important; }
+          .mega-theme .shadow-cyan-400\\/40 { --tw-shadow-color: rgba(212, 175, 55, 0.4) !important; --tw-shadow: var(--tw-shadow-colored) !important; }
+          .mega-theme .shadow-blue-500\\/20 { --tw-shadow-color: rgba(212, 175, 55, 0.2) !important; --tw-shadow: var(--tw-shadow-colored) !important; }
+          
+          /* Additional premium tweaks */
+          .mega-theme .bg-slate-800 { background-color: #1A1A1A !important; }
+          .mega-theme .bg-slate-900 { background-color: #141414 !important; }
+          
+          .mega-theme .ring-cyan-500\\/50 { --tw-ring-color: rgba(212, 175, 55, 0.5) !important; }
+          .mega-theme .ring-blue-500\\/30 { --tw-ring-color: rgba(212, 175, 55, 0.3) !important; }
+        `,
+          }}
+        />
+      )}
+
+      {isPro && (
+        <style
+          dangerouslySetInnerHTML={{
+            __html: `
+                    .pro-theme { background-color: #0B0A14 !important; }
+          .pro-theme .bg-\\[\\#060B14\\] { background-color: #0B0A14 !important; }
+          .pro-theme .bg-\\[\\#0A1426\\] { 
+            background-color: #151225 !important; 
+            border: 1px solid rgba(91, 58, 174, 0.15) !important;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.4) !important;
+          }
+          .pro-theme .bg-\\[\\#070D18\\],
+          .pro-theme .bg-\\[\\#070E1C\\],
+          .pro-theme .bg-\\[\\#0A1122\\],
+          .pro-theme .bg-\\[\\#0B1528\\],
+          .pro-theme .bg-\\[\\#0D1A30\\],
+          .pro-theme .bg-\\[\\#0E1C38\\],
+          .pro-theme .bg-\\[\\#0F1C36\\],
+          .pro-theme .bg-\\[\\#121E36\\],
+          .pro-theme .bg-\\[\\#12203A\\] { background-color: #110E1D !important; border-color: rgba(91, 58, 174, 0.1) !important; }
+          
+          /* Gradients to Purple / Violet */
+          .pro-theme .from-cyan-400 { --tw-gradient-from: #8B5CF6 !important; --tw-gradient-stops: var(--tw-gradient-from), var(--tw-gradient-to) !important; }
+          .pro-theme .via-blue-500 { --tw-gradient-via: #A855F7 !important; --tw-gradient-stops: var(--tw-gradient-from), var(--tw-gradient-via), var(--tw-gradient-to) !important; }
+          .pro-theme .to-indigo-600 { --tw-gradient-to: #6D28D9 !important; }
+          
+          .pro-theme .from-blue-600 { --tw-gradient-from: #6D28D9 !important; --tw-gradient-stops: var(--tw-gradient-from), var(--tw-gradient-to) !important; }
+          
+          /* Texts to Purple/Violet */
+          .pro-theme .text-cyan-400 { color: #A855F7 !important; }
+          .pro-theme .text-blue-500 { color: #8B5CF6 !important; }
+          .pro-theme .text-cyan-500 { color: #A855F7 !important; }
+          .pro-theme .text-blue-600 { color: #8B5CF6 !important; }
+          .pro-theme .text-indigo-400 { color: #C084FC !important; }
+          .pro-theme .text-emerald-400 { color: #A855F7 !important; }
+          .pro-theme .text-emerald-500 { color: #8B5CF6 !important; }
+          
+          /* Backgrounds */
+          .pro-theme .bg-cyan-400 { background-color: #A855F7 !important; }
+          .pro-theme .bg-cyan-500 { background-color: #8B5CF6 !important; }
+          .pro-theme .bg-blue-500 { background-color: #8B5CF6 !important; }
+          .pro-theme .bg-blue-600 { background-color: #6D28D9 !important; }
+          .pro-theme .bg-emerald-500 { background-color: #8B5CF6 !important; }
+          .pro-theme .bg-emerald-600 { background-color: #6D28D9 !important; }
+          
+          /* Borders */
+          .pro-theme .border-cyan-400 { border-color: #A855F7 !important; }
+          .pro-theme .border-cyan-500\\/30 { border-color: rgba(139, 92, 246, 0.3) !important; }
+          .pro-theme .border-cyan-500\\/40 { border-color: rgba(139, 92, 246, 0.4) !important; }
+          .pro-theme .border-blue-500\\/30 { border-color: rgba(109, 40, 217, 0.3) !important; }
+          .pro-theme .border-slate-800 { border-color: rgba(91, 58, 174, 0.15) !important; }
+          .pro-theme .border-slate-700 { border-color: rgba(91, 58, 174, 0.25) !important; }
+          
+          /* Shadows */
+          .pro-theme .shadow-cyan-400\\/20 { --tw-shadow-color: rgba(139, 92, 246, 0.2) !important; --tw-shadow: var(--tw-shadow-colored) !important; }
+          .pro-theme .shadow-cyan-400\\/40 { --tw-shadow-color: rgba(139, 92, 246, 0.4) !important; --tw-shadow: var(--tw-shadow-colored) !important; }
+          .pro-theme .shadow-blue-500\\/20 { --tw-shadow-color: rgba(109, 40, 217, 0.2) !important; --tw-shadow: var(--tw-shadow-colored) !important; }
+          
+          /* Additional premium tweaks */
+          .pro-theme .bg-slate-800 { background-color: #1A162D !important; }
+          .pro-theme .bg-slate-900 { background-color: #110E1D !important; }
+          
+          .pro-theme .ring-cyan-500\\/50 { --tw-ring-color: rgba(139, 92, 246, 0.5) !important; }
+          .pro-theme .ring-blue-500\\/30 { --tw-ring-color: rgba(109, 40, 217, 0.3) !important; }
+        `,
+          }}
+        />
+      )}
+
+      {isBase && (
+        <style
+          dangerouslySetInnerHTML={{
+            __html: `
+          .base-theme { background-color: #07130E !important; }
+          .base-theme .bg-\\[\\#060B14\\] { background-color: #07130E !important; }
+          .base-theme .bg-\\[\\#0A1426\\] { 
+            background-color: #0D1F16 !important; 
+            border: 1px solid rgba(22, 101, 52, 0.4) !important;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3) !important;
+          }
+          .base-theme .bg-\\[\\#070D18\\],
+          .base-theme .bg-\\[\\#070E1C\\],
+          .base-theme .bg-\\[\\#0A1122\\],
+          .base-theme .bg-\\[\\#0B1528\\],
+          .base-theme .bg-\\[\\#0D1A30\\],
+          .base-theme .bg-\\[\\#0E1C38\\],
+          .base-theme .bg-\\[\\#0F1C36\\],
+          .base-theme .bg-\\[\\#121E36\\],
+          .base-theme .bg-\\[\\#12203A\\] { background-color: #091710 !important; border-color: rgba(22, 101, 52, 0.2) !important; }
+          
+          /* Gradients to Emerald / Lime */
+          .base-theme .from-cyan-400 { --tw-gradient-from: #10B981 !important; --tw-gradient-stops: var(--tw-gradient-from), var(--tw-gradient-to) !important; }
+          .base-theme .via-blue-500 { --tw-gradient-via: #84CC16 !important; --tw-gradient-stops: var(--tw-gradient-from), var(--tw-gradient-via), var(--tw-gradient-to) !important; }
+          .base-theme .to-indigo-600 { --tw-gradient-to: #064E3B !important; }
+          
+          .base-theme .from-blue-600 { --tw-gradient-from: #059669 !important; --tw-gradient-stops: var(--tw-gradient-from), var(--tw-gradient-to) !important; }
+          
+          /* Texts to Emerald/Lime */
+          .base-theme .text-cyan-400 { color: #A3E635 !important; }
+          .base-theme .text-blue-500 { color: #10B981 !important; }
+          .base-theme .text-cyan-500 { color: #10B981 !important; }
+          .base-theme .text-blue-600 { color: #059669 !important; }
+          .base-theme .text-indigo-400 { color: #84CC16 !important; }
+          .base-theme .text-emerald-400 { color: #10B981 !important; }
+          .base-theme .text-emerald-500 { color: #059669 !important; }
+          
+          /* Backgrounds */
+          .base-theme .bg-cyan-400 { background-color: #10B981 !important; }
+          .base-theme .bg-cyan-500 { background-color: #059669 !important; }
+          .base-theme .bg-blue-500 { background-color: #10B981 !important; }
+          .base-theme .bg-blue-600 { background-color: #064E3B !important; }
+          .base-theme .bg-emerald-500 { background-color: #10B981 !important; }
+          .base-theme .bg-emerald-600 { background-color: #064E3B !important; }
+          
+          /* Borders */
+          .base-theme .border-cyan-400 { border-color: #10B981 !important; }
+          .base-theme .border-cyan-500\\/30 { border-color: rgba(16, 185, 129, 0.3) !important; }
+          .base-theme .border-cyan-500\\/40 { border-color: rgba(16, 185, 129, 0.4) !important; }
+          .base-theme .border-blue-500\\/30 { border-color: rgba(16, 185, 129, 0.3) !important; }
+          .base-theme .border-slate-800 { border-color: rgba(22, 101, 52, 0.3) !important; }
+          .base-theme .border-slate-700 { border-color: rgba(22, 101, 52, 0.5) !important; }
+          
+          /* Shadows */
+          .base-theme .shadow-cyan-400\\/20 { --tw-shadow-color: rgba(16, 185, 129, 0.2) !important; --tw-shadow: var(--tw-shadow-colored) !important; }
+          .base-theme .shadow-cyan-400\\/40 { --tw-shadow-color: rgba(16, 185, 129, 0.4) !important; --tw-shadow: var(--tw-shadow-colored) !important; }
+          .base-theme .shadow-blue-500\\/20 { --tw-shadow-color: rgba(16, 185, 129, 0.2) !important; --tw-shadow: var(--tw-shadow-colored) !important; }
+          
+          /* Additional premium tweaks */
+          .base-theme .bg-slate-800 { background-color: #0A1710 !important; }
+          .base-theme .bg-slate-900 { background-color: #050D09 !important; }
+          
+          .base-theme .ring-cyan-500\\/50 { --tw-ring-color: rgba(16, 185, 129, 0.5) !important; }
+          .base-theme .ring-blue-500\\/30 { --tw-ring-color: rgba(16, 185, 129, 0.3) !important; }
+        `,
+          }}
+        />
+      )}
+
       {/* ------------------------------------------------------------- */}
       {/* 1. TOP INTERACTIVE PACKAGE SWITCHER BAR (Upscale Nova Header) */}
       {/* ------------------------------------------------------------- */}
@@ -129,11 +425,16 @@ export const GymDemo: React.FC<GymDemoProps> = ({ demo, isMobile, onPlanChange }
             </div>
             <div>
               <div className="flex items-center gap-2">
-                <span className="font-extrabold text-xs tracking-wider uppercase text-white">Upscale Nova</span>
-                <span className="text-[10px] text-cyan-400 font-medium">Digital Business Solutions</span>
+                <span className="font-extrabold text-xs tracking-wider uppercase text-white">
+                  Upscale Nova
+                </span>
+                <span className="text-[10px] text-cyan-400 font-medium">
+                  Digital Business Solutions
+                </span>
               </div>
               <p className="text-[10px] text-slate-400 hidden md:block">
-                Interactive Demo – Explore What&apos;s Included in Each Development Package
+                Interactive Demo – Explore What&apos;s Included in Each
+                Development Package
               </p>
             </div>
           </div>
@@ -141,41 +442,43 @@ export const GymDemo: React.FC<GymDemoProps> = ({ demo, isMobile, onPlanChange }
           {/* Package Switcher Buttons */}
           <div className="flex items-center bg-[#060B14] p-1 rounded-xl border border-slate-800 shadow-inner">
             <button
-              onClick={() => onPlanChange?.('Base')}
+              onClick={() => onPlanChange?.("Base")}
               className={`px-3 py-1.5 rounded-lg text-xs font-bold transition-all flex items-center gap-1.5 ${
                 isBase
-                  ? 'bg-blue-600 text-white shadow-md shadow-blue-500/30'
-                  : 'text-slate-400 hover:text-white hover:bg-slate-800/60'
+                  ? "bg-blue-600 text-white shadow-md shadow-blue-500/30"
+                  : "text-slate-400 hover:text-white hover:bg-slate-800/60"
               }`}
             >
               <span>BASE</span>
-              <span className="text-[10px] opacity-80">₹12,999</span>
+              <span className="text-[10px] opacity-80">{basePrice}</span>
             </button>
 
             <button
-              onClick={() => onPlanChange?.('Pro')}
+              onClick={() => onPlanChange?.("Pro")}
               className={`px-3 py-1.5 rounded-lg text-xs font-bold transition-all flex items-center gap-1.5 ${
                 isPro
-                  ? 'bg-gradient-to-r from-blue-600 to-cyan-500 text-white shadow-md shadow-cyan-500/30'
-                  : 'text-slate-400 hover:text-white hover:bg-slate-800/60'
+                  ? "bg-gradient-to-r from-blue-600 to-cyan-500 text-white shadow-md shadow-cyan-500/30"
+                  : "text-slate-400 hover:text-white hover:bg-slate-800/60"
               }`}
             >
               <span>PRO</span>
-              <span className="text-[10px] opacity-80">₹16,999</span>
+              <span className="text-[10px] opacity-80">{proPrice}</span>
               <span className="w-1.5 h-1.5 rounded-full bg-cyan-400 animate-ping hidden sm:inline-block"></span>
             </button>
 
             <button
-              onClick={() => onPlanChange?.('Mega')}
+              onClick={() => onPlanChange?.("Max")}
               className={`px-3 py-1.5 rounded-lg text-xs font-bold transition-all flex items-center gap-1.5 ${
-                isMega
-                  ? 'bg-gradient-to-r from-cyan-400 via-blue-500 to-indigo-600 text-slate-950 font-black shadow-lg shadow-cyan-400/40'
-                  : 'text-slate-400 hover:text-white hover:bg-slate-800/60'
+                isMax
+                  ? "bg-gradient-to-r from-cyan-400 via-blue-500 to-indigo-600 text-slate-950 font-black shadow-lg shadow-cyan-400/40"
+                  : "text-slate-400 hover:text-white hover:bg-slate-800/60"
               }`}
             >
-              <span>MEGA</span>
-              <span className="text-[10px] opacity-90">₹24,999</span>
-              <span className="bg-amber-400 text-slate-950 text-[8px] font-black px-1.5 py-0.2 rounded uppercase">Best</span>
+              <span>MAX</span>
+              <span className="text-[10px] opacity-90">{maxPrice}</span>
+              <span className="bg-amber-400 text-slate-950 text-[8px] font-black px-1.5 py-0.2 rounded uppercase">
+                Best
+              </span>
             </button>
           </div>
         </div>
@@ -194,9 +497,14 @@ export const GymDemo: React.FC<GymDemoProps> = ({ demo, isMobile, onPlanChange }
           </div>
           <div>
             <div className="font-black text-xl tracking-tight uppercase italic text-white flex items-center gap-1.5">
-              IRONFIT <span className="text-cyan-400 font-normal not-italic text-sm">ATHLETIC</span>
+              IRONFIT{" "}
+              <span className="text-cyan-400 font-normal not-italic text-sm">
+                ATHLETIC
+              </span>
             </div>
-            <div className="text-[9px] uppercase tracking-widest text-slate-400 font-bold">24/7 Elite Fitness Club</div>
+            <div className="text-[9px] uppercase tracking-widest text-slate-400 font-bold">
+              24/7 Elite Fitness Club
+            </div>
           </div>
         </div>
 
@@ -204,28 +512,46 @@ export const GymDemo: React.FC<GymDemoProps> = ({ demo, isMobile, onPlanChange }
         {!isMobile && (
           <nav className="flex items-center gap-6 text-xs font-bold uppercase tracking-wider text-slate-300">
             <button
-              onClick={() => setActiveTab('public')}
-              className={`hover:text-cyan-400 transition-colors ${activeTab === 'public' ? 'text-cyan-400 border-b-2 border-cyan-400 pb-1' : ''}`}
+              onClick={() => setActiveTab("public")}
+              className={`hover:text-cyan-400 transition-colors ${activeTab === "public" ? "text-cyan-400 border-b-2 border-cyan-400 pb-1" : ""}`}
             >
               Home
             </button>
-            <a href="#services" onClick={() => setActiveTab('public')} className="hover:text-cyan-400">Programs</a>
-            <a href="#trainers" onClick={() => setActiveTab('public')} className="hover:text-cyan-400">Trainers</a>
-            <a href="#plans" onClick={() => setActiveTab('public')} className="hover:text-cyan-400">Memberships</a>
+            <a
+              href="#services"
+              onClick={() => setActiveTab("public")}
+              className="hover:text-cyan-400"
+            >
+              Programs
+            </a>
+            <a
+              href="#trainers"
+              onClick={() => setActiveTab("public")}
+              className="hover:text-cyan-400"
+            >
+              Trainers
+            </a>
+            <a
+              href="#plans"
+              onClick={() => setActiveTab("public")}
+              className="hover:text-cyan-400"
+            >
+              Memberships
+            </a>
 
-            {/* Pro & Mega Tab Links */}
+            {/* Pro & Max Tab Links */}
             {!isBase && (
               <>
                 <button
-                  onClick={() => setActiveTab('portal')}
-                  className={`flex items-center gap-1 hover:text-cyan-400 transition-colors ${activeTab === 'portal' ? 'text-cyan-400 border-b-2 border-cyan-400 pb-1' : ''}`}
+                  onClick={() => setActiveTab("portal")}
+                  className={`flex items-center gap-1 hover:text-cyan-400 transition-colors ${activeTab === "portal" ? "text-cyan-400 border-b-2 border-cyan-400 pb-1" : ""}`}
                 >
                   <UserCheck className="w-3.5 h-3.5 text-cyan-400" />
                   <span>Member Portal</span>
                 </button>
                 <button
-                  onClick={() => setActiveTab('leads')}
-                  className={`flex items-center gap-1 hover:text-cyan-400 transition-colors ${activeTab === 'leads' ? 'text-cyan-400 border-b-2 border-cyan-400 pb-1' : ''}`}
+                  onClick={() => setActiveTab("leads")}
+                  className={`flex items-center gap-1 hover:text-cyan-400 transition-colors ${activeTab === "leads" ? "text-cyan-400 border-b-2 border-cyan-400 pb-1" : ""}`}
                 >
                   <Users className="w-3.5 h-3.5 text-blue-400" />
                   <span>Leads CRM</span>
@@ -233,20 +559,29 @@ export const GymDemo: React.FC<GymDemoProps> = ({ demo, isMobile, onPlanChange }
               </>
             )}
 
-            {/* Mega Tab Links */}
-            {isMega && (
-              <button
-                onClick={() => setActiveTab('admin')}
-                className={`flex items-center gap-1 hover:text-cyan-400 transition-colors ${activeTab === 'admin' ? 'text-cyan-400 border-b-2 border-cyan-400 pb-1' : ''}`}
-              >
-                <Activity className="w-3.5 h-3.5 text-amber-400" />
-                <span className="text-amber-400">Mega Admin</span>
-              </button>
+            {/* Max Tab Links */}
+            {isMax && (
+              <>
+                <button
+                  onClick={() => setActiveTab("admin")}
+                  className={`flex items-center gap-1 hover:text-cyan-400 transition-colors ${activeTab === "admin" ? "text-cyan-400 border-b-2 border-cyan-400 pb-1" : ""}`}
+                >
+                  <Activity className="w-3.5 h-3.5 text-amber-400" />
+                  <span className="text-amber-400">Max Admin</span>
+                </button>
+                <button
+                  onClick={() => setActiveTab("library")}
+                  className={`flex items-center gap-1 hover:text-cyan-400 transition-colors ${activeTab === "library" ? "text-cyan-400 border-b-2 border-cyan-400 pb-1" : ""}`}
+                >
+                  <Dumbbell className="w-3.5 h-3.5 text-amber-400" />
+                  <span className="text-amber-400">Workout Library</span>
+                </button>
+              </>
             )}
 
             <button
-              onClick={() => setActiveTab('compare')}
-              className={`hover:text-cyan-400 transition-colors ${activeTab === 'compare' ? 'text-cyan-400 border-b-2 border-cyan-400 pb-1' : ''}`}
+              onClick={() => setActiveTab("compare")}
+              className={`hover:text-cyan-400 transition-colors ${activeTab === "compare" ? "text-cyan-400 border-b-2 border-cyan-400 pb-1" : ""}`}
             >
               Compare Plans
             </button>
@@ -258,7 +593,7 @@ export const GymDemo: React.FC<GymDemoProps> = ({ demo, isMobile, onPlanChange }
           {!isBase ? (
             <button
               onClick={() => {
-                setActiveTab('portal');
+                setActiveTab("portal");
                 setIsLoginModalOpen(true);
               }}
               className="hidden sm:flex items-center gap-2 bg-[#0F1C36] hover:bg-[#1E293B] text-cyan-300 border border-cyan-500/30 px-3.5 py-2 rounded-xl text-xs font-bold transition-all"
@@ -287,9 +622,9 @@ export const GymDemo: React.FC<GymDemoProps> = ({ demo, isMobile, onPlanChange }
       {/* ------------------------------------------------------------- */}
 
       {/* ============================================================= */}
-      {/* VIEW A: PUBLIC GYM WEBSITE (BASE, PRO & MEGA) */}
+      {/* VIEW A: PUBLIC GYM WEBSITE (BASE, PRO & MAX) */}
       {/* ============================================================= */}
-      {activeTab === 'public' && (
+      {activeTab === "public" && (
         <div>
           {/* HERO SECTION */}
           <section className="relative min-h-[560px] md:min-h-[620px] flex items-center px-6 md:px-14 py-20 overflow-hidden bg-[#070D18]">
@@ -317,14 +652,16 @@ export const GymDemo: React.FC<GymDemoProps> = ({ demo, isMobile, onPlanChange }
               </h1>
 
               <p className="text-slate-300 text-sm sm:text-base font-normal leading-relaxed max-w-xl">
-                Build strength, confidence and consistency with IronFit Athletic Club. World-class Eleiko lifting platforms, metabolic conditioning, and master coaching.
+                Build strength, confidence and consistency with IronFit Athletic
+                Club. World-class Eleiko lifting platforms, metabolic
+                conditioning, and master coaching.
               </p>
 
               <div className="flex flex-wrap items-center gap-4 pt-2">
                 <button
                   onClick={() => {
-                    const el = document.getElementById('plans');
-                    el?.scrollIntoView({ behavior: 'smooth' });
+                    const el = document.getElementById("plans");
+                    el?.scrollIntoView({ behavior: "smooth" });
                   }}
                   className="bg-gradient-to-r from-blue-600 to-cyan-500 hover:from-blue-500 hover:to-cyan-400 text-slate-950 font-black uppercase italic px-8 py-3.5 rounded-xl text-sm shadow-xl shadow-cyan-500/25 flex items-center gap-2 transition-all"
                 >
@@ -344,20 +681,36 @@ export const GymDemo: React.FC<GymDemoProps> = ({ demo, isMobile, onPlanChange }
               {/* Verified Metrics Strip */}
               <div className="grid grid-cols-2 sm:grid-cols-4 gap-4 pt-6 border-t border-slate-800/80">
                 <div className="bg-[#0A1426]/70 p-3 rounded-xl border border-slate-800">
-                  <div className="text-2xl font-black text-white italic">500+</div>
-                  <div className="text-[11px] text-slate-400 font-medium">Active Members</div>
+                  <div className="text-2xl font-black text-white italic">
+                    500+
+                  </div>
+                  <div className="text-[11px] text-slate-400 font-medium">
+                    Active Members
+                  </div>
                 </div>
                 <div className="bg-[#0A1426]/70 p-3 rounded-xl border border-slate-800">
-                  <div className="text-2xl font-black text-cyan-400 italic">15+</div>
-                  <div className="text-[11px] text-slate-400 font-medium">Expert Trainers</div>
+                  <div className="text-2xl font-black text-cyan-400 italic">
+                    15+
+                  </div>
+                  <div className="text-[11px] text-slate-400 font-medium">
+                    Expert Trainers
+                  </div>
                 </div>
                 <div className="bg-[#0A1426]/70 p-3 rounded-xl border border-slate-800">
-                  <div className="text-2xl font-black text-white italic">8+</div>
-                  <div className="text-[11px] text-slate-400 font-medium">Years Experience</div>
+                  <div className="text-2xl font-black text-white italic">
+                    8+
+                  </div>
+                  <div className="text-[11px] text-slate-400 font-medium">
+                    Years Experience
+                  </div>
                 </div>
                 <div className="bg-[#0A1426]/70 p-3 rounded-xl border border-slate-800">
-                  <div className="text-2xl font-black text-emerald-400 italic">24/7</div>
-                  <div className="text-[11px] text-slate-400 font-medium">Premium Facilities</div>
+                  <div className="text-2xl font-black text-emerald-400 italic">
+                    24/7
+                  </div>
+                  <div className="text-[11px] text-slate-400 font-medium">
+                    Premium Facilities
+                  </div>
                 </div>
               </div>
             </div>
@@ -372,42 +725,64 @@ export const GymDemo: React.FC<GymDemoProps> = ({ demo, isMobile, onPlanChange }
                 </div>
                 <h2 className="text-3xl sm:text-4xl font-black uppercase italic tracking-tight text-white leading-tight">
                   Engineered For Results. <br />
-                  <span className="text-slate-400">Zero Excuses, Pure Athletic Drive.</span>
+                  <span className="text-slate-400">
+                    Zero Excuses, Pure Athletic Drive.
+                  </span>
                 </h2>
                 <p className="text-slate-300 text-sm leading-relaxed">
-                  Founded with a singular mission: to provide serious fitness enthusiasts, athletes, and beginners with the ultimate training environment. We combine Olympic-grade free weights, cutting-edge biometric tracking, and recovery suites under one roof.
+                  Founded with a singular mission: to provide serious fitness
+                  enthusiasts, athletes, and beginners with the ultimate
+                  training environment. We combine Olympic-grade free weights,
+                  cutting-edge biometric tracking, and recovery suites under one
+                  roof.
                 </p>
 
                 <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 pt-2">
                   <div className="flex items-start gap-3 bg-[#0A1426] p-4 rounded-xl border border-slate-800">
                     <CheckCircle2 className="w-5 h-5 text-cyan-400 shrink-0 mt-0.5" />
                     <div>
-                      <div className="font-bold text-sm text-white">Eleiko & Rogue Rigs</div>
-                      <div className="text-xs text-slate-400">Competition standard calibrated plates & bars</div>
+                      <div className="font-bold text-sm text-white">
+                        Eleiko & Rogue Rigs
+                      </div>
+                      <div className="text-xs text-slate-400">
+                        Competition standard calibrated plates & bars
+                      </div>
                     </div>
                   </div>
 
                   <div className="flex items-start gap-3 bg-[#0A1426] p-4 rounded-xl border border-slate-800">
                     <CheckCircle2 className="w-5 h-5 text-cyan-400 shrink-0 mt-0.5" />
                     <div>
-                      <div className="font-bold text-sm text-white">Recovery & Sauna</div>
-                      <div className="text-xs text-slate-400">Scandinavian cedar saunas & cold plunges</div>
+                      <div className="font-bold text-sm text-white">
+                        Recovery & Sauna
+                      </div>
+                      <div className="text-xs text-slate-400">
+                        Scandinavian cedar saunas & cold plunges
+                      </div>
                     </div>
                   </div>
 
                   <div className="flex items-start gap-3 bg-[#0A1426] p-4 rounded-xl border border-slate-800">
                     <CheckCircle2 className="w-5 h-5 text-cyan-400 shrink-0 mt-0.5" />
                     <div>
-                      <div className="font-bold text-sm text-white">Certified Master PTs</div>
-                      <div className="text-xs text-slate-400">CSCS, ACE, and Olympic weightlifting coaches</div>
+                      <div className="font-bold text-sm text-white">
+                        Certified Master PTs
+                      </div>
+                      <div className="text-xs text-slate-400">
+                        CSCS, ACE, and Olympic weightlifting coaches
+                      </div>
                     </div>
                   </div>
 
                   <div className="flex items-start gap-3 bg-[#0A1426] p-4 rounded-xl border border-slate-800">
                     <CheckCircle2 className="w-5 h-5 text-cyan-400 shrink-0 mt-0.5" />
                     <div>
-                      <div className="font-bold text-sm text-white">Digital Ecosystem</div>
-                      <div className="text-xs text-slate-400">Live workout streak and QR pass attendance</div>
+                      <div className="font-bold text-sm text-white">
+                        Digital Ecosystem
+                      </div>
+                      <div className="text-xs text-slate-400">
+                        Live workout streak and QR pass attendance
+                      </div>
                     </div>
                   </div>
                 </div>
@@ -424,8 +799,12 @@ export const GymDemo: React.FC<GymDemoProps> = ({ demo, isMobile, onPlanChange }
                   <div className="absolute inset-0 bg-gradient-to-t from-[#060B14] via-transparent to-transparent"></div>
                   <div className="absolute bottom-6 left-6 right-6 bg-[#0A1426]/90 backdrop-blur-md p-4 rounded-xl border border-cyan-500/30 flex items-center justify-between">
                     <div>
-                      <div className="text-xs font-bold text-cyan-400 uppercase">State-of-the-Art Zone</div>
-                      <div className="text-white font-black text-sm">12,000 Sq.Ft Multi-Tier Training Floor</div>
+                      <div className="text-xs font-bold text-cyan-400 uppercase">
+                        State-of-the-Art Zone
+                      </div>
+                      <div className="text-white font-black text-sm">
+                        12,000 Sq.Ft Multi-Tier Training Floor
+                      </div>
                     </div>
                     <button
                       onClick={() => setIsTrialModalOpen(true)}
@@ -440,10 +819,15 @@ export const GymDemo: React.FC<GymDemoProps> = ({ demo, isMobile, onPlanChange }
           </section>
 
           {/* SERVICES & PROGRAMS SECTION */}
-          <section id="services" className="py-16 px-6 max-w-7xl mx-auto border-t border-slate-800/80">
+          <section
+            id="services"
+            className="py-16 px-6 max-w-7xl mx-auto border-t border-slate-800/80"
+          >
             <div className="flex flex-col md:flex-row md:items-end justify-between gap-4 mb-10">
               <div>
-                <span className="text-cyan-400 font-black text-xs uppercase tracking-widest">Targeted Conditioning</span>
+                <span className="text-cyan-400 font-black text-xs uppercase tracking-widest">
+                  Targeted Conditioning
+                </span>
                 <h2 className="text-3xl sm:text-4xl font-black uppercase italic text-white mt-1">
                   Elite Training Programs
                 </h2>
@@ -451,24 +835,29 @@ export const GymDemo: React.FC<GymDemoProps> = ({ demo, isMobile, onPlanChange }
 
               {/* Category Filter Chips */}
               <div className="flex flex-wrap gap-2">
-                {['All', 'Strength', 'Conditioning', 'Combat', 'Recovery'].map(cat => (
-                  <button
-                    key={cat}
-                    onClick={() => setSelectedCategory(cat)}
-                    className={`px-3.5 py-1.5 rounded-lg text-xs font-bold transition-all ${
-                      selectedCategory === cat
-                        ? 'bg-blue-600 text-white shadow-md'
-                        : 'bg-[#0A1426] text-slate-400 hover:text-white border border-slate-800'
-                    }`}
-                  >
-                    {cat}
-                  </button>
-                ))}
+                {["All", "Strength", "Conditioning", "Combat", "Recovery"].map(
+                  (cat) => (
+                    <button
+                      key={cat}
+                      onClick={() => setSelectedCategory(cat)}
+                      className={`px-3.5 py-1.5 rounded-lg text-xs font-bold transition-all ${
+                        selectedCategory === cat
+                          ? "bg-blue-600 text-white shadow-md"
+                          : "bg-[#0A1426] text-slate-400 hover:text-white border border-slate-800"
+                      }`}
+                    >
+                      {cat}
+                    </button>
+                  ),
+                )}
               </div>
             </div>
 
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-              {GYM_PROGRAMS.filter(p => selectedCategory === 'All' || p.category === selectedCategory).map(prog => (
+              {GYM_PROGRAMS.filter(
+                (p) =>
+                  selectedCategory === "All" || p.category === selectedCategory,
+              ).map((prog) => (
                 <div
                   key={prog.id}
                   className="bg-[#0A1426] rounded-2xl border border-slate-800 hover:border-cyan-500/50 overflow-hidden flex flex-col justify-between transition-all group hover:shadow-xl hover:shadow-cyan-500/10"
@@ -491,8 +880,13 @@ export const GymDemo: React.FC<GymDemoProps> = ({ demo, isMobile, onPlanChange }
                   <div className="p-6 space-y-4 flex-1 flex flex-col justify-between">
                     <div className="space-y-2">
                       <div className="flex justify-between items-center text-xs text-slate-400">
-                        <span>Coach: <strong className="text-white">{prog.trainer}</strong></span>
-                        <span className="text-amber-400 font-bold">{prog.spots}</span>
+                        <span>
+                          Coach:{" "}
+                          <strong className="text-white">{prog.trainer}</strong>
+                        </span>
+                        <span className="text-amber-400 font-bold">
+                          {prog.spots}
+                        </span>
                       </div>
                       <h3 className="text-lg font-black uppercase italic text-white group-hover:text-cyan-400 transition-colors">
                         {prog.title}
@@ -504,8 +898,11 @@ export const GymDemo: React.FC<GymDemoProps> = ({ demo, isMobile, onPlanChange }
 
                     <div className="pt-4 border-t border-slate-800/80 flex items-center justify-between">
                       <div className="flex gap-1.5">
-                        {prog.tags.map(t => (
-                          <span key={t} className="text-[10px] bg-slate-900 text-slate-400 px-2 py-0.5 rounded border border-slate-800">
+                        {prog.tags.map((t) => (
+                          <span
+                            key={t}
+                            className="text-[10px] bg-slate-900 text-slate-400 px-2 py-0.5 rounded border border-slate-800"
+                          >
                             #{t}
                           </span>
                         ))}
@@ -525,46 +922,62 @@ export const GymDemo: React.FC<GymDemoProps> = ({ demo, isMobile, onPlanChange }
           </section>
 
           {/* MEMBERSHIP PLANS SECTION */}
-          <section id="plans" className="py-16 px-6 max-w-7xl mx-auto border-t border-slate-800/80 bg-[#070D18]/50">
+          <section
+            id="plans"
+            className="py-16 px-6 max-w-7xl mx-auto border-t border-slate-800/80 bg-[#070D18]/50"
+          >
             <div className="text-center max-w-2xl mx-auto space-y-3 mb-12">
-              <span className="text-cyan-400 font-black text-xs uppercase tracking-widest">Flexible & Transparent</span>
+              <span className="text-cyan-400 font-black text-xs uppercase tracking-widest">
+                Flexible & Transparent
+              </span>
               <h2 className="text-3xl sm:text-4xl font-black uppercase italic text-white">
                 Choose Your Membership Plan
               </h2>
               <p className="text-slate-400 text-xs sm:text-sm">
-                Unlock 24/7 gym access, personal coaching assessments, and recovery amenities with zero hidden admission fees.
+                Unlock 24/7 gym access, personal coaching assessments, and
+                recovery amenities with zero hidden admission fees.
               </p>
             </div>
 
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
-              {GYM_PLANS.map(planItem => (
+              {GYM_PLANS.map((planItem) => (
                 <div
                   key={planItem.id}
                   className={`rounded-2xl p-6 flex flex-col justify-between relative transition-all ${
                     planItem.popular
-                      ? 'bg-[#0B1528] border-2 border-cyan-400 shadow-2xl shadow-cyan-500/20'
-                      : 'bg-[#0A1426] border border-slate-800 hover:border-slate-700'
+                      ? "bg-[#0B1528] border-2 border-cyan-400 shadow-2xl shadow-cyan-500/20"
+                      : "bg-[#0A1426] border border-slate-800 hover:border-slate-700"
                   }`}
                 >
                   {planItem.badge && (
-                    <div className={`absolute -top-3 left-1/2 -translate-x-1/2 text-[10px] font-black uppercase px-3 py-0.5 rounded-full ${
-                      planItem.popular
-                        ? 'bg-gradient-to-r from-blue-600 to-cyan-400 text-slate-950'
-                        : 'bg-slate-800 text-cyan-400 border border-cyan-500/30'
-                    }`}>
+                    <div
+                      className={`absolute -top-3 left-1/2 -translate-x-1/2 text-[10px] font-black uppercase px-3 py-0.5 rounded-full ${
+                        planItem.popular
+                          ? "bg-gradient-to-r from-blue-600 to-cyan-400 text-slate-950"
+                          : "bg-slate-800 text-cyan-400 border border-cyan-500/30"
+                      }`}
+                    >
                       {planItem.badge}
                     </div>
                   )}
 
                   <div className="space-y-4">
                     <div>
-                      <div className="text-xs font-bold uppercase text-slate-400 tracking-wider">{planItem.duration}</div>
-                      <h3 className="text-xl font-black uppercase italic text-white mt-0.5">{planItem.name}</h3>
+                      <div className="text-xs font-bold uppercase text-slate-400 tracking-wider">
+                        {planItem.duration}
+                      </div>
+                      <h3 className="text-xl font-black uppercase italic text-white mt-0.5">
+                        {planItem.name}
+                      </h3>
                     </div>
 
                     <div className="flex items-baseline gap-2">
-                      <span className="text-3xl sm:text-4xl font-black text-white">₹{planItem.price.toLocaleString()}</span>
-                      <span className="text-xs text-slate-400">{planItem.periodText}</span>
+                      <span className="text-3xl sm:text-4xl font-black text-white">
+                        ₹{planItem.price.toLocaleString()}
+                      </span>
+                      <span className="text-xs text-slate-400">
+                        {planItem.periodText}
+                      </span>
                     </div>
 
                     <p className="text-xs text-slate-400 leading-relaxed border-b border-slate-800 pb-4">
@@ -572,9 +985,14 @@ export const GymDemo: React.FC<GymDemoProps> = ({ demo, isMobile, onPlanChange }
                     </p>
 
                     <div className="space-y-2.5">
-                      <div className="text-[10px] font-bold text-slate-300 uppercase tracking-wider">Included Perks:</div>
+                      <div className="text-[10px] font-bold text-slate-300 uppercase tracking-wider">
+                        Included Perks:
+                      </div>
                       {planItem.features.map((feat, idx) => (
-                        <div key={idx} className="flex items-start gap-2 text-xs text-slate-300">
+                        <div
+                          key={idx}
+                          className="flex items-start gap-2 text-xs text-slate-300"
+                        >
                           <Check className="w-3.5 h-3.5 text-cyan-400 shrink-0 mt-0.5" />
                           <span>{feat}</span>
                         </div>
@@ -594,8 +1012,8 @@ export const GymDemo: React.FC<GymDemoProps> = ({ demo, isMobile, onPlanChange }
                       }}
                       className={`w-full py-3 rounded-xl font-black uppercase italic text-xs transition-all flex items-center justify-center gap-2 ${
                         planItem.popular
-                          ? 'bg-gradient-to-r from-blue-600 to-cyan-500 text-slate-950 hover:from-blue-500 hover:to-cyan-400 shadow-lg shadow-cyan-500/25'
-                          : 'bg-slate-800 hover:bg-slate-700 text-white'
+                          ? "bg-gradient-to-r from-blue-600 to-cyan-500 text-slate-950 hover:from-blue-500 hover:to-cyan-400 shadow-lg shadow-cyan-500/25"
+                          : "bg-slate-800 hover:bg-slate-700 text-white"
                       }`}
                     >
                       <span>{planItem.cta}</span>
@@ -612,27 +1030,29 @@ export const GymDemo: React.FC<GymDemoProps> = ({ demo, isMobile, onPlanChange }
                 <div className="space-y-1 text-center md:text-left">
                   <div className="inline-flex items-center gap-1.5 text-cyan-400 font-bold text-xs">
                     <Lock className="w-3.5 h-3.5" />
-                    <span>PRO & MEGA EXCLUSIVE FEATURES</span>
+                    <span>PRO & MAX EXCLUSIVE FEATURES</span>
                   </div>
                   <h4 className="text-lg font-black text-white uppercase italic">
                     Want Member Portal, Digital QR Pass & Lead Automation?
                   </h4>
                   <p className="text-xs text-slate-400 max-w-xl">
-                    Upgrade to PRO (₹16,999) or MEGA (₹24,999) to unlock real-time check-ins, workout streaks, diet plans, lead CRM and AI assistant.
+                    Upgrade to PRO ({proPrice}) or MAX ({maxPrice}) to unlock
+                    real-time check-ins, workout streaks, diet plans, lead CRM
+                    and AI assistant.
                   </p>
                 </div>
                 <div className="flex gap-3">
                   <button
-                    onClick={() => onPlanChange?.('Pro')}
+                    onClick={() => onPlanChange?.("Pro")}
                     className="bg-blue-600 hover:bg-blue-500 text-white px-4 py-2 rounded-xl text-xs font-bold"
                   >
-                    Upgrade to Pro (₹16,999)
+                    Upgrade to Pro ({proPrice})
                   </button>
                   <button
-                    onClick={() => onPlanChange?.('Mega')}
+                    onClick={() => onPlanChange?.("Max")}
                     className="bg-cyan-500 hover:bg-cyan-400 text-slate-950 px-4 py-2 rounded-xl text-xs font-black"
                   >
-                    View Mega Demo
+                    View Max Demo
                   </button>
                 </div>
               </div>
@@ -640,19 +1060,26 @@ export const GymDemo: React.FC<GymDemoProps> = ({ demo, isMobile, onPlanChange }
           </section>
 
           {/* TRAINERS SECTION */}
-          <section id="trainers" className="py-16 px-6 max-w-7xl mx-auto border-t border-slate-800/80">
+          <section
+            id="trainers"
+            className="py-16 px-6 max-w-7xl mx-auto border-t border-slate-800/80"
+          >
             <div className="text-center max-w-2xl mx-auto space-y-3 mb-12">
-              <span className="text-cyan-400 font-black text-xs uppercase tracking-widest">Master Strength Coaches</span>
+              <span className="text-cyan-400 font-black text-xs uppercase tracking-widest">
+                Master Strength Coaches
+              </span>
               <h2 className="text-3xl sm:text-4xl font-black uppercase italic text-white">
                 Learn From Certified Champions
               </h2>
               <p className="text-slate-400 text-xs sm:text-sm">
-                Our elite coaching roster consists of certified national powerlifters, Olympic lifters, and rehabilitation physiotherapists.
+                Our elite coaching roster consists of certified national
+                powerlifters, Olympic lifters, and rehabilitation
+                physiotherapists.
               </p>
             </div>
 
             <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
-              {GYM_TRAINERS.map(trainer => (
+              {GYM_TRAINERS.map((trainer) => (
                 <div
                   key={trainer.id}
                   className="bg-[#0A1426] rounded-2xl border border-slate-800 overflow-hidden flex flex-col justify-between hover:border-cyan-500/40 transition-all group"
@@ -666,8 +1093,12 @@ export const GymDemo: React.FC<GymDemoProps> = ({ demo, isMobile, onPlanChange }
                     <div className="absolute inset-0 bg-gradient-to-t from-[#0A1426] via-transparent to-transparent"></div>
                     <div className="absolute bottom-3 left-3 right-3 flex justify-between items-end">
                       <div>
-                        <div className="text-cyan-400 text-[10px] font-bold uppercase">{trainer.experience}</div>
-                        <h3 className="text-lg font-black uppercase italic text-white">{trainer.name}</h3>
+                        <div className="text-cyan-400 text-[10px] font-bold uppercase">
+                          {trainer.experience}
+                        </div>
+                        <h3 className="text-lg font-black uppercase italic text-white">
+                          {trainer.name}
+                        </h3>
                       </div>
                       <div className="flex items-center gap-1 bg-black/60 px-2 py-0.5 rounded text-[10px] font-bold text-amber-400">
                         <Star className="w-3 h-3 fill-amber-400" />
@@ -678,13 +1109,21 @@ export const GymDemo: React.FC<GymDemoProps> = ({ demo, isMobile, onPlanChange }
 
                   <div className="p-5 space-y-3 flex-1 flex flex-col justify-between">
                     <div className="space-y-2">
-                      <div className="text-xs text-slate-300 font-semibold">{trainer.role}</div>
-                      <div className="text-[11px] text-cyan-400 font-medium">🎯 {trainer.specialty}</div>
-                      <p className="text-xs text-slate-400 leading-relaxed">{trainer.bio}</p>
+                      <div className="text-xs text-slate-300 font-semibold">
+                        {trainer.role}
+                      </div>
+                      <div className="text-[11px] text-cyan-400 font-medium">
+                        🎯 {trainer.specialty}
+                      </div>
+                      <p className="text-xs text-slate-400 leading-relaxed">
+                        {trainer.bio}
+                      </p>
                     </div>
 
                     <div className="pt-3 border-t border-slate-800/80 flex items-center justify-between text-xs">
-                      <span className="text-slate-500 text-[10px]">{trainer.instagram}</span>
+                      <span className="text-slate-500 text-[10px]">
+                        {trainer.instagram}
+                      </span>
                       <button
                         onClick={() => setIsTrialModalOpen(true)}
                         className="text-cyan-400 font-bold hover:underline"
@@ -702,17 +1141,24 @@ export const GymDemo: React.FC<GymDemoProps> = ({ demo, isMobile, onPlanChange }
           <section className="py-16 px-6 max-w-7xl mx-auto border-t border-slate-800/80">
             <div className="flex flex-col sm:flex-row sm:items-end justify-between gap-4 mb-8">
               <div>
-                <span className="text-cyan-400 font-black text-xs uppercase tracking-widest">Atmosphere & Equipment</span>
+                <span className="text-cyan-400 font-black text-xs uppercase tracking-widest">
+                  Atmosphere & Equipment
+                </span>
                 <h2 className="text-3xl sm:text-4xl font-black uppercase italic text-white mt-1">
                   World-Class Facility Gallery
                 </h2>
               </div>
-              <div className="text-xs text-slate-400">High-performance training floor tour</div>
+              <div className="text-xs text-slate-400">
+                High-performance training floor tour
+              </div>
             </div>
 
             <div className="grid grid-cols-2 md:grid-cols-3 gap-4">
               {GYM_GALLERY.map((gal, idx) => (
-                <div key={idx} className="relative group rounded-xl overflow-hidden h-52 border border-slate-800">
+                <div
+                  key={idx}
+                  className="relative group rounded-xl overflow-hidden h-52 border border-slate-800"
+                >
                   <img
                     src={gal.img}
                     alt={gal.title}
@@ -723,7 +1169,9 @@ export const GymDemo: React.FC<GymDemoProps> = ({ demo, isMobile, onPlanChange }
                     <span className="text-[9px] uppercase font-black bg-cyan-500 text-slate-950 px-2 py-0.5 rounded">
                       {gal.cat}
                     </span>
-                    <div className="text-sm font-bold text-white mt-1">{gal.title}</div>
+                    <div className="text-sm font-bold text-white mt-1">
+                      {gal.title}
+                    </div>
                   </div>
                 </div>
               ))}
@@ -733,7 +1181,9 @@ export const GymDemo: React.FC<GymDemoProps> = ({ demo, isMobile, onPlanChange }
           {/* TESTIMONIALS SECTION */}
           <section className="py-16 px-6 max-w-7xl mx-auto border-t border-slate-800/80 bg-[#070D18]/40">
             <div className="text-center max-w-2xl mx-auto space-y-3 mb-12">
-              <span className="text-cyan-400 font-black text-xs uppercase tracking-widest">Real Transformations</span>
+              <span className="text-cyan-400 font-black text-xs uppercase tracking-widest">
+                Real Transformations
+              </span>
               <h2 className="text-3xl sm:text-4xl font-black uppercase italic text-white">
                 What Our Athletes Say
               </h2>
@@ -741,7 +1191,10 @@ export const GymDemo: React.FC<GymDemoProps> = ({ demo, isMobile, onPlanChange }
 
             <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
               {GYM_TESTIMONIALS.map((t, idx) => (
-                <div key={idx} className="bg-[#0A1426] p-6 rounded-2xl border border-slate-800 space-y-4 flex flex-col justify-between">
+                <div
+                  key={idx}
+                  className="bg-[#0A1426] p-6 rounded-2xl border border-slate-800 space-y-4 flex flex-col justify-between"
+                >
                   <div className="space-y-3">
                     <div className="flex gap-1 text-amber-400">
                       {[...Array(t.rating)].map((_, i) => (
@@ -757,9 +1210,15 @@ export const GymDemo: React.FC<GymDemoProps> = ({ demo, isMobile, onPlanChange }
                   </div>
 
                   <div className="flex items-center gap-3 pt-4 border-t border-slate-800">
-                    <img src={t.avatar} alt={t.name} className="w-10 h-10 rounded-full object-cover border border-cyan-400/40" />
+                    <img
+                      src={t.avatar}
+                      alt={t.name}
+                      className="w-10 h-10 rounded-full object-cover border border-cyan-400/40"
+                    />
                     <div>
-                      <div className="text-sm font-bold text-white">{t.name}</div>
+                      <div className="text-sm font-bold text-white">
+                        {t.name}
+                      </div>
                       <div className="text-[11px] text-slate-400">{t.role}</div>
                     </div>
                   </div>
@@ -769,26 +1228,35 @@ export const GymDemo: React.FC<GymDemoProps> = ({ demo, isMobile, onPlanChange }
           </section>
 
           {/* CONTACT & LOCATION SECTION */}
-          <section id="contact" className="py-16 px-6 max-w-7xl mx-auto border-t border-slate-800/80">
+          <section
+            id="contact"
+            className="py-16 px-6 max-w-7xl mx-auto border-t border-slate-800/80"
+          >
             <div className="grid grid-cols-1 lg:grid-cols-2 gap-12">
               {/* Form Column */}
               <div className="space-y-6 bg-[#0A1426] p-8 rounded-3xl border border-slate-800">
                 <div>
-                  <span className="text-cyan-400 font-black text-xs uppercase tracking-widest">Get in Touch</span>
+                  <span className="text-cyan-400 font-black text-xs uppercase tracking-widest">
+                    Get in Touch
+                  </span>
                   <h3 className="text-2xl sm:text-3xl font-black uppercase italic text-white mt-1">
                     Claim Your Free Trial Pass
                   </h3>
                   <p className="text-xs text-slate-400 mt-1">
-                    Fill out the form to claim a 1-Day VIP Pass and 1-on-1 Fitness Assessment.
+                    Fill out the form to claim a 1-Day VIP Pass and 1-on-1
+                    Fitness Assessment.
                   </p>
                 </div>
 
                 {formSubmitted ? (
                   <div className="bg-emerald-950/60 border border-emerald-500/40 p-6 rounded-2xl text-center space-y-2">
                     <CheckCircle className="w-10 h-10 text-emerald-400 mx-auto" />
-                    <h4 className="text-lg font-bold text-white">Free Trial Confirmed!</h4>
+                    <h4 className="text-lg font-bold text-white">
+                      Free Trial Confirmed!
+                    </h4>
                     <p className="text-xs text-slate-300">
-                      Our head coach will WhatsApp your digital pass and booking slot shortly.
+                      Our head coach will WhatsApp your digital pass and booking
+                      slot shortly.
                     </p>
                     <button
                       onClick={() => setFormSubmitted(false)}
@@ -799,7 +1267,7 @@ export const GymDemo: React.FC<GymDemoProps> = ({ demo, isMobile, onPlanChange }
                   </div>
                 ) : (
                   <form
-                    onSubmit={e => {
+                    onSubmit={(e) => {
                       e.preventDefault();
                       setFormSubmitted(true);
                     }}
@@ -807,24 +1275,35 @@ export const GymDemo: React.FC<GymDemoProps> = ({ demo, isMobile, onPlanChange }
                   >
                     <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                       <div className="space-y-1">
-                        <label className="text-slate-300 font-bold">Full Name *</label>
+                        <label className="text-slate-300 font-bold">
+                          Full Name *
+                        </label>
                         <input
                           type="text"
                           required
                           placeholder="e.g. Rahul Sharma"
                           value={trialForm.name}
-                          onChange={e => setTrialForm({ ...trialForm, name: e.target.value })}
+                          onChange={(e) =>
+                            setTrialForm({ ...trialForm, name: e.target.value })
+                          }
                           className="w-full bg-[#060B14] border border-slate-800 rounded-xl p-3 text-white placeholder:text-slate-600 focus:border-cyan-400 outline-hidden"
                         />
                       </div>
                       <div className="space-y-1">
-                        <label className="text-slate-300 font-bold">Phone Number *</label>
+                        <label className="text-slate-300 font-bold">
+                          Phone Number *
+                        </label>
                         <input
                           type="tel"
                           required
                           placeholder="e.g. +91 98200 XXXXX"
                           value={trialForm.phone}
-                          onChange={e => setTrialForm({ ...trialForm, phone: e.target.value })}
+                          onChange={(e) =>
+                            setTrialForm({
+                              ...trialForm,
+                              phone: e.target.value,
+                            })
+                          }
                           className="w-full bg-[#060B14] border border-slate-800 rounded-xl p-3 text-white placeholder:text-slate-600 focus:border-cyan-400 outline-hidden"
                         />
                       </div>
@@ -832,10 +1311,17 @@ export const GymDemo: React.FC<GymDemoProps> = ({ demo, isMobile, onPlanChange }
 
                     <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                       <div className="space-y-1">
-                        <label className="text-slate-300 font-bold">Fitness Goal</label>
+                        <label className="text-slate-300 font-bold">
+                          Fitness Goal
+                        </label>
                         <select
                           value={trialForm.fitnessGoal}
-                          onChange={e => setTrialForm({ ...trialForm, fitnessGoal: e.target.value })}
+                          onChange={(e) =>
+                            setTrialForm({
+                              ...trialForm,
+                              fitnessGoal: e.target.value,
+                            })
+                          }
                           className="w-full bg-[#060B14] border border-slate-800 rounded-xl p-3 text-white focus:border-cyan-400 outline-hidden"
                         >
                           <option>Weight Loss & Fat Shred</option>
@@ -847,10 +1333,17 @@ export const GymDemo: React.FC<GymDemoProps> = ({ demo, isMobile, onPlanChange }
                       </div>
 
                       <div className="space-y-1">
-                        <label className="text-slate-300 font-bold">Preferred Plan</label>
+                        <label className="text-slate-300 font-bold">
+                          Preferred Plan
+                        </label>
                         <select
                           value={trialForm.preferredMembership}
-                          onChange={e => setTrialForm({ ...trialForm, preferredMembership: e.target.value })}
+                          onChange={(e) =>
+                            setTrialForm({
+                              ...trialForm,
+                              preferredMembership: e.target.value,
+                            })
+                          }
                           className="w-full bg-[#060B14] border border-slate-800 rounded-xl p-3 text-white focus:border-cyan-400 outline-hidden"
                         >
                           <option>Monthly Standard (₹1,999)</option>
@@ -862,12 +1355,19 @@ export const GymDemo: React.FC<GymDemoProps> = ({ demo, isMobile, onPlanChange }
                     </div>
 
                     <div className="space-y-1">
-                      <label className="text-slate-300 font-bold">Message or Special Requests (Optional)</label>
+                      <label className="text-slate-300 font-bold">
+                        Message or Special Requests (Optional)
+                      </label>
                       <textarea
                         rows={3}
                         placeholder="Tell us about your fitness history or desired workout time..."
                         value={trialForm.message}
-                        onChange={e => setTrialForm({ ...trialForm, message: e.target.value })}
+                        onChange={(e) =>
+                          setTrialForm({
+                            ...trialForm,
+                            message: e.target.value,
+                          })
+                        }
                         className="w-full bg-[#060B14] border border-slate-800 rounded-xl p-3 text-white placeholder:text-slate-600 focus:border-cyan-400 outline-hidden resize-none"
                       />
                     </div>
@@ -883,7 +1383,7 @@ export const GymDemo: React.FC<GymDemoProps> = ({ demo, isMobile, onPlanChange }
 
                 <div className="flex flex-col sm:flex-row gap-3 pt-2">
                   <a
-                    href="https://wa.me/919876543210?text=Hi%20IronFit%20Athletic,%20I%20want%20to%20inquire%20about%20membership"
+                    href="https://wa.me/919137283810?text=Hello%20Upscale%20Nova%2C%20I%20am%20interested%20in%20your%20services.%20Please%20provide%20more%20information."
                     target="_blank"
                     rel="noreferrer"
                     className="flex-1 bg-emerald-600 hover:bg-emerald-500 text-white font-bold py-2.5 px-4 rounded-xl text-center flex items-center justify-center gap-2 text-xs"
@@ -905,7 +1405,9 @@ export const GymDemo: React.FC<GymDemoProps> = ({ demo, isMobile, onPlanChange }
               <div className="space-y-6 flex flex-col justify-between">
                 <div className="space-y-4">
                   <div>
-                    <span className="text-cyan-400 font-black text-xs uppercase tracking-widest">Location & Timings</span>
+                    <span className="text-cyan-400 font-black text-xs uppercase tracking-widest">
+                      Location & Timings
+                    </span>
                     <h3 className="text-2xl sm:text-3xl font-black uppercase italic text-white mt-1">
                       Visit IronFit Athletic Club
                     </h3>
@@ -917,8 +1419,12 @@ export const GymDemo: React.FC<GymDemoProps> = ({ demo, isMobile, onPlanChange }
                         <Clock className="w-4 h-4" />
                         <span>Operating Hours</span>
                       </div>
-                      <div className="text-sm font-bold text-white">24 Hours / 7 Days a Week</div>
-                      <div className="text-xs text-slate-400">Trainer Staffed: 6:00 AM – 11:00 PM</div>
+                      <div className="text-sm font-bold text-white">
+                        24 Hours / 7 Days a Week
+                      </div>
+                      <div className="text-xs text-slate-400">
+                        Trainer Staffed: 6:00 AM – 11:00 PM
+                      </div>
                     </div>
 
                     <div className="bg-[#0A1426] p-4 rounded-2xl border border-slate-800 space-y-1">
@@ -926,8 +1432,12 @@ export const GymDemo: React.FC<GymDemoProps> = ({ demo, isMobile, onPlanChange }
                         <MapPin className="w-4 h-4" />
                         <span>Flagship Facility</span>
                       </div>
-                      <div className="text-sm font-bold text-white">Level 3, Olympian Tower</div>
-                      <div className="text-xs text-slate-400">Bandra West, Mumbai - 400050</div>
+                      <div className="text-sm font-bold text-white">
+                        Level 3, Olympian Tower
+                      </div>
+                      <div className="text-xs text-slate-400">
+                        Bandra West, Mumbai - 400050
+                      </div>
                     </div>
                   </div>
 
@@ -938,8 +1448,12 @@ export const GymDemo: React.FC<GymDemoProps> = ({ demo, isMobile, onPlanChange }
                       <div className="w-10 h-10 bg-cyan-500 text-slate-950 rounded-full flex items-center justify-center mx-auto shadow-lg shadow-cyan-500/40 animate-bounce">
                         <MapPin className="w-5 h-5" />
                       </div>
-                      <div className="font-bold text-white text-xs">IronFit Athletic Club Mumbai</div>
-                      <div className="text-[10px] text-slate-400">Valet Parking & Metro Access Available</div>
+                      <div className="font-bold text-white text-xs">
+                        IronFit Athletic Club Mumbai
+                      </div>
+                      <div className="text-[10px] text-slate-400">
+                        Valet Parking & Metro Access Available
+                      </div>
                     </div>
                   </div>
                 </div>
@@ -950,9 +1464,9 @@ export const GymDemo: React.FC<GymDemoProps> = ({ demo, isMobile, onPlanChange }
       )}
 
       {/* ============================================================= */}
-      {/* VIEW B: PRO & MEGA MEMBER PORTAL */}
+      {/* VIEW B: PRO & MAX MEMBER PORTAL */}
       {/* ============================================================= */}
-      {activeTab === 'portal' && (
+      {activeTab === "portal" && (
         <div className="py-10 px-6 max-w-7xl mx-auto space-y-8">
           {/* Member Welcome Banner */}
           <div className="bg-gradient-to-r from-[#0B1528] via-[#0E1E3A] to-[#0A1426] p-6 sm:p-8 rounded-3xl border border-cyan-500/30 flex flex-col md:flex-row items-start md:items-center justify-between gap-6 shadow-2xl">
@@ -966,13 +1480,17 @@ export const GymDemo: React.FC<GymDemoProps> = ({ demo, isMobile, onPlanChange }
               </div>
               <div className="space-y-1">
                 <div className="flex items-center gap-2">
-                  <h2 className="text-2xl font-black text-white">Good morning, Alex 👋</h2>
+                  <h2 className="text-2xl font-black text-white">
+                    Good morning, Alex 👋
+                  </h2>
                   <span className="bg-cyan-500/20 text-cyan-300 text-[10px] font-black px-2 py-0.5 rounded-full border border-cyan-400/40 uppercase">
                     Premium Annual
                   </span>
                 </div>
                 <p className="text-xs text-slate-300">
-                  Membership Active • Valid Until <strong className="text-white">28 Dec 2026</strong> • Assigned Coach: <strong className="text-cyan-400">Alex Vance</strong>
+                  Membership Active • Valid Until{" "}
+                  <strong className="text-white">28 Dec 2026</strong> • Assigned
+                  Coach: <strong className="text-cyan-400">Alex Vance</strong>
                 </p>
               </div>
             </div>
@@ -990,12 +1508,16 @@ export const GymDemo: React.FC<GymDemoProps> = ({ demo, isMobile, onPlanChange }
                 onClick={() => setAttendanceCheckedIn(!attendanceCheckedIn)}
                 className={`px-4 py-2.5 rounded-xl text-xs font-bold transition-all flex items-center gap-2 ${
                   attendanceCheckedIn
-                    ? 'bg-emerald-600/20 border border-emerald-500/40 text-emerald-300'
-                    : 'bg-blue-600 text-white'
+                    ? "bg-emerald-600/20 border border-emerald-500/40 text-emerald-300"
+                    : "bg-blue-600 text-white"
                 }`}
               >
                 <CheckCircle2 className="w-4 h-4" />
-                <span>{attendanceCheckedIn ? 'Checked In (06:30 AM)' : 'Check In Today'}</span>
+                <span>
+                  {attendanceCheckedIn
+                    ? "Checked In (06:30 AM)"
+                    : "Check In Today"}
+                </span>
               </button>
             </div>
           </div>
@@ -1003,28 +1525,50 @@ export const GymDemo: React.FC<GymDemoProps> = ({ demo, isMobile, onPlanChange }
           {/* Quick Metrics Grid */}
           <div className="grid grid-cols-2 sm:grid-cols-4 gap-4">
             <div className="bg-[#0A1426] p-5 rounded-2xl border border-slate-800 space-y-1">
-              <div className="text-xs text-slate-400 font-medium">Monthly Attendance</div>
-              <div className="text-2xl font-black text-white">18 / 25 <span className="text-xs text-cyan-400 font-normal">Visits</span></div>
-              <div className="text-[10px] text-emerald-400 font-bold">Top 5% Most Consistent</div>
-            </div>
-
-            <div className="bg-[#0A1426] p-5 rounded-2xl border border-slate-800 space-y-1">
-              <div className="text-xs text-slate-400 font-medium">Workout Streak</div>
-              <div className="text-2xl font-black text-amber-400 flex items-center gap-1">
-                <span>🔥 12</span> <span className="text-xs text-slate-300 font-normal">Days</span>
+              <div className="text-xs text-slate-400 font-medium">
+                Monthly Attendance
               </div>
-              <div className="text-[10px] text-amber-300">Personal Best Streak!</div>
+              <div className="text-2xl font-black text-white">
+                18 / 25{" "}
+                <span className="text-xs text-cyan-400 font-normal">
+                  Visits
+                </span>
+              </div>
+              <div className="text-[10px] text-emerald-400 font-bold">
+                Top 5% Most Consistent
+              </div>
             </div>
 
             <div className="bg-[#0A1426] p-5 rounded-2xl border border-slate-800 space-y-1">
-              <div className="text-xs text-slate-400 font-medium">Strength Improvement</div>
+              <div className="text-xs text-slate-400 font-medium">
+                Workout Streak
+              </div>
+              <div className="text-2xl font-black text-amber-400 flex items-center gap-1">
+                <span>🔥 12</span>{" "}
+                <span className="text-xs text-slate-300 font-normal">Days</span>
+              </div>
+              <div className="text-[10px] text-amber-300">
+                Personal Best Streak!
+              </div>
+            </div>
+
+            <div className="bg-[#0A1426] p-5 rounded-2xl border border-slate-800 space-y-1">
+              <div className="text-xs text-slate-400 font-medium">
+                Strength Improvement
+              </div>
               <div className="text-2xl font-black text-cyan-400">+8.4%</div>
-              <div className="text-[10px] text-slate-400">Bench: 75kg → 85kg</div>
+              <div className="text-[10px] text-slate-400">
+                Bench: 75kg → 85kg
+              </div>
             </div>
 
             <div className="bg-[#0A1426] p-5 rounded-2xl border border-slate-800 space-y-1">
-              <div className="text-xs text-slate-400 font-medium">Renewal Status</div>
-              <div className="text-sm font-black text-emerald-400">318 Days Left</div>
+              <div className="text-xs text-slate-400 font-medium">
+                Renewal Status
+              </div>
+              <div className="text-sm font-black text-emerald-400">
+                318 Days Left
+              </div>
               <button
                 onClick={() => setIsPaymentModalOpen(true)}
                 className="text-[10px] text-cyan-400 underline font-bold"
@@ -1039,13 +1583,21 @@ export const GymDemo: React.FC<GymDemoProps> = ({ demo, isMobile, onPlanChange }
             <div className="lg:col-span-2 bg-[#0A1426] p-6 rounded-3xl border border-slate-800 space-y-6">
               <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-2 border-b border-slate-800 pb-4">
                 <div>
-                  <span className="text-cyan-400 text-xs font-black uppercase">Today&apos;s Workout Routine</span>
-                  <h3 className="text-xl font-black text-white uppercase italic">Chest & Triceps Hypertrophy</h3>
+                  <span className="text-cyan-400 text-xs font-black uppercase">
+                    Today&apos;s Workout Routine
+                  </span>
+                  <h3 className="text-xl font-black text-white uppercase italic">
+                    Chest & Triceps Hypertrophy
+                  </h3>
                 </div>
                 <div className="flex items-center gap-3">
                   <div className="text-right">
-                    <div className="text-xs font-bold text-white">{completedExercisesCount} of {workoutList.length} Done</div>
-                    <div className="text-[10px] text-slate-400">{workoutProgressPercent}% Completed</div>
+                    <div className="text-xs font-bold text-white">
+                      {completedExercisesCount} of {workoutList.length} Done
+                    </div>
+                    <div className="text-[10px] text-slate-400">
+                      {workoutProgressPercent}% Completed
+                    </div>
                   </div>
                   <div className="w-12 h-12 rounded-full bg-[#060B14] border-2 border-cyan-400 flex items-center justify-center font-black text-xs text-cyan-400">
                     {workoutProgressPercent}%
@@ -1055,24 +1607,32 @@ export const GymDemo: React.FC<GymDemoProps> = ({ demo, isMobile, onPlanChange }
 
               {/* Exercises List */}
               <div className="space-y-3">
-                {workoutList.map(ex => (
+                {workoutList.map((ex) => (
                   <div
                     key={ex.id}
                     onClick={() => handleToggleExercise(ex.id)}
                     className={`p-4 rounded-2xl border transition-all cursor-pointer flex items-center justify-between gap-4 ${
                       ex.completed
-                        ? 'bg-emerald-950/20 border-emerald-500/40 text-slate-300'
-                        : 'bg-[#070E1C] border-slate-800 hover:border-cyan-500/40'
+                        ? "bg-emerald-950/20 border-emerald-500/40 text-slate-300"
+                        : "bg-[#070E1C] border-slate-800 hover:border-cyan-500/40"
                     }`}
                   >
                     <div className="flex items-center gap-3">
-                      <div className={`w-6 h-6 rounded-lg border flex items-center justify-center ${
-                        ex.completed ? 'bg-emerald-500 border-emerald-400 text-slate-950' : 'border-slate-700 bg-slate-900'
-                      }`}>
-                        {ex.completed && <Check className="w-4 h-4 stroke-[3]" />}
+                      <div
+                        className={`w-6 h-6 rounded-lg border flex items-center justify-center ${
+                          ex.completed
+                            ? "bg-emerald-500 border-emerald-400 text-slate-950"
+                            : "border-slate-700 bg-slate-900"
+                        }`}
+                      >
+                        {ex.completed && (
+                          <Check className="w-4 h-4 stroke-[3]" />
+                        )}
                       </div>
                       <div>
-                        <div className={`font-bold text-sm ${ex.completed ? 'line-through text-slate-400' : 'text-white'}`}>
+                        <div
+                          className={`font-bold text-sm ${ex.completed ? "line-through text-slate-400" : "text-white"}`}
+                        >
                           {ex.name}
                         </div>
                         <div className="text-[11px] text-slate-400">
@@ -1082,8 +1642,12 @@ export const GymDemo: React.FC<GymDemoProps> = ({ demo, isMobile, onPlanChange }
                     </div>
 
                     <div className="text-right">
-                      <div className="text-xs font-black text-cyan-400">{ex.weight}</div>
-                      <div className="text-[10px] text-slate-500">Rest {ex.rest}</div>
+                      <div className="text-xs font-black text-cyan-400">
+                        {ex.weight}
+                      </div>
+                      <div className="text-[10px] text-slate-500">
+                        Rest {ex.rest}
+                      </div>
                     </div>
                   </div>
                 ))}
@@ -1094,22 +1658,33 @@ export const GymDemo: React.FC<GymDemoProps> = ({ demo, isMobile, onPlanChange }
             <div className="space-y-6">
               <div className="bg-[#0A1426] p-6 rounded-3xl border border-slate-800 space-y-4">
                 <div className="flex justify-between items-center">
-                  <h4 className="font-bold text-sm text-white">This Week&apos;s Attendance</h4>
-                  <span className="text-xs text-cyan-400 font-bold">Aug 2026</span>
+                  <h4 className="font-bold text-sm text-white">
+                    This Week&apos;s Attendance
+                  </h4>
+                  <span className="text-xs text-cyan-400 font-bold">
+                    Aug 2026
+                  </span>
                 </div>
 
                 <div className="space-y-2">
                   {attendanceHistory.map((att, i) => (
-                    <div key={i} className="flex items-center justify-between text-xs py-2 border-b border-slate-800/60">
+                    <div
+                      key={i}
+                      className="flex items-center justify-between text-xs py-2 border-b border-slate-800/60"
+                    >
                       <div>
                         <span className="font-bold text-white">{att.day}</span>
-                        <span className="text-slate-400 text-[10px] ml-2">{att.date}</span>
+                        <span className="text-slate-400 text-[10px] ml-2">
+                          {att.date}
+                        </span>
                       </div>
-                      <span className={`text-[10px] font-bold px-2 py-0.5 rounded ${
-                        att.status.includes('Present')
-                          ? 'bg-emerald-950 text-emerald-400 border border-emerald-700/40'
-                          : 'bg-slate-900 text-slate-500'
-                      }`}>
+                      <span
+                        className={`text-[10px] font-bold px-2 py-0.5 rounded ${
+                          att.status.includes("Present")
+                            ? "bg-emerald-950 text-emerald-400 border border-emerald-700/40"
+                            : "bg-slate-900 text-slate-500"
+                        }`}
+                      >
                         {att.status}
                       </span>
                     </div>
@@ -1124,7 +1699,8 @@ export const GymDemo: React.FC<GymDemoProps> = ({ demo, isMobile, onPlanChange }
                   <span>Trainer Notification</span>
                 </div>
                 <p className="text-xs text-slate-300">
-                  Coach Alex has added 2 new Incline Bench variations to your routine for next week.
+                  Coach Alex has added 2 new Incline Bench variations to your
+                  routine for next week.
                 </p>
               </div>
             </div>
@@ -1133,9 +1709,9 @@ export const GymDemo: React.FC<GymDemoProps> = ({ demo, isMobile, onPlanChange }
       )}
 
       {/* ============================================================= */}
-      {/* VIEW C: PRO & MEGA LEADS CRM */}
+      {/* VIEW C: PRO & MAX LEADS CRM */}
       {/* ============================================================= */}
-      {activeTab === 'leads' && (
+      {activeTab === "leads" && (
         <div className="py-10 px-6 max-w-7xl mx-auto space-y-8">
           <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4">
             <div>
@@ -1149,14 +1725,22 @@ export const GymDemo: React.FC<GymDemoProps> = ({ demo, isMobile, onPlanChange }
 
             {/* Filter Buttons */}
             <div className="flex flex-wrap gap-2">
-              {(['All', 'New', 'Contacted', 'Trial Booked', 'Converted'] as const).map(f => (
+              {(
+                [
+                  "All",
+                  "New",
+                  "Contacted",
+                  "Trial Booked",
+                  "Converted",
+                ] as const
+              ).map((f) => (
                 <button
                   key={f}
                   onClick={() => setLeadFilter(f)}
                   className={`px-3.5 py-1.5 rounded-xl text-xs font-bold transition-all ${
                     leadFilter === f
-                      ? 'bg-blue-600 text-white'
-                      : 'bg-[#0A1426] text-slate-400 hover:text-white border border-slate-800'
+                      ? "bg-blue-600 text-white"
+                      : "bg-[#0A1426] text-slate-400 hover:text-white border border-slate-800"
                   }`}
                 >
                   {f}
@@ -1168,50 +1752,73 @@ export const GymDemo: React.FC<GymDemoProps> = ({ demo, isMobile, onPlanChange }
           {/* Lead Table / Cards */}
           <div className="bg-[#0A1426] rounded-3xl border border-slate-800 overflow-hidden">
             <div className="p-4 border-b border-slate-800 flex justify-between items-center text-xs text-slate-400">
-              <span>Showing <strong>{leads.filter(l => leadFilter === 'All' || l.status === leadFilter).length}</strong> inquiries</span>
+              <span>
+                Showing{" "}
+                <strong>
+                  {
+                    leads.filter(
+                      (l) => leadFilter === "All" || l.status === leadFilter,
+                    ).length
+                  }
+                </strong>{" "}
+                inquiries
+              </span>
               <span>Automated WhatsApp Reminders Active</span>
             </div>
 
             <div className="divide-y divide-slate-800/80">
-              {leads.filter(l => leadFilter === 'All' || l.status === leadFilter).map(lead => (
-                <div key={lead.id} className="p-5 flex flex-col sm:flex-row sm:items-center justify-between gap-4 hover:bg-[#0E1C38] transition-colors">
-                  <div className="space-y-1">
-                    <div className="flex items-center gap-2">
-                      <span className="font-bold text-white text-sm">{lead.name}</span>
-                      <span className="text-[10px] bg-slate-800 text-slate-400 px-2 py-0.5 rounded">
-                        via {lead.source}
+              {leads
+                .filter((l) => leadFilter === "All" || l.status === leadFilter)
+                .map((lead) => (
+                  <div
+                    key={lead.id}
+                    className="p-5 flex flex-col sm:flex-row sm:items-center justify-between gap-4 hover:bg-[#0E1C38] transition-colors"
+                  >
+                    <div className="space-y-1">
+                      <div className="flex items-center gap-2">
+                        <span className="font-bold text-white text-sm">
+                          {lead.name}
+                        </span>
+                        <span className="text-[10px] bg-slate-800 text-slate-400 px-2 py-0.5 rounded">
+                          via {lead.source}
+                        </span>
+                      </div>
+                      <div className="text-xs text-slate-400 flex items-center gap-3">
+                        <span>📞 {lead.phone}</span>
+                        <span>🎯 {lead.fitnessGoal}</span>
+                        <span>⏰ {lead.preferredSlot}</span>
+                      </div>
+                    </div>
+
+                    <div className="flex items-center gap-3">
+                      <span
+                        className={`text-[10px] font-black px-2.5 py-1 rounded-full uppercase ${
+                          lead.status === "Trial Booked"
+                            ? "bg-amber-950 text-amber-400 border border-amber-500/40"
+                            : lead.status === "Converted"
+                              ? "bg-emerald-950 text-emerald-400 border border-emerald-500/40"
+                              : lead.status === "New"
+                                ? "bg-blue-950 text-blue-400 border border-blue-500/40 animate-pulse"
+                                : "bg-slate-800 text-slate-300"
+                        }`}
+                      >
+                        {lead.status}
                       </span>
-                    </div>
-                    <div className="text-xs text-slate-400 flex items-center gap-3">
-                      <span>📞 {lead.phone}</span>
-                      <span>🎯 {lead.fitnessGoal}</span>
-                      <span>⏰ {lead.preferredSlot}</span>
+
+                      <button
+                        onClick={() =>
+                          alert(
+                            `Simulated WhatsApp follow-up sent to ${lead.name} (${lead.phone})`,
+                          )
+                        }
+                        className="bg-emerald-600 hover:bg-emerald-500 text-white p-2 rounded-lg text-xs"
+                        title="Send WhatsApp Follow-up"
+                      >
+                        <MessageCircle className="w-4 h-4" />
+                      </button>
                     </div>
                   </div>
-
-                  <div className="flex items-center gap-3">
-                    <span className={`text-[10px] font-black px-2.5 py-1 rounded-full uppercase ${
-                      lead.status === 'Trial Booked'
-                        ? 'bg-amber-950 text-amber-400 border border-amber-500/40'
-                        : lead.status === 'Converted'
-                        ? 'bg-emerald-950 text-emerald-400 border border-emerald-500/40'
-                        : lead.status === 'New'
-                        ? 'bg-blue-950 text-blue-400 border border-blue-500/40 animate-pulse'
-                        : 'bg-slate-800 text-slate-300'
-                    }`}>
-                      {lead.status}
-                    </span>
-
-                    <button
-                      onClick={() => alert(`Simulated WhatsApp follow-up sent to ${lead.name} (${lead.phone})`)}
-                      className="bg-emerald-600 hover:bg-emerald-500 text-white p-2 rounded-lg text-xs"
-                      title="Send WhatsApp Follow-up"
-                    >
-                      <MessageCircle className="w-4 h-4" />
-                    </button>
-                  </div>
-                </div>
-              ))}
+                ))}
             </div>
           </div>
 
@@ -1222,16 +1829,30 @@ export const GymDemo: React.FC<GymDemoProps> = ({ demo, isMobile, onPlanChange }
             </h4>
             <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 text-xs">
               <div className="bg-[#060B14] p-4 rounded-xl border border-slate-800 space-y-1">
-                <div className="text-emerald-400 font-bold">1. New Enquiry Received</div>
-                <div className="text-slate-400">Instant WhatsApp with 1-Day Trial QR code sent within 30 seconds.</div>
+                <div className="text-emerald-400 font-bold">
+                  1. New Enquiry Received
+                </div>
+                <div className="text-slate-400">
+                  Instant WhatsApp with 1-Day Trial QR code sent within 30
+                  seconds.
+                </div>
               </div>
               <div className="bg-[#060B14] p-4 rounded-xl border border-slate-800 space-y-1">
-                <div className="text-cyan-400 font-bold">2. Free Trial Reminder</div>
-                <div className="text-slate-400">SMS reminder sent 2 hours before scheduled slot.</div>
+                <div className="text-cyan-400 font-bold">
+                  2. Free Trial Reminder
+                </div>
+                <div className="text-slate-400">
+                  SMS reminder sent 2 hours before scheduled slot.
+                </div>
               </div>
               <div className="bg-[#060B14] p-4 rounded-xl border border-slate-800 space-y-1">
-                <div className="text-amber-400 font-bold">3. Post-Trial Conversion</div>
-                <div className="text-slate-400">Special 10% discount on Quarterly Pro plan triggered after visit.</div>
+                <div className="text-amber-400 font-bold">
+                  3. Post-Trial Conversion
+                </div>
+                <div className="text-slate-400">
+                  Special 10% discount on Quarterly Pro plan triggered after
+                  visit.
+                </div>
               </div>
             </div>
           </div>
@@ -1239,14 +1860,14 @@ export const GymDemo: React.FC<GymDemoProps> = ({ demo, isMobile, onPlanChange }
       )}
 
       {/* ============================================================= */}
-      {/* VIEW D: MEGA ADVANCED ADMIN & ECOSYSTEM */}
+      {/* VIEW D: MAX ADVANCED ADMIN & ECOSYSTEM */}
       {/* ============================================================= */}
-      {activeTab === 'admin' && (
+      {activeTab === "admin" && (
         <div className="py-10 px-6 max-w-7xl mx-auto space-y-8">
           <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4">
             <div>
               <div className="inline-flex items-center gap-2 bg-gradient-to-r from-amber-500 to-cyan-400 text-slate-950 text-[10px] font-black uppercase px-3 py-1 rounded-full shadow-lg">
-                <span>MEGA EXPERIENCE</span> • Complete Gym Management
+                <span>MAX EXPERIENCE</span> • Complete Gym Management
               </div>
               <h2 className="text-3xl font-black uppercase italic text-white mt-2">
                 Executive Gym Owner Dashboard
@@ -1255,14 +1876,14 @@ export const GymDemo: React.FC<GymDemoProps> = ({ demo, isMobile, onPlanChange }
 
             {/* Role Switcher */}
             <div className="flex items-center bg-[#0A1426] p-1 rounded-xl border border-slate-800">
-              {(['Owner', 'Admin', 'Trainer', 'Member'] as const).map(r => (
+              {(["Owner", "Admin", "Trainer", "Member"] as const).map((r) => (
                 <button
                   key={r}
                   onClick={() => setActiveRole(r)}
                   className={`px-3 py-1 rounded-lg text-xs font-bold transition-all ${
                     activeRole === r
-                      ? 'bg-cyan-500 text-slate-950 font-black'
-                      : 'text-slate-400 hover:text-white'
+                      ? "bg-cyan-500 text-slate-950 font-black"
+                      : "text-slate-400 hover:text-white"
                   }`}
                 >
                   {r}
@@ -1276,38 +1897,62 @@ export const GymDemo: React.FC<GymDemoProps> = ({ demo, isMobile, onPlanChange }
             <div className="bg-[#0A1426] p-5 rounded-2xl border border-slate-800">
               <div className="text-xs text-slate-400">Total Active Members</div>
               <div className="text-3xl font-black text-white mt-1">1,118</div>
-              <div className="text-[10px] text-emerald-400">↑ 14% this quarter</div>
+              <div className="text-[10px] text-emerald-400">
+                ↑ 14% this quarter
+              </div>
             </div>
 
             <div className="bg-[#0A1426] p-5 rounded-2xl border border-slate-800">
               <div className="text-xs text-slate-400">Monthly Revenue</div>
-              <div className="text-3xl font-black text-cyan-400 mt-1">₹8.42 Lakhs</div>
-              <div className="text-[10px] text-cyan-300">Target: ₹8.00 Lakhs (Achieved)</div>
+              <div className="text-3xl font-black text-cyan-400 mt-1">
+                ₹8.42 Lakhs
+              </div>
+              <div className="text-[10px] text-cyan-300">
+                Target: ₹8.00 Lakhs (Achieved)
+              </div>
             </div>
 
             <div className="bg-[#0A1426] p-5 rounded-2xl border border-slate-800">
-              <div className="text-xs text-slate-400">Today&apos;s Check-ins</div>
-              <div className="text-3xl font-black text-amber-400 mt-1">184 Athletes</div>
-              <div className="text-[10px] text-slate-400">Peak hour: 6:30 PM</div>
+              <div className="text-xs text-slate-400">
+                Today&apos;s Check-ins
+              </div>
+              <div className="text-3xl font-black text-amber-400 mt-1">
+                184 Athletes
+              </div>
+              <div className="text-[10px] text-slate-400">
+                Peak hour: 6:30 PM
+              </div>
             </div>
 
             <div className="bg-[#0A1426] p-5 rounded-2xl border border-slate-800">
-              <div className="text-xs text-slate-400">Trial Conversion Rate</div>
-              <div className="text-3xl font-black text-emerald-400 mt-1">68.4%</div>
-              <div className="text-[10px] text-emerald-400">48 trials → 33 joins</div>
+              <div className="text-xs text-slate-400">
+                Trial Conversion Rate
+              </div>
+              <div className="text-3xl font-black text-emerald-400 mt-1">
+                68.4%
+              </div>
+              <div className="text-[10px] text-emerald-400">
+                48 trials → 33 joins
+              </div>
             </div>
           </div>
 
-          {/* Mega Nutrition & Diet Engine */}
+          {/* Max Nutrition & Diet Engine */}
           <div className="bg-[#0A1426] p-6 rounded-3xl border border-slate-800 space-y-6">
             <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 border-b border-slate-800 pb-4">
               <div>
-                <span className="text-cyan-400 text-xs font-black uppercase">Mega Nutrition Engine</span>
-                <h3 className="text-xl font-black text-white uppercase italic">Macronutrient Meal Plan Generator</h3>
+                <span className="text-cyan-400 text-xs font-black uppercase">
+                  Max Nutrition Engine
+                </span>
+                <h3 className="text-xl font-black text-white uppercase italic">
+                  Macronutrient Meal Plan Generator
+                </h3>
               </div>
               <div className="flex gap-2">
                 <button
-                  onClick={() => alert('Meal plan downloaded as PDF (Simulated)')}
+                  onClick={() =>
+                    console.log("Meal plan downloaded as PDF (Simulated)")
+                  }
                   className="bg-slate-800 hover:bg-slate-700 text-white px-3.5 py-1.5 rounded-lg text-xs font-bold"
                 >
                   Download PDF
@@ -1322,11 +1967,15 @@ export const GymDemo: React.FC<GymDemoProps> = ({ demo, isMobile, onPlanChange }
               </div>
               <div>
                 <div className="text-xs text-slate-400">Protein Target</div>
-                <div className="text-xl font-black text-cyan-400">180g (High)</div>
+                <div className="text-xl font-black text-cyan-400">
+                  180g (High)
+                </div>
               </div>
               <div>
                 <div className="text-xs text-slate-400">Carbohydrates</div>
-                <div className="text-xl font-black text-amber-400">260g (Clean)</div>
+                <div className="text-xl font-black text-amber-400">
+                  260g (Clean)
+                </div>
               </div>
               <div>
                 <div className="text-xs text-slate-400">Healthy Fats</div>
@@ -1336,10 +1985,15 @@ export const GymDemo: React.FC<GymDemoProps> = ({ demo, isMobile, onPlanChange }
 
             <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
               {NUTRITION_MEALS.map((meal, idx) => (
-                <div key={idx} className="bg-[#070E1C] p-4 rounded-2xl border border-slate-800 space-y-2">
+                <div
+                  key={idx}
+                  className="bg-[#070E1C] p-4 rounded-2xl border border-slate-800 space-y-2"
+                >
                   <div className="flex justify-between items-center text-xs">
                     <span className="font-bold text-white">{meal.name}</span>
-                    <span className="text-cyan-400 font-black">{meal.calories} kcal</span>
+                    <span className="text-cyan-400 font-black">
+                      {meal.calories} kcal
+                    </span>
                   </div>
                   <ul className="text-xs text-slate-400 space-y-1">
                     {meal.items.map((it, i) => (
@@ -1359,15 +2013,20 @@ export const GymDemo: React.FC<GymDemoProps> = ({ demo, isMobile, onPlanChange }
       {/* ============================================================= */}
       {/* VIEW E: PACKAGE COMPARISON MATRIX */}
       {/* ============================================================= */}
-      {activeTab === 'compare' && (
+      {activeTab === "library" && isMax && <MegaExerciseLibrary />}
+
+      {activeTab === "compare" && (
         <div className="py-12 px-6 max-w-7xl mx-auto space-y-12">
           <div className="text-center max-w-2xl mx-auto space-y-3">
-            <span className="text-cyan-400 font-black text-xs uppercase tracking-widest">Upscale Nova Solutions</span>
+            <span className="text-cyan-400 font-black text-xs uppercase tracking-widest">
+              Upscale Nova Solutions
+            </span>
             <h2 className="text-3xl sm:text-4xl font-black uppercase italic text-white">
               Choose the Right Gym Website Package
             </h2>
             <p className="text-slate-400 text-xs sm:text-sm">
-              From high-converting landing websites to full-scale digital gym automation ecosystems.
+              From high-converting landing websites to full-scale digital gym
+              automation ecosystems.
             </p>
           </div>
 
@@ -1376,25 +2035,47 @@ export const GymDemo: React.FC<GymDemoProps> = ({ demo, isMobile, onPlanChange }
             <div className="bg-[#0A1426] p-8 rounded-3xl border border-slate-800 space-y-6 flex flex-col justify-between">
               <div className="space-y-4">
                 <div>
-                  <div className="text-xs font-bold uppercase text-slate-400">Base Package</div>
-                  <h3 className="text-2xl font-black uppercase italic text-white">Professional Gym Website</h3>
-                  <div className="text-3xl font-black text-white mt-2">₹12,999</div>
+                  <div className="text-xs font-bold uppercase text-slate-400">
+                    Base Package
+                  </div>
+                  <h3 className="text-2xl font-black uppercase italic text-white">
+                    Professional Gym Website
+                  </h3>
+                  <div className="text-3xl font-black text-white mt-2">
+                    {basePrice}
+                  </div>
                 </div>
 
                 <ul className="space-y-2.5 text-xs text-slate-300">
-                  <li className="flex items-center gap-2">✓ Modern Responsive Gym Website</li>
-                  <li className="flex items-center gap-2">✓ Programs & Trainer Profiles</li>
-                  <li className="flex items-center gap-2">✓ Membership Plans Table</li>
-                  <li className="flex items-center gap-2">✓ Free Trial Lead Capture Form</li>
-                  <li className="flex items-center gap-2">✓ WhatsApp & Call CTA Buttons</li>
-                  <li className="flex items-center gap-2 text-slate-500">✕ Member Login & QR Pass</li>
-                  <li className="flex items-center gap-2 text-slate-500">✕ Lead Automation & CRM</li>
-                  <li className="flex items-center gap-2 text-slate-500">✕ AI Fitness Coach</li>
+                  <li className="flex items-center gap-2">
+                    ✓ Modern Responsive Gym Website
+                  </li>
+                  <li className="flex items-center gap-2">
+                    ✓ Programs & Trainer Profiles
+                  </li>
+                  <li className="flex items-center gap-2">
+                    ✓ Membership Plans Table
+                  </li>
+                  <li className="flex items-center gap-2">
+                    ✓ Free Trial Lead Capture Form
+                  </li>
+                  <li className="flex items-center gap-2">
+                    ✓ WhatsApp & Call CTA Buttons
+                  </li>
+                  <li className="flex items-center gap-2 text-slate-500">
+                    ✕ Member Login & QR Pass
+                  </li>
+                  <li className="flex items-center gap-2 text-slate-500">
+                    ✕ Lead Automation & CRM
+                  </li>
+                  <li className="flex items-center gap-2 text-slate-500">
+                    ✕ AI Fitness Coach
+                  </li>
                 </ul>
               </div>
 
               <button
-                onClick={() => onPlanChange?.('Base')}
+                onClick={() => onPlanChange?.("Base")}
                 className="w-full bg-slate-800 hover:bg-slate-700 text-white font-bold py-3 rounded-xl text-xs"
               >
                 View Base Demo
@@ -1408,31 +2089,51 @@ export const GymDemo: React.FC<GymDemoProps> = ({ demo, isMobile, onPlanChange }
                   <span className="text-[10px] font-black uppercase bg-blue-600 text-white px-2.5 py-0.5 rounded-full">
                     High Conversion
                   </span>
-                  <h3 className="text-2xl font-black uppercase italic text-white mt-1">Website + Member Management</h3>
-                  <div className="text-3xl font-black text-cyan-400 mt-2">₹16,999</div>
+                  <h3 className="text-2xl font-black uppercase italic text-white mt-1">
+                    Website + Member Management
+                  </h3>
+                  <div className="text-3xl font-black text-cyan-400 mt-2">
+                    {proPrice}
+                  </div>
                 </div>
 
                 <ul className="space-y-2.5 text-xs text-slate-300">
-                  <li className="flex items-center gap-2">✓ All Base Package Features</li>
-                  <li className="flex items-center gap-2">✓ Member Portal & Digital QR Pass</li>
-                  <li className="flex items-center gap-2">✓ Attendance & Streak Tracking</li>
-                  <li className="flex items-center gap-2">✓ Interactive Workout Tracker</li>
-                  <li className="flex items-center gap-2">✓ Lead Management CRM Dashboard</li>
-                  <li className="flex items-center gap-2">✓ Simulated Online UPI Payment UI</li>
-                  <li className="flex items-center gap-2 text-slate-500">✕ AI Fitness Coach</li>
-                  <li className="flex items-center gap-2 text-slate-500">✕ Advanced Owner Analytics</li>
+                  <li className="flex items-center gap-2">
+                    ✓ All Base Package Features
+                  </li>
+                  <li className="flex items-center gap-2">
+                    ✓ Member Portal & Digital QR Pass
+                  </li>
+                  <li className="flex items-center gap-2">
+                    ✓ Attendance & Streak Tracking
+                  </li>
+                  <li className="flex items-center gap-2">
+                    ✓ Interactive Workout Tracker
+                  </li>
+                  <li className="flex items-center gap-2">
+                    ✓ Lead Management CRM Dashboard
+                  </li>
+                  <li className="flex items-center gap-2">
+                    ✓ Simulated Online UPI Payment UI
+                  </li>
+                  <li className="flex items-center gap-2 text-slate-500">
+                    ✕ AI Fitness Coach
+                  </li>
+                  <li className="flex items-center gap-2 text-slate-500">
+                    ✕ Advanced Owner Analytics
+                  </li>
                 </ul>
               </div>
 
               <button
-                onClick={() => onPlanChange?.('Pro')}
+                onClick={() => onPlanChange?.("Pro")}
                 className="w-full bg-blue-600 hover:bg-blue-500 text-white font-bold py-3 rounded-xl text-xs"
               >
                 View Pro Demo
               </button>
             </div>
 
-            {/* MEGA */}
+            {/* MAX */}
             <div className="bg-gradient-to-b from-[#0E1E3A] to-[#0A1426] p-8 rounded-3xl border-2 border-cyan-400 space-y-6 flex flex-col justify-between shadow-2xl shadow-cyan-400/20 relative">
               <div className="absolute -top-3 left-1/2 -translate-x-1/2 bg-gradient-to-r from-amber-400 to-cyan-400 text-slate-950 font-black text-[10px] uppercase px-4 py-1 rounded-full">
                 Most Popular / Best Value
@@ -1440,27 +2141,47 @@ export const GymDemo: React.FC<GymDemoProps> = ({ demo, isMobile, onPlanChange }
 
               <div className="space-y-4">
                 <div>
-                  <div className="text-xs font-bold uppercase text-amber-400">Complete Ecosystem</div>
-                  <h3 className="text-2xl font-black uppercase italic text-white">Full Gym Automation & AI</h3>
-                  <div className="text-3xl font-black text-white mt-2">₹24,999</div>
+                  <div className="text-xs font-bold uppercase text-amber-400">
+                    Complete Ecosystem
+                  </div>
+                  <h3 className="text-2xl font-black uppercase italic text-white">
+                    Full Gym Automation & AI
+                  </h3>
+                  <div className="text-3xl font-black text-white mt-2">
+                    {maxPrice}
+                  </div>
                 </div>
 
                 <ul className="space-y-2.5 text-xs text-slate-300">
-                  <li className="flex items-center gap-2">✓ Everything in Base & Pro Included</li>
-                  <li className="flex items-center gap-2">✓ Executive Owner BI Analytics</li>
-                  <li className="flex items-center gap-2">✓ Multi-Role Access (Owner, Admin, PT)</li>
-                  <li className="flex items-center gap-2">✓ Diet & Nutrition Meal Engine</li>
-                  <li className="flex items-center gap-2">✓ Automated WhatsApp Workflow Center</li>
-                  <li className="flex items-center gap-2">✓ IronFit AI Fitness Coach Assistant</li>
-                  <li className="flex items-center gap-2">✓ Referral & Free Month Reward System</li>
+                  <li className="flex items-center gap-2">
+                    ✓ Everything in Base & Pro Included
+                  </li>
+                  <li className="flex items-center gap-2">
+                    ✓ Executive Owner BI Analytics
+                  </li>
+                  <li className="flex items-center gap-2">
+                    ✓ Multi-Role Access (Owner, Admin, PT)
+                  </li>
+                  <li className="flex items-center gap-2">
+                    ✓ Diet & Nutrition Meal Engine
+                  </li>
+                  <li className="flex items-center gap-2">
+                    ✓ Automated WhatsApp Workflow Center
+                  </li>
+                  <li className="flex items-center gap-2">
+                    ✓ IronFit AI Fitness Coach Assistant
+                  </li>
+                  <li className="flex items-center gap-2">
+                    ✓ Referral & Free Month Reward System
+                  </li>
                 </ul>
               </div>
 
               <button
-                onClick={() => onPlanChange?.('Mega')}
+                onClick={() => onPlanChange?.("Max")}
                 className="w-full bg-gradient-to-r from-cyan-400 via-blue-500 to-indigo-600 text-slate-950 font-black py-3 rounded-xl text-xs shadow-lg shadow-cyan-400/30"
               >
-                View Mega Demo
+                View Max Demo
               </button>
             </div>
           </div>
@@ -1485,7 +2206,9 @@ export const GymDemo: React.FC<GymDemoProps> = ({ demo, isMobile, onPlanChange }
           </h2>
 
           <p className="text-slate-300 text-xs sm:text-sm leading-relaxed max-w-xl mx-auto">
-            From your first enquiry to membership renewal, Upscale Nova builds digital systems that help your gym attract, manage and retain members effortlessly.
+            From your first enquiry to membership renewal, Upscale Nova builds
+            digital systems that help your gym attract, manage and retain
+            members effortlessly.
           </p>
 
           <div className="flex flex-wrap justify-center gap-4 pt-2">
@@ -1497,7 +2220,7 @@ export const GymDemo: React.FC<GymDemoProps> = ({ demo, isMobile, onPlanChange }
             </button>
 
             <a
-              href="https://wa.me/919876543210?text=Hi%20Upscale%20Nova,%20I%20want%20to%20develop%20a%20website%20for%20my%20gym"
+              href="https://wa.me/919137283810?text=Hello%20Upscale%20Nova%2C%20I%20am%20interested%20in%20your%20services.%20Please%20provide%20more%20information."
               target="_blank"
               rel="noreferrer"
               className="bg-[#0A1426] hover:bg-[#12203A] text-white border border-slate-700 hover:border-emerald-400 px-6 py-3.5 rounded-xl text-xs font-bold flex items-center gap-2"
@@ -1508,16 +2231,18 @@ export const GymDemo: React.FC<GymDemoProps> = ({ demo, isMobile, onPlanChange }
           </div>
 
           <footer className="pt-12 text-[11px] text-slate-500 border-t border-slate-900 mt-12">
-            <div className="font-bold text-slate-400">Upscale Nova — Digital Business Solutions</div>
+            <div className="font-bold text-slate-400">
+              Upscale Nova — Digital Business Solutions
+            </div>
             <div>© 2026 Upscale Nova. All Rights Reserved.</div>
           </footer>
         </div>
       </section>
 
       {/* ------------------------------------------------------------- */}
-      {/* 5. FLOATING AI FITNESS COACH (MEGA ONLY) */}
+      {/* 5. FLOATING AI FITNESS COACH (MAX ONLY) */}
       {/* ------------------------------------------------------------- */}
-      {isMega && (
+      {isMax && (
         <>
           {!isAiOpen ? (
             <button
@@ -1526,7 +2251,9 @@ export const GymDemo: React.FC<GymDemoProps> = ({ demo, isMobile, onPlanChange }
             >
               <Bot className="w-6 h-6 stroke-[2.5]" />
               <span className="hidden sm:inline text-xs">IronFit AI Coach</span>
-              <span className="bg-slate-950 text-cyan-300 text-[9px] px-2 py-0.5 rounded-full font-bold">MEGA</span>
+              <span className="bg-slate-950 text-cyan-300 text-[9px] px-2 py-0.5 rounded-full font-bold">
+                MAX
+              </span>
             </button>
           ) : (
             <div className="fixed bottom-6 right-6 z-50 w-[90vw] sm:w-[380px] bg-[#0A1426] border-2 border-cyan-400 rounded-3xl shadow-2xl overflow-hidden flex flex-col animate-slideUp">
@@ -1543,7 +2270,9 @@ export const GymDemo: React.FC<GymDemoProps> = ({ demo, isMobile, onPlanChange }
                         AI Demo
                       </span>
                     </div>
-                    <div className="text-[10px] text-emerald-400">Online • Ready to coach</div>
+                    <div className="text-[10px] text-emerald-400">
+                      Online • Ready to coach
+                    </div>
                   </div>
                 </div>
                 <button
@@ -1559,17 +2288,19 @@ export const GymDemo: React.FC<GymDemoProps> = ({ demo, isMobile, onPlanChange }
                 {aiChatMessages.map((msg, i) => (
                   <div
                     key={i}
-                    className={`flex ${msg.sender === 'user' ? 'justify-end' : 'justify-start'}`}
+                    className={`flex ${msg.sender === "user" ? "justify-end" : "justify-start"}`}
                   >
                     <div
                       className={`max-w-[80%] p-3 rounded-2xl ${
-                        msg.sender === 'user'
-                          ? 'bg-blue-600 text-white rounded-br-none'
-                          : 'bg-[#0F1C36] text-slate-200 border border-cyan-500/30 rounded-bl-none'
+                        msg.sender === "user"
+                          ? "bg-blue-600 text-white rounded-br-none"
+                          : "bg-[#0F1C36] text-slate-200 border border-cyan-500/30 rounded-bl-none"
                       }`}
                     >
                       <p className="leading-relaxed">{msg.text}</p>
-                      <span className="text-[9px] opacity-60 block text-right mt-1">{msg.time}</span>
+                      <span className="text-[9px] opacity-60 block text-right mt-1">
+                        {msg.time}
+                      </span>
                     </div>
                   </div>
                 ))}
@@ -1578,19 +2309,21 @@ export const GymDemo: React.FC<GymDemoProps> = ({ demo, isMobile, onPlanChange }
               {/* Suggested Quick Chips */}
               <div className="p-2.5 bg-[#060B14] border-t border-slate-800 flex gap-1.5 overflow-x-auto custom-scrollbar text-[10px]">
                 <button
-                  onClick={() => handleAiSend('What should I train today?')}
+                  onClick={() => handleAiSend("What should I train today?")}
                   className="bg-[#0A1426] hover:bg-slate-800 text-cyan-300 px-2.5 py-1 rounded-full border border-slate-700 whitespace-nowrap"
                 >
                   Today&apos;s Workout?
                 </button>
                 <button
-                  onClick={() => handleAiSend('How can I improve my protein intake?')}
+                  onClick={() =>
+                    handleAiSend("How can I improve my protein intake?")
+                  }
                   className="bg-[#0A1426] hover:bg-slate-800 text-cyan-300 px-2.5 py-1 rounded-full border border-slate-700 whitespace-nowrap"
                 >
                   Protein goals?
                 </button>
                 <button
-                  onClick={() => handleAiSend('Show my progress.')}
+                  onClick={() => handleAiSend("Show my progress.")}
                   className="bg-[#0A1426] hover:bg-slate-800 text-cyan-300 px-2.5 py-1 rounded-full border border-slate-700 whitespace-nowrap"
                 >
                   My progress
@@ -1599,7 +2332,7 @@ export const GymDemo: React.FC<GymDemoProps> = ({ demo, isMobile, onPlanChange }
 
               {/* Input Area */}
               <form
-                onSubmit={e => {
+                onSubmit={(e) => {
                   e.preventDefault();
                   handleAiSend();
                 }}
@@ -1609,7 +2342,7 @@ export const GymDemo: React.FC<GymDemoProps> = ({ demo, isMobile, onPlanChange }
                   type="text"
                   placeholder="Ask Coach about diet, sets or recovery..."
                   value={aiInputText}
-                  onChange={e => setAiInputText(e.target.value)}
+                  onChange={(e) => setAiInputText(e.target.value)}
                   className="flex-1 bg-[#0A1426] border border-slate-800 rounded-xl px-3 py-2 text-xs text-white placeholder:text-slate-500 outline-hidden focus:border-cyan-400"
                 />
                 <button
@@ -1633,15 +2366,23 @@ export const GymDemo: React.FC<GymDemoProps> = ({ demo, isMobile, onPlanChange }
         <div className="fixed inset-0 z-50 bg-black/80 backdrop-blur-sm flex items-center justify-center p-4">
           <div className="bg-[#0A1426] border-2 border-cyan-400 p-8 rounded-3xl max-w-sm w-full text-center space-y-6 shadow-2xl">
             <div className="space-y-1">
-              <div className="text-cyan-400 font-bold text-xs uppercase tracking-widest">IronFit Digital Pass</div>
-              <h3 className="text-2xl font-black uppercase italic text-white">Alex Vance</h3>
-              <p className="text-xs text-slate-400">Membership #IF-88492 • Active Annual</p>
+              <div className="text-cyan-400 font-bold text-xs uppercase tracking-widest">
+                IronFit Digital Pass
+              </div>
+              <h3 className="text-2xl font-black uppercase italic text-white">
+                Alex Vance
+              </h3>
+              <p className="text-xs text-slate-400">
+                Membership #IF-88492 • Active Annual
+              </p>
             </div>
 
             <div className="bg-white p-6 rounded-2xl inline-block mx-auto shadow-xl">
               <div className="w-44 h-44 bg-slate-950 rounded-xl p-3 flex flex-col items-center justify-center text-white text-center">
                 <QrCode className="w-28 h-28 text-cyan-400 mb-1" />
-                <span className="text-[10px] font-mono text-slate-400 tracking-widest">#IF-88492-2026</span>
+                <span className="text-[10px] font-mono text-slate-400 tracking-widest">
+                  #IF-88492-2026
+                </span>
               </div>
             </div>
 
@@ -1665,10 +2406,17 @@ export const GymDemo: React.FC<GymDemoProps> = ({ demo, isMobile, onPlanChange }
           <div className="bg-[#0A1426] border border-cyan-500/40 p-8 rounded-3xl max-w-md w-full space-y-6 shadow-2xl">
             <div className="flex justify-between items-start">
               <div>
-                <span className="text-cyan-400 text-xs font-bold uppercase">Online Payment Demo</span>
-                <h3 className="text-2xl font-black text-white uppercase italic">{selectedPlanForPayment.name}</h3>
+                <span className="text-cyan-400 text-xs font-bold uppercase">
+                  Online Payment Demo
+                </span>
+                <h3 className="text-2xl font-black text-white uppercase italic">
+                  {selectedPlanForPayment.name}
+                </h3>
               </div>
-              <button onClick={() => setIsPaymentModalOpen(false)} className="text-slate-400 hover:text-white">
+              <button
+                onClick={() => setIsPaymentModalOpen(false)}
+                className="text-slate-400 hover:text-white"
+              >
                 <X className="w-5 h-5" />
               </button>
             </div>
@@ -1678,9 +2426,12 @@ export const GymDemo: React.FC<GymDemoProps> = ({ demo, isMobile, onPlanChange }
                 <div className="w-14 h-14 bg-emerald-500 text-slate-950 rounded-full flex items-center justify-center mx-auto">
                   <Check className="w-8 h-8 stroke-[3]" />
                 </div>
-                <h4 className="text-xl font-bold text-white">Payment of ₹{selectedPlanForPayment.price} Successful!</h4>
+                <h4 className="text-xl font-bold text-white">
+                  Payment of ₹{selectedPlanForPayment.price} Successful!
+                </h4>
                 <p className="text-xs text-slate-300">
-                  Your IronFit pass has been generated and sent via WhatsApp to your registered number.
+                  Your IronFit pass has been generated and sent via WhatsApp to
+                  your registered number.
                 </p>
                 <button
                   onClick={() => {
@@ -1696,20 +2447,24 @@ export const GymDemo: React.FC<GymDemoProps> = ({ demo, isMobile, onPlanChange }
               <div className="space-y-4 text-xs">
                 <div className="bg-[#060B14] p-4 rounded-xl border border-slate-800 flex justify-between items-center">
                   <span className="text-slate-300">Plan Amount:</span>
-                  <span className="text-xl font-black text-cyan-400">₹{selectedPlanForPayment.price.toLocaleString()}</span>
+                  <span className="text-xl font-black text-cyan-400">
+                    ₹{selectedPlanForPayment.price.toLocaleString()}
+                  </span>
                 </div>
 
                 <div className="space-y-2">
-                  <label className="text-slate-300 font-bold">Select Payment Method</label>
+                  <label className="text-slate-300 font-bold">
+                    Select Payment Method
+                  </label>
                   <div className="grid grid-cols-3 gap-2">
-                    {(['UPI', 'Card', 'NetBanking'] as const).map(m => (
+                    {(["UPI", "Card", "NetBanking"] as const).map((m) => (
                       <button
                         key={m}
                         onClick={() => setPaymentMethod(m)}
                         className={`p-3 rounded-xl border font-bold text-center transition-all ${
                           paymentMethod === m
-                            ? 'bg-blue-600 text-white border-cyan-400'
-                            : 'bg-[#060B14] text-slate-400 border-slate-800'
+                            ? "bg-blue-600 text-white border-cyan-400"
+                            : "bg-[#060B14] text-slate-400 border-slate-800"
                         }`}
                       >
                         {m}
@@ -1740,10 +2495,17 @@ export const GymDemo: React.FC<GymDemoProps> = ({ demo, isMobile, onPlanChange }
           <div className="bg-[#0A1426] border border-cyan-500/40 p-8 rounded-3xl max-w-md w-full space-y-6 shadow-2xl">
             <div className="flex justify-between items-start">
               <div>
-                <span className="text-cyan-400 text-xs font-bold uppercase">1-Day VIP Pass</span>
-                <h3 className="text-2xl font-black text-white uppercase italic">Book Your Free Trial</h3>
+                <span className="text-cyan-400 text-xs font-bold uppercase">
+                  1-Day VIP Pass
+                </span>
+                <h3 className="text-2xl font-black text-white uppercase italic">
+                  Book Your Free Trial
+                </h3>
               </div>
-              <button onClick={() => setIsTrialModalOpen(false)} className="text-slate-400 hover:text-white">
+              <button
+                onClick={() => setIsTrialModalOpen(false)}
+                className="text-slate-400 hover:text-white"
+              >
                 <X className="w-5 h-5" />
               </button>
             </div>
@@ -1761,7 +2523,7 @@ export const GymDemo: React.FC<GymDemoProps> = ({ demo, isMobile, onPlanChange }
               />
               <button
                 onClick={() => {
-                  alert('Free trial pass claimed! Confirmation sent.');
+                  console.log("Free trial pass claimed! Confirmation sent.");
                   setIsTrialModalOpen(false);
                 }}
                 className="w-full bg-gradient-to-r from-blue-600 to-cyan-500 text-slate-950 font-black py-3.5 rounded-xl uppercase italic"

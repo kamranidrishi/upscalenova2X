@@ -7,10 +7,12 @@ import menuStandImage from '../assets/images/digital_menu_qr_stand_1786540175843
 export const COMPANY_PHONE = "9137283810";
 export const COMPANY_PHONE_DISPLAY = "+91 91372 83810";
 export const COMPANY_PHONE_RAW = "9137283810";
-export const COMPANY_EMAIL = "kamranidrishi92@gmail.com";
+export const COMPANY_EMAIL = "upscalenova@gmail.com";
 export const COMPANY_LOCATION = "Titwala, Maharashtra (Serving Global Clients)";
-export const WHATSAPP_LINK = `https://wa.me/919137283810?text=${encodeURIComponent("Hi Upscale Nova, I want to inquire about custom web development services.")}`;
+export const WHATSAPP_NUMBER = "919137283810";
+export const WHATSAPP_LINK = `https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent("Hello Upscale Nova, I am interested in your services. Please provide more information.")}`;
 export const CALL_LINK = `tel:+919137283810`;
+export const INSTAGRAM_LINK = "https://www.instagram.com/upscalenova/";
 export const COMPANY_LOGO = "https://drive.google.com/thumbnail?id=1vVwbLKzqgLOZXxBVNpqyuOrY4LA_2hvh&sz=w1000";
 
 export const INDUSTRIES: IndustryItem[] = [
@@ -91,7 +93,7 @@ export const PRODUCTS: ProductItem[] = [
     customization: ['Logo', 'Brand Colors', 'Custom URL', 'Custom Text'],
     badgeColor: 'bg-blue-500',
     iconName: 'Contactless',
-    image: 'https://drive.google.com/thumbnail?id=1-RIofQSklK-7csSeSZbk0eh9T5NQRiTC&sz=w1000'
+    image: 'https://drive.google.com/thumbnail?id=1lhZlHEMJnv57QOzS9Pb3S4ylDfBvrQBe&sz=w1000'
   },
   {
     id: 'google-qr-stand',
@@ -100,7 +102,7 @@ export const PRODUCTS: ProductItem[] = [
     customization: ['Logo', 'Brand Colors', 'Custom URL', 'Custom Text'],
     badgeColor: 'bg-emerald-500',
     iconName: 'QrCode',
-    image: qrStandImage
+    image: 'https://drive.google.com/thumbnail?id=1yTiKIeFA9B7iBUGz18RIHDIOVzMcVcVF&sz=w1000'
   },
   {
     id: 'social-qr-stand',
@@ -109,7 +111,7 @@ export const PRODUCTS: ProductItem[] = [
     customization: ['Logo', 'Brand Colors', 'Custom URL', 'Custom Text'],
     badgeColor: 'bg-pink-500',
     iconName: 'Share2',
-    image: socialStandImage
+    image: 'https://drive.google.com/thumbnail?id=1ORF5SSnsUOK7d3RPopk-wG6iGW8iRFiT&sz=w1000'
   },
   {
     id: 'digital-menu-stand',
@@ -118,7 +120,7 @@ export const PRODUCTS: ProductItem[] = [
     customization: ['Logo', 'Brand Colors', 'Custom URL', 'Custom Text'],
     badgeColor: 'bg-amber-500',
     iconName: 'Utensils',
-    image: menuStandImage
+    image: 'https://drive.google.com/thumbnail?id=1UGBlMZ1FZ1Fi1GRdp62VtHciQZ1Df6Qq&sz=w1000'
   }
 ];
 
@@ -157,71 +159,71 @@ export const PROCESS_STEPS: ProcessStep[] = [
 
 export const PRICING_PLANS: PricingPlan[] = [
   {
-    id: 'startup',
-    name: 'NOVA STARTUP',
-    price: '₹12,999',
-    originalPrice: '₹17,999',
-    monthlyPrice: '₹1,299',
-    originalMonthlyPrice: '₹1,799',
+    id: 'base',
+    name: 'NOVA BASE',
+    price: '₹24,999',
     features: [
-      '1 Year Domain Free',
-      '1 Year Hosting Free',
-      'SSL Certificate Free',
-      'WhatsApp Button Integration',
-      'Call Button Integration (91372 83810)',
-      'Social Media Integration',
-      'Revision Round (1)',
-      'Full Responsive (Tab, Laptop/Desktop)'
+      { name: 'Pages', value: '5' },
+      { name: 'Custom UI/UX', value: true },
+      { name: 'Responsive', value: true },
+      { name: 'WhatsApp', value: true },
+      { name: 'Forms', value: 'Basic' },
+      { name: 'SEO', value: 'Basic' },
+      { name: 'Analytics', value: false },
+      { name: 'Backend', value: false },
+      { name: 'Database', value: false },
+      { name: 'API integrations', value: false },
+      { name: 'Revisions', value: '2' },
+      { name: 'Bug support', value: '15 days' },
+      { name: 'Domain', value: 'Free' },
+      { name: 'Hosting', value: 'Free' }
     ],
     ctaText: 'Get Started'
   },
   {
     id: 'pro',
     name: 'NOVA PRO',
-    price: '₹16,999',
-    originalPrice: '₹22,999',
-    monthlyPrice: '₹1,699',
-    originalMonthlyPrice: '₹2,299',
+    price: '₹34,999',
     isPopular: true,
     features: [
-      '1 Year Domain Free',
-      '1 Year Hosting Free',
-      'SSL Certificate Free',
-      'WhatsApp Button Integration',
-      'Call Button Integration',
-      'Social Media Integration',
-      'Admin Panel Access',
-      'AI Chat Box',
-      'Revision (2)',
-      'Full Responsive (Tab, Laptop/Desktop)'
+      { name: 'Pages', value: '10' },
+      { name: 'Custom UI/UX', value: true },
+      { name: 'Responsive', value: true },
+      { name: 'WhatsApp', value: true },
+      { name: 'Forms', value: 'Advanced' },
+      { name: 'SEO', value: 'Technical setup' },
+      { name: 'Analytics', value: true },
+      { name: 'Backend', value: 'Basic' },
+      { name: 'Database', value: '—/Basic' },
+      { name: 'API integrations', value: 'Up to 2' },
+      { name: 'Revisions', value: '3' },
+      { name: 'Bug support', value: '30 days' },
+      { name: 'Domain', value: 'Free' },
+      { name: 'Hosting', value: 'Free' }
     ],
     ctaText: 'ORDER VIA WHATSAPP'
   },
   {
-    id: 'premium',
-    name: 'NOVA PREMIUM',
-    price: '₹24,999',
-    originalPrice: '₹34,999',
-    monthlyPrice: '₹2,399',
-    originalMonthlyPrice: '₹3,399',
+    id: 'max',
+    name: 'NOVA MAX',
+    price: '₹54,999',
     features: [
-      '1 Year Domain Free',
-      '1 Year Hosting Free',
-      '15 Pages Design',
-      'SSL Certificate Free',
-      'WhatsApp & Call Button',
-      'AI Chat Bot',
-      'Social Media Integration',
-      'Admin Panel Access',
-      'Payment Gateway Integration',
-      'Revision (3)',
-      'Full Responsive (Tab, Laptop/Desktop)',
-      'Free Website Renewal (1st Yr)',
-      'NFC Review Card Included',
-      'Social Media Standcards',
-      'Unlimited Product Listing'
+      { name: 'Pages', value: '15' },
+      { name: 'Custom UI/UX', value: true },
+      { name: 'Responsive', value: true },
+      { name: 'WhatsApp', value: true },
+      { name: 'Forms', value: 'Advanced' },
+      { name: 'SEO', value: 'Advanced setup' },
+      { name: 'Analytics', value: true },
+      { name: 'Backend', value: true },
+      { name: 'Database', value: true },
+      { name: 'API integrations', value: 'Up to 3' },
+      { name: 'Revisions', value: '4' },
+      { name: 'Bug support', value: '60 days' },
+      { name: 'Domain', value: 'Free' },
+      { name: 'Hosting', value: 'Free' }
     ],
-    ctaText: 'Get Premium'
+    ctaText: 'Get Max'
   }
 ];
 
@@ -259,7 +261,7 @@ export const FAQS: FAQItem[] = [
   {
     id: '1',
     question: 'How much does a website cost?',
-    answer: 'Our pricing is flexible and depends entirely on your specific requirements. We offer solutions starting at ₹12,999 for startups, small businesses, and custom enterprise builds. Contact us at 91372 83810 for a free custom quote.'
+    answer: 'Our pricing is flexible and depends entirely on your specific requirements. We offer solutions starting at ₹24,999 for startups, small businesses, and custom enterprise builds. Contact us at 91372 83810 for a free custom quote.'
   },
   {
     id: '2',

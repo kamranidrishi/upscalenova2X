@@ -15,9 +15,15 @@ import { ContactSection } from './components/ContactSection';
 import { Footer } from './components/Footer';
 import { FloatingSupport } from './components/FloatingSupport';
 import { QuoteModal } from './components/QuoteModal';
+import { PrivacyPolicyModal } from './components/PrivacyPolicyModal';
+import { RefundPolicyModal } from './components/RefundPolicyModal';
+import { TermsModal } from './components/TermsModal';
 
 export default function App() {
   const [modalOpen, setModalOpen] = useState(false);
+  const [privacyModalOpen, setPrivacyModalOpen] = useState(false);
+  const [refundModalOpen, setRefundModalOpen] = useState(false);
+  const [termsModalOpen, setTermsModalOpen] = useState(false);
   const [selectedService, setSelectedService] = useState<string | undefined>(undefined);
 
   const handleOpenQuoteModal = (serviceName?: string) => {
@@ -69,7 +75,11 @@ export default function App() {
       </main>
 
       {/* Footer */}
-      <Footer />
+      <Footer 
+        onOpenPrivacyPolicy={() => setPrivacyModalOpen(true)}
+        onOpenRefundPolicy={() => setRefundModalOpen(true)}
+        onOpenTerms={() => setTermsModalOpen(true)}
+      />
 
       {/* Floating Call & WhatsApp Support Hub */}
       <FloatingSupport />
@@ -79,6 +89,24 @@ export default function App() {
         isOpen={modalOpen}
         onClose={() => setModalOpen(false)}
         serviceTitle={selectedService}
+      />
+
+      {/* Privacy Policy Modal */}
+      <PrivacyPolicyModal
+        isOpen={privacyModalOpen}
+        onClose={() => setPrivacyModalOpen(false)}
+      />
+
+      {/* Refund & Cancellation Policy Modal */}
+      <RefundPolicyModal
+        isOpen={refundModalOpen}
+        onClose={() => setRefundModalOpen(false)}
+      />
+
+      {/* Terms & Conditions Modal */}
+      <TermsModal
+        isOpen={termsModalOpen}
+        onClose={() => setTermsModalOpen(false)}
       />
     </div>
   );

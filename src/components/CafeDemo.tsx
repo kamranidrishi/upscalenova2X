@@ -1,5 +1,10 @@
 import React, { useState, useMemo } from 'react';
 import { DemoItem, PlanType } from '../data/demos';
+import { PRICING_PLANS } from '../data/content';
+const basePrice = PRICING_PLANS.find(p => p.id === 'base')?.price || '₹24,999';
+const proPrice = PRICING_PLANS.find(p => p.id === 'pro')?.price || '₹39,999';
+const maxPrice = PRICING_PLANS.find(p => p.id === 'max')?.price || '₹59,999';
+
 import { 
   Coffee, Clock, Phone, MapPin, Search, X, Plus, Minus, Check,
   ChevronRight, Star, ShoppingBag, Send, Bot, Sparkles, Flame,
@@ -377,7 +382,7 @@ const CATEGORIES = ['All Items', 'Hot Coffee', 'Cold Coffee', 'Bakery', 'Breakfa
 export const CafeDemo: React.FC<CafeDemoProps> = ({ demo, isMobile }) => {
   const isBase = demo.plan === 'Base';
   const isPro = demo.plan === 'Pro';
-  const isMega = demo.plan === 'Mega';
+  const isMax = demo.plan === 'Max';
 
   // State Management
   const [activeCategory, setActiveCategory] = useState<string>('All Items');
@@ -414,10 +419,10 @@ export const CafeDemo: React.FC<CafeDemoProps> = ({ demo, isMobile }) => {
   const [isBookingOpen, setIsBookingOpen] = useState(false);
   const [bookingSuccess, setBookingSuccess] = useState(false);
 
-  // Mega-Specific Interactive Touch Micro-Animations
+  // Max-Specific Interactive Touch Micro-Animations
   const [activeAnimation, setActiveAnimation] = useState<{ item: MenuItem; type: string } | null>(null);
 
-  // Mega AI Barista Chatbox State
+  // Max AI Barista Chatbox State
   const [isAiChatOpen, setIsAiChatOpen] = useState(false);
   const [chatMessages, setChatMessages] = useState<Array<{ role: 'ai' | 'user'; text: string; recommendedItem?: MenuItem }>>([
     { 
@@ -427,10 +432,10 @@ export const CafeDemo: React.FC<CafeDemoProps> = ({ demo, isMobile }) => {
   ]);
   const [chatInput, setChatInput] = useState('');
 
-  // Mega Live Kitchen KDS Dashboard View
+  // Max Live Kitchen KDS Dashboard View
   const [showKdsDashboard, setShowKdsDashboard] = useState(false);
 
-  // Mega Live Location & Interactive Map Demo State
+  // Max Live Location & Interactive Map Demo State
   const [userLocationName, setUserLocationName] = useState('Connaught Plaza / Metro Hub');
   const [distanceKm, setDistanceKm] = useState(1.8);
   const [travelMode, setTravelMode] = useState<'driving' | 'walking' | 'transit'>('driving');
@@ -496,7 +501,7 @@ export const CafeDemo: React.FC<CafeDemoProps> = ({ demo, isMobile }) => {
   const taxes = Math.round(cartTotal * 0.05); // 5% GST
   const grandTotal = cartTotal + taxes;
 
-  // Dynamic theme resolution for Base (₹12,999), Pro (₹16,999), Mega (₹24,999)
+  // Dynamic theme resolution for Base ({basePrice}), Pro ({proPrice}), Max ({maxPrice})
   const theme = useMemo(() => {
     if (isBase) {
       return {
@@ -632,9 +637,9 @@ export const CafeDemo: React.FC<CafeDemoProps> = ({ demo, isMobile }) => {
         modalCard: 'bg-[#191714] border-[#3A3428]',
       };
     } else {
-      // MEGA: Cyber-Dark Tech-Luxury Inspired by https://brijeshchauhan008.netlify.app/
+      // MAX: Cyber-Dark Tech-Luxury Inspired by https://brijeshchauhan008.netlify.app/
       return {
-        mode: 'mega',
+        mode: 'max',
         container: 'bg-[#090D16] text-[#F1F5F9] font-sans antialiased selection:bg-cyan-500 selection:text-slate-950',
         topBar: 'bg-[#0D1322] text-slate-400 border-slate-800/80',
         topBadge: 'bg-[#111827] text-cyan-300 border-slate-800',
@@ -699,7 +704,7 @@ export const CafeDemo: React.FC<CafeDemoProps> = ({ demo, isMobile }) => {
         modalCard: 'bg-[#090D16] border-slate-800',
       };
     }
-  }, [isBase, isPro, isMega]);
+  }, [isBase, isPro, isMax]);
 
   // Filtered Menu Items
   const filteredItems = useMemo(() => {
@@ -749,8 +754,8 @@ export const CafeDemo: React.FC<CafeDemoProps> = ({ demo, isMobile }) => {
     setIsBasketBouncing(true);
     setTimeout(() => setIsBasketBouncing(false), 800);
 
-    // Trigger Mega Touch Micro-Animation
-    if (isMega) {
+    // Trigger Max Touch Micro-Animation
+    if (isMax) {
       const animType = item.animationType || 'steam';
       setActiveAnimation({ item, type: animType });
       setTimeout(() => setActiveAnimation(null), 2500);
@@ -775,7 +780,7 @@ export const CafeDemo: React.FC<CafeDemoProps> = ({ demo, isMobile }) => {
   const getWhatsAppOrderLink = () => {
     const itemsList = cart.map(i => `• ${i.item.name} x${i.qty} = ₹${i.item.price * i.qty}`).join('%0A');
     const message = `*Nova Café - Online Order*%0A%0A*Customer Name:* ${encodeURIComponent(customerName || 'Guest')}%0A*Phone:* ${encodeURIComponent(customerPhone || 'Not provided')}%0A*Table / Mode:* ${encodeURIComponent(selectedTable)}%0A%0A*Items Ordered:*%0A${itemsList}%0A%0A*Subtotal:* ₹${cartTotal}%0A*Taxes (5% GST):* ₹${taxes}%0A*Grand Total:* ₹${grandTotal}%0A*Payment Mode:* ${encodeURIComponent(selectedPaymentMethod.toUpperCase())}%0A*Special Notes:* ${encodeURIComponent(extraRequirements || 'None')}%0A%0APlease confirm this order!`;
-    return `https://wa.me/919876543210?text=${message}`;
+    return `https://wa.me/919137283810?text=Hello%20Upscale%20Nova%2C%20I%20am%20interested%20in%20your%20services.%20Please%20provide%20more%20information.`;
   };
 
   // AI Barista Chat Handler with expanded 30-item menu intelligence
@@ -849,7 +854,7 @@ export const CafeDemo: React.FC<CafeDemoProps> = ({ demo, isMobile }) => {
         <div className="flex items-center gap-2 flex-wrap font-medium">
           <span className={`inline-flex items-center gap-1.5 px-2.5 py-0.5 rounded-full font-bold text-[10px] uppercase tracking-wider border ${theme.topBadge}`}>
             <span className="w-1.5 h-1.5 rounded-full bg-emerald-400 animate-pulse"></span>
-            {isBase ? 'Base Plan — ₹12,999' : isPro ? 'Pro Plan — ₹16,999' : 'Mega Plan — ₹24,999'}
+            {isBase ? `Base Plan — ${basePrice}` : isPro ? `Pro Plan — ${proPrice}` : `Max Plan — ${maxPrice}`}
           </span>
           <span className="hidden sm:inline opacity-40">|</span>
           <span className={`flex items-center gap-1 font-semibold ${theme.topText}`}>
@@ -874,7 +879,7 @@ export const CafeDemo: React.FC<CafeDemoProps> = ({ demo, isMobile }) => {
             )}
           </button>
 
-          {isMega && (
+          {isMax && (
             <button
               onClick={() => setShowKdsDashboard(!showKdsDashboard)}
               className="bg-[#111827] hover:bg-cyan-500 hover:text-slate-950 text-cyan-400 border border-cyan-500/40 font-bold px-3 py-1 rounded-full text-[10px] transition-all flex items-center gap-1.5 shadow-sm"
@@ -892,9 +897,9 @@ export const CafeDemo: React.FC<CafeDemoProps> = ({ demo, isMobile }) => {
       </div>
 
       {/* ------------------------------------------------------------- */}
-      {/* MEGA: OPTIONAL LIVE KITCHEN DISPLAY / OWNER DASHBOARD */}
+      {/* MAX: OPTIONAL LIVE KITCHEN DISPLAY / OWNER DASHBOARD */}
       {/* ------------------------------------------------------------- */}
-      {isMega && showKdsDashboard ? (
+      {isMax && showKdsDashboard ? (
         <div className="p-4 sm:p-8 max-w-6xl mx-auto space-y-6 animate-in fade-in duration-300">
           <div className="bg-[#0F172A] rounded-3xl p-6 sm:p-8 shadow-2xl border border-slate-800 space-y-6">
             <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 border-b border-slate-800 pb-6">
@@ -1026,7 +1031,7 @@ export const CafeDemo: React.FC<CafeDemoProps> = ({ demo, isMobile }) => {
                 <a href="#contact" className={`transition-colors ${theme.navLink}`}>Visit & Contact</a>
               </nav>
 
-              {/* Top-Right Action Controls (Basket Button for Pro & Mega) */}
+              {/* Top-Right Action Controls (Basket Button for Pro & Max) */}
               <div className="flex items-center gap-2.5">
                 {!isBase ? (
                   <>
@@ -1122,7 +1127,7 @@ export const CafeDemo: React.FC<CafeDemoProps> = ({ demo, isMobile }) => {
           </section>
 
           {/* ------------------------------------------------------------- */}
-          {/* SEARCH & FILTERS BAR (For Pro & Mega) */}
+          {/* SEARCH & FILTERS BAR (For Pro & Max) */}
           {/* ------------------------------------------------------------- */}
           {!isBase && (
             <div className="max-w-5xl mx-auto -mt-6 px-4 relative z-10 w-full">
@@ -1360,7 +1365,7 @@ export const CafeDemo: React.FC<CafeDemoProps> = ({ demo, isMobile }) => {
           </section>
 
           {/* ------------------------------------------------------------- */}
-          {/* PRO & MEGA: SIGNATURE CHEF COMBOS & DEALS */}
+          {/* PRO & MAX: SIGNATURE CHEF COMBOS & DEALS */}
           {/* ------------------------------------------------------------- */}
           {!isBase && (
             <section id="specials" className={`py-14 border-y px-4 sm:px-6 ${theme.sectionSpecialsBg}`}>
@@ -1455,7 +1460,7 @@ export const CafeDemo: React.FC<CafeDemoProps> = ({ demo, isMobile }) => {
           </section>
 
           {/* ------------------------------------------------------------- */}
-          {/* PRO & MEGA: CUSTOMER REVIEWS */}
+          {/* PRO & MAX: CUSTOMER REVIEWS */}
           {/* ------------------------------------------------------------- */}
           {!isBase && (
             <section id="reviews" className={`py-14 px-4 sm:px-6 border-t ${theme.reviewsBg}`}>
@@ -1500,7 +1505,7 @@ export const CafeDemo: React.FC<CafeDemoProps> = ({ demo, isMobile }) => {
           )}
 
           {/* ------------------------------------------------------------- */}
-          {/* INTERACTIVE MAP DEMO (Mega Plan Special Feature: Cafe Location & Apni Location) */}
+          {/* INTERACTIVE MAP DEMO (Max Plan Special Feature: Cafe Location & Apni Location) */}
           {/* ------------------------------------------------------------- */}
           <section id="location" className={`py-14 px-4 sm:px-6 border-t ${theme.reviewsBg}`}>
             <div className="max-w-5xl mx-auto space-y-6">
@@ -1509,7 +1514,7 @@ export const CafeDemo: React.FC<CafeDemoProps> = ({ demo, isMobile }) => {
               <div className="text-center space-y-1.5 max-w-xl mx-auto">
                 <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-[10px] font-black uppercase tracking-wider bg-cyan-500/10 text-cyan-400 border border-cyan-500/30">
                   <Compass className="w-3.5 h-3.5 text-cyan-400 animate-spin" style={{ animationDuration: '8s' }} />
-                  <span>Live GPS & Location Demo (₹24,999 Mega Plan)</span>
+                  <span>Live GPS & Location Demo ({maxPrice} Max Plan)</span>
                 </div>
                 <h2 className={`text-2xl sm:text-4xl font-black ${theme.menuSectionHeaderTitle}`}>
                   Find Nova Café & Track Your Distance
@@ -1853,7 +1858,7 @@ export const CafeDemo: React.FC<CafeDemoProps> = ({ demo, isMobile }) => {
 
                     {/* WhatsApp Location Share */}
                     <a
-                      href="https://wa.me/?text=Here%20is%20the%20location%20of%20Nova%20Caf%C3%A9%20%26%20Artisan%20Roasters%3A%20104%20Artisan%20Avenue%20(Open%208%20AM%20-%2011%20PM)%20https%3A%2F%2Fmaps.google.com"
+                      href="https://wa.me/?text=Here%20is%20the%20location%20of%20Nova%20Cafe%20%26%20Artisan%20Roasters%3A%20104%20Artisan%20Avenue%20(Open%208%20AM%20-%2011%20PM)%20https%3A%2F%2Fmaps.google.com"
                       target="_blank"
                       rel="noreferrer"
                       className="bg-[#0E1424] hover:bg-[#111827] text-slate-200 border border-slate-800 hover:border-cyan-500/40 px-3.5 py-2.5 rounded-full text-xs font-bold transition-all flex items-center justify-center gap-1.5"
@@ -1939,7 +1944,7 @@ export const CafeDemo: React.FC<CafeDemoProps> = ({ demo, isMobile }) => {
                 {/* WhatsApp Direct Message CTA */}
                 <div className="pt-2">
                   <a 
-                    href="https://wa.me/919876543210?text=Hi%20Nova%20Cafe%2C%20I%20would%20like%20to%20place%20an%20order%20or%20inquire%20about%20a%20table"
+                    href="https://wa.me/919137283810?text=Hello%20Upscale%20Nova%2C%20I%20am%20interested%20in%20your%20services.%20Please%20provide%20more%20information."
                     target="_blank" 
                     rel="noreferrer"
                     className="inline-flex items-center gap-2 bg-emerald-900/80 hover:bg-emerald-800 text-emerald-200 border border-emerald-700/80 px-4 py-2 rounded-full text-xs font-bold transition-all shadow-md"
@@ -1950,7 +1955,7 @@ export const CafeDemo: React.FC<CafeDemoProps> = ({ demo, isMobile }) => {
                 </div>
               </div>
 
-              {/* Social Channels (Shown only for Pro and Mega, removed for Base Plan) */}
+              {/* Social Channels (Shown only for Pro and Max, removed for Base Plan) */}
               {!isBase && (
                 <div className="space-y-3">
                   <h4 className={`font-bold uppercase tracking-wider text-xs ${theme.footerHeading}`}>Connect & Follow</h4>
@@ -1986,16 +1991,16 @@ export const CafeDemo: React.FC<CafeDemoProps> = ({ demo, isMobile }) => {
             </div>
 
             <div className={`pt-6 border-t text-center text-xs opacity-60 border-inherit`}>
-              © 2026 Nova Café & Roasters • {isBase ? 'Base Plan ₹12,999' : isPro ? 'Pro Plan ₹16,999' : 'Mega Plan ₹24,999'}
+              © 2026 Nova Café & Roasters • {isBase ? `Base Plan ${basePrice}` : isPro ? `Pro Plan ${proPrice}` : `Max Plan ${maxPrice}`}
             </div>
           </footer>
         </>
       )}
 
       {/* ------------------------------------------------------------- */}
-      {/* MEGA PLAN: INTERACTIVE TOUCH/HOVER MICRO-ANIMATION OVERLAY */}
+      {/* MAX PLAN: INTERACTIVE TOUCH/HOVER MICRO-ANIMATION OVERLAY */}
       {/* ------------------------------------------------------------- */}
-      {isMega && activeAnimation && (
+      {isMax && activeAnimation && (
         <div className="fixed bottom-6 left-6 z-50 animate-in slide-in-from-bottom-5 duration-300 pointer-events-none">
           <div className="bg-[#0E1424] text-slate-200 p-4 rounded-2xl border border-cyan-500/50 shadow-2xl flex items-center gap-3.5 max-w-sm">
             <div className="w-12 h-12 rounded-xl bg-[#090D16] overflow-hidden relative shrink-0 flex items-center justify-center border border-slate-800">
@@ -2045,9 +2050,9 @@ export const CafeDemo: React.FC<CafeDemoProps> = ({ demo, isMobile }) => {
       )}
 
       {/* ------------------------------------------------------------- */}
-      {/* MEGA PLAN: NOVA AI BARISTA CHATBOX WIDGET */}
+      {/* MAX PLAN: NOVA AI BARISTA CHATBOX WIDGET */}
       {/* ------------------------------------------------------------- */}
-      {isMega && (
+      {isMax && (
         <div className="fixed bottom-6 right-6 z-50">
           {!isAiChatOpen ? (
             <button
@@ -2149,7 +2154,7 @@ export const CafeDemo: React.FC<CafeDemoProps> = ({ demo, isMobile }) => {
       )}
 
       {/* ------------------------------------------------------------- */}
-      {/* BASKET DRAWER (Pro & Mega Plans) */}
+      {/* BASKET DRAWER (Pro & Max Plans) */}
       {/* ------------------------------------------------------------- */}
       {!isBase && isCartOpen && (
         <div className="fixed inset-0 z-50 bg-black/80 backdrop-blur-xs flex justify-end animate-in fade-in duration-200">
@@ -2160,7 +2165,7 @@ export const CafeDemo: React.FC<CafeDemoProps> = ({ demo, isMobile }) => {
               <div>
                 <h3 className="font-black text-xl text-white">Nova Order Basket</h3>
                 <span className="text-xs font-bold text-cyan-400 bg-[#090D16] px-2.5 py-0.5 rounded-full border border-slate-800">
-                  {isPro ? 'Pro WhatsApp Checkout' : 'Mega Multi-Action Order'}
+                  {isPro ? 'Pro WhatsApp Checkout' : 'Max Multi-Action Order'}
                 </span>
               </div>
               <button onClick={() => setIsCartOpen(false)} className="p-2 hover:bg-[#090D16] rounded-full text-slate-400 hover:text-white">
@@ -2322,8 +2327,8 @@ export const CafeDemo: React.FC<CafeDemoProps> = ({ demo, isMobile }) => {
                       </div>
                     )}
 
-                    {/* MEGA PLAN ACTIONS: Exactly 3 Distinct Buttons (Bill, Place Order, Payment) */}
-                    {isMega && (
+                    {/* MAX PLAN ACTIONS: Exactly 3 Distinct Buttons (Bill, Place Order, Payment) */}
+                    {isMax && (
                       <div className="space-y-2">
                         <div className="grid grid-cols-2 gap-2">
                           {/* Option 1: Bill Button */}
@@ -2512,7 +2517,7 @@ export const CafeDemo: React.FC<CafeDemoProps> = ({ demo, isMobile }) => {
       )}
 
       {/* ------------------------------------------------------------- */}
-      {/* TABLE RESERVATION MODAL (Pro & Mega with Rounded Corners) */}
+      {/* TABLE RESERVATION MODAL (Pro & Max with Rounded Corners) */}
       {/* ------------------------------------------------------------- */}
       {isBookingOpen && (
         <div className="fixed inset-0 z-50 bg-black/80 backdrop-blur-xs flex items-center justify-center p-4">

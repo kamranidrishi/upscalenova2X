@@ -1,7 +1,20 @@
+import { PRICING_PLANS } from '../data/content';
 import React, { useState, useEffect } from 'react';
-import { Sparkles, Monitor, Tablet, Smartphone, X, Check, ChevronRight, ArrowRight } from 'lucide-react';
+import { Sparkles, Monitor, GraduationCap, Tablet, Smartphone, X, Check, ChevronRight, ArrowRight } from 'lucide-react';
 import { DEMO_DATA, PlanType, CategoryType, DemoItem } from '../data/demos';
 import { WebsiteDemoRenderer } from './WebsiteDemoRenderer';
+
+const getPlanFeatures = (planId: string) => {
+  const plan = PRICING_PLANS.find(p => p.id === planId.toLowerCase());
+  if (!plan) return [];
+  return plan.features.map(f => {
+    if (f.value === true) return f.name;
+    if (f.value === false) return null;
+    if (f.name === 'Domain' || f.name === 'Hosting') return `${f.name}: ${f.value}`;
+    return `${f.value} ${f.name}`;
+  }).filter(Boolean) as string[];
+};
+
 
 interface DemoShowroomProps {
   onOpenQuoteModal: (serviceName?: string) => void;
@@ -17,14 +30,158 @@ const CATEGORIES: ('All' | CategoryType)[] = [
   'Marketing', 
   'Finance', 
   'AI / SaaS', 
-  'Services'
+  'Services',
+  'School'
 ];
 
+
+const basePrice = PRICING_PLANS.find(p => p.id === 'base')?.price || '₹24,999';
+const proPrice = PRICING_PLANS.find(p => p.id === 'pro')?.price || '₹39,999';
+const maxPrice = PRICING_PLANS.find(p => p.id === 'max')?.price || '₹59,999';
+
+const getPrice = (name: string) => PRICING_PLANS.find(p => p.name === name)?.price || '';
+
 const PLANS: { id: PlanType; price: string; title: string; subtitle: string }[] = [
-  { id: 'Base', price: '₹12,999', title: 'Essential & Professional Foundation', subtitle: 'Clean, modern, responsive website tailored for small businesses getting online.' },
-  { id: 'Pro', price: '₹16,999', title: 'Interactive & Feature-Rich Experience', subtitle: 'Category filters, rich galleries, reviews, and interactive booking flows.' },
-  { id: 'Mega', price: '₹24,999', title: 'Enterprise & Workflow-Integrated System', subtitle: 'End-to-end QR ordering, live telemetry dashboards, client portals & automated workflows.' }
+  { id: 'Base', price: getPrice('NOVA BASE'), title: 'Essential & Professional Foundation', subtitle: 'Clean, modern, responsive website tailored for small businesses getting online.' },
+  { id: 'Pro', price: getPrice('NOVA PRO'), title: 'Interactive & Feature-Rich Experience', subtitle: 'Category filters, rich galleries, reviews, and interactive booking flows.' },
+  { id: 'Max', price: getPrice('NOVA MAX'), title: 'Enterprise & Workflow-Integrated System', subtitle: 'End-to-end QR ordering, live telemetry dashboards, client portals & automated workflows.' }
 ];
+
+interface DemoCardItemProps {
+  demo: DemoItem;
+  images: string[];
+  onSelect: () => void;
+}
+
+const DemoCardItem: React.FC<DemoCardItemProps> = ({ demo, images, onSelect }) => {
+  const [currentImgIndex, setCurrentImgIndex] = useState(0);
+
+  return (
+    <div 
+      className="group bg-white border border-slate-200 rounded-3xl overflow-hidden hover:shadow-2xl hover:border-indigo-300 transition-all duration-300 flex flex-col"
+    >
+      {/* Thumbnail Area */}
+      <div 
+        className="aspect-[16/10] bg-slate-100 relative overflow-hidden flex items-center justify-center cursor-pointer group-hover:opacity-95 transition-opacity"
+        onClick={onSelect}
+      >
+        <img 
+          src={images[currentImgIndex] || demo.heroImage} 
+          alt={demo.title} 
+          className="w-full h-full object-cover transform group-hover:scale-105 transition-transform duration-500" 
+          loading="lazy"
+        />
+        <div className="absolute inset-0 bg-gradient-to-t from-slate-950/80 via-slate-950/20 to-transparent"></div>
+        
+        {/* Badges */}
+        <div className="absolute top-3.5 left-3.5 flex gap-2">
+          <span className="bg-white/95 backdrop-blur-sm text-slate-900 text-[10px] font-black uppercase tracking-wider px-2.5 py-1 rounded-md shadow-sm border border-slate-200">
+            {demo.category}
+          </span>
+          {demo.businessType === 'school' && (
+            <span className="bg-rose-500 text-white text-[10px] font-black uppercase tracking-wider px-2.5 py-1 rounded-md shadow-sm">
+              NEW
+            </span>
+          )}
+        </div>
+
+        <div className="absolute top-3.5 right-3.5">
+          <span className={`backdrop-blur-sm text-white text-[10px] font-black uppercase tracking-wider px-2.5 py-1 rounded-md shadow-sm ${
+            demo.plan === 'Max' ? 'bg-amber-600/90' : demo.plan === 'Pro' ? 'bg-indigo-600/90' : 'bg-slate-800/90'
+          }`}>
+            {demo.plan} • {PLANS.find(p => p.id === demo.plan)?.price}
+          </span>
+        </div>
+
+        {/* Multi-Photo Carousel Indicators */}
+        {images.length > 1 && (
+          <div 
+            className="absolute top-12 right-3.5 flex items-center gap-1 bg-slate-950/60 backdrop-blur-sm px-2 py-1 rounded-full z-10"
+            onClick={(e) => e.stopPropagation()}
+          >
+            {images.map((_, idx) => (
+              <button
+                key={idx}
+                onClick={() => setCurrentImgIndex(idx)}
+                className={`w-2 h-2 rounded-full transition-all ${
+                  currentImgIndex === idx 
+                    ? 'bg-white w-4' 
+                    : 'bg-white/50 hover:bg-white/80'
+                }`}
+                title={`Photo ${idx + 1}`}
+                aria-label={`View photo ${idx + 1}`}
+              />
+            ))}
+          </div>
+        )}
+
+        {/* Bottom Overlay Title on Hover */}
+        <div className="absolute bottom-3 left-4 right-4 text-white">
+          <span className="text-[11px] font-bold text-indigo-300 block">{demo.tagline}</span>
+        </div>
+      </div>
+
+      {/* Multi-Photo Mini Thumbnail Bar */}
+      {images.length > 1 && (
+        <div className="grid grid-cols-4 gap-1 p-2 bg-slate-50 border-b border-slate-100">
+          {images.slice(0, 4).map((imgUrl, idx) => (
+            <button
+              key={idx}
+              onClick={(e) => {
+                e.stopPropagation();
+                setCurrentImgIndex(idx);
+              }}
+              className={`relative aspect-video rounded-md overflow-hidden border transition-all ${
+                currentImgIndex === idx 
+                  ? 'border-indigo-600 ring-2 ring-indigo-500/20' 
+                  : 'border-slate-200 opacity-70 hover:opacity-100'
+              }`}
+            >
+              <img src={imgUrl} alt={`${demo.title} view ${idx + 1}`} className="w-full h-full object-cover" />
+            </button>
+          ))}
+        </div>
+      )}
+
+      {/* Content Area */}
+      <div className="p-6 flex flex-col flex-grow justify-between space-y-4">
+        <div>
+          <h3 className="text-xl font-extrabold text-slate-900 tracking-tight">{demo.title}</h3>
+          {demo.isRealClient && demo.clientName && (
+            <p className="text-xs text-indigo-600 font-bold mt-0.5">Live Reference: {demo.clientName}</p>
+          )}
+          <p className="text-sm text-slate-600 mt-2 line-clamp-2 leading-relaxed">{demo.description}</p>
+        </div>
+        
+        <div className="space-y-4 pt-2">
+          {/* Feature Pills */}
+          <div className="flex flex-wrap gap-1.5">
+            {getPlanFeatures(demo.plan).slice(0, 3).map((feat, i) => (
+              <span key={i} className="inline-flex items-center gap-1 bg-slate-50 border border-slate-200 text-slate-700 text-[10px] font-bold px-2.5 py-1 rounded-full">
+                <Check className="w-3 h-3 text-indigo-600" />
+                {feat}
+              </span>
+            ))}
+            {getPlanFeatures(demo.plan).length > 3 && (
+               <span className="inline-flex items-center bg-slate-100 text-slate-600 text-[10px] font-bold px-2 py-1 rounded-full">
+                 +{getPlanFeatures(demo.plan).length - 3} more
+               </span>
+            )}
+          </div>
+          
+          {/* Launch Live Demo Button */}
+          <button 
+            onClick={onSelect}
+            className="w-full py-3.5 bg-slate-900 hover:bg-indigo-600 text-white font-bold text-xs uppercase tracking-wider rounded-xl transition-all duration-200 flex items-center justify-center gap-2 group/btn shadow-md hover:shadow-lg cursor-pointer"
+          >
+            <span>View Live Demo</span>
+            <ChevronRight className="w-4 h-4 text-slate-400 group-hover/btn:text-white group-hover/btn:translate-x-0.5 transition-all" />
+          </button>
+        </div>
+      </div>
+    </div>
+  );
+};
 
 export const DemoShowroom: React.FC<DemoShowroomProps> = ({ onOpenQuoteModal }) => {
   const [activePlan, setActivePlan] = useState<PlanType>('Base');
@@ -57,7 +214,8 @@ export const DemoShowroom: React.FC<DemoShowroomProps> = ({ onOpenQuoteModal }) 
   }, [activePlan, activeCategory]);
 
   return (
-    <section id="showroom" className="py-20 md:py-28 bg-white border-t border-slate-100 overflow-hidden">
+    <section id="website-demo" className="py-20 md:py-28 bg-white border-t border-slate-100 overflow-hidden scroll-mt-16 sm:scroll-mt-20 relative">
+      <div id="showroom" className="absolute -top-20 pointer-events-none" />
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-12">
         
         {/* Header */}
@@ -70,7 +228,7 @@ export const DemoShowroom: React.FC<DemoShowroomProps> = ({ onOpenQuoteModal }) 
             Experience What Your Website<br className="hidden sm:block" /> Will Actually Look Like
           </h2>
           <p className="text-slate-600 text-base sm:text-lg font-medium">
-            Don't just read about features—interact with real mini-websites rendered live inside our showroom. Switch between Base, Pro, and Mega to see the progressive upgrade in design and functionality.
+            Don't just read about features—interact with real mini-websites rendered live inside our showroom. Switch between Base, Pro, and Max to see the progressive upgrade in design and functionality.
           </p>
         </div>
 
@@ -88,7 +246,7 @@ export const DemoShowroom: React.FC<DemoShowroomProps> = ({ onOpenQuoteModal }) 
                 }`}
               >
                 <span className={`text-xs font-black uppercase tracking-wider mb-1 ${activePlan === plan.id ? 'text-indigo-600' : ''}`}>
-                  {plan.id} Plan
+                  NOVA {plan.id}
                 </span>
                 <span className={`text-xl font-black ${activePlan === plan.id ? 'text-slate-900' : ''}`}>
                   {plan.price}
@@ -126,7 +284,9 @@ export const DemoShowroom: React.FC<DemoShowroomProps> = ({ onOpenQuoteModal }) 
                     : 'bg-white text-slate-600 border border-slate-200 hover:border-slate-300 hover:bg-slate-50'
                 }`}
               >
-                {cat} <span className="opacity-60 ml-1">({count})</span>
+                {cat} 
+                {cat === 'School' && <span className="ml-1 bg-rose-500 text-white text-[8px] px-1.5 py-0.5 rounded-full uppercase tracking-wider">NEW</span>}
+                <span className="opacity-60 ml-1">({count})</span>
               </button>
             );
           })}
@@ -134,88 +294,20 @@ export const DemoShowroom: React.FC<DemoShowroomProps> = ({ onOpenQuoteModal }) 
 
         {/* Demo Cards Grid */}
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 pt-2">
-          {filteredDemos.map((demo) => (
-            <div 
-              key={demo.id} 
-              className="group bg-white border border-slate-200 rounded-3xl overflow-hidden hover:shadow-2xl hover:border-indigo-300 transition-all duration-300 flex flex-col"
-            >
-              {/* Thumbnail Area */}
-              <div 
-                className="aspect-[16/10] bg-slate-100 relative overflow-hidden flex items-center justify-center cursor-pointer group-hover:opacity-95 transition-opacity"
-                onClick={() => {
+          {filteredDemos.map((demo) => {
+            const images = demo.previewImages && demo.previewImages.length > 0 ? demo.previewImages : [demo.heroImage];
+            return (
+              <DemoCardItem 
+                key={demo.id} 
+                demo={demo} 
+                images={images}
+                onSelect={() => {
                   setActiveDemo(demo);
                   setDeviceView('desktop');
                 }}
-              >
-                <img 
-                  src={demo.heroImage} 
-                  alt={demo.title} 
-                  className="w-full h-full object-cover transform group-hover:scale-105 transition-transform duration-500" 
-                />
-                <div className="absolute inset-0 bg-gradient-to-t from-slate-950/80 via-slate-950/20 to-transparent"></div>
-                
-                {/* Badges */}
-                <div className="absolute top-3.5 left-3.5 flex gap-2">
-                  <span className="bg-white/95 backdrop-blur-sm text-slate-900 text-[10px] font-black uppercase tracking-wider px-2.5 py-1 rounded-md shadow-sm border border-slate-200">
-                    {demo.category}
-                  </span>
-                </div>
-
-                <div className="absolute top-3.5 right-3.5">
-                  <span className={`backdrop-blur-sm text-white text-[10px] font-black uppercase tracking-wider px-2.5 py-1 rounded-md shadow-sm ${
-                    demo.plan === 'Mega' ? 'bg-amber-600/90' : demo.plan === 'Pro' ? 'bg-indigo-600/90' : 'bg-slate-800/90'
-                  }`}>
-                    {demo.plan} • {PLANS.find(p => p.id === demo.plan)?.price}
-                  </span>
-                </div>
-
-                {/* Bottom Overlay Title on Hover */}
-                <div className="absolute bottom-3 left-4 right-4 text-white">
-                  <span className="text-[11px] font-bold text-indigo-300 block">{demo.tagline}</span>
-                </div>
-              </div>
-
-              {/* Content Area */}
-              <div className="p-6 flex flex-col flex-grow justify-between space-y-4">
-                <div>
-                  <h3 className="text-xl font-extrabold text-slate-900 tracking-tight">{demo.title}</h3>
-                  {demo.isRealClient && demo.clientName && (
-                    <p className="text-xs text-indigo-600 font-bold mt-0.5">Live Reference: {demo.clientName}</p>
-                  )}
-                  <p className="text-sm text-slate-600 mt-2 line-clamp-2 leading-relaxed">{demo.description}</p>
-                </div>
-                
-                <div className="space-y-4 pt-2">
-                  {/* Feature Pills */}
-                  <div className="flex flex-wrap gap-1.5">
-                    {demo.features.slice(0, 3).map((feat, i) => (
-                      <span key={i} className="inline-flex items-center gap-1 bg-slate-50 border border-slate-200 text-slate-700 text-[10px] font-bold px-2.5 py-1 rounded-full">
-                        <Check className="w-3 h-3 text-indigo-600" />
-                        {feat}
-                      </span>
-                    ))}
-                    {demo.features.length > 3 && (
-                       <span className="inline-flex items-center bg-slate-100 text-slate-600 text-[10px] font-bold px-2 py-1 rounded-full">
-                         +{demo.features.length - 3} more
-                       </span>
-                    )}
-                  </div>
-                  
-                  {/* Launch Live Demo Button */}
-                  <button 
-                    onClick={() => {
-                      setActiveDemo(demo);
-                      setDeviceView('desktop');
-                    }}
-                    className="w-full py-3.5 bg-slate-900 hover:bg-indigo-600 text-white font-bold text-xs uppercase tracking-wider rounded-xl transition-all duration-200 flex items-center justify-center gap-2 group/btn shadow-md hover:shadow-lg"
-                  >
-                    <span>View Live Demo</span>
-                    <ChevronRight className="w-4 h-4 text-slate-400 group-hover/btn:text-white group-hover/btn:translate-x-0.5 transition-all" />
-                  </button>
-                </div>
-              </div>
-            </div>
-          ))}
+              />
+            );
+          })}
         </div>
         
         {/* Empty State */}
@@ -267,7 +359,7 @@ export const DemoShowroom: React.FC<DemoShowroomProps> = ({ onOpenQuoteModal }) 
           <div className="bg-slate-950 w-full h-full sm:rounded-3xl border border-slate-800 shadow-2xl flex flex-col overflow-hidden max-w-[1500px]">
             
             {/* Modal Top Control Bar */}
-            <div className="h-16 border-b border-slate-800 flex items-center justify-between px-4 sm:px-6 bg-slate-900 shrink-0 gap-4">
+            <div className="min-h-[4rem] py-2 border-b border-slate-800 flex flex-wrap items-center justify-between px-4 sm:px-6 bg-slate-900 shrink-0 gap-4 z-50 relative">
               
               {/* Business Info & Live Plan Indicator */}
               <div className="flex items-center gap-3 min-w-0">
@@ -277,7 +369,7 @@ export const DemoShowroom: React.FC<DemoShowroomProps> = ({ onOpenQuoteModal }) 
                       {activeDemo.title}
                     </h3>
                     <span className={`text-[10px] font-black uppercase px-2.5 py-0.5 rounded-full ${
-                      activeDemo.plan === 'Mega' ? 'bg-amber-500 text-slate-950' : activeDemo.plan === 'Pro' ? 'bg-indigo-500 text-white' : 'bg-slate-700 text-slate-200'
+                      activeDemo.plan === 'Max' ? 'bg-amber-500 text-slate-950' : activeDemo.plan === 'Pro' ? 'bg-indigo-500 text-white' : 'bg-slate-700 text-slate-200'
                     }`}>
                       {activeDemo.plan} • {PLANS.find(p => p.id === activeDemo.plan)?.price}
                     </span>
@@ -288,20 +380,20 @@ export const DemoShowroom: React.FC<DemoShowroomProps> = ({ onOpenQuoteModal }) 
                 </div>
               </div>
               
-              {/* In-Modal Plan Switcher (Base -> Pro -> Mega for the SAME business) */}
+              {/* In-Modal Plan Switcher (Base -> Pro -> Max for the SAME business) */}
               <div className="hidden lg:flex items-center bg-slate-950 p-1 rounded-xl border border-slate-800">
                 <span className="text-[10px] font-bold text-slate-400 uppercase tracking-wider px-2">Plan:</span>
-                {(['Base', 'Pro', 'Mega'] as PlanType[]).map((p) => (
+                {(['Base', 'Pro', 'Max'] as PlanType[]).map((p) => (
                   <button
                     key={p}
                     onClick={() => handleSwitchModalPlan(p)}
                     className={`px-3 py-1 rounded-lg text-xs font-black transition-all ${
                       activeDemo.plan === p
-                        ? p === 'Mega' ? 'bg-amber-500 text-slate-950 shadow-xs' : p === 'Pro' ? 'bg-indigo-600 text-white shadow-xs' : 'bg-slate-800 text-white shadow-xs'
+                        ? p === 'Max' ? 'bg-amber-500 text-slate-950 shadow-xs' : p === 'Pro' ? 'bg-indigo-600 text-white shadow-xs' : 'bg-slate-800 text-white shadow-xs'
                         : 'text-slate-400 hover:text-white hover:bg-slate-900'
                     }`}
                   >
-                    {p} {p === 'Base' ? '₹12,999' : p === 'Pro' ? '₹16,999' : '₹24,999'}
+                    {p} {p === 'Base' ? basePrice : p === 'Pro' ? proPrice : maxPrice}
                   </button>
                 ))}
               </div>
@@ -369,7 +461,7 @@ export const DemoShowroom: React.FC<DemoShowroomProps> = ({ onOpenQuoteModal }) 
                   </div>
                   
                   {/* Simulated Mini-Website Canvas */}
-                  <div className="flex-1 overflow-hidden relative bg-white flex flex-col">
+                  <div className="flex-1 overflow-hidden relative bg-white flex flex-col transform translate-x-0">
                     <WebsiteDemoRenderer 
                       demo={activeDemo} 
                       device={deviceView} 
@@ -380,19 +472,21 @@ export const DemoShowroom: React.FC<DemoShowroomProps> = ({ onOpenQuoteModal }) 
             </div>
 
             {/* Mobile Plan Switcher Footer Bar for Small Screens */}
-            <div className="lg:hidden h-12 bg-slate-900 border-t border-slate-800 flex items-center justify-around px-4 shrink-0">
-              <span className="text-[10px] font-bold text-slate-400 uppercase">Upgrade Plan:</span>
-              {(['Base', 'Pro', 'Mega'] as PlanType[]).map((p) => (
-                <button
-                  key={p}
-                  onClick={() => handleSwitchModalPlan(p)}
-                  className={`px-3 py-1 rounded-lg text-xs font-bold ${
-                    activeDemo.plan === p ? 'bg-indigo-600 text-white' : 'text-slate-400'
-                  }`}
-                >
-                  {p} ({p === 'Base' ? '₹12,999' : p === 'Pro' ? '₹16,999' : '₹24,999'})
-                </button>
-              ))}
+            <div className="lg:hidden h-auto py-2 bg-slate-900 border-t border-slate-800 flex flex-wrap items-center justify-between gap-2 px-2 sm:px-4 shrink-0">
+              <span className="text-[10px] font-bold text-slate-400 uppercase hidden sm:block">Upgrade Plan:</span>
+              <div className="flex-1 flex justify-between gap-1">
+                {(['Base', 'Pro', 'Max'] as PlanType[]).map((p) => (
+                  <button
+                    key={p}
+                    onClick={() => handleSwitchModalPlan(p)}
+                    className={`flex-1 px-1 sm:px-3 py-1.5 rounded-lg text-[11px] sm:text-xs font-bold whitespace-nowrap text-center transition-all ${
+                      activeDemo.plan === p ? 'bg-indigo-600 text-white shadow-md' : 'text-slate-400 hover:bg-slate-800 bg-slate-950'
+                    }`}
+                  >
+                    {p} <span className="opacity-70 font-normal">({p === 'Base' ? basePrice : p === 'Pro' ? proPrice : maxPrice})</span>
+                  </button>
+                ))}
+              </div>
             </div>
 
           </div>

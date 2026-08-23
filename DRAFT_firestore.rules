@@ -1,0 +1,37 @@
+rules_version = '2';
+service cloud.firestore {
+  match /databases/{database}/documents {
+    match /{document=**} {
+      allow read, write: if false;
+    }
+
+    function isValidId(id) {
+      return id is string && id.size() <= 128 && id.matches('^[a-zA-Z0-9_\\-]+$');
+    }
+
+    function incoming() {
+      return request.resource.data;
+    }
+
+    function isValidContactSubmission(data) {
+      let hasRequired = data.keys().hasAll(['name', 'email', 'phone', 'service', 'createdAt']);
+      let hasValidKeys = data.keys().hasOnly(['name', 'businessName', 'email', 'phone', 'service', 'details', 'createdAt']);
+      
+      let validName = data.name is string && data.name.size() <= 128;
+      let validBusinessName = !('businessName' in data) || (data.businessName is string && data.businessName.size() <= 128);
+      let validEmail = data.email is string && data.email.size() <= 128;
+      let validPhone = data.phone is string && data.phone.size() <= 32;
+      let validService = data.service is string && data.service.size() <= 64;
+      let validDetails = !('details' in data) || (data.details is string && data.details.size() <= 2048);
+      
+      return hasRequired && hasValidKeys && validName && validBusinessName && validEmail && validPhone && validService && validDetails;
+    }
+
+    match /submissions/{submissionId} {
+      allow read, update, delete: if false;
+      allow create: if isValidId(submissionId)
+                    && isValidContactSubmission(incoming())
+                    && incoming().createdAt == request.time;
+    }
+  }
+}

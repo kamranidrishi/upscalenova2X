@@ -1,8 +1,18 @@
 import React from 'react';
-import { Phone, Mail, MapPin, MessageSquare } from 'lucide-react';
-import { COMPANY_PHONE_DISPLAY, COMPANY_EMAIL, COMPANY_LOCATION, WHATSAPP_LINK, CALL_LINK, COMPANY_LOGO } from '../data/content';
+import { Phone, Mail, MapPin, MessageSquare, Instagram } from 'lucide-react';
+import { COMPANY_PHONE_DISPLAY, COMPANY_EMAIL, COMPANY_LOCATION, WHATSAPP_LINK, CALL_LINK, COMPANY_LOGO, INSTAGRAM_LINK } from '../data/content';
 
-export const Footer: React.FC = () => {
+interface FooterProps {
+  onOpenPrivacyPolicy?: () => void;
+  onOpenRefundPolicy?: () => void;
+  onOpenTerms?: () => void;
+}
+
+export const Footer: React.FC<FooterProps> = ({ 
+  onOpenPrivacyPolicy,
+  onOpenRefundPolicy,
+  onOpenTerms 
+}) => {
   return (
     <footer className="bg-slate-950 text-slate-400 text-sm border-t border-slate-900">
       
@@ -33,6 +43,10 @@ export const Footer: React.FC = () => {
                 <a href={`mailto:${COMPANY_EMAIL}`} className="hover:text-white transition-colors">{COMPANY_EMAIL}</a>
               </div>
               <div className="flex items-center gap-2">
+                <Instagram className="w-3.5 h-3.5 text-pink-400" />
+                <a href={INSTAGRAM_LINK} target="_blank" rel="noopener noreferrer" className="hover:text-pink-300 transition-colors">@upscalenova</a>
+              </div>
+              <div className="flex items-center gap-2">
                 <MapPin className="w-3.5 h-3.5 text-indigo-400" />
                 <span>{COMPANY_LOCATION}</span>
               </div>
@@ -47,6 +61,7 @@ export const Footer: React.FC = () => {
               <li><a href="#services" className="hover:text-indigo-400 transition-colors">Services</a></li>
               <li><a href="#products" className="hover:text-indigo-400 transition-colors">Products & QR Stands</a></li>
               <li><a href="#pricing" className="hover:text-indigo-400 transition-colors">Pricing Plans</a></li>
+              <li><a href="#website-demo" className="hover:text-indigo-400 transition-colors">Website Demo</a></li>
               <li><a href="#about" className="hover:text-indigo-400 transition-colors">About Us</a></li>
               <li><a href="#contact" className="hover:text-indigo-400 transition-colors">Contact Support</a></li>
             </ul>
@@ -56,14 +71,31 @@ export const Footer: React.FC = () => {
           <div className="lg:col-span-4 space-y-3">
             <h4 className="text-white font-bold text-sm tracking-wide uppercase">Legal & Compliance</h4>
             <ul className="space-y-2 text-xs font-semibold">
-              <li><a href="#" className="hover:text-indigo-400 transition-colors">Privacy Policy</a></li>
-              <li><a href="#" className="hover:text-indigo-400 transition-colors">Terms & Conditions</a></li>
-              <li><a href="#" className="hover:text-indigo-400 transition-colors">Refund & Cancellation Policy</a></li>
+              <li>
+                <button 
+                  onClick={onOpenPrivacyPolicy}
+                  className="hover:text-indigo-400 transition-colors text-left"
+                >
+                  Privacy Policy
+                </button>
+              </li>
+              <li>
+                <button 
+                  onClick={onOpenTerms}
+                  className="hover:text-indigo-400 transition-colors text-left"
+                >
+                  Terms & Conditions
+                </button>
+              </li>
+              <li>
+                <button 
+                  onClick={onOpenRefundPolicy}
+                  className="hover:text-indigo-400 transition-colors text-left"
+                >
+                  Refund & Cancellation Policy
+                </button>
+              </li>
             </ul>
-
-            <div className="pt-4 p-3 bg-slate-900 rounded-xl border border-slate-800 text-[11px] text-slate-400">
-              ⚡ All web design & digital NFC stands are custom manufactured and delivered with 100% satisfaction guarantee.
-            </div>
           </div>
 
         </div>

@@ -1,5 +1,10 @@
 import React, { useState, useMemo } from 'react';
 import { DemoItem, PlanType } from '../data/demos';
+import { PRICING_PLANS } from '../data/content';
+const basePrice = PRICING_PLANS.find(p => p.id === 'base')?.price || '₹24,999';
+const proPrice = PRICING_PLANS.find(p => p.id === 'pro')?.price || '₹39,999';
+const maxPrice = PRICING_PLANS.find(p => p.id === 'max')?.price || '₹59,999';
+
 import {
   PROJECT_DETAILS,
   PROPERTIES_DATA,
@@ -34,13 +39,13 @@ export const RealEstateDemo: React.FC<RealEstateDemoProps> = ({ demo, isMobile, 
   const plan = demo.plan;
   const isBase = plan === 'Base';
   const isPro = plan === 'Pro';
-  const isMega = plan === 'Mega';
+  const isMax = plan === 'Max';
 
   // Navigation & View State
   const [activeTab, setActiveTab] = useState<'website' | 'crm' | 'virtual-tour' | 'inventory' | 'buyer-portal' | 'compare'>('website');
   const [activeRole, setActiveRole] = useState<'Sales Director' | 'Relationship Manager' | 'Buyer'>('Sales Director');
   
-  // Filter States for Pro / Mega
+  // Filter States for Pro / Max
   const [selectedBhkFilter, setSelectedBhkFilter] = useState<string>('All');
   const [maxPriceFilter, setMaxPriceFilter] = useState<number>(400); // in Lakhs
   const [selectedFacingFilter, setSelectedFacingFilter] = useState<string>('All');
@@ -56,15 +61,15 @@ export const RealEstateDemo: React.FC<RealEstateDemoProps> = ({ demo, isMobile, 
   const [brochureDownloadSuccess, setBrochureDownloadSuccess] = useState(false);
   const [siteVisitSuccess, setSiteVisitSuccess] = useState(false);
 
-  // Virtual Tour State (Mega)
+  // Virtual Tour State (Max)
   const [activeTourRoomId, setActiveTourRoomId] = useState<string>('living-room');
 
-  // Leads CRM State (Pro & Mega)
+  // Leads CRM State (Pro & Max)
   const [leads, setLeads] = useState<RealEstateLead[]>(INITIAL_REAL_ESTATE_LEADS);
   const [leadStageFilter, setLeadStageFilter] = useState<string>('All');
   const [leadSearchQuery, setLeadSearchQuery] = useState('');
 
-  // EMI Calculator State (Pro & Mega)
+  // EMI Calculator State (Pro & Max)
   const [loanAmountLakhs, setLoanAmountLakhs] = useState<number>(100);
   const [loanInterestRate, setLoanInterestRate] = useState<number>(8.75);
   const [loanTenureYears, setLoanTenureYears] = useState<number>(20);
@@ -169,7 +174,7 @@ export const RealEstateDemo: React.FC<RealEstateDemoProps> = ({ demo, isMobile, 
                 </span>
               </div>
               <p className="text-[10px] text-slate-400 hidden sm:block">
-                Interactive Multi-Tier Solution: Explore Base, Pro & Mega Platforms
+                Interactive Multi-Tier Solution: Explore Base, Pro & Max Platforms
               </p>
             </div>
           </div>
@@ -185,7 +190,7 @@ export const RealEstateDemo: React.FC<RealEstateDemoProps> = ({ demo, isMobile, 
               }`}
             >
               <span>BASE</span>
-              <span className="opacity-75 text-[10px]">₹12,999</span>
+              <span className="opacity-75 text-[10px]">{basePrice}</span>
             </button>
 
             <button
@@ -197,20 +202,20 @@ export const RealEstateDemo: React.FC<RealEstateDemoProps> = ({ demo, isMobile, 
               }`}
             >
               <span>PRO</span>
-              <span className="opacity-75 text-[10px]">₹16,999</span>
+              <span className="opacity-75 text-[10px]">{proPrice}</span>
             </button>
 
             <button
-              onClick={() => onPlanChange?.('Mega')}
+              onClick={() => onPlanChange?.('Max')}
               className={`relative px-3.5 py-1.5 rounded-lg text-xs font-black transition-all flex items-center gap-1.5 ${
-                isMega
+                isMax
                   ? 'bg-gradient-to-r from-emerald-500 via-teal-500 to-amber-500 text-slate-950 shadow-lg shadow-emerald-500/30 font-black'
                   : 'text-amber-400 hover:text-white hover:bg-slate-800'
               }`}
             >
               <Sparkles className="w-3.5 h-3.5" />
-              <span>MEGA</span>
-              <span className="text-[10px] opacity-90">₹24,999</span>
+              <span>MAX</span>
+              <span className="text-[10px] opacity-90">{maxPrice}</span>
               <span className="absolute -top-2.5 -right-2 bg-gradient-to-r from-amber-400 to-amber-500 text-slate-950 text-[8px] font-black uppercase px-1.5 py-0.2 rounded-full shadow-sm animate-pulse">
                 BEST
               </span>
@@ -220,7 +225,7 @@ export const RealEstateDemo: React.FC<RealEstateDemoProps> = ({ demo, isMobile, 
       </div>
 
       {/* ========================================================================= */}
-      {/* 2. SUB-NAVIGATION FOR PRO & MEGA (Dashboard, CRM, 360° Tour, Portal)     */}
+      {/* 2. SUB-NAVIGATION FOR PRO & MAX (Dashboard, CRM, 360° Tour, Portal)     */}
       {/* ========================================================================= */}
       {!isBase && (
         <div className="bg-slate-900 border-b border-slate-800 px-4 py-2">
@@ -253,7 +258,7 @@ export const RealEstateDemo: React.FC<RealEstateDemoProps> = ({ demo, isMobile, 
                 </span>
               </button>
 
-              {isMega && (
+              {isMax && (
                 <>
                   <button
                     onClick={() => setActiveTab('virtual-tour')}
@@ -266,7 +271,7 @@ export const RealEstateDemo: React.FC<RealEstateDemoProps> = ({ demo, isMobile, 
                     <Video className="w-3.5 h-3.5" />
                     <span>360° Virtual Tour</span>
                     <span className="text-[9px] bg-teal-500/30 text-teal-300 font-bold px-1 rounded">
-                      MEGA
+                      MAX
                     </span>
                   </button>
 
@@ -313,7 +318,7 @@ export const RealEstateDemo: React.FC<RealEstateDemoProps> = ({ demo, isMobile, 
                 <span>Schedule Visit</span>
               </button>
               <a
-                href="https://wa.me/918355836620?text=Hi%2C%20I%20am%20interested%20in%20Nova%20Heights%20Residences%20flats."
+                href="https://wa.me/919137283810?text=Hello%20Upscale%20Nova%2C%20I%20am%20interested%20in%20your%20services.%20Please%20provide%20more%20information."
                 target="_blank"
                 rel="noreferrer"
                 className="bg-emerald-500/20 hover:bg-emerald-500/30 text-emerald-400 border border-emerald-500/40 font-bold text-xs px-3 py-1.5 rounded-lg flex items-center gap-1.5"
@@ -407,7 +412,7 @@ export const RealEstateDemo: React.FC<RealEstateDemoProps> = ({ demo, isMobile, 
                   <span>Download PDF Brochure</span>
                 </button>
 
-                {isMega && (
+                {isMax && (
                   <button
                     onClick={() => setActiveTab('virtual-tour')}
                     className="bg-teal-900/60 hover:bg-teal-800/80 text-teal-200 border border-teal-500/50 font-bold text-sm px-5 py-3.5 rounded-xl flex items-center gap-2 transition-all"
@@ -484,7 +489,7 @@ export const RealEstateDemo: React.FC<RealEstateDemoProps> = ({ demo, isMobile, 
                 </h2>
               </div>
 
-              {/* Filters for Pro / Mega */}
+              {/* Filters for Pro / Max */}
               {!isBase && (
                 <div className="flex flex-wrap items-center gap-2 bg-slate-900 p-2 rounded-2xl border border-slate-800">
                   {['All', '2 BHK', '3 BHK', '4 BHK'].map(bhk => (
@@ -593,7 +598,7 @@ export const RealEstateDemo: React.FC<RealEstateDemoProps> = ({ demo, isMobile, 
                       <span>View Floor Plan & Specs</span>
                     </button>
 
-                    {isMega ? (
+                    {isMax ? (
                       <button
                         onClick={() => {
                           const unit = INVENTORY_UNITS_DATA.find(u => u.bhk === property.bhk && u.status === 'Available') || INVENTORY_UNITS_DATA[0];
@@ -727,7 +732,7 @@ export const RealEstateDemo: React.FC<RealEstateDemoProps> = ({ demo, isMobile, 
           </section>
 
           {/* ========================================================================= */}
-          {/* Interactive EMI Loan Calculator (Included in PRO & MEGA)                 */}
+          {/* Interactive EMI Loan Calculator (Included in PRO & MAX)                 */}
           {/* ========================================================================= */}
           {!isBase && (
             <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -861,13 +866,13 @@ export const RealEstateDemo: React.FC<RealEstateDemoProps> = ({ demo, isMobile, 
               <div className="bg-gradient-to-r from-slate-900 via-emerald-950/40 to-slate-900 border border-emerald-500/30 rounded-3xl p-6 sm:p-8 text-center space-y-4">
                 <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-emerald-500/20 text-emerald-300 text-xs font-bold">
                   <Lock className="w-3.5 h-3.5" />
-                  <span>Pro & Mega Features Available</span>
+                  <span>Pro & Max Features Available</span>
                 </div>
                 <h3 className="text-xl sm:text-2xl font-black text-white">
                   Want Interactive Floor Plans, Leads CRM & AI Assistant?
                 </h3>
                 <p className="text-slate-400 text-xs sm:text-sm max-w-xl mx-auto">
-                  Upgrade to PRO (₹16,999) for full Leads CRM and BHK search, or MEGA (₹24,999) for 360° virtual tours, online token booking and AI Property Copilot.
+                  Upgrade to PRO ({proPrice}) for full Leads CRM and BHK search, or MAX ({maxPrice}) for 360° virtual tours, online token booking and AI Property Copilot.
                 </p>
                 <div className="flex justify-center gap-3 pt-2">
                   <button
@@ -877,10 +882,10 @@ export const RealEstateDemo: React.FC<RealEstateDemoProps> = ({ demo, isMobile, 
                     Switch to PRO Plan
                   </button>
                   <button
-                    onClick={() => onPlanChange?.('Mega')}
+                    onClick={() => onPlanChange?.('Max')}
                     className="bg-emerald-500 hover:bg-emerald-400 text-slate-950 font-black text-xs px-5 py-2.5 rounded-xl"
                   >
-                    Switch to MEGA Plan (Best)
+                    Switch to MAX Plan (Best)
                   </button>
                 </div>
               </div>
@@ -891,7 +896,7 @@ export const RealEstateDemo: React.FC<RealEstateDemoProps> = ({ demo, isMobile, 
       )}
 
       {/* ========================================================================= */}
-      {/* 4. LEADS CRM & PIPELINE DASHBOARD (PRO & MEGA)                           */}
+      {/* 4. LEADS CRM & PIPELINE DASHBOARD (PRO & MAX)                           */}
       {/* ========================================================================= */}
       {activeTab === 'crm' && (
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8 space-y-6">
@@ -1021,7 +1026,7 @@ export const RealEstateDemo: React.FC<RealEstateDemoProps> = ({ demo, isMobile, 
                             <span>WhatsApp</span>
                           </a>
                           <button
-                            onClick={() => alert(`Dialing ${lead.phone} (${lead.name})...`)}
+                            onClick={() => console.log(`Dialing ${lead.phone} (${lead.name})...`)}
                             className="bg-slate-800 hover:bg-slate-700 text-white p-1.5 rounded-lg text-[10px]"
                           >
                             <Phone className="w-3 h-3" />
@@ -1037,15 +1042,15 @@ export const RealEstateDemo: React.FC<RealEstateDemoProps> = ({ demo, isMobile, 
       )}
 
       {/* ========================================================================= */}
-      {/* 5. 360° VIRTUAL PROPERTY TOUR (MEGA PLAN ONLY)                            */}
+      {/* 5. 360° VIRTUAL PROPERTY TOUR (MAX PLAN ONLY)                            */}
       {/* ========================================================================= */}
-      {isMega && activeTab === 'virtual-tour' && (
+      {isMax && activeTab === 'virtual-tour' && (
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8 space-y-6">
           <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4">
             <div>
               <div className="flex items-center gap-2">
                 <span className="bg-gradient-to-r from-emerald-500 to-teal-400 text-slate-950 text-[10px] font-black uppercase px-2.5 py-0.5 rounded-full">
-                  MEGA 360° VR Tour
+                  MAX 360° VR Tour
                 </span>
                 <h2 className="text-2xl font-black text-white">Interactive Virtual Show Flat Tour</h2>
               </div>
@@ -1131,15 +1136,15 @@ export const RealEstateDemo: React.FC<RealEstateDemoProps> = ({ demo, isMobile, 
       )}
 
       {/* ========================================================================= */}
-      {/* 6. LIVE UNIT INVENTORY MATRIX (MEGA PLAN ONLY)                            */}
+      {/* 6. LIVE UNIT INVENTORY MATRIX (MAX PLAN ONLY)                            */}
       {/* ========================================================================= */}
-      {isMega && activeTab === 'inventory' && (
+      {isMax && activeTab === 'inventory' && (
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8 space-y-6">
           <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4">
             <div>
               <div className="flex items-center gap-2">
                 <span className="bg-emerald-500 text-slate-950 text-[10px] font-black uppercase px-2.5 py-0.5 rounded-full">
-                  MEGA Real-time ERP
+                  MAX Real-time ERP
                 </span>
                 <h2 className="text-2xl font-black text-white">Live Tower & Unit Inventory Matrix</h2>
               </div>
@@ -1228,9 +1233,9 @@ export const RealEstateDemo: React.FC<RealEstateDemoProps> = ({ demo, isMobile, 
       )}
 
       {/* ========================================================================= */}
-      {/* 7. BUYER / CUSTOMER PORTAL (MEGA PLAN ONLY)                              */}
+      {/* 7. BUYER / CUSTOMER PORTAL (MAX PLAN ONLY)                              */}
       {/* ========================================================================= */}
-      {isMega && activeTab === 'buyer-portal' && (
+      {isMax && activeTab === 'buyer-portal' && (
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8 space-y-6">
           <div className="bg-slate-900 border border-slate-800 rounded-3xl p-6 sm:p-8 space-y-6">
             {/* Header */}
@@ -1305,7 +1310,7 @@ export const RealEstateDemo: React.FC<RealEstateDemoProps> = ({ demo, isMobile, 
                   </div>
                 </div>
                 <button
-                  onClick={() => alert("Downloading signed Allotment Letter (PDF)...")}
+                  onClick={() => console.log("Downloading signed Allotment Letter (PDF)...")}
                   className="p-2 bg-slate-800 hover:bg-slate-700 text-white rounded-lg text-xs"
                 >
                   <Download className="w-3.5 h-3.5" />
@@ -1321,7 +1326,7 @@ export const RealEstateDemo: React.FC<RealEstateDemoProps> = ({ demo, isMobile, 
                   </div>
                 </div>
                 <button
-                  onClick={() => alert("Downloading Milestone Payment Receipts (PDF)...")}
+                  onClick={() => console.log("Downloading Milestone Payment Receipts (PDF)...")}
                   className="p-2 bg-slate-800 hover:bg-slate-700 text-white rounded-lg text-xs"
                 >
                   <Download className="w-3.5 h-3.5" />
@@ -1337,7 +1342,7 @@ export const RealEstateDemo: React.FC<RealEstateDemoProps> = ({ demo, isMobile, 
                   </div>
                 </div>
                 <button
-                  onClick={() => alert("Downloading Bank NOC Document (PDF)...")}
+                  onClick={() => console.log("Downloading Bank NOC Document (PDF)...")}
                   className="p-2 bg-slate-800 hover:bg-slate-700 text-white rounded-lg text-xs"
                 >
                   <Download className="w-3.5 h-3.5" />
@@ -1360,7 +1365,7 @@ export const RealEstateDemo: React.FC<RealEstateDemoProps> = ({ demo, isMobile, 
             Choose the Ideal Real Estate Solution
           </h2>
           <p className="text-slate-400 text-xs sm:text-sm">
-            Compare features across Base, Pro, and Mega packages engineered by Upscale Nova.
+            Compare features across Base, Pro, and Max packages engineered by Upscale Nova.
           </p>
         </div>
 
@@ -1372,7 +1377,7 @@ export const RealEstateDemo: React.FC<RealEstateDemoProps> = ({ demo, isMobile, 
             <div>
               <span className="text-slate-400 text-xs font-bold uppercase">Essential Website</span>
               <h3 className="text-xl font-black text-white mt-1">BASE PLAN</h3>
-              <div className="text-3xl font-black text-emerald-400 my-4">₹12,999</div>
+              <div className="text-3xl font-black text-emerald-400 my-4">{basePrice}</div>
               <p className="text-xs text-slate-400 mb-6">
                 A professional real estate showcase website with developer overview, BHK details, gallery, and WhatsApp inquiry.
               </p>
@@ -1403,7 +1408,7 @@ export const RealEstateDemo: React.FC<RealEstateDemoProps> = ({ demo, isMobile, 
             <div>
               <span className="text-teal-400 text-xs font-bold uppercase">Growth & Leads CRM</span>
               <h3 className="text-xl font-black text-white mt-1">PRO PLAN</h3>
-              <div className="text-3xl font-black text-teal-400 my-4">₹16,999</div>
+              <div className="text-3xl font-black text-teal-400 my-4">{proPrice}</div>
               <p className="text-xs text-slate-400 mb-6">
                 A complete property website with advanced BHK/price search, floor plans, appointment scheduler, and full leads CRM.
               </p>
@@ -1427,17 +1432,17 @@ export const RealEstateDemo: React.FC<RealEstateDemoProps> = ({ demo, isMobile, 
             </button>
           </div>
 
-          {/* Mega Card */}
+          {/* Max Card */}
           <div className={`p-6 rounded-3xl border flex flex-col justify-between relative ${
-            isMega ? 'bg-slate-900 border-emerald-400 shadow-2xl shadow-emerald-500/20' : 'bg-slate-950 border-slate-800'
+            isMax ? 'bg-slate-900 border-emerald-400 shadow-2xl shadow-emerald-500/20' : 'bg-slate-950 border-slate-800'
           }`}>
             <span className="absolute -top-3 left-1/2 -translate-x-1/2 bg-gradient-to-r from-amber-400 to-amber-500 text-slate-950 font-black text-[9px] uppercase px-3 py-0.5 rounded-full shadow-md">
               BEST VALUE • AI PLATFORM
             </span>
             <div>
               <span className="text-amber-400 text-xs font-bold uppercase">AI-Powered Ecosystem</span>
-              <h3 className="text-xl font-black text-white mt-1">MEGA PLAN</h3>
-              <div className="text-3xl font-black text-amber-400 my-4">₹24,999</div>
+              <h3 className="text-xl font-black text-white mt-1">MAX PLAN</h3>
+              <div className="text-3xl font-black text-amber-400 my-4">{maxPrice}</div>
               <p className="text-xs text-slate-400 mb-6">
                 Complete AI-powered real estate platform for property discovery, 360° virtual tours, online token booking, buyer portal & AI assistant.
               </p>
@@ -1452,12 +1457,12 @@ export const RealEstateDemo: React.FC<RealEstateDemoProps> = ({ demo, isMobile, 
               </ul>
             </div>
             <button
-              onClick={() => onPlanChange?.('Mega')}
+              onClick={() => onPlanChange?.('Max')}
               className={`w-full mt-6 py-3 rounded-xl font-black text-xs uppercase ${
-                isMega ? 'bg-gradient-to-r from-emerald-500 via-teal-400 to-amber-400 text-slate-950 shadow-md font-black' : 'bg-slate-800 hover:bg-slate-700 text-slate-300'
+                isMax ? 'bg-gradient-to-r from-emerald-500 via-teal-400 to-amber-400 text-slate-950 shadow-md font-black' : 'bg-slate-800 hover:bg-slate-700 text-slate-300'
               }`}
             >
-              {isMega ? 'Current Active Demo' : 'Select Mega Plan'}
+              {isMax ? 'Current Active Demo' : 'Select Max Plan'}
             </button>
           </div>
         </div>
@@ -1474,7 +1479,7 @@ export const RealEstateDemo: React.FC<RealEstateDemoProps> = ({ demo, isMobile, 
             Upscale Nova crafts bespoke web applications, lead automations, and AI chatbots tailored specifically for developers and channel partners.
           </p>
           <a
-            href="https://wa.me/918355836620?text=Hi%20Upscale%20Nova%2C%20I%20want%20to%20build%20a%20Real%20Estate%20website%20for%20my%20project."
+            href="https://wa.me/919137283810?text=Hello%20Upscale%20Nova%2C%20I%20am%20interested%20in%20your%20services.%20Please%20provide%20more%20information."
             target="_blank"
             rel="noreferrer"
             className="inline-flex items-center gap-2 bg-emerald-500 hover:bg-emerald-400 text-slate-950 font-black text-xs px-6 py-3 rounded-xl shadow-lg transition-all"
@@ -1486,7 +1491,7 @@ export const RealEstateDemo: React.FC<RealEstateDemoProps> = ({ demo, isMobile, 
       </section>
 
       {/* ========================================================================= */}
-      {/* 9. FLOATING AI PROPERTY ASSISTANT (All Plans, Full AI in Mega)            */}
+      {/* 9. FLOATING AI PROPERTY ASSISTANT (All Plans, Full AI in Max)            */}
       {/* ========================================================================= */}
       <div className="fixed bottom-6 right-6 z-40">
         {!isAiOpen ? (
@@ -1879,7 +1884,7 @@ export const RealEstateDemo: React.FC<RealEstateDemoProps> = ({ demo, isMobile, 
       )}
 
       {/* ========================================================================= */}
-      {/* 13. MODAL: ONLINE TOKEN PAYMENT GATEWAY (MEGA ONLY)                       */}
+      {/* 13. MODAL: ONLINE TOKEN PAYMENT GATEWAY (MAX ONLY)                       */}
       {/* ========================================================================= */}
       {isTokenBookingModalOpen && (
         <div className="fixed inset-0 z-50 bg-slate-950/80 backdrop-blur-md flex items-center justify-center p-4">

@@ -1,23 +1,26 @@
 import React from 'react';
-import { User, Linkedin, Twitter, Phone } from 'lucide-react';
+import { User, Linkedin, Instagram, Phone } from 'lucide-react';
 import { COMPANY_PHONE_DISPLAY, CALL_LINK } from '../data/content';
-import brijeshPhoto from '../assets/images/brijesh_chauhan_photo_1786562108982.jpg';
 
 export const LeadershipSection: React.FC = () => {
   const leaders = [
     {
       name: 'Kamran Idrishi',
-      role: 'Founder',
+      role: 'Founder & CEO',
       bio: 'Visionary leader driving digital transformation and modern web engineering for businesses globally.',
       initials: 'KI',
-      photoUrl: 'https://drive.google.com/thumbnail?id=1rrMoTJrCilC8VAacHF6Ol_dB6FFduLfm&sz=w1000'
+      photoUrl: 'https://drive.google.com/thumbnail?id=1DZVrZ1MpooepEALZGeM-zke-8HCl03Zi&sz=w1000',
+      linkedinUrl: 'https://www.linkedin.com/in/kamran-idrishi/',
+      instagramUrl: 'https://www.instagram.com/kamran_idr/'
     },
     {
       name: 'Brijesh Chauhan',
       role: 'Co-Founder',
       bio: 'Strategic mind focused on scaling modern web solutions, client relationships, and business operations.',
       initials: 'BC',
-      photoUrl: brijeshPhoto
+      photoUrl: 'https://drive.google.com/thumbnail?id=1V3cIDeEYlEnmtHJ-lMmlTGl5d9Rm3NcV&sz=w1000',
+      linkedinUrl: '#',
+      instagramUrl: 'https://www.instagram.com/brijes4h/'
     }
   ];
 
@@ -63,18 +66,22 @@ export const LeadershipSection: React.FC = () => {
               {/* Social icons */}
               <div className="pt-2 flex items-center gap-3">
                 <a
-                  href="#"
-                  className="w-9 h-9 rounded-full bg-white border border-slate-200 text-slate-500 hover:text-indigo-600 hover:border-indigo-200 flex items-center justify-center transition-colors"
-                  aria-label="LinkedIn Profile"
+                  href={leader.linkedinUrl || "https://www.linkedin.com/in/kamran-idrishi/"}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="w-9 h-9 rounded-full bg-white border border-slate-200 text-slate-500 hover:text-indigo-600 hover:border-indigo-200 flex items-center justify-center transition-colors shadow-xs"
+                  aria-label={`${leader.name}'s LinkedIn Profile`}
                 >
                   <Linkedin className="w-4 h-4" />
                 </a>
                 <a
-                  href="#"
-                  className="w-9 h-9 rounded-full bg-white border border-slate-200 text-slate-500 hover:text-indigo-600 hover:border-indigo-200 flex items-center justify-center transition-colors"
-                  aria-label="Twitter Profile"
+                  href={leader.instagramUrl || "#"}
+                  target={leader.instagramUrl && leader.instagramUrl !== '#' ? "_blank" : undefined}
+                  rel="noopener noreferrer"
+                  className="w-9 h-9 rounded-full bg-white border border-slate-200 text-slate-500 hover:text-pink-600 hover:border-pink-200 flex items-center justify-center transition-colors shadow-xs"
+                  aria-label={`${leader.name}'s Instagram Profile`}
                 >
-                  <Twitter className="w-4 h-4" />
+                  <Instagram className="w-4 h-4" />
                 </a>
               </div>
             </div>

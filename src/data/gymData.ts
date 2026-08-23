@@ -22,7 +22,7 @@ export interface GymMembershipPlan {
   periodText: string;
   badge?: string;
   popular?: boolean;
-  megaExclusive?: boolean;
+  maxExclusive?: boolean;
   desc: string;
   features: string[];
   cta: string;

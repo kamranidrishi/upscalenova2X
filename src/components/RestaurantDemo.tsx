@@ -1,5 +1,10 @@
 import React, { useState, useMemo, useEffect } from 'react';
 import { DemoItem, PlanType } from '../data/demos';
+import { PRICING_PLANS } from '../data/content';
+const basePrice = PRICING_PLANS.find(p => p.id === 'base')?.price || '₹24,999';
+const proPrice = PRICING_PLANS.find(p => p.id === 'pro')?.price || '₹39,999';
+const maxPrice = PRICING_PLANS.find(p => p.id === 'max')?.price || '₹59,999';
+
 import { 
   Utensils, Wine, Clock, MapPin, Phone, MessageCircle, Star, Search, Plus, Minus,
   ShoppingBag, ShieldCheck, X, Check, CheckCircle2, ChevronRight, Sparkles, Flame,
@@ -261,7 +266,7 @@ export const RestaurantDemo: React.FC<RestaurantDemoProps> = ({ demo, onPlanChan
   const plan = demo.plan;
   const isBase = plan === 'Base';
   const isPro = plan === 'Pro';
-  const isMega = plan === 'Mega';
+  const isMax = plan === 'Max';
 
   // State Management
   const [activeCategory, setActiveCategory] = useState('All');
@@ -286,7 +291,7 @@ export const RestaurantDemo: React.FC<RestaurantDemoProps> = ({ demo, onPlanChan
   const [bookingTime, setBookingTime] = useState('8:30 PM');
   const [bookingConfirmed, setBookingConfirmed] = useState(false);
 
-  // Mega Live Location & Map State
+  // Max Live Location & Map State
   const [userLocationName, setUserLocationName] = useState('Grand Heritage Hotel / Boulevard');
   const [distanceKm, setDistanceKm] = useState(2.1);
   const [travelMode, setTravelMode] = useState<'driving' | 'walking' | 'transit'>('driving');
@@ -295,7 +300,7 @@ export const RestaurantDemo: React.FC<RestaurantDemoProps> = ({ demo, onPlanChan
   const [locationSuccessMsg, setLocationSuccessMsg] = useState('');
   const [userPinCoords, setUserPinCoords] = useState<{ x: number; y: number }>({ x: 28, y: 72 });
 
-  // Mega Sommelier AI Assistant
+  // Max Sommelier AI Assistant
   const [isAiOpen, setIsAiOpen] = useState(false);
   const [aiChat, setAiChat] = useState<{ sender: 'user' | 'bot'; text: string }[]>([
     { sender: 'bot', text: 'Bonsoir! I am your Maison Sommelier & Chef Assistant. Looking for exquisite wine pairings, course recommendations, or dietary advice for your dinner?' }
@@ -432,7 +437,7 @@ export const RestaurantDemo: React.FC<RestaurantDemoProps> = ({ demo, onPlanChan
       };
     }
 
-    // Mega Plan (₹24,999): Haute Gastronomy Cyber-Bordeaux & Warm Crimson Gold Luxury
+    // Max Plan ({maxPrice}): Haute Gastronomy Cyber-Bordeaux & Warm Crimson Gold Luxury
     return {
       container: 'bg-[#0B0408] text-[#F9EFF4]',
       topBar: 'bg-[#15070F] text-[#D8B4C8] border-[#361125]',
@@ -563,8 +568,8 @@ export const RestaurantDemo: React.FC<RestaurantDemoProps> = ({ demo, onPlanChan
       return [...prev, { item, qty: 1 }];
     });
 
-    // In Mega Plan (₹24,999): dynamic color cycling of the basket button on every 1 item select
-    if (isMega) {
+    // In Max Plan ({maxPrice}): dynamic color cycling of the basket button on every 1 item select
+    if (isMax) {
       setBasketThemeIndex(prev => (prev + 1) % RESTAURANT_BASKET_THEMES.length);
       setIsBasketBouncing(true);
       setTimeout(() => setIsBasketBouncing(false), 600);
@@ -613,7 +618,7 @@ export const RestaurantDemo: React.FC<RestaurantDemoProps> = ({ demo, onPlanChan
     msg += `*Service & Hospitality (5%):* ₹${serviceCharge}\n`;
     msg += `*GRAND TOTAL:* ₹${grandTotal}\n\n`;
     msg += `Please confirm my order and start kitchen preparation!`;
-    return `https://wa.me/919876543210?text=${encodeURIComponent(msg)}`;
+    return `https://wa.me/919137283810?text=Hello%20Upscale%20Nova%2C%20I%20am%20interested%20in%20your%20services.%20Please%20provide%20more%20information.`;
   };
 
   // AI Sommelier Query Handler
@@ -647,7 +652,7 @@ export const RestaurantDemo: React.FC<RestaurantDemoProps> = ({ demo, onPlanChan
         <div className="flex items-center gap-2 flex-wrap font-medium">
           <span className={`inline-flex items-center gap-1.5 px-2.5 py-0.5 rounded-full font-bold text-[10px] uppercase tracking-wider border ${theme.topBadge}`}>
             <span className="w-1.5 h-1.5 rounded-full bg-emerald-400 animate-pulse"></span>
-            {isBase ? 'Base Plan — ₹12,999' : isPro ? 'Pro Plan — ₹16,999' : 'Mega Plan — ₹24,999'}
+            {isBase ? `Base Plan — ${basePrice}` : isPro ? `Pro Plan — ${proPrice}` : `Max Plan — ${maxPrice}`}
           </span>
           <span className="hidden sm:inline opacity-40">|</span>
           <span className={`flex items-center gap-1 font-semibold ${theme.topText}`}>
@@ -672,8 +677,8 @@ export const RestaurantDemo: React.FC<RestaurantDemoProps> = ({ demo, onPlanChan
             )}
           </button>
 
-          {/* Mega Kitchen KDS Button */}
-          {isMega && (
+          {/* Max Kitchen KDS Button */}
+          {isMax && (
             <button
               onClick={() => setShowKdsDashboard(true)}
               className="bg-amber-950/60 hover:bg-amber-900/80 text-amber-300 border border-amber-600/60 font-bold px-3 py-1 rounded-full text-[10px] transition-all flex items-center gap-1 shadow-xs"
@@ -717,7 +722,7 @@ export const RestaurantDemo: React.FC<RestaurantDemoProps> = ({ demo, onPlanChan
             {!isBase && <a href="#specials" className={`transition-colors ${theme.navLink}`}>Chef Degustation</a>}
             <a href="#about" className={`transition-colors ${theme.navLink}`}>Culinary Heritage</a>
             {!isBase && <a href="#reviews" className={`transition-colors ${theme.navLink}`}>Guest Accolades</a>}
-            {isMega && (
+            {isMax && (
               <a href="#location" className={`transition-colors ${theme.navLink} flex items-center gap-1 text-rose-400`}>
                 <MapPin className="w-3 h-3" />
                 <span>Live Map & Location</span>
@@ -730,22 +735,22 @@ export const RestaurantDemo: React.FC<RestaurantDemoProps> = ({ demo, onPlanChan
           <div className="flex items-center gap-2.5">
             {!isBase ? (
               <>
-                {/* Dine-in Basket Button with Dynamic Theme Cycling for Mega Plan */}
+                {/* Dine-in Basket Button with Dynamic Theme Cycling for Max Plan */}
                 <button
                   onClick={() => setIsCartOpen(true)}
                   className={`relative p-2.5 rounded-full font-bold text-xs transition-all duration-300 flex items-center gap-2 shadow-md ${
-                    isMega 
+                    isMax 
                       ? `${currentBasketTheme.bg} ${currentBasketTheme.text} ${currentBasketTheme.border} ${currentBasketTheme.glow} ${
                           isBasketBouncing ? 'scale-110 ring-4 ring-white/30' : 'hover:scale-[1.03]'
                         }` 
                       : theme.primaryBtn
                   }`}
-                  title={isMega ? `Basket theme: ${currentBasketTheme.label} (Cycles on every item added)` : 'View Dine-in Basket'}
+                  title={isMax ? `Basket theme: ${currentBasketTheme.label} (Cycles on every item added)` : 'View Dine-in Basket'}
                 >
                   <ShoppingBag className="w-4 h-4 shrink-0" />
                   <span className="hidden sm:inline">Dine-in Basket</span>
                   {cartCount > 0 && (
-                    <span className={`w-5 h-5 ${isMega ? `${currentBasketTheme.badgeBg} ${currentBasketTheme.badgeText}` : 'bg-white text-slate-950'} rounded-full font-black text-[10px] flex items-center justify-center shadow-xs transition-colors`}>
+                    <span className={`w-5 h-5 ${isMax ? `${currentBasketTheme.badgeBg} ${currentBasketTheme.badgeText}` : 'bg-white text-slate-950'} rounded-full font-black text-[10px] flex items-center justify-center shadow-xs transition-colors`}>
                       {cartCount}
                     </span>
                   )}
@@ -825,7 +830,7 @@ export const RestaurantDemo: React.FC<RestaurantDemoProps> = ({ demo, onPlanChan
       </section>
 
       {/* ------------------------------------------------------------- */}
-      {/* SEARCH & VEG/NON-VEG FILTER (Pro & Mega) */}
+      {/* SEARCH & VEG/NON-VEG FILTER (Pro & Max) */}
       {/* ------------------------------------------------------------- */}
       {!isBase && (
         <div className="max-w-5xl mx-auto -mt-6 px-4 relative z-10 w-full">
@@ -1047,7 +1052,7 @@ export const RestaurantDemo: React.FC<RestaurantDemoProps> = ({ demo, onPlanChan
       </section>
 
       {/* ------------------------------------------------------------- */}
-      {/* CHEF DEGUSTATION & PAIRINGS (Pro & Mega) */}
+      {/* CHEF DEGUSTATION & PAIRINGS (Pro & Max) */}
       {/* ------------------------------------------------------------- */}
       {!isBase && (
         <section id="specials" className={`py-14 border-y px-4 sm:px-6 ${theme.specialsSectionBg}`}>
@@ -1141,7 +1146,7 @@ export const RestaurantDemo: React.FC<RestaurantDemoProps> = ({ demo, onPlanChan
       </section>
 
       {/* ------------------------------------------------------------- */}
-      {/* GUEST ACCOLADES (Pro & Mega) */}
+      {/* GUEST ACCOLADES (Pro & Max) */}
       {/* ------------------------------------------------------------- */}
       {!isBase && (
         <section id="reviews" className={`py-14 px-4 sm:px-6 border-t ${theme.reviewsBg}`}>
@@ -1186,9 +1191,9 @@ export const RestaurantDemo: React.FC<RestaurantDemoProps> = ({ demo, onPlanChan
       )}
 
       {/* ------------------------------------------------------------- */}
-      {/* INTERACTIVE MAP DEMO (Mega Plan ₹24,999: Restaurant & Apni Location) */}
+      {/* INTERACTIVE MAP DEMO (Max Plan ₹24,999: Restaurant & Apni Location) */}
       {/* ------------------------------------------------------------- */}
-      {isMega && (
+      {isMax && (
         <section id="location" className={`py-14 px-4 sm:px-6 border-t ${theme.reviewsBg}`}>
           <div className="max-w-5xl mx-auto space-y-6">
             
@@ -1196,7 +1201,7 @@ export const RestaurantDemo: React.FC<RestaurantDemoProps> = ({ demo, onPlanChan
             <div className="text-center space-y-1.5 max-w-xl mx-auto">
               <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-[10px] font-black uppercase tracking-wider bg-rose-500/10 text-rose-400 border border-rose-500/30">
                 <Compass className="w-3.5 h-3.5 text-rose-400 animate-spin" style={{ animationDuration: '8s' }} />
-                <span>Live GPS & Location Demo (₹24,999 Mega Plan)</span>
+                <span>Live GPS & Location Demo ({maxPrice} Max Plan)</span>
               </div>
               <h2 className={`font-serif text-2xl sm:text-4xl font-black ${theme.menuSectionHeaderTitle}`}>
                 Find La Maison Bistro & Track Your Distance
@@ -1545,7 +1550,7 @@ export const RestaurantDemo: React.FC<RestaurantDemoProps> = ({ demo, onPlanChan
             </p>
             <div className="pt-2">
               <a
-                href="https://wa.me/919876543210?text=Hi%20La%20Maison%20Bistro%2C%20I%20would%20like%20to%20reserve%20a%20table%20for%20dinner"
+                href="https://wa.me/919137283810?text=Hello%20Upscale%20Nova%2C%20I%20am%20interested%20in%20your%20services.%20Please%20provide%20more%20information."
                 target="_blank" 
                 rel="noreferrer"
                 className="inline-flex items-center gap-2 bg-emerald-900/80 hover:bg-emerald-800 text-emerald-200 border border-emerald-700/80 px-4 py-2 rounded-full text-xs font-bold transition-all shadow-md"
@@ -1591,12 +1596,12 @@ export const RestaurantDemo: React.FC<RestaurantDemoProps> = ({ demo, onPlanChan
         </div>
 
         <div className="pt-6 border-t text-center text-xs opacity-60 border-inherit">
-          © 2026 La Maison Gourmet Bistro • {isBase ? 'Base Plan ₹12,999' : isPro ? 'Pro Plan ₹16,999' : 'Mega Plan ₹24,999'}
+          © 2026 La Maison Gourmet Bistro • {isBase ? `Base Plan ${basePrice}` : isPro ? `Pro Plan ${proPrice}` : `Max Plan ${maxPrice}`}
         </div>
       </footer>
 
       {/* ------------------------------------------------------------- */}
-      {/* BASKET DRAWER (Pro & Mega) */}
+      {/* BASKET DRAWER (Pro & Max) */}
       {/* ------------------------------------------------------------- */}
       {isCartOpen && (
         <div className="fixed inset-0 z-50 bg-black/80 backdrop-blur-sm flex justify-end animate-fadeIn">
@@ -1909,7 +1914,7 @@ export const RestaurantDemo: React.FC<RestaurantDemoProps> = ({ demo, onPlanChan
 
             <button
               onClick={() => {
-                alert(`Simulated Table Payment of ₹${grandTotal} Successful! Kitchen order ticket sent to Chef.`);
+                console.log(`Simulated Table Payment of ₹${grandTotal} Successful! Kitchen order ticket sent to Chef.`);
                 setIsUpiModalOpen(false);
                 clearCart();
               }}
@@ -1980,14 +1985,14 @@ export const RestaurantDemo: React.FC<RestaurantDemoProps> = ({ demo, onPlanChan
       )}
 
       {/* ------------------------------------------------------------- */}
-      {/* FLOATING QUICK BASKET BUTTON (Mobile & Desktop Floating on Pro & Mega) */}
+      {/* FLOATING QUICK BASKET BUTTON (Mobile & Desktop Floating on Pro & Max) */}
       {/* ------------------------------------------------------------- */}
       {!isBase && cartCount > 0 && (
         <div className="fixed bottom-6 left-6 z-40 animate-slideUp">
           <button
             onClick={() => setIsCartOpen(true)}
             className={`${
-              isMega 
+              isMax 
                 ? `${currentBasketTheme.bg} ${currentBasketTheme.text} ${currentBasketTheme.border} ${currentBasketTheme.glow} ${
                     isBasketBouncing ? 'scale-110 ring-4 ring-white/40' : 'hover:scale-105'
                   }` 
@@ -1998,7 +2003,7 @@ export const RestaurantDemo: React.FC<RestaurantDemoProps> = ({ demo, onPlanChan
             <ShoppingBag className="w-4 h-4 shrink-0" />
             <span className="font-serif font-black text-xs">View Basket ({cartCount})</span>
             <span className={`px-2 py-0.5 rounded-full text-[10px] font-black ${
-              isMega ? `${currentBasketTheme.badgeBg} ${currentBasketTheme.badgeText}` : 'bg-black/40 text-white'
+              isMax ? `${currentBasketTheme.badgeBg} ${currentBasketTheme.badgeText}` : 'bg-black/40 text-white'
             }`}>
               ₹{grandTotal}
             </span>
@@ -2007,9 +2012,9 @@ export const RestaurantDemo: React.FC<RestaurantDemoProps> = ({ demo, onPlanChan
       )}
 
       {/* ------------------------------------------------------------- */}
-      {/* MEGA PLAN: SOMMELIER AI ASSISTANT WIDGET */}
+      {/* MAX PLAN: SOMMELIER AI ASSISTANT WIDGET */}
       {/* ------------------------------------------------------------- */}
-      {isMega && (
+      {isMax && (
         <>
           <button
             onClick={() => setIsAiOpen(!isAiOpen)}
@@ -2059,7 +2064,7 @@ export const RestaurantDemo: React.FC<RestaurantDemoProps> = ({ demo, onPlanChan
       )}
 
       {/* ------------------------------------------------------------- */}
-      {/* MEGA PLAN: LIVE KDS CHEF DISPLAY SCREEN */}
+      {/* MAX PLAN: LIVE KDS CHEF DISPLAY SCREEN */}
       {/* ------------------------------------------------------------- */}
       {showKdsDashboard && (
         <div className="fixed inset-0 z-50 bg-black/90 backdrop-blur-md flex items-center justify-center p-4">

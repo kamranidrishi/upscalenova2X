@@ -10,16 +10,45 @@ interface ModalProps {
 
 export const QuoteModal: React.FC<ModalProps> = ({ isOpen, onClose, serviceTitle }) => {
   const [name, setName] = useState('');
+  const [countryCode, setCountryCode] = useState('+91');
   const [phone, setPhone] = useState('');
-  const [businessName, setBusinessName] = useState('');
   const [service, setService] = useState(serviceTitle || 'Custom Website Design');
-  const [details, setDetails] = useState('');
+  const [phoneError, setPhoneError] = useState('');
   const [submitted, setSubmitted] = useState(false);
 
   if (!isOpen) return null;
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
+    setPhoneError('');
+    
+    if (phone.length !== 10) {
+      setPhoneError("Please enter a valid 10-digit mobile number.");
+      return;
+    }
+
+    const message = `Hello Upscale Nova
+
+I would like to request a quote.
+
+Customer Details
+Name: ${name}
+Phone: ${countryCode}${phone}
+
+Service Interested In
+${service}
+
+
+Thank you.`;
+
+    const encodedMessage = encodeURIComponent(message);
+    const whatsappUrl = `https://wa.me/919137283810?text=${encodedMessage}`;
+    
+    const link = document.createElement('a');
+    link.href = whatsappUrl;
+    link.target = '_blank';
+    link.rel = 'noopener noreferrer';
+    link.click();
     setSubmitted(true);
   };
 
@@ -111,25 +140,29 @@ export const QuoteModal: React.FC<ModalProps> = ({ isOpen, onClose, serviceTitle
 
               <div>
                 <label className="block text-xs font-bold text-slate-700 mb-1">Phone Number *</label>
-                <input
-                  type="tel"
-                  required
-                  value={phone}
-                  onChange={(e) => setPhone(e.target.value)}
-                  placeholder="e.g. 91372 83810"
-                  className="w-full bg-slate-50 border border-slate-200 rounded-xl px-4 py-2.5 text-sm font-semibold text-slate-800 focus:outline-none focus:ring-2 focus:ring-indigo-500"
-                />
-              </div>
-
-              <div>
-                <label className="block text-xs font-bold text-slate-700 mb-1">Business Name</label>
-                <input
-                  type="text"
-                  value={businessName}
-                  onChange={(e) => setBusinessName(e.target.value)}
-                  placeholder="e.g. Kala Ghoda Cafe"
-                  className="w-full bg-slate-50 border border-slate-200 rounded-xl px-4 py-2.5 text-sm font-semibold text-slate-800 focus:outline-none focus:ring-2 focus:ring-indigo-500"
-                />
+                <div className="flex gap-2">
+                  <select
+                    value={countryCode}
+                    onChange={(e) => setCountryCode(e.target.value)}
+                    className="bg-slate-50 border border-slate-200 rounded-xl px-3 py-2.5 text-sm font-semibold text-slate-800 focus:outline-none focus:ring-2 focus:ring-indigo-500 max-w-[100px]"
+                  >
+                    <option value="+91">🇮🇳 +91</option>
+                  </select>
+                  <input
+                    type="tel"
+                    required
+                    maxLength={10}
+                    value={phone}
+                    onChange={(e) => {
+                      const val = e.target.value.replace(/\D/g, '').slice(0, 10);
+                      setPhone(val);
+                      if (val.length === 10) setPhoneError('');
+                    }}
+                    placeholder="10-digit number"
+                    className="w-full bg-slate-50 border border-slate-200 rounded-xl px-4 py-2.5 text-sm font-semibold text-slate-800 focus:outline-none focus:ring-2 focus:ring-indigo-500"
+                  />
+                </div>
+                {phoneError && <p className="text-red-500 text-xs mt-1 font-bold">{phoneError}</p>}
               </div>
 
               <div>
@@ -138,17 +171,6 @@ export const QuoteModal: React.FC<ModalProps> = ({ isOpen, onClose, serviceTitle
                   type="text"
                   value={service}
                   onChange={(e) => setService(e.target.value)}
-                  className="w-full bg-slate-50 border border-slate-200 rounded-xl px-4 py-2.5 text-sm font-semibold text-slate-800 focus:outline-none focus:ring-2 focus:ring-indigo-500"
-                />
-              </div>
-
-              <div>
-                <label className="block text-xs font-bold text-slate-700 mb-1">Project Notes / Requirements</label>
-                <textarea
-                  rows={2}
-                  value={details}
-                  onChange={(e) => setDetails(e.target.value)}
-                  placeholder="Tell us what you need..."
                   className="w-full bg-slate-50 border border-slate-200 rounded-xl px-4 py-2.5 text-sm font-semibold text-slate-800 focus:outline-none focus:ring-2 focus:ring-indigo-500"
                 />
               </div>
