@@ -17,7 +17,21 @@ export const Header: React.FC<HeaderProps> = ({ onOpenQuoteModal }) => {
           {/* Logo */}
           <a href="#" className="flex items-center gap-3 group">
             <div className="w-10 h-10 flex items-center justify-center shrink-0 p-1 rounded-xl bg-white/60 backdrop-blur-md border border-slate-200/80 shadow-xs group-hover:border-indigo-300 transition-all overflow-hidden">
-              <img src={COMPANY_LOGO} alt="Upscale Nova" className="w-full h-full object-contain group-hover:scale-105 transition-transform" />
+              <img 
+                src={COMPANY_LOGO} 
+                alt="Upscale Nova" 
+                className="w-full h-full object-contain group-hover:scale-105 transition-transform" 
+                onError={(e) => {
+                  const target = e.currentTarget;
+                  if (!target.dataset.tried) {
+                    target.dataset.tried = '1';
+                    target.src = '/assets/upscale-nova-logo.png';
+                  } else if (target.dataset.tried === '1') {
+                    target.dataset.tried = '2';
+                    target.src = '/logo.png';
+                  }
+                }}
+              />
             </div>
             <div className="flex flex-col">
               <span className="text-lg font-extrabold tracking-tight text-slate-900 group-hover:text-indigo-600 transition-colors">

@@ -24,7 +24,21 @@ export const Footer: React.FC<FooterProps> = ({
           <div className="lg:col-span-5 space-y-4">
             <div className="flex items-center gap-3">
               <div className="w-10 h-10 flex items-center justify-center shrink-0 rounded-full overflow-hidden">
-                <img src={COMPANY_LOGO} alt="Upscale Nova" className="w-full h-full object-contain rounded-full" />
+                <img 
+                  src={COMPANY_LOGO} 
+                  alt="Upscale Nova" 
+                  className="w-full h-full object-contain rounded-full" 
+                  onError={(e) => {
+                    const target = e.currentTarget;
+                    if (!target.dataset.tried) {
+                      target.dataset.tried = '1';
+                      target.src = '/assets/upscale-nova-logo.png';
+                    } else if (target.dataset.tried === '1') {
+                      target.dataset.tried = '2';
+                      target.src = '/logo.png';
+                    }
+                  }}
+                />
               </div>
               <span className="text-xl font-extrabold text-white tracking-tight">Upscale Nova</span>
             </div>
