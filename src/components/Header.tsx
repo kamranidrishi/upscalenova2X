@@ -1,7 +1,6 @@
 import React, { useState } from 'react';
 import { Phone, MessageSquare, Menu as MenuIcon, X, Sparkles } from 'lucide-react';
-import { COMPANY_PHONE_DISPLAY, WHATSAPP_LINK, CALL_LINK, COMPANY_LOGO } from '../data/content';
-import { UpscaleNovaLogo } from './UpscaleNovaLogo';
+import { COMPANY_PHONE_DISPLAY, WHATSAPP_LINK, CALL_LINK } from '../data/content';
 
 interface HeaderProps {
   onOpenQuoteModal: (serviceName?: string) => void;
@@ -9,7 +8,6 @@ interface HeaderProps {
 
 export const Header: React.FC<HeaderProps> = ({ onOpenQuoteModal }) => {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
-  const [logoLoadFailed, setLogoLoadFailed] = useState(false);
 
   return (
     <header className="sticky top-0 z-50 bg-white/70 backdrop-blur-2xl backdrop-saturate-150 border-b border-slate-200/60 shadow-[0_8px_32px_0_rgba(31,38,135,0.05)] transition-all duration-300 relative before:absolute before:inset-x-0 before:top-0 before:h-px before:bg-gradient-to-r before:from-transparent before:via-white/90 before:to-transparent">
@@ -19,16 +17,11 @@ export const Header: React.FC<HeaderProps> = ({ onOpenQuoteModal }) => {
           {/* Logo */}
           <a href="#" className="flex items-center gap-3 group">
             <div className="w-10 h-10 flex items-center justify-center shrink-0 p-1 rounded-xl bg-white shadow-xs border border-slate-200/90 group-hover:border-indigo-400 group-hover:shadow-indigo-500/10 transition-all duration-300 overflow-hidden">
-              {!logoLoadFailed ? (
-                <img 
-                  src={COMPANY_LOGO} 
-                  alt="Upscale Nova Logo" 
-                  className="w-full h-full object-contain group-hover:scale-105 transition-transform duration-300" 
-                  onError={() => setLogoLoadFailed(true)}
-                />
-              ) : (
-                <UpscaleNovaLogo className="w-full h-full group-hover:scale-105 transition-transform duration-300" />
-              )}
+              <img 
+                src="/logo.png" 
+                alt="Upscale Nova Logo" 
+                className="w-full h-full object-contain group-hover:scale-105 transition-transform duration-300" 
+              />
             </div>
             <div className="flex flex-col">
               <span className="text-lg font-extrabold tracking-tight text-slate-900 group-hover:text-indigo-600 transition-colors">
