@@ -49,8 +49,8 @@ interface FinFlowProDemoProps {
 
 export const FinFlowProDemo: React.FC<FinFlowProDemoProps> = ({ demo, isMobile, isTablet }) => {
   const [activeTab, setActiveTab] = useState<
-    'dashboard' | 'accounts' | 'transactions' | 'analytics' | 'reports' | 'services' | 'pricing' | 'about' | 'contact'
-  >('dashboard');
+    'home' | 'dashboard' | 'accounts' | 'transactions' | 'analytics' | 'reports' | 'services' | 'pricing' | 'about' | 'contact'
+  >('home');
 
   const [selectedAccountId, setSelectedAccountId] = useState('acc-1');
   const [copiedAccount, setCopiedAccount] = useState<string | null>(null);
@@ -165,7 +165,7 @@ export const FinFlowProDemo: React.FC<FinFlowProDemoProps> = ({ demo, isMobile, 
 
         {/* Desktop Navigation */}
         <nav className="hidden lg:flex items-center gap-1 text-xs font-semibold text-slate-400">
-          {(['dashboard', 'accounts', 'transactions', 'analytics', 'reports', 'services', 'pricing', 'about', 'contact'] as const).map((tab) => (
+          {(['home', 'dashboard', 'accounts', 'transactions', 'analytics', 'reports', 'services', 'pricing', 'about', 'contact'] as const).map((tab) => (
             <button
               key={tab}
               onClick={() => setActiveTab(tab)}
@@ -199,7 +199,7 @@ export const FinFlowProDemo: React.FC<FinFlowProDemoProps> = ({ demo, isMobile, 
 
       {/* Sub Nav for mobile/tablet */}
       <div className="lg:hidden flex items-center bg-[#0e1938] border-b border-slate-800 px-2 py-2 overflow-x-auto gap-1 text-xs">
-        {(['dashboard', 'accounts', 'transactions', 'analytics', 'reports', 'services', 'pricing', 'about', 'contact'] as const).map((tab) => (
+        {(['home', 'dashboard', 'accounts', 'transactions', 'analytics', 'reports', 'services', 'pricing', 'about', 'contact'] as const).map((tab) => (
           <button
             key={tab}
             onClick={() => setActiveTab(tab)}
@@ -214,6 +214,102 @@ export const FinFlowProDemo: React.FC<FinFlowProDemoProps> = ({ demo, isMobile, 
 
       {/* MAIN CONTAINER */}
       <main className="flex-1 p-4 sm:p-6 max-w-7xl mx-auto w-full space-y-6">
+
+        {/* ===================== HOME VIEW ===================== */}
+        {activeTab === 'home' && (
+          <div className="space-y-8 pb-12">
+            {/* Hero Section */}
+            <div className="relative rounded-3xl bg-gradient-to-br from-[#0e1938] via-[#0d1730] to-[#0b132b] border border-blue-500/30 p-6 sm:p-10 shadow-2xl overflow-hidden">
+              <div className="max-w-3xl space-y-4 relative z-10">
+                <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-blue-950/80 border border-blue-700/60 text-cyan-300 text-xs font-mono">
+                  <Sparkles className="w-3.5 h-3.5 text-cyan-400" /> ₹34,999 Pro Financial SaaS Platform
+                </div>
+                <h1 className="text-2xl sm:text-4xl lg:text-5xl font-black text-white tracking-tight leading-tight">
+                  Next-Gen Treasury & Financial Operations for Growing SaaS
+                </h1>
+                <p className="text-xs sm:text-sm text-slate-300 leading-relaxed max-w-2xl">
+                  Centralize operating accounts, escrow reserves, and international wires into one dark-mode command center. Analyze real-time cash velocity, reconcile taxes, and export audit-ready reports.
+                </p>
+
+                <div className="flex flex-wrap items-center gap-3 pt-2">
+                  <button 
+                    onClick={() => setActiveTab('dashboard')}
+                    className="bg-gradient-to-r from-blue-600 to-cyan-500 hover:from-blue-500 hover:to-cyan-400 text-slate-950 font-black px-5 py-2.5 rounded-xl text-xs flex items-center gap-2 shadow-lg shadow-blue-600/30 transition-all"
+                  >
+                    Launch Pro Dashboard <ArrowRight className="w-4 h-4" />
+                  </button>
+                  <button 
+                    onClick={() => setIsTransferModalOpen(true)}
+                    className="bg-slate-900/80 hover:bg-slate-800 text-slate-200 border border-slate-700 font-bold px-5 py-2.5 rounded-xl text-xs flex items-center gap-1.5 transition-colors"
+                  >
+                    <Send className="w-3.5 h-3.5 text-cyan-400" /> Simulate Funds Transfer
+                  </button>
+                </div>
+              </div>
+
+              {/* Decorative Background Element */}
+              <div className="absolute right-0 top-0 w-80 h-80 bg-blue-600/10 rounded-full blur-3xl pointer-events-none" />
+            </div>
+
+            {/* Quick Metrics Bar */}
+            <div className="grid grid-cols-2 lg:grid-cols-4 gap-4">
+              {[
+                { label: 'Active Treasury Balance', val: '₹72,55,400', sub: 'Across 4 Accounts', color: 'text-cyan-400' },
+                { label: 'Monthly Net Velocity', val: '+₹6,26,550', sub: '22% Margin Surge', color: 'text-emerald-400' },
+                { label: 'Runway Forecast', val: '18.4 Months', sub: 'Safe Operating Buffer', color: 'text-blue-400' },
+                { label: 'TDS Input Credit', val: '₹84,500', sub: 'Form 26AS Matched', color: 'text-amber-400' },
+              ].map((m, i) => (
+                <div key={i} className="bg-slate-900/90 border border-slate-800 p-5 rounded-2xl space-y-1">
+                  <div className="text-[11px] text-slate-400 font-semibold">{m.label}</div>
+                  <div className={`text-xl sm:text-2xl font-black font-mono ${m.color}`}>{m.val}</div>
+                  <div className="text-[10px] text-slate-500 font-medium">{m.sub}</div>
+                </div>
+              ))}
+            </div>
+
+            {/* Feature Spotlight Grid */}
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+              <div className="bg-slate-900/90 border border-slate-800 p-6 rounded-3xl space-y-3">
+                <div className="w-10 h-10 rounded-2xl bg-blue-600/20 text-cyan-400 border border-blue-500/30 flex items-center justify-center">
+                  <Layers className="w-5 h-5" />
+                </div>
+                <h3 className="text-base font-bold text-white">Multi-Account Vaults</h3>
+                <p className="text-xs text-slate-400 leading-relaxed">
+                  Isolate capital into Operating, Escrow, Payroll, and Global USD Wires with automated rule-based distribution.
+                </p>
+                <button onClick={() => setActiveTab('accounts')} className="text-xs text-cyan-400 font-bold flex items-center gap-1 pt-1">
+                  Explore Accounts <ChevronRight className="w-3.5 h-3.5" />
+                </button>
+              </div>
+
+              <div className="bg-slate-900/90 border border-slate-800 p-6 rounded-3xl space-y-3">
+                <div className="w-10 h-10 rounded-2xl bg-cyan-600/20 text-cyan-400 border border-cyan-500/30 flex items-center justify-center">
+                  <BarChart3 className="w-5 h-5" />
+                </div>
+                <h3 className="text-base font-bold text-white">Live Cash Analytics</h3>
+                <p className="text-xs text-slate-400 leading-relaxed">
+                  Interactive cash velocity charts, category-based expense distributions, and automated burn rate calculations.
+                </p>
+                <button onClick={() => setActiveTab('analytics')} className="text-xs text-cyan-400 font-bold flex items-center gap-1 pt-1">
+                  View Analytics <ChevronRight className="w-3.5 h-3.5" />
+                </button>
+              </div>
+
+              <div className="bg-slate-900/90 border border-slate-800 p-6 rounded-3xl space-y-3">
+                <div className="w-10 h-10 rounded-2xl bg-emerald-600/20 text-emerald-400 border border-emerald-500/30 flex items-center justify-center">
+                  <FileText className="w-5 h-5" />
+                </div>
+                <h3 className="text-base font-bold text-white">Exportable Audit Reports</h3>
+                <p className="text-xs text-slate-400 leading-relaxed">
+                  One-click export of monthly GST summaries, profit & loss statements, and full-year transaction ledgers in PDF and CSV.
+                </p>
+                <button onClick={() => setActiveTab('reports')} className="text-xs text-emerald-400 font-bold flex items-center gap-1 pt-1">
+                  View Reports <ChevronRight className="w-3.5 h-3.5" />
+                </button>
+              </div>
+            </div>
+          </div>
+        )}
 
         {/* ===================== DASHBOARD VIEW ===================== */}
         {activeTab === 'dashboard' && (
