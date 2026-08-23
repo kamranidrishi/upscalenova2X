@@ -3,7 +3,6 @@ import { ServiceItem, IndustryItem, ProductItem, PricingPlan, Testimonial, FAQIt
 import qrStandImage from '../assets/images/google_review_qr_stand_1786540148272.jpg';
 import socialStandImage from '../assets/images/social_media_qr_stand_1786540162964.jpg';
 import menuStandImage from '../assets/images/digital_menu_qr_stand_1786540175843.jpg';
-import upscaleNovaLogo from '../assets/images/upscale_nova_logo.png';
 
 export const COMPANY_PHONE = "9137283810";
 export const COMPANY_PHONE_DISPLAY = "+91 91372 83810";
