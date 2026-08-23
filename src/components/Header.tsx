@@ -21,16 +21,6 @@ export const Header: React.FC<HeaderProps> = ({ onOpenQuoteModal }) => {
                 src={COMPANY_LOGO} 
                 alt="Upscale Nova" 
                 className="w-full h-full object-contain group-hover:scale-105 transition-transform" 
-                onError={(e) => {
-                  const target = e.currentTarget;
-                  if (!target.dataset.tried) {
-                    target.dataset.tried = '1';
-                    target.src = '/assets/upscale-nova-logo.png';
-                  } else if (target.dataset.tried === '1') {
-                    target.dataset.tried = '2';
-                    target.src = '/logo.png';
-                  }
-                }}
               />
             </div>
             <div className="flex flex-col">

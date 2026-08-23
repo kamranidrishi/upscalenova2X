@@ -28,16 +28,6 @@ export const Footer: React.FC<FooterProps> = ({
                   src={COMPANY_LOGO} 
                   alt="Upscale Nova" 
                   className="w-full h-full object-contain rounded-full" 
-                  onError={(e) => {
-                    const target = e.currentTarget;
-                    if (!target.dataset.tried) {
-                      target.dataset.tried = '1';
-                      target.src = '/assets/upscale-nova-logo.png';
-                    } else if (target.dataset.tried === '1') {
-                      target.dataset.tried = '2';
-                      target.src = '/logo.png';
-                    }
-                  }}
                 />
               </div>
               <span className="text-xl font-extrabold text-white tracking-tight">Upscale Nova</span>
