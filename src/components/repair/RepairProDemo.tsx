@@ -202,7 +202,7 @@ export const RepairProDemo: React.FC<RepairProDemoProps> = ({ isMobile }) => {
   ];
 
   return (
-    <div className="w-full h-full bg-[#0F172A] text-slate-100 font-sans overflow-y-auto overflow-x-hidden custom-scrollbar">
+    <div className="w-full min-h-full bg-[#0F172A] text-slate-100 font-sans overflow-x-hidden custom-scrollbar">
       
       {/* 1. TOP PRO EMERGENCY BAR */}
       <div className="bg-gradient-to-r from-slate-900 via-blue-950 to-slate-900 border-b border-blue-900/60 text-xs py-2 px-4 text-blue-200">

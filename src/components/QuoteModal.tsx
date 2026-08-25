@@ -127,24 +127,24 @@ Thank you.`;
             {/* Form */}
             <form onSubmit={handleSubmit} className="space-y-4">
               <div>
-                <label className="block text-xs font-bold text-slate-700 mb-1">Your Name *</label>
+                <label className="block text-sm font-semibold text-slate-700 mb-1.5">Full Name *</label>
                 <input
                   type="text"
                   required
                   value={name}
                   onChange={(e) => setName(e.target.value)}
                   placeholder="e.g. Rahul Sharma"
-                  className="w-full bg-slate-50 border border-slate-200 rounded-xl px-4 py-2.5 text-sm font-semibold text-slate-800 focus:outline-none focus:ring-2 focus:ring-indigo-500"
+                  className="w-full bg-white border border-slate-300 rounded-xl px-4 py-3 text-sm text-slate-900 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500 transition-shadow"
                 />
               </div>
 
               <div>
-                <label className="block text-xs font-bold text-slate-700 mb-1">Phone Number *</label>
+                <label className="block text-sm font-semibold text-slate-700 mb-1.5">Phone Number *</label>
                 <div className="flex gap-2">
                   <select
                     value={countryCode}
                     onChange={(e) => setCountryCode(e.target.value)}
-                    className="bg-slate-50 border border-slate-200 rounded-xl px-3 py-2.5 text-sm font-semibold text-slate-800 focus:outline-none focus:ring-2 focus:ring-indigo-500 max-w-[100px]"
+                    className="bg-white border border-slate-300 rounded-xl px-3 py-3 text-sm text-slate-900 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500 transition-shadow max-w-[100px]"
                   >
                     <option value="+91">🇮🇳 +91</option>
                   </select>
@@ -159,25 +159,25 @@ Thank you.`;
                       if (val.length === 10) setPhoneError('');
                     }}
                     placeholder="10-digit number"
-                    className="w-full bg-slate-50 border border-slate-200 rounded-xl px-4 py-2.5 text-sm font-semibold text-slate-800 focus:outline-none focus:ring-2 focus:ring-indigo-500"
+                    className="w-full bg-white border border-slate-300 rounded-xl px-4 py-3 text-sm text-slate-900 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500 transition-shadow"
                   />
                 </div>
                 {phoneError && <p className="text-red-500 text-xs mt-1 font-bold">{phoneError}</p>}
               </div>
 
               <div>
-                <label className="block text-xs font-bold text-slate-700 mb-1">Service Interested In</label>
+                <label className="block text-sm font-semibold text-slate-700 mb-1.5">Service Interested In</label>
                 <input
                   type="text"
                   value={service}
                   onChange={(e) => setService(e.target.value)}
-                  className="w-full bg-slate-50 border border-slate-200 rounded-xl px-4 py-2.5 text-sm font-semibold text-slate-800 focus:outline-none focus:ring-2 focus:ring-indigo-500"
+                  className="w-full bg-white border border-slate-300 rounded-xl px-4 py-3 text-sm text-slate-900 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500 transition-shadow"
                 />
               </div>
 
               <button
                 type="submit"
-                className="w-full bg-indigo-600 hover:bg-indigo-700 text-white font-extrabold py-3.5 rounded-2xl text-sm shadow-md transition-colors flex items-center justify-center gap-2"
+                className="w-full bg-indigo-600 hover:bg-indigo-700 text-white font-semibold py-3.5 rounded-xl text-sm shadow-md hover:shadow-lg transition-all flex items-center justify-center gap-2 focus:outline-none focus:ring-2 focus:ring-indigo-600 focus:ring-offset-2 active:scale-95"
               >
                 <span>Submit Consultation Request</span>
                 <Send className="w-4 h-4" />

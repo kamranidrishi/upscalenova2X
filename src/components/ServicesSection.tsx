@@ -53,16 +53,16 @@ export const ServicesSection: React.FC<ServicesProps> = ({ onOpenQuoteModal }) =
                 <h3 className="text-xl font-extrabold text-slate-900 group-hover:text-indigo-600 transition-colors">
                   {service.title}
                 </h3>
-                <p className="text-slate-600 text-sm leading-relaxed font-normal">
+                <p className="text-slate-600 text-sm leading-relaxed font-medium">
                   {service.description}
                 </p>
               </div>
 
               {/* Actions */}
-              <div className="pt-4 border-t border-slate-100 flex items-center justify-start text-xs font-bold">
+              <div className="pt-4 border-t border-slate-100 flex items-center justify-start text-sm font-semibold">
                 <button
                   onClick={() => onOpenQuoteModal(service.title)}
-                  className="text-indigo-600 hover:text-indigo-800 flex items-center gap-1 group-hover:translate-x-1 transition-transform"
+                  className="text-indigo-600 hover:text-indigo-800 flex items-center gap-1.5 font-semibold text-sm group-hover:translate-x-1 transition-transform focus:outline-none focus:underline"
                 >
                   <span>Inquire Now</span>
                   <ArrowRight className="w-3.5 h-3.5" />

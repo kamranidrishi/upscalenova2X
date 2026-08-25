@@ -201,7 +201,7 @@ export const CognitaMaxDemo: React.FC<CognitaMaxDemoProps> = ({ isMobile, isTabl
   const estimatedAnnualSavings = (teamSize * 145000 + (monthlyQueries / 1000000) * 80000).toLocaleString('en-IN');
 
   return (
-    <div className="w-full h-full bg-[#07090e] text-slate-100 font-sans flex flex-col overflow-y-auto custom-scrollbar select-text">
+    <div className="w-full min-h-full bg-[#07090e] text-slate-100 font-sans flex flex-col custom-scrollbar select-text">
       {/* Top Futuristic Command Header */}
       <header className="sticky top-0 z-40 bg-[#0a0d14]/95 backdrop-blur-xl border-b border-cyan-900/30 shrink-0 px-4 lg:px-8 py-3 flex items-center justify-between shadow-2xl">
         <div className="flex items-center gap-3">

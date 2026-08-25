@@ -7,7 +7,7 @@ import menuStandImage from '../assets/images/digital_menu_qr_stand_1786540175843
 export const COMPANY_PHONE = "9137283810";
 export const COMPANY_PHONE_DISPLAY = "+91 91372 83810";
 export const COMPANY_PHONE_RAW = "9137283810";
-export const COMPANY_EMAIL = "upscalenova@gmail.com";
+export const COMPANY_EMAIL = "hello@upscalenova.com";
 export const COMPANY_LOCATION = "Titwala, Maharashtra (Serving Global Clients)";
 export const WHATSAPP_NUMBER = "919137283810";
 export const WHATSAPP_LINK = `https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent("Hello Upscale Nova, I am interested in your services. Please provide more information.")}`;
@@ -258,6 +258,11 @@ export const TESTIMONIALS: Testimonial[] = [
 ];
 
 export const FAQS: FAQItem[] = [
+  {
+    id: '8',
+    question: 'Why does my business need a website?',
+    answer: 'A professional website acts as your digital storefront, open 24/7. It builds credibility, helps potential customers find you through search engines, and provides a centralized platform to showcase your services, capture leads, and grow your brand in a competitive market.'
+  },
   {
     id: '1',
     question: 'How much does a website cost?',

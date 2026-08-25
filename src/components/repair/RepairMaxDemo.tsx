@@ -129,7 +129,7 @@ export const RepairMaxDemo: React.FC<RepairMaxDemoProps> = ({ isMobile }) => {
   ];
 
   return (
-    <div className="w-full h-full bg-[#090D16] text-slate-100 font-sans overflow-y-auto overflow-x-hidden custom-scrollbar">
+    <div className="w-full min-h-full bg-[#090D16] text-slate-100 font-sans overflow-x-hidden custom-scrollbar">
       
       {/* 1. TOP ENTERPRISE HUD BAR */}
       <div className="bg-slate-950 border-b border-emerald-900/40 text-xs py-2 px-4 text-slate-300">

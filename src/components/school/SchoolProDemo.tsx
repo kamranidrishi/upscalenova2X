@@ -101,7 +101,7 @@ export const SchoolProDemo: React.FC<SchoolProDemoProps> = ({ isMobile, isTablet
   ];
 
   return (
-    <div className="w-full h-full bg-slate-50 text-slate-900 overflow-y-auto overflow-x-hidden font-sans custom-scrollbar">
+    <div className="w-full min-h-full bg-slate-50 text-slate-900 overflow-x-hidden font-sans custom-scrollbar">
       
       {/* Lightbox Modal */}
       {lightboxImg && (

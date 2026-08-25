@@ -26,7 +26,7 @@ export const AgencyDemo: React.FC<{
   };
 
   return (
-    <div onScroll={handleScroll} className="w-full h-full bg-[#050505] text-white font-sans overflow-y-auto overflow-x-hidden custom-scrollbar scroll-smooth selection:bg-red-600/30 selection:text-red-200 relative">
+    <div onScroll={handleScroll} className="w-full min-h-full bg-[#050505] text-white font-sans overflow-x-hidden custom-scrollbar scroll-smooth selection:bg-red-600/30 selection:text-red-200 relative">
       
       {/* NAVBAR */}
       <nav className={`sticky top-0 w-full z-50 transition-all duration-300 ${scrolled ? 'bg-[#050505]/90 backdrop-blur-xl border-b border-white/5 py-4 shadow-lg' : 'bg-transparent py-6'}`}>

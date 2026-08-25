@@ -33,11 +33,11 @@ export const Footer: React.FC<FooterProps> = ({
               <span className="text-xl font-extrabold text-white tracking-tight">Upscale Nova</span>
             </div>
 
-            <p className="text-slate-400 text-xs sm:text-sm leading-relaxed max-w-sm">
+            <p className="text-slate-400 text-sm leading-relaxed max-w-sm">
               Helping businesses build, grow, and manage their digital presence through powerful websites and smart digital solutions.
             </p>
 
-            <div className="pt-2 space-y-2 text-xs font-medium text-slate-300">
+            <div className="pt-2 space-y-2 text-sm font-medium text-slate-300">
               <div className="flex items-center gap-2">
                 <Phone className="w-3.5 h-3.5 text-indigo-400" />
                 <a href={CALL_LINK} className="hover:text-white transition-colors">{COMPANY_PHONE_DISPLAY}</a>
@@ -60,7 +60,7 @@ export const Footer: React.FC<FooterProps> = ({
           {/* Quick Links */}
           <div className="lg:col-span-3 space-y-3">
             <h4 className="text-white font-bold text-sm tracking-wide uppercase">Quick Links</h4>
-            <ul className="space-y-2 text-xs font-semibold">
+            <ul className="space-y-2 text-sm font-semibold">
               <li><a href="#home" className="hover:text-indigo-400 transition-colors">Home</a></li>
               <li><a href="#services" className="hover:text-indigo-400 transition-colors">Services</a></li>
               <li><a href="#products" className="hover:text-indigo-400 transition-colors">Products & QR Stands</a></li>
@@ -74,11 +74,11 @@ export const Footer: React.FC<FooterProps> = ({
           {/* Legal Links */}
           <div className="lg:col-span-4 space-y-3">
             <h4 className="text-white font-bold text-sm tracking-wide uppercase">Legal & Compliance</h4>
-            <ul className="space-y-2 text-xs font-semibold">
+            <ul className="space-y-2 text-sm font-semibold">
               <li>
                 <button 
                   onClick={onOpenPrivacyPolicy}
-                  className="hover:text-indigo-400 transition-colors text-left"
+                  className="hover:text-indigo-400 transition-colors text-left focus:outline-none focus:underline"
                 >
                   Privacy Policy
                 </button>
@@ -86,7 +86,7 @@ export const Footer: React.FC<FooterProps> = ({
               <li>
                 <button 
                   onClick={onOpenTerms}
-                  className="hover:text-indigo-400 transition-colors text-left"
+                  className="hover:text-indigo-400 transition-colors text-left focus:outline-none focus:underline"
                 >
                   Terms & Conditions
                 </button>
@@ -94,7 +94,7 @@ export const Footer: React.FC<FooterProps> = ({
               <li>
                 <button 
                   onClick={onOpenRefundPolicy}
-                  className="hover:text-indigo-400 transition-colors text-left"
+                  className="hover:text-indigo-400 transition-colors text-left focus:outline-none focus:underline"
                 >
                   Refund & Cancellation Policy
                 </button>
@@ -105,7 +105,7 @@ export const Footer: React.FC<FooterProps> = ({
         </div>
 
         {/* Copyright Bottom Bar */}
-        <div className="pt-8 mt-12 border-t border-slate-900 flex flex-col sm:flex-row items-center justify-between text-xs text-slate-500 text-center gap-3">
+        <div className="pt-8 mt-12 border-t border-slate-900 flex flex-col sm:flex-row items-center justify-between text-sm text-slate-500 text-center gap-3">
           <p>© 2026 Upscale Nova. All rights reserved.</p>
           <p className="flex items-center gap-1">
             <span>Customer Helpline:</span>

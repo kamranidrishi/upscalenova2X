@@ -155,7 +155,7 @@ export const RealEstateDemo: React.FC<RealEstateDemoProps> = ({ demo, isMobile, 
   const currentTourRoom = VIRTUAL_TOUR_ROOMS.find(r => r.id === activeTourRoomId) || VIRTUAL_TOUR_ROOMS[0];
 
   return (
-    <div className="w-full h-full bg-slate-950 text-slate-100 overflow-y-auto overflow-x-hidden font-sans custom-scrollbar select-text">
+    <div className="w-full min-h-full bg-slate-950 text-slate-100 overflow-x-hidden font-sans custom-scrollbar select-text">
       
       {/* ========================================================================= */}
       {/* 1. TOP PACKAGE SWITCHER BAR (Interactive Upscale Nova Package Controller) */}

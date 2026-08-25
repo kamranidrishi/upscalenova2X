@@ -205,7 +205,7 @@ export const GymDemo: React.FC<GymDemoProps> = ({
 
   return (
     <div
-      className={`w-full h-full bg-[#060B14] text-slate-100 overflow-y-auto overflow-x-hidden font-sans custom-scrollbar select-none ${isMax ? "mega-theme" : ""} ${isPro ? "pro-theme" : ""} ${isBase ? "base-theme" : ""}`}
+      className={`w-full min-h-full bg-[#060B14] text-slate-100 overflow-x-hidden font-sans custom-scrollbar select-none ${isMax ? "mega-theme" : ""} ${isPro ? "pro-theme" : ""} ${isBase ? "base-theme" : ""}`}
     >
       {isMax && (
         <style

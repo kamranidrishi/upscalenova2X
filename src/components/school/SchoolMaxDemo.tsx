@@ -86,15 +86,15 @@ export const SchoolMaxDemo: React.FC<SchoolMaxDemoProps> = ({ isMobile, isTablet
   ];
 
   return (
-    <div className="w-full h-full bg-[#030712] text-slate-100 overflow-y-auto overflow-x-hidden font-sans custom-scrollbar">
+    <div className="w-full min-h-full bg-[#FAF9F6] text-stone-800 overflow-x-hidden font-sans custom-scrollbar">
       
       {/* Lightbox / Video Modal */}
       {lightboxMedia && (
-        <div className="fixed inset-0 z-50 bg-black/95 backdrop-blur-md flex items-center justify-center p-4">
-          <div className="relative max-w-4xl w-full bg-slate-900/90 rounded-3xl border border-indigo-500/30 overflow-hidden shadow-2xl">
+        <div className="fixed inset-0 z-50 bg-slate-950/80 backdrop-blur-xs flex items-center justify-center p-4">
+          <div className="relative max-w-4xl w-full bg-[#0B1B3D] rounded-xl border border-[#1C3566] overflow-hidden shadow-2xl">
             <button
               onClick={() => setLightboxMedia(null)}
-              className="absolute top-4 right-4 z-10 text-white hover:text-amber-400 p-2 bg-black/50 rounded-full"
+              className="absolute top-4 right-4 z-10 text-white hover:text-[#E7C797] p-2 bg-[#071326]/80 rounded-full transition-colors"
             >
               <X className="w-6 h-6" />
             </button>
@@ -102,20 +102,20 @@ export const SchoolMaxDemo: React.FC<SchoolMaxDemoProps> = ({ isMobile, isTablet
               <img src={lightboxMedia.url} alt={lightboxMedia.title} className="w-full h-full object-cover" />
               {lightboxMedia.type === 'video' && (
                 <div className="absolute inset-0 bg-black/40 flex items-center justify-center">
-                  <div className="w-20 h-20 rounded-full bg-indigo-600/90 text-white flex items-center justify-center shadow-2xl animate-pulse">
-                    <Play className="w-8 h-8 fill-current ml-1" />
+                  <div className="w-16 h-16 rounded-full bg-[#7B1123] text-white flex items-center justify-center shadow-lg hover:scale-105 transition-transform">
+                    <Play className="w-7 h-7 fill-current ml-1" />
                   </div>
                 </div>
               )}
             </div>
-            <div className="p-5 flex justify-between items-center text-white bg-slate-950">
+            <div className="p-5 flex justify-between items-center text-white bg-[#071326] border-t border-[#152B57]">
               <div>
-                <span className="text-[10px] uppercase font-black tracking-widest text-amber-400 bg-amber-400/10 px-2.5 py-1 rounded-full border border-amber-400/20">
+                <span className="text-[10px] uppercase font-bold tracking-widest text-[#E7C797] bg-[#7B1123]/30 px-2.5 py-1 rounded border border-[#7B1123]/50">
                   {lightboxMedia.tag}
                 </span>
-                <h4 className="text-base font-bold mt-1 text-slate-100">{lightboxMedia.title}</h4>
+                <h4 className="text-base font-serif font-bold mt-1 text-white">{lightboxMedia.title}</h4>
               </div>
-              <span className="text-xs text-indigo-300 font-semibold">{lightboxMedia.type === 'video' ? 'Full 4K Video Tour' : 'High Resolution Photo'}</span>
+              <span className="text-xs text-slate-300 font-medium">{lightboxMedia.type === 'video' ? 'Full Video Tour' : 'High Resolution Photo'}</span>
             </div>
           </div>
         </div>
@@ -123,35 +123,35 @@ export const SchoolMaxDemo: React.FC<SchoolMaxDemoProps> = ({ isMobile, isTablet
 
       {/* Virtual 360 Tour Modal */}
       {virtualTourOpen && (
-        <div className="fixed inset-0 z-50 bg-black/90 backdrop-blur-md flex items-center justify-center p-4">
-          <div className="bg-slate-900 border border-indigo-500/40 rounded-3xl max-w-2xl w-full p-6 sm:p-8 relative text-white space-y-6">
-            <button onClick={() => setVirtualTourOpen(false)} className="absolute top-5 right-5 text-slate-400 hover:text-white">
+        <div className="fixed inset-0 z-50 bg-slate-950/80 backdrop-blur-xs flex items-center justify-center p-4">
+          <div className="bg-[#0B1B3D] border border-[#1C3566] rounded-xl max-w-2xl w-full p-6 sm:p-8 relative text-white space-y-6 shadow-2xl">
+            <button onClick={() => setVirtualTourOpen(false)} className="absolute top-5 right-5 text-slate-400 hover:text-white transition-colors">
               <X className="w-6 h-6" />
             </button>
             <div className="flex items-center gap-3">
-              <div className="w-12 h-12 rounded-2xl bg-indigo-600/20 text-indigo-400 flex items-center justify-center border border-indigo-500/30">
-                <Globe className="w-7 h-7" />
+              <div className="w-12 h-12 rounded-lg bg-[#7B1123] text-white flex items-center justify-center shadow-xs">
+                <Globe className="w-6 h-6" />
               </div>
               <div>
-                <h3 className="text-xl font-black text-white">360° Virtual Campus Experience</h3>
-                <p className="text-xs text-slate-400">Explore our 50-acre flagship infrastructure virtually.</p>
+                <h3 className="text-xl font-serif font-bold text-white">360° Virtual Campus Experience</h3>
+                <p className="text-xs text-slate-300">Explore our 50-acre flagship infrastructure virtually.</p>
               </div>
             </div>
 
             <div className="grid grid-cols-2 gap-3 text-xs font-semibold">
               {['AI & Quantum Research Hub', 'Olympic Aquatic Center', 'Space Observatory Dome', 'Central Amphitheater & Arts Wing'].map((spot, i) => (
-                <div key={i} className="bg-white/5 p-3 rounded-xl border border-white/10 flex items-center gap-2 hover:bg-indigo-600/20 cursor-pointer transition-colors">
-                  <Play className="w-4 h-4 text-amber-400" />
+                <div key={i} className="bg-[#102347] p-3 rounded-lg border border-[#1F3D73] flex items-center gap-2 hover:bg-[#163060] cursor-pointer transition-colors text-slate-200">
+                  <Play className="w-4 h-4 text-[#E7C797] fill-current" />
                   <span>{spot}</span>
                 </div>
               ))}
             </div>
 
-            <div className="bg-indigo-950/60 p-4 rounded-2xl border border-indigo-700/40 text-xs text-indigo-200 flex justify-between items-center">
+            <div className="bg-[#071326] p-4 rounded-lg border border-[#152B57] text-xs text-slate-300 flex justify-between items-center">
               <span>Want an exclusive physical campus tour with the Principal?</span>
               <button 
                 onClick={() => { setVirtualTourOpen(false); handleNav('contact'); }}
-                className="bg-amber-400 text-slate-950 px-4 py-2 rounded-xl font-bold text-xs hover:bg-amber-300"
+                className="bg-[#7B1123] hover:bg-[#680E1D] text-white px-4 py-2 rounded font-bold text-xs transition-colors shadow-xs uppercase tracking-wider"
               >
                 Book VIP Visit
               </button>
@@ -160,62 +160,65 @@ export const SchoolMaxDemo: React.FC<SchoolMaxDemoProps> = ({ isMobile, isTablet
         </div>
       )}
 
-      {/* Top Announcements Bar (Obsidian & Luminescent Gold) */}
-      <div className="bg-[#0B1329] border-b border-indigo-900/40 text-xs px-4 md:px-8 py-2.5 flex flex-wrap justify-between items-center gap-3 text-slate-300">
+      {/* Slim Dark Navy Top Information Bar */}
+      <div className="bg-[#0B1B3D] border-b border-[#142A55] text-xs px-4 md:px-8 py-2.5 flex flex-wrap justify-between items-center gap-3 text-slate-300">
         <div className="flex items-center gap-3 flex-wrap">
-          <span className="bg-gradient-to-r from-amber-400 to-amber-500 text-slate-950 font-black px-2.5 py-0.5 rounded text-[10px] uppercase tracking-wider flex items-center gap-1 shadow-sm">
-            <Trophy className="w-3 h-3" /> FLAGSHIP INSTITUTION
+          <span className="bg-[#7B1123] text-white font-bold px-2.5 py-0.5 rounded text-[10px] uppercase tracking-wider flex items-center gap-1">
+            <Trophy className="w-3 h-3 text-[#E7C797]" /> FLAGSHIP INSTITUTION
           </span>
           <span className="text-slate-300 font-medium hidden sm:inline">
-            CBSE & International Baccalaureate Candidate • Ranked Top 5 in India • Admissions 2026-27 Open
+            CBSE & International Baccalaureate Candidate • Ranked Top 5 in India • Admissions 2026–27 Open
           </span>
         </div>
 
-        <div className="flex items-center gap-6 text-xs font-semibold">
+        <div className="flex items-center gap-6 text-xs font-medium">
+          <a href="mailto:admissions.max@brightfuture.edu.in" className="hidden lg:flex items-center gap-1.5 text-slate-300 hover:text-[#E7C797] transition-colors">
+            <Mail className="w-3.5 h-3.5 text-[#C5A880]" /> admissions.max@brightfuture.edu.in
+          </a>
           <button 
             onClick={() => setVirtualTourOpen(true)}
-            className="text-amber-400 hover:text-amber-300 flex items-center gap-1.5 cursor-pointer font-bold"
+            className="text-[#E7C797] hover:text-white flex items-center gap-1.5 cursor-pointer font-semibold transition-colors"
           >
-            <Globe className="w-3.5 h-3.5" /> 360° Virtual Tour
+            <Globe className="w-3.5 h-3.5 text-[#C5A880]" /> 360° Virtual Tour
           </button>
-          <span className="flex items-center gap-1.5 text-slate-200">
-            <Phone className="w-3.5 h-3.5 text-amber-400" /> +91 99887 76655
+          <span className="flex items-center gap-1.5 text-slate-200 font-semibold">
+            <Phone className="w-3.5 h-3.5 text-[#C5A880]" /> +91 99887 76655
           </span>
         </div>
       </div>
 
-      {/* Cinematic Luxury Dark Header */}
-      <header className="bg-[#030712]/90 backdrop-blur-xl border-b border-white/10 sticky top-0 z-40 shadow-2xl">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 py-4 flex items-center justify-between">
+      {/* Main Navigation Header (Clean Ivory / White Background with Burgundy Accents) */}
+      <header className="bg-white/95 backdrop-blur-xs border-b border-stone-200 sticky top-0 z-40 shadow-[0_2px_10px_rgba(0,0,0,0.03)] text-[#0B1B3D]">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 py-3.5 flex items-center justify-between">
           <div 
             onClick={() => handleNav('home')}
             className="flex items-center gap-3.5 cursor-pointer group"
           >
-            <div className="w-12 h-12 rounded-2xl bg-gradient-to-br from-indigo-600 via-purple-700 to-indigo-900 text-white flex items-center justify-center shadow-xl shadow-indigo-600/30 group-hover:scale-105 transition-transform border border-indigo-400/30">
-              <GraduationCap className="w-7 h-7 text-amber-400" />
+            <div className="w-11 h-11 rounded-lg bg-[#7B1123] text-white flex items-center justify-center shadow-sm group-hover:bg-[#680E1D] transition-colors">
+              <GraduationCap className="w-6 h-6" />
             </div>
             <div>
               <div className="flex items-center gap-2">
-                <h1 className="text-2xl font-black text-white tracking-tight leading-none">BRIGHTFUTURE</h1>
-                <span className="bg-gradient-to-r from-amber-400 to-amber-500 text-slate-950 text-[10px] font-black uppercase px-2 py-0.5 rounded shadow-xs">
+                <h1 className="text-xl font-serif font-bold text-[#0B1B3D] tracking-tight leading-none">BRIGHTFUTURE</h1>
+                <span className="bg-[#7B1123] text-white text-[10px] font-bold uppercase px-2 py-0.5 rounded tracking-wider">
                   MAX
                 </span>
               </div>
-              <p className="text-[11px] font-bold text-indigo-400 tracking-wider uppercase mt-1">World Class Global Academy</p>
+              <p className="text-[11px] font-medium text-stone-500 tracking-wider uppercase mt-0.5">World Class Global Academy</p>
             </div>
           </div>
 
           {/* Desktop Nav Items */}
           {!isMobile && !isTablet && (
-            <nav className="flex items-center gap-1">
+            <nav className="flex items-center gap-2">
               {navItems.map((item) => (
                 <button
                   key={item.id}
                   onClick={() => handleNav(item.id)}
-                  className={`px-3 py-2 rounded-xl text-xs font-black uppercase tracking-wider transition-all ${
+                  className={`px-3 py-2 text-xs uppercase tracking-wider transition-colors font-medium ${
                     activeNav === item.id 
-                      ? 'bg-indigo-600 text-white shadow-lg shadow-indigo-600/40 border border-indigo-400/50' 
-                      : 'text-slate-300 hover:text-white hover:bg-white/5'
+                      ? 'text-[#7B1123] font-bold border-b-2 border-[#7B1123]' 
+                      : 'text-stone-700 hover:text-[#7B1123]'
                   }`}
                 >
                   {item.label}
@@ -223,9 +226,9 @@ export const SchoolMaxDemo: React.FC<SchoolMaxDemoProps> = ({ isMobile, isTablet
               ))}
               <button
                 onClick={() => handleNav('admissions')}
-                className="ml-3 bg-gradient-to-r from-amber-400 via-amber-500 to-yellow-500 hover:from-amber-500 hover:to-amber-600 text-slate-950 font-black text-xs px-5 py-2.5 rounded-xl shadow-xl shadow-amber-400/20 transition-all uppercase tracking-wider"
+                className="ml-3 bg-[#7B1123] hover:bg-[#680E1D] text-white font-semibold text-xs px-5 py-2.5 rounded shadow-sm transition-colors uppercase tracking-wider cursor-pointer"
               >
-                Apply 2026-27
+                Apply 2026–27
               </button>
             </nav>
           )}
@@ -234,22 +237,22 @@ export const SchoolMaxDemo: React.FC<SchoolMaxDemoProps> = ({ isMobile, isTablet
           {(isMobile || isTablet) && (
             <button
               onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-              className="p-2.5 rounded-xl bg-white/10 text-white border border-white/20"
+              className="p-2 rounded-lg bg-stone-100 text-[#0B1B3D] border border-stone-200"
             >
-              <span className="text-xs font-black px-1">MENU</span>
+              <span className="text-xs font-bold px-1">MENU</span>
             </button>
           )}
         </div>
 
         {/* Mobile dropdown */}
         {(isMobile || isTablet) && mobileMenuOpen && (
-          <div className="bg-[#0B1329] border-t border-white/10 px-4 py-4 space-y-1 shadow-2xl">
+          <div className="bg-[#FAF9F6] border-t border-stone-200 px-4 py-4 space-y-1 shadow-lg">
             {navItems.map((item) => (
               <button
                 key={item.id}
                 onClick={() => handleNav(item.id)}
-                className={`w-full text-left px-4 py-3 rounded-xl text-xs font-black uppercase tracking-wider ${
-                  activeNav === item.id ? 'bg-indigo-600 text-white' : 'text-slate-300 hover:bg-white/5'
+                className={`w-full text-left px-4 py-3 rounded-lg text-xs uppercase tracking-wider transition-colors ${
+                  activeNav === item.id ? 'bg-[#7B1123] text-white font-bold' : 'text-stone-700 hover:bg-stone-100'
                 }`}
               >
                 {item.label}
@@ -257,9 +260,9 @@ export const SchoolMaxDemo: React.FC<SchoolMaxDemoProps> = ({ isMobile, isTablet
             ))}
             <button
               onClick={() => handleNav('admissions')}
-              className="w-full bg-gradient-to-r from-amber-400 to-amber-500 text-slate-950 font-black text-xs py-3 rounded-xl uppercase tracking-wider mt-2"
+              className="w-full bg-[#7B1123] hover:bg-[#680E1D] text-white font-bold text-xs py-3 rounded uppercase tracking-wider mt-2 transition-colors cursor-pointer"
             >
-              Apply 2026-27
+              Apply 2026–27
             </button>
           </div>
         )}
@@ -269,106 +272,105 @@ export const SchoolMaxDemo: React.FC<SchoolMaxDemoProps> = ({ isMobile, isTablet
           VIEW: MAX HOME (Cinematic 15-Section Ecosystem)
       ========================================================================= */}
       {activeNav === 'home' && (
-        <div className="space-y-20 pb-24">
+        <div className="space-y-16 pb-24">
           
-          {/* 1. Cinematic Full-Bleed Hero */}
-          <section className="relative min-h-[580px] lg:min-h-[640px] flex items-center justify-center text-center px-4 sm:px-6 overflow-hidden">
-            {/* Background Image with Ambient Dark Overlay */}
+          {/* 1. Large Professional School Campus Hero Section */}
+          <section className="relative min-h-[580px] lg:min-h-[640px] flex items-center px-4 sm:px-8 lg:px-16 overflow-hidden">
+            {/* Background Image with Deep Navy Gradient Overlay */}
             <div className="absolute inset-0 z-0">
               <img 
-                src="https://images.unsplash.com/photo-1509062522246-3755977927d7?auto=format&fit=crop&w=1800&q=80" 
-                alt="Elite campus" 
-                className="w-full h-full object-cover scale-105 filter brightness-50"
+                src="https://images.unsplash.com/photo-1541829070764-84a7d30dd3f3?auto=format&fit=crop&w=1920&q=80" 
+                alt="BrightFuture School campus" 
+                className="w-full h-full object-cover filter brightness-[0.45]"
               />
-              <div className="absolute inset-0 bg-gradient-to-t from-[#030712] via-[#030712]/70 to-transparent"></div>
-              <div className="absolute inset-0 bg-radial-at-c from-indigo-900/30 via-transparent to-transparent"></div>
+              <div className="absolute inset-0 bg-gradient-to-r from-[#0B1B3D] via-[#0B1B3D]/85 to-[#0B1B3D]/50"></div>
             </div>
 
-            <div className="relative z-10 max-w-5xl mx-auto space-y-6 pt-10">
-              <div className="inline-flex items-center gap-2 bg-white/10 backdrop-blur-xl px-4 py-1.5 rounded-full text-xs font-bold border border-white/20 text-indigo-200 shadow-2xl">
-                <Sparkles className="w-4 h-4 text-amber-400" />
-                <span>Cultivating Global Visionaries, Scientists & Pioneers of Tomorrow</span>
+            <div className="relative z-10 max-w-4xl space-y-6 py-12 text-left">
+              <div className="inline-flex items-center gap-2 bg-[#7B1123]/90 text-white px-3.5 py-1.5 rounded text-[11px] font-bold uppercase tracking-widest border border-white/20 shadow-xs">
+                <Sparkles className="w-3.5 h-3.5 text-[#E7C797]" />
+                <span>WELCOME TO BRIGHTFUTURE</span>
               </div>
 
-              <h2 className="text-4xl sm:text-6xl lg:text-7xl font-black tracking-tight leading-[1.05] text-white">
-                Architects of <br className="hidden sm:block" />
-                <span className="text-transparent bg-clip-text bg-gradient-to-r from-amber-300 via-amber-400 to-yellow-200">
-                  Global Leadership
-                </span>
+              <h2 className="text-4xl sm:text-6xl lg:text-7xl font-serif font-bold tracking-tight leading-[1.1] text-white">
+                Inspiring Excellence,<br />
+                <span className="text-[#E7C797] italic font-serif">Building Futures</span>
               </h2>
 
-              <p className="text-slate-300 text-sm sm:text-lg leading-relaxed max-w-3xl mx-auto font-normal">
+              <p className="text-slate-200 text-sm sm:text-base leading-relaxed max-w-2xl font-normal">
                 An elite 50-acre academic institution offering pre-primary to Grade 12 CBSE & International curricula, Quantum STEM Labs, Olympic Athletic Academies, and direct placement pipelines to premier global universities.
               </p>
 
-              <div className="pt-4 flex flex-wrap items-center justify-center gap-4">
+              <div className="pt-2 flex flex-wrap items-center gap-4">
                 <button 
                   onClick={() => handleNav('admissions')}
-                  className="bg-gradient-to-r from-amber-400 to-amber-500 hover:from-amber-500 hover:to-amber-600 text-slate-950 font-black px-8 py-4 rounded-2xl shadow-2xl shadow-amber-400/30 text-sm transition-all flex items-center gap-2 group cursor-pointer"
+                  className="bg-[#7B1123] hover:bg-[#680E1D] text-white font-bold px-8 py-3.5 rounded text-xs uppercase tracking-wider shadow-md transition-colors flex items-center gap-2 group cursor-pointer"
                 >
-                  <span>Apply for 2026-27</span>
+                  <span>DISCOVER MORE</span>
                   <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
                 </button>
                 <button 
                   onClick={() => setVirtualTourOpen(true)}
-                  className="bg-white/10 hover:bg-white/20 text-white border border-white/20 font-bold px-7 py-4 rounded-2xl backdrop-blur-xl text-sm transition-all flex items-center gap-2 cursor-pointer"
+                  className="bg-white/10 hover:bg-white/20 text-white border border-white/30 font-semibold px-6 py-3.5 rounded text-xs uppercase tracking-wider transition-colors flex items-center gap-2 cursor-pointer"
                 >
-                  <Play className="w-4 h-4 text-amber-400 fill-current" /> 360° Virtual Campus Tour
+                  <Play className="w-3.5 h-3.5 text-[#E7C797] fill-current" /> 360° Virtual Tour
                 </button>
                 <a
                   href="https://wa.me/919988776655?text=Hello%20BrightFuture%20Max,%20I%20want%20to%20apply%20for%20admissions"
                   target="_blank"
                   rel="noreferrer"
-                  className="bg-emerald-600 hover:bg-emerald-500 text-white font-bold px-6 py-4 rounded-2xl text-sm flex items-center gap-2 shadow-xl"
+                  className="bg-emerald-700 hover:bg-emerald-600 text-white font-semibold px-6 py-3.5 rounded text-xs uppercase tracking-wider flex items-center gap-2 shadow-xs transition-colors"
                 >
-                  <MessageCircle className="w-4 h-4" /> VIP WhatsApp Desk
+                  <MessageCircle className="w-3.5 h-3.5" /> VIP WhatsApp Desk
                 </a>
               </div>
 
               {/* Status Ticker Badges */}
-              <div className="pt-6 grid grid-cols-2 sm:grid-cols-4 gap-3 text-xs text-slate-300 max-w-3xl mx-auto">
-                <div className="bg-white/5 backdrop-blur-md p-2.5 rounded-xl border border-white/10">
-                  <span className="font-bold text-amber-400 block">100% University Admit</span>
-                  <span className="text-[10px] text-slate-400">IITs, AIIMS, Ivy League</span>
+              <div className="pt-4 grid grid-cols-2 sm:grid-cols-4 gap-3 text-xs text-slate-200 max-w-3xl">
+                <div className="bg-[#0B1B3D]/80 backdrop-blur-xs p-3 rounded-lg border border-slate-700">
+                  <span className="font-bold text-[#E7C797] block">100% University Admit</span>
+                  <span className="text-[10px] text-slate-300">IITs, AIIMS, Ivy League</span>
                 </div>
-                <div className="bg-white/5 backdrop-blur-md p-2.5 rounded-xl border border-white/10">
-                  <span className="font-bold text-indigo-300 block">50-Acre Smart Campus</span>
-                  <span className="text-[10px] text-slate-400">Solar Powered & Wi-Fi 6</span>
+                <div className="bg-[#0B1B3D]/80 backdrop-blur-xs p-3 rounded-lg border border-slate-700">
+                  <span className="font-bold text-white block">50-Acre Smart Campus</span>
+                  <span className="text-[10px] text-slate-300">Solar Powered & Wi-Fi 6</span>
                 </div>
-                <div className="bg-white/5 backdrop-blur-md p-2.5 rounded-xl border border-white/10">
-                  <span className="font-bold text-amber-400 block">₹2 Cr+ Scholarships</span>
-                  <span className="text-[10px] text-slate-400">Awarded Annually</span>
+                <div className="bg-[#0B1B3D]/80 backdrop-blur-xs p-3 rounded-lg border border-slate-700">
+                  <span className="font-bold text-[#E7C797] block">₹2 Cr+ Scholarships</span>
+                  <span className="text-[10px] text-slate-300">Awarded Annually</span>
                 </div>
-                <div className="bg-white/5 backdrop-blur-md p-2.5 rounded-xl border border-white/10">
-                  <span className="font-bold text-indigo-300 block">Olympic Sports Center</span>
-                  <span className="text-[10px] text-slate-400">FIFA Turf & 50m Pool</span>
+                <div className="bg-[#0B1B3D]/80 backdrop-blur-xs p-3 rounded-lg border border-slate-700">
+                  <span className="font-bold text-white block">Olympic Sports Center</span>
+                  <span className="text-[10px] text-slate-300">FIFA Turf & 50m Pool</span>
                 </div>
               </div>
             </div>
           </section>
 
-          {/* 2. Key Statistics Grid */}
-          <section className="max-w-7xl mx-auto px-4 sm:px-6">
-            <div className="bg-gradient-to-r from-indigo-950/80 via-slate-900 to-purple-950/80 border border-white/10 rounded-3xl p-8 sm:p-10 shadow-2xl grid grid-cols-2 md:grid-cols-4 gap-8 text-center divide-y sm:divide-y-0 sm:divide-x divide-white/10">
-              <div className="p-2">
-                <div className="text-4xl sm:text-5xl font-black text-transparent bg-clip-text bg-gradient-to-r from-amber-300 to-amber-500">99.8%</div>
-                <div className="text-xs font-bold text-slate-300 uppercase tracking-widest mt-2">Highest Board Aggregate</div>
-                <div className="text-[11px] text-slate-400 mt-0.5">Class 10 & 12 Board Exam 2025</div>
-              </div>
-              <div className="p-2">
-                <div className="text-4xl sm:text-5xl font-black text-indigo-300">1:10</div>
-                <div className="text-xs font-bold text-slate-300 uppercase tracking-widest mt-2">Elite Mentorship Ratio</div>
-                <div className="text-[11px] text-slate-400 mt-0.5">Personalized Scholar Guidance</div>
-              </div>
-              <div className="p-2">
-                <div className="text-4xl sm:text-5xl font-black text-transparent bg-clip-text bg-gradient-to-r from-amber-300 to-amber-500">38+</div>
-                <div className="text-xs font-bold text-slate-300 uppercase tracking-widest mt-2">Patents & Research Papers</div>
-                <div className="text-[11px] text-slate-400 mt-0.5">Authored by High School Students</div>
-              </div>
-              <div className="p-2">
-                <div className="text-4xl sm:text-5xl font-black text-indigo-300">40+</div>
-                <div className="text-xs font-bold text-slate-300 uppercase tracking-widest mt-2">Specialized Clubs & Academies</div>
-                <div className="text-[11px] text-slate-400 mt-0.5">MUN, Aero-Modeling, Symphony</div>
+          {/* 2. Premium Dark Navy Statistics Section */}
+          <section className="w-full bg-[#0B1B3D] text-white py-12 border-y border-[#152B57]">
+            <div className="max-w-7xl mx-auto px-4 sm:px-6">
+              <div className="grid grid-cols-2 md:grid-cols-4 gap-8 text-center divide-y md:divide-y-0 md:divide-x divide-[#1C3566]">
+                <div className="p-2">
+                  <div className="text-4xl sm:text-5xl font-serif font-bold text-[#E7C797]">10,000+</div>
+                  <div className="text-xs font-semibold text-slate-200 uppercase tracking-wider mt-2">Students Enrolled</div>
+                  <div className="text-[11px] text-slate-400 mt-0.5">Across All Academic Wings</div>
+                </div>
+                <div className="p-2">
+                  <div className="text-4xl sm:text-5xl font-serif font-bold text-white">750+</div>
+                  <div className="text-xs font-semibold text-slate-200 uppercase tracking-wider mt-2">Expert Teachers</div>
+                  <div className="text-[11px] text-slate-400 mt-0.5">Doctorates & Master Educators</div>
+                </div>
+                <div className="p-2">
+                  <div className="text-4xl sm:text-5xl font-serif font-bold text-[#E7C797]">25+</div>
+                  <div className="text-xs font-semibold text-slate-200 uppercase tracking-wider mt-2">Years of Excellence</div>
+                  <div className="text-[11px] text-slate-400 mt-0.5">Legacy of Academic Rigor</div>
+                </div>
+                <div className="p-2">
+                  <div className="text-4xl sm:text-5xl font-serif font-bold text-white">40+</div>
+                  <div className="text-xs font-semibold text-slate-200 uppercase tracking-wider mt-2">Countries Represented</div>
+                  <div className="text-[11px] text-slate-400 mt-0.5">Global Scholars Network</div>
+                </div>
               </div>
             </div>
           </section>
@@ -377,13 +379,13 @@ export const SchoolMaxDemo: React.FC<SchoolMaxDemoProps> = ({ isMobile, isTablet
           <section className="max-w-7xl mx-auto px-4 sm:px-6">
             <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
               <div className="lg:col-span-6 space-y-6">
-                <div className="inline-flex items-center gap-2 text-xs font-black uppercase tracking-widest text-amber-400 bg-amber-400/10 px-3.5 py-1.5 rounded-full border border-amber-400/20">
-                  <Award className="w-3.5 h-3.5" /> Institutional Heritage & Philosophy
+                <div className="inline-flex items-center gap-2 text-xs font-bold uppercase tracking-widest text-[#7B1123] bg-[#7B1123]/10 px-3.5 py-1.5 rounded border border-[#7B1123]/20">
+                  <Award className="w-3.5 h-3.5 text-[#7B1123]" /> Institutional Heritage & Philosophy
                 </div>
-                <h3 className="text-3xl sm:text-5xl font-black text-white leading-tight">
+                <h3 className="text-3xl sm:text-4xl font-serif font-bold text-[#0B1B3D] leading-tight">
                   Where Rigorous Scholarship Meets Visionary Character.
                 </h3>
-                <p className="text-slate-300 text-sm sm:text-base leading-relaxed">
+                <p className="text-stone-600 text-sm sm:text-base leading-relaxed">
                   Founded on the conviction that future global challenges require multidisciplinary thinkers, BrightFuture Max integrates state-of-the-art laboratory research, international diplomatic debating, competitive sports, and moral philosophy into daily student life.
                 </p>
 
@@ -393,11 +395,11 @@ export const SchoolMaxDemo: React.FC<SchoolMaxDemoProps> = ({ isMobile, isTablet
                     { title: 'Emotional & Moral Resilience', desc: 'Comprehensive ethics, leadership councils, and community social impact missions.' },
                     { title: 'Global Competitiveness', desc: 'Harvard MUN delegations, International Science Olympiads & SAT/CUET prep.' }
                   ].map((p, i) => (
-                    <div key={i} className="bg-white/5 p-4 rounded-2xl border border-white/10 flex items-start gap-3">
-                      <CheckCircle2 className="w-5 h-5 text-amber-400 shrink-0 mt-0.5" />
+                    <div key={i} className="bg-white p-4 rounded-xl border border-stone-200 flex items-start gap-3 shadow-xs">
+                      <CheckCircle2 className="w-5 h-5 text-[#7B1123] shrink-0 mt-0.5" />
                       <div>
-                        <h4 className="font-bold text-sm text-white">{p.title}</h4>
-                        <p className="text-xs text-slate-400 mt-0.5">{p.desc}</p>
+                        <h4 className="font-serif font-bold text-sm text-[#0B1B3D]">{p.title}</h4>
+                        <p className="text-xs text-stone-500 mt-0.5">{p.desc}</p>
                       </div>
                     </div>
                   ))}
@@ -406,21 +408,21 @@ export const SchoolMaxDemo: React.FC<SchoolMaxDemoProps> = ({ isMobile, isTablet
 
               {/* Right: Director General Video Preview Card */}
               <div className="lg:col-span-6 relative">
-                <div className="rounded-3xl overflow-hidden border border-white/20 bg-slate-900 relative shadow-2xl group cursor-pointer" onClick={() => setLightboxMedia(galleryData[1])}>
+                <div className="rounded-xl overflow-hidden border border-stone-200 bg-[#0B1B3D] relative shadow-md group cursor-pointer" onClick={() => setLightboxMedia(galleryData[1])}>
                   <div className="aspect-[16/10] overflow-hidden">
                     <img src="https://images.unsplash.com/photo-1541339907198-e08756dedf3f?auto=format&fit=crop&w=1200&q=80" alt="Director message teaser" className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700 filter brightness-90" />
                   </div>
-                  <div className="absolute inset-0 bg-gradient-to-t from-slate-950 via-slate-950/40 to-transparent flex flex-col justify-between p-6">
-                    <span className="bg-indigo-600 text-white font-bold text-xs px-3 py-1 rounded-full self-start shadow-md">
-                      Watch Institutional Film (4K)
+                  <div className="absolute inset-0 bg-gradient-to-t from-[#071326] via-[#071326]/40 to-transparent flex flex-col justify-between p-6">
+                    <span className="bg-[#7B1123] text-white font-bold text-xs px-3 py-1 rounded self-start shadow-xs">
+                      Watch Institutional Film
                     </span>
                     <div className="flex items-center justify-between">
                       <div>
-                        <h4 className="text-lg font-black text-white">Dean&apos;s Address & Vision 2030</h4>
+                        <h4 className="text-lg font-serif font-bold text-white">Dean&apos;s Address & Vision 2030</h4>
                         <p className="text-xs text-slate-300">Dr. Sunita Sharma, Director General</p>
                       </div>
-                      <div className="w-14 h-14 rounded-full bg-amber-400 text-slate-950 flex items-center justify-center shadow-xl group-hover:scale-110 transition-transform">
-                        <Play className="w-6 h-6 fill-current ml-0.5" />
+                      <div className="w-12 h-12 rounded-full bg-[#7B1123] text-white flex items-center justify-center shadow-md group-hover:bg-[#680E1D] transition-colors">
+                        <Play className="w-5 h-5 fill-current ml-0.5" />
                       </div>
                     </div>
                   </div>
@@ -430,14 +432,14 @@ export const SchoolMaxDemo: React.FC<SchoolMaxDemoProps> = ({ isMobile, isTablet
           </section>
 
           {/* 4. Comprehensive Academic Departments & Senior Streams */}
-          <section className="bg-gradient-to-b from-[#0B1329] to-[#030712] py-20 px-4 sm:px-6 border-y border-white/10">
+          <section className="bg-[#F5F3EF] py-16 px-4 sm:px-6 border-y border-stone-200 text-stone-800">
             <div className="max-w-7xl mx-auto space-y-12">
               <div className="text-center max-w-2xl mx-auto space-y-2">
-                <span className="text-xs font-black uppercase tracking-widest text-indigo-400 bg-indigo-500/10 px-4 py-1.5 rounded-full border border-indigo-500/20">
+                <span className="text-xs font-bold uppercase tracking-widest text-[#7B1123] bg-white px-4 py-1.5 rounded border border-stone-200 shadow-2xs">
                   Academic Continuum
                 </span>
-                <h3 className="text-3xl sm:text-4xl font-black text-white">Academic Wings & Specialized Streams</h3>
-                <p className="text-slate-400 text-xs sm:text-sm">Structured from Early Childhood (Nursery) to Advanced Senior High School (Grade 12).</p>
+                <h3 className="text-3xl sm:text-4xl font-serif font-bold text-[#0B1B3D]">Academic Wings & Specialized Streams</h3>
+                <p className="text-stone-600 text-xs sm:text-sm">Structured from Early Childhood (Nursery) to Advanced Senior High School (Grade 12).</p>
               </div>
 
               {/* Department Stage Selector */}
@@ -451,10 +453,10 @@ export const SchoolMaxDemo: React.FC<SchoolMaxDemoProps> = ({ isMobile, isTablet
                   <button
                     key={tab.id}
                     onClick={() => setActiveDepartment(tab.id as any)}
-                    className={`px-5 py-3 rounded-2xl text-xs font-black uppercase tracking-wider transition-all ${
+                    className={`px-5 py-2.5 rounded text-xs font-bold uppercase tracking-wider transition-colors cursor-pointer ${
                       activeDepartment === tab.id 
-                        ? 'bg-indigo-600 text-white shadow-xl shadow-indigo-600/40 border border-indigo-400' 
-                        : 'bg-white/5 text-slate-300 hover:bg-white/10 border border-white/10'
+                        ? 'bg-[#7B1123] text-white shadow-xs' 
+                        : 'bg-white text-stone-700 hover:bg-stone-50 border border-stone-200 shadow-2xs'
                     }`}
                   >
                     {tab.label}
@@ -465,7 +467,7 @@ export const SchoolMaxDemo: React.FC<SchoolMaxDemoProps> = ({ isMobile, isTablet
               {/* Senior Streams Deep-Dive Display */}
               {activeDepartment === 'senior' && (
                 <div className="space-y-6">
-                  <div className="flex justify-center gap-2">
+                  <div className="flex justify-center gap-2 flex-wrap">
                     {[
                       { id: 'stem', label: '🔬 Advanced STEM, AI & Robotics (PCM / PCB + CS)' },
                       { id: 'fintech', label: '📊 Global Commerce, FinTech & Applied Econ' },
@@ -474,8 +476,10 @@ export const SchoolMaxDemo: React.FC<SchoolMaxDemoProps> = ({ isMobile, isTablet
                       <button
                         key={s.id}
                         onClick={() => setActiveSeniorStream(s.id as any)}
-                        className={`px-4 py-2.5 rounded-xl text-xs font-bold transition-all ${
-                          activeSeniorStream === s.id ? 'bg-amber-400 text-slate-950 shadow-md font-black' : 'bg-white/5 text-slate-400 hover:text-white'
+                        className={`px-4 py-2.5 rounded text-xs font-bold transition-colors cursor-pointer ${
+                          activeSeniorStream === s.id 
+                            ? 'bg-[#0B1B3D] text-white shadow-xs font-bold' 
+                            : 'bg-white text-stone-700 hover:bg-stone-50 border border-stone-200'
                         }`}
                       >
                         {s.label}
@@ -483,64 +487,64 @@ export const SchoolMaxDemo: React.FC<SchoolMaxDemoProps> = ({ isMobile, isTablet
                     ))}
                   </div>
 
-                  <div className="bg-white/5 backdrop-blur-xl border border-white/10 p-6 sm:p-8 rounded-3xl grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
+                  <div className="bg-white border border-stone-200 p-6 sm:p-8 rounded-xl shadow-xs grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
                     <div className="lg:col-span-7 space-y-4">
                       {activeSeniorStream === 'stem' && (
                         <>
-                          <span className="text-[10px] font-black uppercase tracking-widest text-indigo-300 bg-indigo-950 px-3 py-1 rounded-full border border-indigo-500/30">
+                          <span className="text-[10px] font-bold uppercase tracking-widest text-[#7B1123] bg-[#7B1123]/10 px-3 py-1 rounded border border-[#7B1123]/20">
                             Engineering, Medicine & Quantum Physics
                           </span>
-                          <h4 className="text-2xl font-black text-white">Quantum STEM & AI Innovation Wing</h4>
-                          <p className="text-xs text-slate-300 leading-relaxed">
+                          <h4 className="text-2xl font-serif font-bold text-[#0B1B3D]">Quantum STEM & AI Innovation Wing</h4>
+                          <p className="text-xs text-stone-600 leading-relaxed">
                             Combining CBSE core syllabus with quantum mechanics fundamentals, Python/TensorFlow machine learning, astrophysics data labs, and Olympiad problem-solving.
                           </p>
-                          <div className="grid grid-cols-2 gap-2 text-xs text-slate-300 pt-2">
-                            <div className="bg-black/40 p-2.5 rounded-xl border border-white/5">✓ JEE Main & Advanced Track</div>
-                            <div className="bg-black/40 p-2.5 rounded-xl border border-white/5">✓ NEET-UG Clinical Foundations</div>
-                            <div className="bg-black/40 p-2.5 rounded-xl border border-white/5">✓ NASA Space App Challenge Mentorship</div>
-                            <div className="bg-black/40 p-2.5 rounded-xl border border-white/5">✓ MIT / Stanford Portfolio Review</div>
+                          <div className="grid grid-cols-2 gap-2 text-xs text-stone-700 pt-2 font-medium">
+                            <div className="bg-[#FAF9F6] p-2.5 rounded border border-stone-200">✓ JEE Main & Advanced Track</div>
+                            <div className="bg-[#FAF9F6] p-2.5 rounded border border-stone-200">✓ NEET-UG Clinical Foundations</div>
+                            <div className="bg-[#FAF9F6] p-2.5 rounded border border-stone-200">✓ NASA Space App Challenge Mentorship</div>
+                            <div className="bg-[#FAF9F6] p-2.5 rounded border border-stone-200">✓ MIT / Stanford Portfolio Review</div>
                           </div>
                         </>
                       )}
 
                       {activeSeniorStream === 'fintech' && (
                         <>
-                          <span className="text-[10px] font-black uppercase tracking-widest text-amber-300 bg-amber-950 px-3 py-1 rounded-full border border-amber-500/30">
+                          <span className="text-[10px] font-bold uppercase tracking-widest text-[#7B1123] bg-[#7B1123]/10 px-3 py-1 rounded border border-[#7B1123]/20">
                             Wall Street & Corporate Leadership
                           </span>
-                          <h4 className="text-2xl font-black text-white">International Commerce & FinTech Wing</h4>
-                          <p className="text-xs text-slate-300 leading-relaxed">
+                          <h4 className="text-2xl font-serif font-bold text-[#0B1B3D]">International Commerce & FinTech Wing</h4>
+                          <p className="text-xs text-stone-600 leading-relaxed">
                             Equipping future chartered accountants, investment bankers, and startup entrepreneurs with algorithmic trading simulations, venture pitch workshops, and macro-economics.
                           </p>
-                          <div className="grid grid-cols-2 gap-2 text-xs text-slate-300 pt-2">
-                            <div className="bg-black/40 p-2.5 rounded-xl border border-white/5">✓ CA-Foundation Integrated Batch</div>
-                            <div className="bg-black/40 p-2.5 rounded-xl border border-white/5">✓ Real-time Bloomberg Terminal Mockup</div>
-                            <div className="bg-black/40 p-2.5 rounded-xl border border-white/5">✓ Harvard Case Study Method</div>
-                            <div className="bg-black/40 p-2.5 rounded-xl border border-white/5">✓ Angel Investor Student Pitch Arena</div>
+                          <div className="grid grid-cols-2 gap-2 text-xs text-stone-700 pt-2 font-medium">
+                            <div className="bg-[#FAF9F6] p-2.5 rounded border border-stone-200">✓ CA-Foundation Integrated Batch</div>
+                            <div className="bg-[#FAF9F6] p-2.5 rounded border border-stone-200">✓ Real-time Bloomberg Terminal Mockup</div>
+                            <div className="bg-[#FAF9F6] p-2.5 rounded border border-stone-200">✓ Harvard Case Study Method</div>
+                            <div className="bg-[#FAF9F6] p-2.5 rounded border border-stone-200">✓ Angel Investor Student Pitch Arena</div>
                           </div>
                         </>
                       )}
 
                       {activeSeniorStream === 'humanities' && (
                         <>
-                          <span className="text-[10px] font-black uppercase tracking-widest text-purple-300 bg-purple-950 px-3 py-1 rounded-full border border-purple-500/30">
+                          <span className="text-[10px] font-bold uppercase tracking-widest text-[#7B1123] bg-[#7B1123]/10 px-3 py-1 rounded border border-[#7B1123]/20">
                             Diplomacy, Law & Civil Services
                           </span>
-                          <h4 className="text-2xl font-black text-white">Global Humanities, Law & Policy Wing</h4>
-                          <p className="text-xs text-slate-300 leading-relaxed">
+                          <h4 className="text-2xl font-serif font-bold text-[#0B1B3D]">Global Humanities, Law & Policy Wing</h4>
+                          <p className="text-xs text-stone-600 leading-relaxed">
                             Developing critical policy thinkers, journalists, international diplomats, and legal minds with intensive moot court practice and UPSC civil service foundations.
                           </p>
-                          <div className="grid grid-cols-2 gap-2 text-xs text-slate-300 pt-2">
-                            <div className="bg-black/40 p-2.5 rounded-xl border border-white/5">✓ CLAT & AILET Entrance Track</div>
-                            <div className="bg-black/40 p-2.5 rounded-xl border border-white/5">✓ Model UN Secretariat & Debating</div>
-                            <div className="bg-black/40 p-2.5 rounded-xl border border-white/5">✓ Behavioral Psychology Lab</div>
-                            <div className="bg-black/40 p-2.5 rounded-xl border border-white/5">✓ Public Policy Research Journal</div>
+                          <div className="grid grid-cols-2 gap-2 text-xs text-stone-700 pt-2 font-medium">
+                            <div className="bg-[#FAF9F6] p-2.5 rounded border border-stone-200">✓ CLAT & AILET Entrance Track</div>
+                            <div className="bg-[#FAF9F6] p-2.5 rounded border border-stone-200">✓ Model UN Secretariat & Debating</div>
+                            <div className="bg-[#FAF9F6] p-2.5 rounded border border-stone-200">✓ Behavioral Psychology Lab</div>
+                            <div className="bg-[#FAF9F6] p-2.5 rounded border border-stone-200">✓ Public Policy Research Journal</div>
                           </div>
                         </>
                       )}
                     </div>
 
-                    <div className="lg:col-span-5 h-64 rounded-2xl overflow-hidden border border-white/20 relative shadow-2xl">
+                    <div className="lg:col-span-5 h-64 rounded-lg overflow-hidden border border-stone-200 relative shadow-2xs">
                       <img 
                         src={activeSeniorStream === 'stem' 
                           ? 'https://images.unsplash.com/photo-1573164713988-8665fc963095?auto=format&fit=crop&w=800&q=80' 
@@ -551,19 +555,18 @@ export const SchoolMaxDemo: React.FC<SchoolMaxDemoProps> = ({ isMobile, isTablet
                         alt="Department stream visual" 
                         className="w-full h-full object-cover"
                       />
-                      <div className="absolute inset-0 bg-gradient-to-t from-slate-950 via-transparent to-transparent"></div>
                     </div>
                   </div>
                 </div>
               )}
 
               {activeDepartment !== 'senior' && (
-                <div className="bg-white/5 p-8 rounded-3xl border border-white/10 text-center space-y-4 max-w-2xl mx-auto">
-                  <h4 className="text-xl font-bold text-white">Curriculum Overview for {activeDepartment.toUpperCase()}</h4>
-                  <p className="text-xs text-slate-300 leading-relaxed">
+                <div className="bg-white p-8 rounded-xl border border-stone-200 text-center space-y-4 max-w-2xl mx-auto shadow-xs">
+                  <h4 className="text-xl font-serif font-bold text-[#0B1B3D]">Curriculum Overview for {activeDepartment.toUpperCase()}</h4>
+                  <p className="text-xs text-stone-600 leading-relaxed">
                     Designed to inspire foundational clarity, linguistic mastery, inquiry-driven mathematics, and social-emotional growth under Cambridge and CBSE guidelines.
                   </p>
-                  <button onClick={() => handleNav('academics')} className="bg-indigo-600 hover:bg-indigo-500 text-white font-bold text-xs px-6 py-2.5 rounded-xl">
+                  <button onClick={() => handleNav('academics')} className="bg-[#7B1123] hover:bg-[#680E1D] text-white font-bold text-xs px-6 py-2.5 rounded transition-colors uppercase tracking-wider cursor-pointer">
                     View Complete Syllabus Matrix
                   </button>
                 </div>
@@ -571,20 +574,20 @@ export const SchoolMaxDemo: React.FC<SchoolMaxDemoProps> = ({ isMobile, isTablet
             </div>
           </section>
 
-          {/* 5. 50-Acre Campus & Infrastructure Tour */}
+          {/* 5. 50-Acre Campus & Infrastructure Tour (3-Column Feature Cards) */}
           <section className="max-w-7xl mx-auto px-4 sm:px-6">
             <div className="flex flex-col sm:flex-row justify-between items-start sm:items-center gap-4 mb-10">
               <div>
-                <span className="text-xs font-black uppercase tracking-widest text-amber-400 bg-amber-400/10 px-3.5 py-1 rounded-full border border-amber-400/20">
+                <span className="text-xs font-bold uppercase tracking-widest text-[#7B1123] bg-[#7B1123]/10 px-3.5 py-1 rounded border border-[#7B1123]/20">
                   Infrastructure Marvel
                 </span>
-                <h3 className="text-3xl font-black text-white mt-2">Flagship 50-Acre Smart Campus</h3>
+                <h3 className="text-3xl font-serif font-bold text-[#0B1B3D] mt-2">Flagship 50-Acre Smart Campus</h3>
               </div>
               <button 
                 onClick={() => setVirtualTourOpen(true)}
-                className="bg-indigo-600 hover:bg-indigo-500 text-white text-xs font-black px-5 py-3 rounded-xl flex items-center gap-2 cursor-pointer shadow-lg shadow-indigo-600/30"
+                className="bg-[#0B1B3D] hover:bg-[#132A4A] text-white text-xs font-bold px-5 py-3 rounded flex items-center gap-2 cursor-pointer shadow-xs transition-colors uppercase tracking-wider"
               >
-                <Globe className="w-4 h-4 text-amber-300" /> Launch 360° Interactive Tour
+                <Globe className="w-4 h-4 text-[#E7C797]" /> Launch 360° Interactive Tour
               </button>
             </div>
 
@@ -597,16 +600,21 @@ export const SchoolMaxDemo: React.FC<SchoolMaxDemoProps> = ({ isMobile, isTablet
                 { title: '50-Foot Celestial Observatory', desc: 'Equipped with computerized high-magnification Schmidt-Cassegrain telescopes for space studies.', img: 'https://images.unsplash.com/photo-1541339907198-e08756dedf3f?auto=format&fit=crop&w=600&q=80', tag: 'Astrophysics' },
                 { title: '5-Star Residential Boarding Wing', desc: 'Modern air-conditioned suites with 24/7 security, resident tutors, and nutritionist-crafted dining.', img: 'https://images.unsplash.com/photo-1509062522246-3755977927d7?auto=format&fit=crop&w=600&q=80', tag: 'Residential' },
               ].map((item, i) => (
-                <div key={i} className="bg-white/5 rounded-3xl overflow-hidden border border-white/10 hover:border-indigo-500/50 transition-all group shadow-xl">
+                <div key={i} className="bg-white rounded-xl overflow-hidden border border-stone-200 hover:border-stone-300 hover:shadow-md transition-all group shadow-xs">
                   <div className="h-48 overflow-hidden relative">
                     <img src={item.img} alt={item.title} className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700" />
-                    <span className="absolute top-3 left-3 bg-black/80 backdrop-blur-md text-amber-300 text-[10px] font-black uppercase px-3 py-1 rounded-full border border-amber-400/30">
+                    <span className="absolute top-3 left-3 bg-[#7B1123] text-white text-[10px] font-bold uppercase tracking-wider px-2.5 py-1 rounded shadow-xs">
                       {item.tag}
                     </span>
                   </div>
                   <div className="p-6 space-y-2">
-                    <h4 className="font-black text-lg text-white group-hover:text-amber-400 transition-colors">{item.title}</h4>
-                    <p className="text-xs text-slate-400 leading-relaxed">{item.desc}</p>
+                    <h4 className="font-serif font-bold text-lg text-[#0B1B3D] group-hover:text-[#7B1123] transition-colors">{item.title}</h4>
+                    <p className="text-xs text-stone-600 leading-relaxed">{item.desc}</p>
+                    <div className="pt-2">
+                      <span className="text-[#7B1123] font-bold text-xs flex items-center gap-1 group-hover:gap-1.5 transition-all">
+                        EXPLORE →
+                      </span>
+                    </div>
                   </div>
                 </div>
               ))}
@@ -614,31 +622,31 @@ export const SchoolMaxDemo: React.FC<SchoolMaxDemoProps> = ({ isMobile, isTablet
           </section>
 
           {/* 6. Life at School & House System */}
-          <section className="bg-[#0B1329] py-20 px-4 sm:px-6 border-y border-white/10">
+          <section className="bg-[#0B1B3D] py-16 px-4 sm:px-6 text-white border-y border-[#152B57]">
             <div className="max-w-7xl mx-auto space-y-12">
               <div className="text-center max-w-2xl mx-auto space-y-2">
-                <span className="text-xs font-black uppercase tracking-widest text-amber-400 bg-amber-400/10 px-4 py-1.5 rounded-full border border-amber-400/20">
+                <span className="text-xs font-bold uppercase tracking-widest text-[#E7C797] bg-[#7B1123]/40 px-4 py-1.5 rounded border border-[#7B1123]/60">
                   Student Life & Traditions
                 </span>
-                <h3 className="text-3xl sm:text-4xl font-black text-white">The Four Pillars & House System</h3>
-                <p className="text-slate-400 text-xs sm:text-sm">Fostering camaraderie, healthy rivalry, and leadership through historic school houses.</p>
+                <h3 className="text-3xl sm:text-4xl font-serif font-bold text-white">The Four Pillars & House System</h3>
+                <p className="text-slate-300 text-xs sm:text-sm">Fostering camaraderie, healthy rivalry, and leadership through historic school houses.</p>
               </div>
 
               <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
                 {[
-                  { name: 'House Phoenix (Ignis)', motto: 'Courage & Innovation', color: 'from-amber-600 to-red-700', icon: '🔥', pts: '2,450 Pts' },
-                  { name: 'House Pegasus (Aero)', motto: 'Intellect & Eloquence', color: 'from-blue-600 to-indigo-800', icon: '⚡', pts: '2,390 Pts' },
-                  { name: 'House Titan (Terra)', motto: 'Resilience & Integrity', color: 'from-emerald-600 to-teal-800', icon: '🛡️', pts: '2,420 Pts' },
-                  { name: 'House Orion (Cosmos)', motto: 'Wisdom & Global Vision', color: 'from-purple-600 to-violet-900', icon: '🌌', pts: '2,480 Pts' },
+                  { name: 'House Phoenix (Ignis)', motto: 'Courage & Innovation', icon: '🔥', pts: '2,450 Pts' },
+                  { name: 'House Pegasus (Aero)', motto: 'Intellect & Eloquence', icon: '⚡', pts: '2,390 Pts' },
+                  { name: 'House Titan (Terra)', motto: 'Resilience & Integrity', icon: '🛡️', pts: '2,420 Pts' },
+                  { name: 'House Orion (Cosmos)', motto: 'Wisdom & Global Vision', icon: '🌌', pts: '2,480 Pts' },
                 ].map((house, i) => (
-                  <div key={i} className={`bg-gradient-to-b ${house.color} p-6 rounded-3xl text-white space-y-4 shadow-2xl border border-white/20 relative overflow-hidden`}>
+                  <div key={i} className="bg-[#102347] p-6 rounded-xl text-white space-y-4 shadow-xs border border-[#1F3D73] relative overflow-hidden">
                     <div className="text-4xl">{house.icon}</div>
                     <div>
-                      <span className="text-[10px] font-bold text-white/80 uppercase tracking-widest">House Cup Standings</span>
-                      <h4 className="text-xl font-black">{house.name}</h4>
-                      <p className="text-xs text-white/90 italic mt-0.5">&quot;{house.motto}&quot;</p>
+                      <span className="text-[10px] font-semibold text-[#E7C797] uppercase tracking-wider">House Cup Standings</span>
+                      <h4 className="text-xl font-serif font-bold text-white mt-0.5">{house.name}</h4>
+                      <p className="text-xs text-slate-300 italic mt-0.5">&quot;{house.motto}&quot;</p>
                     </div>
-                    <div className="bg-black/30 p-2.5 rounded-xl text-center text-xs font-black text-amber-300">
+                    <div className="bg-[#071326] p-2.5 rounded text-center text-xs font-bold text-[#E7C797] border border-[#152B57]">
                       {house.pts} (Current Leader)
                     </div>
                   </div>
@@ -650,27 +658,27 @@ export const SchoolMaxDemo: React.FC<SchoolMaxDemoProps> = ({ isMobile, isTablet
           {/* 7. Faculty Directory & World-Class Instructors */}
           <section className="max-w-7xl mx-auto px-4 sm:px-6">
             <div className="text-center max-w-2xl mx-auto mb-12 space-y-2">
-              <span className="text-xs font-black uppercase tracking-widest text-indigo-400 bg-indigo-500/10 px-4 py-1.5 rounded-full border border-indigo-500/20">
+              <span className="text-xs font-bold uppercase tracking-widest text-[#7B1123] bg-[#7B1123]/10 px-4 py-1.5 rounded border border-[#7B1123]/20">
                 Academic Luminaries
               </span>
-              <h3 className="text-3xl sm:text-4xl font-black text-white">World-Class Faculty & Deans</h3>
-              <p className="text-slate-400 text-xs sm:text-sm">Distinguished doctorates, former researchers, and national coaches guiding every student.</p>
+              <h3 className="text-3xl sm:text-4xl font-serif font-bold text-[#0B1B3D]">World-Class Faculty & Deans</h3>
+              <p className="text-stone-600 text-xs sm:text-sm">Distinguished doctorates, former researchers, and national coaches guiding every student.</p>
             </div>
 
             <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
               {facultyProfiles.map((fac, i) => (
-                <div key={i} className="bg-white/5 rounded-3xl overflow-hidden border border-white/10 p-6 text-center space-y-4 hover:border-indigo-500 transition-all shadow-xl">
-                  <div className="w-24 h-24 rounded-2xl overflow-hidden mx-auto border-2 border-amber-400 shadow-2xl">
+                <div key={i} className="bg-white rounded-xl overflow-hidden border border-stone-200 p-6 text-center space-y-4 shadow-xs hover:shadow-md transition-shadow">
+                  <div className="w-24 h-24 rounded-full overflow-hidden mx-auto border-2 border-[#7B1123] shadow-xs">
                     <img src={fac.img} alt={fac.name} className="w-full h-full object-cover" />
                   </div>
                   <div>
-                    <span className="text-[10px] bg-indigo-950 text-indigo-300 font-bold px-3 py-1 rounded-full border border-indigo-500/30">
+                    <span className="text-[10px] bg-stone-100 text-[#0B1B3D] font-bold px-3 py-1 rounded border border-stone-200">
                       {fac.dept}
                     </span>
-                    <h4 className="font-black text-base text-white mt-2">{fac.name}</h4>
-                    <p className="text-xs text-amber-400 font-semibold">{fac.role}</p>
-                    <p className="text-[11px] text-slate-400 mt-1">{fac.qual}</p>
-                    <p className="text-[10px] text-indigo-300 font-medium mt-1">{fac.awards}</p>
+                    <h4 className="font-serif font-bold text-base text-[#0B1B3D] mt-2">{fac.name}</h4>
+                    <p className="text-xs text-[#7B1123] font-semibold">{fac.role}</p>
+                    <p className="text-[11px] text-stone-500 mt-1">{fac.qual}</p>
+                    <p className="text-[10px] text-stone-600 font-medium mt-1">{fac.awards}</p>
                   </div>
                 </div>
               ))}
@@ -678,26 +686,26 @@ export const SchoolMaxDemo: React.FC<SchoolMaxDemoProps> = ({ isMobile, isTablet
           </section>
 
           {/* 8. Media Gallery with Photo & Video Tabs */}
-          <section className="bg-gradient-to-b from-[#030712] to-[#0B1329] py-20 px-4 sm:px-6 border-y border-white/10">
+          <section className="bg-[#F5F3EF] py-16 px-4 sm:px-6 border-y border-stone-200 text-stone-800">
             <div className="max-w-7xl mx-auto space-y-8">
               <div className="flex flex-col sm:flex-row justify-between items-start sm:items-center gap-4">
                 <div>
-                  <span className="text-xs font-black uppercase tracking-widest text-amber-400">Media Showcase</span>
-                  <h3 className="text-3xl font-black text-white">4K Photo & Video Gallery</h3>
+                  <span className="text-xs font-bold uppercase tracking-widest text-[#7B1123]">Media Showcase</span>
+                  <h3 className="text-3xl font-serif font-bold text-[#0B1B3D]">Photo & Video Gallery</h3>
                 </div>
 
                 <div className="flex gap-2">
                   <button 
                     onClick={() => setMediaTypeFilter('all')}
-                    className={`px-4 py-2 rounded-xl text-xs font-bold ${mediaTypeFilter === 'all' ? 'bg-indigo-600 text-white' : 'bg-white/5 text-slate-400'}`}
+                    className={`px-4 py-2 rounded text-xs font-bold transition-colors cursor-pointer ${mediaTypeFilter === 'all' ? 'bg-[#7B1123] text-white shadow-xs' : 'bg-white text-stone-700 border border-stone-300'}`}
                   >
                     All Media
                   </button>
                   <button 
                     onClick={() => setMediaTypeFilter('video')}
-                    className={`px-4 py-2 rounded-xl text-xs font-bold flex items-center gap-1.5 ${mediaTypeFilter === 'video' ? 'bg-amber-400 text-slate-950 font-black' : 'bg-white/5 text-slate-400'}`}
+                    className={`px-4 py-2 rounded text-xs font-bold flex items-center gap-1.5 transition-colors cursor-pointer ${mediaTypeFilter === 'video' ? 'bg-[#7B1123] text-white font-bold shadow-xs' : 'bg-white text-stone-700 border border-stone-300'}`}
                   >
-                    <Video className="w-3.5 h-3.5" /> Video Tours Only
+                    <Video className="w-3.5 h-3.5 text-[#E7C797]" /> Video Tours Only
                   </button>
                 </div>
               </div>
@@ -707,25 +715,25 @@ export const SchoolMaxDemo: React.FC<SchoolMaxDemoProps> = ({ isMobile, isTablet
                   .filter(item => mediaTypeFilter === 'all' || item.type === mediaTypeFilter)
                   .map((item, i) => (
                     <div 
-                      key={i}
+                      key={i} 
                       onClick={() => setLightboxMedia(item)}
-                      className="group relative h-64 rounded-3xl overflow-hidden cursor-pointer border border-white/10 shadow-2xl bg-slate-900"
+                      className="group relative h-64 rounded-xl overflow-hidden cursor-pointer border border-stone-200 shadow-xs bg-[#0B1B3D]"
                     >
                       <img src={item.url} alt={item.title} className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700 filter brightness-90" />
-                      <div className="absolute inset-0 bg-gradient-to-t from-slate-950 via-slate-950/30 to-transparent flex flex-col justify-between p-5">
+                      <div className="absolute inset-0 bg-gradient-to-t from-[#071326] via-[#071326]/30 to-transparent flex flex-col justify-between p-5">
                         <div className="flex justify-between items-center">
-                          <span className="text-[10px] text-amber-300 font-black uppercase tracking-wider bg-black/60 px-3 py-1 rounded-full border border-amber-400/30">
+                          <span className="text-[10px] text-white font-bold uppercase tracking-wider bg-[#7B1123] px-3 py-1 rounded shadow-xs">
                             {item.tag}
                           </span>
                           {item.type === 'video' && (
-                            <span className="bg-red-600 text-white text-[10px] font-black px-2 py-0.5 rounded flex items-center gap-1">
-                              <Play className="w-3 h-3 fill-current" /> 4K VIDEO
+                            <span className="bg-[#7B1123] text-white text-[10px] font-bold px-2 py-0.5 rounded flex items-center gap-1">
+                              <Play className="w-3 h-3 fill-current" /> VIDEO
                             </span>
                           )}
                         </div>
                         <div>
-                          <h4 className="font-bold text-sm text-white">{item.title}</h4>
-                          <span className="text-[11px] text-indigo-300 mt-1 block">Click to enlarge</span>
+                          <h4 className="font-serif font-bold text-sm text-white">{item.title}</h4>
+                          <span className="text-[11px] text-slate-300 mt-1 block">Click to enlarge</span>
                         </div>
                       </div>
                     </div>
@@ -737,26 +745,26 @@ export const SchoolMaxDemo: React.FC<SchoolMaxDemoProps> = ({ isMobile, isTablet
           {/* 9. Global Alumni Spotlights */}
           <section className="max-w-7xl mx-auto px-4 sm:px-6">
             <div className="text-center max-w-2xl mx-auto mb-10 space-y-2">
-              <span className="text-xs font-black uppercase tracking-widest text-amber-400 bg-amber-400/10 px-4 py-1.5 rounded-full border border-amber-400/20">
+              <span className="text-xs font-bold uppercase tracking-widest text-[#7B1123] bg-[#7B1123]/10 px-4 py-1.5 rounded border border-[#7B1123]/20">
                 Alumni Network
               </span>
-              <h3 className="text-3xl font-black text-white">Global Scholars & Trailblazers</h3>
-              <p className="text-slate-400 text-xs sm:text-sm">BrightFuture Max graduates driving breakthroughs at the world&apos;s leading institutions.</p>
+              <h3 className="text-3xl font-serif font-bold text-[#0B1B3D]">Global Scholars & Trailblazers</h3>
+              <p className="text-stone-600 text-xs sm:text-sm">BrightFuture Max graduates driving breakthroughs at the world&apos;s leading institutions.</p>
             </div>
 
             <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
               {alumniSpotlights.map((alum, i) => (
-                <div key={i} className="bg-white/5 p-6 rounded-3xl border border-white/10 space-y-4 shadow-xl flex flex-col justify-between">
+                <div key={i} className="bg-white p-6 rounded-xl border border-stone-200 space-y-4 shadow-xs flex flex-col justify-between text-stone-800">
                   <div className="space-y-3">
-                    <div className="text-amber-400 flex">
+                    <div className="text-[#D4AF37] flex">
                       {[1,2,3,4,5].map(s => <Star key={s} className="w-4 h-4 fill-current" />)}
                     </div>
-                    <p className="text-xs text-slate-300 italic leading-relaxed">&quot;{alum.quote}&quot;</p>
+                    <p className="text-xs text-stone-600 italic leading-relaxed">&quot;{alum.quote}&quot;</p>
                   </div>
-                  <div className="border-t border-white/10 pt-3">
-                    <h5 className="font-bold text-sm text-white">{alum.name}</h5>
-                    <p className="text-xs text-amber-400 font-semibold">{alum.now}</p>
-                    <p className="text-[10px] text-slate-400">{alum.batch}</p>
+                  <div className="border-t border-stone-100 pt-3">
+                    <h5 className="font-serif font-bold text-sm text-[#0B1B3D]">{alum.name}</h5>
+                    <p className="text-xs text-[#7B1123] font-semibold">{alum.now}</p>
+                    <p className="text-[10px] text-stone-500">{alum.batch}</p>
                   </div>
                 </div>
               ))}
@@ -765,28 +773,28 @@ export const SchoolMaxDemo: React.FC<SchoolMaxDemoProps> = ({ isMobile, isTablet
 
           {/* 10. News & Gazette Updates */}
           <section className="max-w-7xl mx-auto px-4 sm:px-6">
-            <div className="bg-gradient-to-br from-indigo-950 to-slate-900 rounded-3xl p-8 sm:p-10 border border-indigo-500/30 space-y-8 shadow-2xl">
+            <div className="bg-[#0B1B3D] rounded-xl p-8 sm:p-10 border border-[#152B57] space-y-8 shadow-md text-white">
               <div className="flex flex-col sm:flex-row justify-between items-start sm:items-center gap-4">
                 <div>
-                  <span className="text-xs font-black uppercase tracking-widest bg-indigo-600 text-white px-3 py-1 rounded-full">
+                  <span className="text-xs font-bold uppercase tracking-widest bg-[#7B1123] text-white px-3 py-1 rounded">
                     Campus Gazette
                   </span>
-                  <h3 className="text-2xl sm:text-3xl font-black text-white mt-2">Latest News & Breakthroughs</h3>
+                  <h3 className="text-2xl sm:text-3xl font-serif font-bold text-white mt-2">Latest News & Breakthroughs</h3>
                 </div>
-                <button onClick={() => handleNav('events')} className="text-xs font-bold text-amber-400 hover:text-amber-300 flex items-center gap-1">
+                <button onClick={() => handleNav('events')} className="text-xs font-bold text-[#E7C797] hover:text-white flex items-center gap-1 transition-colors cursor-pointer uppercase tracking-wider">
                   View Full Event Calendar <ArrowRight className="w-3.5 h-3.5" />
                 </button>
               </div>
 
               <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
                 {newsAnnouncements.map((news, i) => (
-                  <div key={i} className="bg-black/40 p-5 rounded-2xl border border-white/10 space-y-3">
+                  <div key={i} className="bg-[#102347] p-5 rounded-lg border border-[#1F3D73] space-y-3">
                     <div className="flex justify-between items-center">
-                      <span className="text-[10px] font-black text-amber-400 uppercase tracking-widest">{news.cat}</span>
-                      <span className="text-[10px] text-slate-400">{news.date}</span>
+                      <span className="text-[10px] font-bold text-[#E7C797] uppercase tracking-widest">{news.cat}</span>
+                      <span className="text-[10px] text-slate-300">{news.date}</span>
                     </div>
-                    <h4 className="font-bold text-sm text-white leading-snug">{news.title}</h4>
-                    <p className="text-xs text-slate-400">{news.desc}</p>
+                    <h4 className="font-serif font-bold text-sm text-white leading-snug">{news.title}</h4>
+                    <p className="text-xs text-slate-300">{news.desc}</p>
                   </div>
                 ))}
               </div>
@@ -795,21 +803,21 @@ export const SchoolMaxDemo: React.FC<SchoolMaxDemoProps> = ({ isMobile, isTablet
 
           {/* 11. Merit Scholarships & Online Admission Portal */}
           <section id="max-admissions-section" className="max-w-7xl mx-auto px-4 sm:px-6">
-            <div className="bg-gradient-to-r from-indigo-950 via-slate-900 to-purple-950 rounded-3xl p-8 sm:p-12 border border-white/20 shadow-2xl grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+            <div className="bg-gradient-to-br from-[#0B1B3D] to-[#102347] rounded-xl p-8 sm:p-12 border border-[#152B57] shadow-md grid grid-cols-1 lg:grid-cols-12 gap-12 items-center text-white">
               <div className="lg:col-span-6 space-y-6">
-                <span className="bg-gradient-to-r from-amber-400 to-amber-500 text-slate-950 font-black px-4 py-1 rounded-full text-xs uppercase tracking-wider">
+                <span className="bg-[#7B1123] text-white font-bold px-4 py-1 rounded text-xs uppercase tracking-wider">
                   Admissions Cycle 2026-27
                 </span>
-                <h3 className="text-3xl sm:text-4xl font-black text-white leading-tight">
+                <h3 className="text-3xl sm:text-4xl font-serif font-bold text-white leading-tight">
                   Join India&apos;s Foremost Leadership Academy.
                 </h3>
-                <p className="text-slate-300 text-xs sm:text-sm leading-relaxed">
+                <p className="text-slate-200 text-xs sm:text-sm leading-relaxed">
                   Admissions to BrightFuture Max are selective and strictly merit-driven across Pre-Primary to Grade 12. Generous scholarships up to 100% full waiver are awarded to qualifying scholars and athletic champions.
                 </p>
 
-                <div className="bg-white/5 p-4 rounded-2xl border border-white/10 space-y-2 text-xs">
-                  <div className="font-bold text-amber-300 flex items-center gap-2">
-                    <Trophy className="w-4 h-4" /> Merit Scholarship Entrance Exam (MSEE 2026)
+                <div className="bg-[#071326] p-4 rounded-lg border border-[#152B57] space-y-2 text-xs">
+                  <div className="font-bold text-[#E7C797] flex items-center gap-2">
+                    <Trophy className="w-4 h-4 text-[#E7C797]" /> Merit Scholarship Entrance Exam (MSEE 2026)
                   </div>
                   <p className="text-slate-300">
                     Next examination date: <strong>Sunday, 15th November 2026</strong>. Top 50 rankers receive complete tuition and residential funding.
@@ -818,14 +826,14 @@ export const SchoolMaxDemo: React.FC<SchoolMaxDemoProps> = ({ isMobile, isTablet
               </div>
 
               {/* Form Card */}
-              <div className="lg:col-span-6 bg-slate-900/90 backdrop-blur-xl p-6 sm:p-8 rounded-3xl border border-indigo-500/40 shadow-2xl text-white">
-                <h4 className="text-xl font-bold text-white mb-1">VIP Admission Application</h4>
+              <div className="lg:col-span-6 bg-[#071326] p-6 sm:p-8 rounded-xl border border-[#152B57] shadow-md text-white">
+                <h4 className="text-xl font-serif font-bold text-white mb-1">VIP Admission Application</h4>
                 <p className="text-xs text-slate-400 mb-5">Enter your details to receive the 2026 Prospectus & Scholarship Guide.</p>
 
                 {enquirySubmitted ? (
-                  <div className="bg-indigo-950/80 border border-indigo-500 text-indigo-100 p-6 rounded-2xl text-center space-y-3">
-                    <CheckCircle2 className="w-12 h-12 mx-auto text-amber-400" />
-                    <h5 className="font-bold text-base text-white">Application Successfully Logged</h5>
+                  <div className="bg-[#102347] border border-[#1F3D73] text-white p-6 rounded-lg text-center space-y-3">
+                    <CheckCircle2 className="w-12 h-12 mx-auto text-[#E7C797]" />
+                    <h5 className="font-serif font-bold text-base text-white">Application Successfully Logged</h5>
                     <p className="text-xs text-slate-300">The Senior Admissions Directorate will reach out to schedule an interaction session.</p>
                   </div>
                 ) : (
@@ -833,28 +841,28 @@ export const SchoolMaxDemo: React.FC<SchoolMaxDemoProps> = ({ isMobile, isTablet
                     <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
                       <div>
                         <label className="block text-slate-300 font-semibold mb-1">Parent Full Name *</label>
-                        <input required placeholder="Parent Name" className="w-full bg-white/5 border border-white/20 rounded-xl p-3 text-white focus:outline-none focus:border-amber-400" />
+                        <input required placeholder="Parent Name" className="w-full bg-[#0B1B3D] border border-slate-700 rounded p-3 text-white placeholder-slate-400 focus:outline-none focus:border-[#7B1123]" />
                       </div>
                       <div>
                         <label className="block text-slate-300 font-semibold mb-1">Student Full Name *</label>
-                        <input required placeholder="Student Name" className="w-full bg-white/5 border border-white/20 rounded-xl p-3 text-white focus:outline-none focus:border-amber-400" />
+                        <input required placeholder="Student Name" className="w-full bg-[#0B1B3D] border border-slate-700 rounded p-3 text-white placeholder-slate-400 focus:outline-none focus:border-[#7B1123]" />
                       </div>
                     </div>
 
                     <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
                       <div>
                         <label className="block text-slate-300 font-semibold mb-1">Phone / WhatsApp Number *</label>
-                        <input required type="tel" placeholder="10-digit mobile" className="w-full bg-white/5 border border-white/20 rounded-xl p-3 text-white focus:outline-none focus:border-amber-400" />
+                        <input required type="tel" placeholder="10-digit mobile" className="w-full bg-[#0B1B3D] border border-slate-700 rounded p-3 text-white placeholder-slate-400 focus:outline-none focus:border-[#7B1123]" />
                       </div>
                       <div>
                         <label className="block text-slate-300 font-semibold mb-1">Email Address *</label>
-                        <input required type="email" placeholder="parent@example.com" className="w-full bg-white/5 border border-white/20 rounded-xl p-3 text-white focus:outline-none focus:border-amber-400" />
+                        <input required type="email" placeholder="parent@example.com" className="w-full bg-[#0B1B3D] border border-slate-700 rounded p-3 text-white placeholder-slate-400 focus:outline-none focus:border-[#7B1123]" />
                       </div>
                     </div>
 
                     <div>
                       <label className="block text-slate-300 font-semibold mb-1">Applying for Stage & Stream *</label>
-                      <select className="w-full bg-[#0B1329] border border-white/20 rounded-xl p-3 text-white focus:outline-none focus:border-amber-400">
+                      <select className="w-full bg-[#0B1B3D] border border-slate-700 rounded p-3 text-white focus:outline-none focus:border-[#7B1123]">
                         <option>Pre-Primary Discovery (Nursery, LKG, UKG)</option>
                         <option>Primary School (Grades 1 to 5)</option>
                         <option>Middle School STEM (Grades 6 to 8)</option>
@@ -865,7 +873,7 @@ export const SchoolMaxDemo: React.FC<SchoolMaxDemoProps> = ({ isMobile, isTablet
                       </select>
                     </div>
 
-                    <button type="submit" className="w-full bg-gradient-to-r from-amber-400 to-amber-500 hover:from-amber-500 hover:to-amber-600 text-slate-950 font-black py-4 rounded-xl shadow-xl transition-all uppercase tracking-wider text-xs flex items-center justify-center gap-2 mt-3 cursor-pointer">
+                    <button type="submit" className="w-full bg-[#7B1123] hover:bg-[#680E1D] text-white font-bold py-3.5 rounded shadow-sm transition-colors uppercase tracking-wider text-xs flex items-center justify-center gap-2 mt-3 cursor-pointer">
                       <Send className="w-4 h-4" /> Submit Application & Download Prospectus
                     </button>
                   </form>
@@ -877,24 +885,24 @@ export const SchoolMaxDemo: React.FC<SchoolMaxDemoProps> = ({ isMobile, isTablet
           {/* 12. Interactive FAQ Section */}
           <section className="max-w-4xl mx-auto px-4 sm:px-6">
             <div className="text-center mb-10 space-y-2">
-              <span className="text-xs font-black uppercase tracking-widest text-indigo-400 bg-indigo-500/10 px-4 py-1.5 rounded-full border border-indigo-500/20">
+              <span className="text-xs font-bold uppercase tracking-widest text-[#7B1123] bg-[#7B1123]/10 px-4 py-1.5 rounded border border-[#7B1123]/20">
                 Admissions & Policy
               </span>
-              <h3 className="text-3xl font-black text-white">Frequently Asked Questions</h3>
+              <h3 className="text-3xl font-serif font-bold text-[#0B1B3D]">Frequently Asked Questions</h3>
             </div>
 
             <div className="space-y-3">
               {maxFaqs.map((faq, idx) => (
-                <div key={idx} className="bg-white/5 rounded-2xl border border-white/10 overflow-hidden">
+                <div key={idx} className="bg-white rounded-xl border border-stone-200 overflow-hidden shadow-xs">
                   <button
                     onClick={() => setExpandedFaq(expandedFaq === idx ? null : idx)}
-                    className="w-full text-left p-5 font-bold text-sm text-white flex justify-between items-center gap-4 hover:bg-white/5 transition-colors"
+                    className="w-full text-left p-5 font-serif font-bold text-sm text-[#0B1B3D] flex justify-between items-center gap-4 hover:bg-stone-50 transition-colors cursor-pointer"
                   >
                     <span>{faq.q}</span>
-                    {expandedFaq === idx ? <ChevronUp className="w-4 h-4 text-amber-400 shrink-0" /> : <ChevronDown className="w-4 h-4 text-slate-400 shrink-0" />}
+                    {expandedFaq === idx ? <ChevronUp className="w-4 h-4 text-[#7B1123] shrink-0" /> : <ChevronDown className="w-4 h-4 text-stone-400 shrink-0" />}
                   </button>
                   {expandedFaq === idx && (
-                    <div className="px-5 pb-5 text-xs text-slate-300 leading-relaxed border-t border-white/10 pt-3">
+                    <div className="px-5 pb-5 text-xs text-stone-600 leading-relaxed border-t border-stone-100 pt-3 bg-stone-50/50">
                       {faq.a}
                     </div>
                   )}
@@ -905,20 +913,20 @@ export const SchoolMaxDemo: React.FC<SchoolMaxDemoProps> = ({ isMobile, isTablet
 
           {/* 13. Newsletter & Prospectus Subscription */}
           <section className="max-w-7xl mx-auto px-4 sm:px-6">
-            <div className="bg-indigo-950/60 border border-indigo-500/30 p-8 rounded-3xl flex flex-col md:flex-row justify-between items-center gap-6">
+            <div className="bg-[#0B1B3D] border border-[#152B57] p-8 rounded-xl flex flex-col md:flex-row justify-between items-center gap-6 shadow-md text-white">
               <div>
-                <h4 className="text-xl font-bold text-white">Subscribe to the BrightFuture Max Global Gazette</h4>
-                <p className="text-xs text-slate-400 mt-1">Receive academic whitepapers, university scholarship alerts, and campus event invitations.</p>
+                <h4 className="text-xl font-serif font-bold text-white">Subscribe to the BrightFuture Max Global Gazette</h4>
+                <p className="text-xs text-slate-300 mt-1">Receive academic whitepapers, university scholarship alerts, and campus event invitations.</p>
               </div>
 
               {newsletterSubscribed ? (
-                <span className="text-xs font-bold text-amber-400 bg-amber-400/10 px-4 py-2 rounded-xl border border-amber-400/20">
+                <span className="text-xs font-bold text-[#E7C797] bg-[#7B1123]/40 px-4 py-2 rounded border border-[#7B1123]/60">
                   ✓ Subscribed to Monthly Gazette
                 </span>
               ) : (
                 <form onSubmit={(e) => { e.preventDefault(); setNewsletterSubscribed(true); }} className="flex gap-2 w-full md:w-auto">
-                  <input required type="email" placeholder="Enter your email" className="bg-black/50 border border-white/20 rounded-xl px-4 py-3 text-xs text-white focus:outline-none focus:border-amber-400 w-full md:w-64" />
-                  <button type="submit" className="bg-amber-400 text-slate-950 font-black px-5 py-3 rounded-xl text-xs uppercase tracking-wider shrink-0">
+                  <input required type="email" placeholder="Enter your email" className="bg-[#071326] border border-slate-700 rounded px-4 py-3 text-xs text-white placeholder-slate-400 focus:outline-none focus:border-[#7B1123] w-full md:w-64" />
+                  <button type="submit" className="bg-[#7B1123] hover:bg-[#680E1D] text-white font-bold px-5 py-3 rounded text-xs uppercase tracking-wider shrink-0 transition-colors cursor-pointer shadow-xs">
                     Subscribe
                   </button>
                 </form>
@@ -932,54 +940,54 @@ export const SchoolMaxDemo: React.FC<SchoolMaxDemoProps> = ({ isMobile, isTablet
           VIEW: ABOUT
       ========================================================================= */}
       {activeNav === 'about' && (
-        <div className="py-12 px-4 sm:px-6 max-w-7xl mx-auto space-y-10 animate-in fade-in duration-300 text-white">
-          <div className="bg-white/5 p-8 sm:p-12 rounded-3xl border border-white/10 space-y-8">
+        <div className="py-12 px-4 sm:px-6 max-w-7xl mx-auto space-y-10 animate-in fade-in duration-300 text-stone-800">
+          <div className="bg-white p-8 sm:p-12 rounded-xl border border-stone-200 shadow-xs space-y-8">
             <div>
-              <span className="text-xs font-black uppercase tracking-widest text-amber-400 bg-amber-400/10 px-4 py-1.5 rounded-full border border-amber-400/20">
+              <span className="text-xs font-bold uppercase tracking-widest text-[#7B1123] bg-[#7B1123]/10 px-4 py-1.5 rounded border border-[#7B1123]/20">
                 Our Heritage & Mission
               </span>
-              <h2 className="text-3xl sm:text-4xl font-black text-white mt-3 mb-3">About BrightFuture Max Global Academy</h2>
-              <p className="text-slate-300 text-sm leading-relaxed max-w-4xl">
+              <h2 className="text-3xl sm:text-4xl font-serif font-bold text-[#0B1B3D] mt-3 mb-3">About BrightFuture Max Global Academy</h2>
+              <p className="text-stone-600 text-sm leading-relaxed max-w-4xl">
                 Founded with a singular vision to cultivate international scholars, Nobel aspirants, and ethical global leaders, BrightFuture Max stands as India&apos;s leading experimental and preparatory academy. We fuse high-rigor CBSE board standards with International Baccalaureate (IB) experiential methodologies, state-of-the-art quantum computing laboratories, and Olympic athletic centers.
               </p>
             </div>
 
             <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-              <div className="bg-black/40 p-6 rounded-2xl border border-white/10 space-y-2">
-                <Compass className="w-7 h-7 text-amber-400" />
-                <h4 className="font-bold text-base text-white">Our Vision</h4>
-                <p className="text-xs text-slate-400 leading-relaxed">
+              <div className="bg-[#FAF9F6] p-6 rounded-xl border border-stone-200 space-y-2">
+                <Compass className="w-7 h-7 text-[#7B1123]" />
+                <h4 className="font-serif font-bold text-base text-[#0B1B3D]">Our Vision</h4>
+                <p className="text-xs text-stone-600 leading-relaxed">
                   To remain an internationally recognized beacon of intellectual brilliance, scientific discovery, and profound ethical integrity.
                 </p>
               </div>
 
-              <div className="bg-black/40 p-6 rounded-2xl border border-white/10 space-y-2">
-                <Shield className="w-7 h-7 text-indigo-400" />
-                <h4 className="font-bold text-base text-white">Our Mission</h4>
-                <p className="text-xs text-slate-400 leading-relaxed">
+              <div className="bg-[#FAF9F6] p-6 rounded-xl border border-stone-200 space-y-2">
+                <Shield className="w-7 h-7 text-[#0B1B3D]" />
+                <h4 className="font-serif font-bold text-base text-[#0B1B3D]">Our Mission</h4>
+                <p className="text-xs text-stone-600 leading-relaxed">
                   To provide exceptional students with the resources, international faculty mentorship, and moral clarity needed to transform human knowledge.
                 </p>
               </div>
 
-              <div className="bg-black/40 p-6 rounded-2xl border border-white/10 space-y-2">
-                <Award className="w-7 h-7 text-amber-400" />
-                <h4 className="font-bold text-base text-white">Global Accreditation</h4>
-                <p className="text-xs text-slate-400 leading-relaxed">
+              <div className="bg-[#FAF9F6] p-6 rounded-xl border border-stone-200 space-y-2">
+                <Award className="w-7 h-7 text-[#7B1123]" />
+                <h4 className="font-serif font-bold text-base text-[#0B1B3D]">Global Accreditation</h4>
+                <p className="text-xs text-stone-600 leading-relaxed">
                   Affiliated to CBSE, New Delhi (Reg 1130452) • Cambridge International Associate • Member of Global Schools Alliance.
                 </p>
               </div>
             </div>
 
-            <div className="border-t border-white/10 pt-8 space-y-6">
-              <h3 className="text-2xl font-black text-white">Directorate & Senior Advisory Board</h3>
+            <div className="border-t border-stone-200 pt-8 space-y-6">
+              <h3 className="text-2xl font-serif font-bold text-[#0B1B3D]">Directorate & Senior Advisory Board</h3>
               <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
                 {facultyProfiles.map((fac, i) => (
-                  <div key={i} className="bg-black/30 p-5 rounded-2xl border border-white/10 text-center space-y-3">
-                    <img src={fac.img} alt={fac.name} className="w-20 h-20 rounded-full mx-auto object-cover border-2 border-amber-400" />
+                  <div key={i} className="bg-[#FAF9F6] p-5 rounded-xl border border-stone-200 text-center space-y-3">
+                    <img src={fac.img} alt={fac.name} className="w-20 h-20 rounded-full mx-auto object-cover border-2 border-[#7B1123] shadow-xs" />
                     <div>
-                      <h5 className="font-bold text-sm text-white">{fac.name}</h5>
-                      <p className="text-xs text-indigo-400">{fac.role}</p>
-                      <p className="text-[10px] text-slate-400 mt-1">{fac.qual}</p>
+                      <h5 className="font-serif font-bold text-sm text-[#0B1B3D]">{fac.name}</h5>
+                      <p className="text-xs text-[#7B1123] font-medium">{fac.role}</p>
+                      <p className="text-[10px] text-stone-500 mt-1">{fac.qual}</p>
                     </div>
                   </div>
                 ))}
@@ -993,52 +1001,52 @@ export const SchoolMaxDemo: React.FC<SchoolMaxDemoProps> = ({ isMobile, isTablet
           VIEW: ACADEMICS
       ========================================================================= */}
       {activeNav === 'academics' && (
-        <div className="py-12 px-4 sm:px-6 max-w-7xl mx-auto space-y-10 animate-in fade-in duration-300 text-white">
-          <div className="bg-white/5 p-8 sm:p-12 rounded-3xl border border-white/10 space-y-8">
+        <div className="py-12 px-4 sm:px-6 max-w-7xl mx-auto space-y-10 animate-in fade-in duration-300 text-stone-800">
+          <div className="bg-white p-8 sm:p-12 rounded-xl border border-stone-200 shadow-xs space-y-8">
             <div>
-              <span className="text-xs font-black uppercase tracking-widest text-indigo-400 bg-indigo-500/10 px-4 py-1.5 rounded-full border border-indigo-500/20">
+              <span className="text-xs font-bold uppercase tracking-widest text-[#7B1123] bg-[#7B1123]/10 px-4 py-1.5 rounded border border-[#7B1123]/20">
                 Curricular Architecture
               </span>
-              <h2 className="text-3xl sm:text-4xl font-black text-white mt-3 mb-2">Academics & Departmental Specializations</h2>
-              <p className="text-slate-300 text-sm leading-relaxed max-w-3xl">
+              <h2 className="text-3xl sm:text-4xl font-serif font-bold text-[#0B1B3D] mt-3 mb-2">Academics & Departmental Specializations</h2>
+              <p className="text-stone-600 text-sm leading-relaxed max-w-3xl">
                 Our educational framework provides specialized career accelerators across Quantum STEM, FinTech, and Global Law from early foundations through Grade 12.
               </p>
             </div>
 
             <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-              <div className="bg-indigo-950/40 p-6 rounded-3xl border border-indigo-500/30 space-y-4">
-                <span className="bg-indigo-600 text-white text-[10px] font-black uppercase px-3 py-1 rounded-full">Engineering & Medicine</span>
-                <h4 className="text-xl font-bold text-white">Quantum STEM & AI Wing</h4>
-                <p className="text-xs text-slate-300 leading-relaxed">
+              <div className="bg-[#FAF9F6] p-6 rounded-xl border border-stone-200 space-y-4">
+                <span className="bg-[#7B1123] text-white text-[10px] font-bold uppercase px-3 py-1 rounded">Engineering & Medicine</span>
+                <h4 className="text-xl font-serif font-bold text-[#0B1B3D]">Quantum STEM & AI Wing</h4>
+                <p className="text-xs text-stone-600 leading-relaxed">
                   Rigorous preparation for JEE Advanced, NEET-UG, NASA Astro Challenges, and MIT portfolios.
                 </p>
-                <div className="text-xs text-slate-300 space-y-1 bg-black/40 p-3 rounded-xl border border-white/10">
+                <div className="text-xs text-stone-700 space-y-1 bg-white p-3 rounded border border-stone-200 shadow-2xs">
                   <div>• Physics & Chemistry with Daily Practical Research</div>
                   <div>• Quantum Computing & Python AI Neural Networks</div>
                   <div>• Integrated National Competitive Batches</div>
                 </div>
               </div>
 
-              <div className="bg-amber-950/40 p-6 rounded-3xl border border-amber-500/30 space-y-4">
-                <span className="bg-amber-500 text-slate-950 text-[10px] font-black uppercase px-3 py-1 rounded-full">Finance & Business</span>
-                <h4 className="text-xl font-bold text-white">Global Commerce & FinTech Wing</h4>
-                <p className="text-xs text-slate-300 leading-relaxed">
+              <div className="bg-[#FAF9F6] p-6 rounded-xl border border-stone-200 space-y-4">
+                <span className="bg-[#0B1B3D] text-white text-[10px] font-bold uppercase px-3 py-1 rounded">Finance & Business</span>
+                <h4 className="text-xl font-serif font-bold text-[#0B1B3D]">Global Commerce & FinTech Wing</h4>
+                <p className="text-xs text-stone-600 leading-relaxed">
                   Developing chartered accountants, investment bankers, and startup venture leaders.
                 </p>
-                <div className="text-xs text-slate-300 space-y-1 bg-black/40 p-3 rounded-xl border border-white/10">
+                <div className="text-xs text-stone-700 space-y-1 bg-white p-3 rounded border border-stone-200 shadow-2xs">
                   <div>• Financial Accounting, Macroeconomics & Business</div>
                   <div>• Real-time Algorithmic Trading & Stock Simulations</div>
                   <div>• CA-Foundation & CUET Top Tier Track</div>
                 </div>
               </div>
 
-              <div className="bg-purple-950/40 p-6 rounded-3xl border border-purple-500/30 space-y-4">
-                <span className="bg-purple-600 text-white text-[10px] font-black uppercase px-3 py-1 rounded-full">Law & Diplomacy</span>
-                <h4 className="text-xl font-bold text-white">Public Policy & Humanities Wing</h4>
-                <p className="text-xs text-slate-300 leading-relaxed">
+              <div className="bg-[#FAF9F6] p-6 rounded-xl border border-stone-200 space-y-4">
+                <span className="bg-[#7B1123] text-white text-[10px] font-bold uppercase px-3 py-1 rounded">Law & Diplomacy</span>
+                <h4 className="text-xl font-serif font-bold text-[#0B1B3D]">Public Policy & Humanities Wing</h4>
+                <p className="text-xs text-stone-600 leading-relaxed">
                   Fostering international diplomats, corporate litigators, and civil servants.
                 </p>
-                <div className="text-xs text-slate-300 space-y-1 bg-black/40 p-3 rounded-xl border border-white/10">
+                <div className="text-xs text-stone-700 space-y-1 bg-white p-3 rounded border border-stone-200 shadow-2xs">
                   <div>• Political Science, History & Sociology</div>
                   <div>• CLAT & AILET Legal Reasoning Masterclasses</div>
                   <div>• Harvard Model UN Secretariat & Moot Court</div>
@@ -1053,35 +1061,35 @@ export const SchoolMaxDemo: React.FC<SchoolMaxDemoProps> = ({ isMobile, isTablet
           VIEW: CAMPUS
       ========================================================================= */}
       {activeNav === 'campus' && (
-        <div className="py-12 px-4 sm:px-6 max-w-7xl mx-auto space-y-10 animate-in fade-in duration-300 text-white">
-          <div className="bg-white/5 p-8 sm:p-12 rounded-3xl border border-white/10 space-y-8">
+        <div className="py-12 px-4 sm:px-6 max-w-7xl mx-auto space-y-10 animate-in fade-in duration-300 text-stone-800">
+          <div className="bg-white p-8 sm:p-12 rounded-xl border border-stone-200 shadow-xs space-y-8">
             <div className="flex flex-col sm:flex-row justify-between items-start sm:items-center gap-4">
               <div>
-                <span className="text-xs font-black uppercase tracking-widest text-amber-400 bg-amber-400/10 px-4 py-1.5 rounded-full border border-amber-400/20">
+                <span className="text-xs font-bold uppercase tracking-widest text-[#7B1123] bg-[#7B1123]/10 px-4 py-1.5 rounded border border-[#7B1123]/20">
                   50-Acre Campus
                 </span>
-                <h2 className="text-3xl sm:text-4xl font-black text-white mt-2 mb-1">State-of-the-Art Infrastructure</h2>
-                <p className="text-slate-300 text-sm">Explore our specialized laboratories, residential boarding, and Olympic sports facilities.</p>
+                <h2 className="text-3xl sm:text-4xl font-serif font-bold text-[#0B1B3D] mt-2 mb-1">State-of-the-Art Infrastructure</h2>
+                <p className="text-stone-600 text-sm">Explore our specialized laboratories, residential boarding, and Olympic sports facilities.</p>
               </div>
               <button 
                 onClick={() => setVirtualTourOpen(true)}
-                className="bg-amber-400 text-slate-950 font-black text-xs px-5 py-3 rounded-xl shadow-lg flex items-center gap-2 cursor-pointer"
+                className="bg-[#0B1B3D] hover:bg-[#132A4A] text-white font-bold text-xs px-5 py-3 rounded shadow-xs flex items-center gap-2 cursor-pointer transition-colors uppercase tracking-wider"
               >
-                <Play className="w-4 h-4 fill-current" /> 360° Virtual Experience
+                <Play className="w-4 h-4 fill-[#E7C797] text-[#E7C797]" /> 360° Virtual Experience
               </button>
             </div>
 
             <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
               {galleryData.map((item, i) => (
-                <div key={i} onClick={() => setLightboxMedia(item)} className="bg-slate-900 rounded-3xl overflow-hidden border border-white/10 cursor-pointer group shadow-xl">
+                <div key={i} onClick={() => setLightboxMedia(item)} className="bg-white rounded-xl overflow-hidden border border-stone-200 cursor-pointer group shadow-xs hover:shadow-md transition-shadow">
                   <div className="h-52 overflow-hidden relative">
                     <img src={item.url} alt={item.title} className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700" />
-                    <span className="absolute top-3 left-3 bg-black/80 text-amber-300 text-[10px] font-black px-3 py-1 rounded-full border border-amber-400/30">
+                    <span className="absolute top-3 left-3 bg-[#7B1123] text-white text-[10px] font-bold px-3 py-1 rounded shadow-xs uppercase">
                       {item.tag}
                     </span>
                   </div>
                   <div className="p-5">
-                    <h4 className="font-bold text-sm text-white group-hover:text-amber-400 transition-colors">{item.title}</h4>
+                    <h4 className="font-serif font-bold text-sm text-[#0B1B3D] group-hover:text-[#7B1123] transition-colors">{item.title}</h4>
                   </div>
                 </div>
               ))}
@@ -1094,39 +1102,39 @@ export const SchoolMaxDemo: React.FC<SchoolMaxDemoProps> = ({ isMobile, isTablet
           VIEW: LIFE AT SCHOOL
       ========================================================================= */}
       {activeNav === 'life' && (
-        <div className="py-12 px-4 sm:px-6 max-w-7xl mx-auto space-y-10 animate-in fade-in duration-300 text-white">
-          <div className="bg-white/5 p-8 sm:p-12 rounded-3xl border border-white/10 space-y-8">
+        <div className="py-12 px-4 sm:px-6 max-w-7xl mx-auto space-y-10 animate-in fade-in duration-300 text-stone-800">
+          <div className="bg-white p-8 sm:p-12 rounded-xl border border-stone-200 shadow-xs space-y-8">
             <div>
-              <span className="text-xs font-black uppercase tracking-widest text-amber-400 bg-amber-400/10 px-4 py-1.5 rounded-full border border-amber-400/20">
+              <span className="text-xs font-bold uppercase tracking-widest text-[#7B1123] bg-[#7B1123]/10 px-4 py-1.5 rounded border border-[#7B1123]/20">
                 Student Life & Co-Curricular
               </span>
-              <h2 className="text-3xl sm:text-4xl font-black text-white mt-2 mb-2">Life at BrightFuture Max</h2>
-              <p className="text-slate-300 text-sm leading-relaxed">
+              <h2 className="text-3xl sm:text-4xl font-serif font-bold text-[#0B1B3D] mt-2 mb-2">Life at BrightFuture Max</h2>
+              <p className="text-stone-600 text-sm leading-relaxed">
                 Discover our student leadership councils, Model UN summits, TEDx Youth stages, and house competitions.
               </p>
             </div>
 
             <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-              <div className="bg-black/40 p-6 rounded-3xl border border-white/10 space-y-3">
+              <div className="bg-[#FAF9F6] p-6 rounded-xl border border-stone-200 space-y-3">
                 <div className="text-3xl">🏛️</div>
-                <h4 className="font-bold text-base text-white">Student Government & Council</h4>
-                <p className="text-xs text-slate-400 leading-relaxed">
+                <h4 className="font-serif font-bold text-base text-[#0B1B3D]">Student Government & Council</h4>
+                <p className="text-xs text-stone-600 leading-relaxed">
                   Elected student ministers representing peers in academic senate, campus sustainability, and event execution.
                 </p>
               </div>
 
-              <div className="bg-black/40 p-6 rounded-3xl border border-white/10 space-y-3">
+              <div className="bg-[#FAF9F6] p-6 rounded-xl border border-stone-200 space-y-3">
                 <div className="text-3xl">🎤</div>
-                <h4 className="font-bold text-base text-white">TEDx Youth & Debating Society</h4>
-                <p className="text-xs text-slate-400 leading-relaxed">
+                <h4 className="font-serif font-bold text-base text-[#0B1B3D]">TEDx Youth & Debating Society</h4>
+                <p className="text-xs text-stone-600 leading-relaxed">
                   Annual licensed TEDx events featuring student innovators, international diplomats, and keynote scientists.
                 </p>
               </div>
 
-              <div className="bg-black/40 p-6 rounded-3xl border border-white/10 space-y-3">
+              <div className="bg-[#FAF9F6] p-6 rounded-xl border border-stone-200 space-y-3">
                 <div className="text-3xl">🚀</div>
-                <h4 className="font-bold text-base text-white">40+ Student-Led Guilds</h4>
-                <p className="text-xs text-slate-400 leading-relaxed">
+                <h4 className="font-serif font-bold text-base text-[#0B1B3D]">40+ Student-Led Guilds</h4>
+                <p className="text-xs text-stone-600 leading-relaxed">
                   From Autonomous Drone Racing and Quantum Coding to Symphony Orchestra, Chess Academy, and Organic Farming.
                 </p>
               </div>
@@ -1139,21 +1147,21 @@ export const SchoolMaxDemo: React.FC<SchoolMaxDemoProps> = ({ isMobile, isTablet
           VIEW: ADMISSIONS
       ========================================================================= */}
       {activeNav === 'admissions' && (
-        <div className="py-12 px-4 sm:px-6 max-w-7xl mx-auto space-y-10 animate-in fade-in duration-300 text-white">
-          <div className="bg-white/5 p-8 sm:p-12 rounded-3xl border border-white/10 space-y-8">
+        <div className="py-12 px-4 sm:px-6 max-w-7xl mx-auto space-y-10 animate-in fade-in duration-300 text-stone-800">
+          <div className="bg-white p-8 sm:p-12 rounded-xl border border-stone-200 shadow-xs space-y-8">
             <div>
-              <span className="text-xs font-black uppercase tracking-widest text-amber-400 bg-amber-400/10 px-4 py-1.5 rounded-full border border-amber-400/20">
+              <span className="text-xs font-bold uppercase tracking-widest text-[#7B1123] bg-[#7B1123]/10 px-4 py-1.5 rounded border border-[#7B1123]/20">
                 Admissions 2026-27
               </span>
-              <h2 className="text-3xl sm:text-4xl font-black text-white mt-2 mb-2">Admissions & Merit Scholarships</h2>
-              <p className="text-slate-300 text-sm leading-relaxed max-w-3xl">
+              <h2 className="text-3xl sm:text-4xl font-serif font-bold text-[#0B1B3D] mt-2 mb-2">Admissions & Merit Scholarships</h2>
+              <p className="text-stone-600 text-sm leading-relaxed max-w-3xl">
                 We invite applications from passionate learners across Nursery to Grade 12. Full and partial merit scholarships are awarded through the MSEE 2026 entrance exam.
               </p>
             </div>
 
             <div className="grid grid-cols-1 lg:grid-cols-12 gap-8">
               <div className="lg:col-span-6 space-y-4">
-                <h3 className="text-xl font-bold text-white">Admissions Timeline & Selection</h3>
+                <h3 className="text-xl font-serif font-bold text-[#0B1B3D]">Admissions Timeline & Selection</h3>
                 <div className="space-y-3">
                   {[
                     { step: '01', title: 'Online Registration', desc: 'Submit application with student academic history.' },
@@ -1161,32 +1169,32 @@ export const SchoolMaxDemo: React.FC<SchoolMaxDemoProps> = ({ isMobile, isTablet
                     { step: '03', title: 'Directorate Panel Interaction', desc: 'One-on-one session with candidate & parents.' },
                     { step: '04', title: 'Enrollment & House Induction', desc: 'Formal admission offer, hostel suite allocation & uniform kit.' }
                   ].map((s, i) => (
-                    <div key={i} className="bg-black/40 p-4 rounded-2xl border border-white/10 flex items-start gap-4">
-                      <span className="text-amber-400 font-black text-lg">{s.step}</span>
+                    <div key={i} className="bg-[#FAF9F6] p-4 rounded-xl border border-stone-200 flex items-start gap-4">
+                      <span className="text-[#7B1123] font-bold text-lg">{s.step}</span>
                       <div>
-                        <h4 className="font-bold text-sm text-white">{s.title}</h4>
-                        <p className="text-xs text-slate-400 mt-0.5">{s.desc}</p>
+                        <h4 className="font-serif font-bold text-sm text-[#0B1B3D]">{s.title}</h4>
+                        <p className="text-xs text-stone-600 mt-0.5">{s.desc}</p>
                       </div>
                     </div>
                   ))}
                 </div>
               </div>
 
-              <div className="lg:col-span-6 bg-black/60 p-6 sm:p-8 rounded-3xl border border-indigo-500/40 space-y-4">
-                <h4 className="text-lg font-bold text-white">Quick Admission Enquiry</h4>
-                <p className="text-xs text-slate-400">Our Admissions Dean will contact you with test syllabus & dates.</p>
+              <div className="lg:col-span-6 bg-[#0B1B3D] p-6 sm:p-8 rounded-xl border border-[#152B57] shadow-md text-white space-y-4">
+                <h4 className="text-lg font-serif font-bold text-white">Quick Admission Enquiry</h4>
+                <p className="text-xs text-slate-300">Our Admissions Dean will contact you with test syllabus & dates.</p>
 
                 {enquirySubmitted ? (
-                  <div className="bg-indigo-950 p-5 rounded-2xl border border-indigo-500 text-center space-y-2">
-                    <CheckCircle2 className="w-10 h-10 mx-auto text-amber-400" />
-                    <p className="font-bold text-sm text-white">Enquiry Received!</p>
+                  <div className="bg-[#102347] p-5 rounded-lg border border-[#1F3D73] text-center space-y-2">
+                    <CheckCircle2 className="w-10 h-10 mx-auto text-[#E7C797]" />
+                    <p className="font-serif font-bold text-sm text-white">Enquiry Received!</p>
                   </div>
                 ) : (
                   <form onSubmit={(e) => { e.preventDefault(); setEnquirySubmitted(true); }} className="space-y-3 text-xs">
-                    <input required placeholder="Parent Name" className="w-full bg-white/5 border border-white/20 rounded-xl p-3 text-white" />
-                    <input required placeholder="Student Name" className="w-full bg-white/5 border border-white/20 rounded-xl p-3 text-white" />
-                    <input required type="tel" placeholder="Mobile / WhatsApp" className="w-full bg-white/5 border border-white/20 rounded-xl p-3 text-white" />
-                    <select className="w-full bg-[#0B1329] border border-white/20 rounded-xl p-3 text-white">
+                    <input required placeholder="Parent Name" className="w-full bg-[#071326] border border-slate-700 rounded p-3 text-white placeholder-slate-400 focus:outline-none focus:border-[#7B1123]" />
+                    <input required placeholder="Student Name" className="w-full bg-[#071326] border border-slate-700 rounded p-3 text-white placeholder-slate-400 focus:outline-none focus:border-[#7B1123]" />
+                    <input required type="tel" placeholder="Mobile / WhatsApp" className="w-full bg-[#071326] border border-slate-700 rounded p-3 text-white placeholder-slate-400 focus:outline-none focus:border-[#7B1123]" />
+                    <select className="w-full bg-[#071326] border border-slate-700 rounded p-3 text-white focus:outline-none focus:border-[#7B1123]">
                       <option>Nursery to Grade 12 (Select Class)</option>
                       <option>Pre-Primary (Nursery, LKG, UKG)</option>
                       <option>Primary (Grades 1 - 5)</option>
@@ -1196,7 +1204,7 @@ export const SchoolMaxDemo: React.FC<SchoolMaxDemoProps> = ({ isMobile, isTablet
                       <option>Grade 11 - Global Commerce</option>
                       <option>Grade 11 - Public Policy & Humanities</option>
                     </select>
-                    <button type="submit" className="w-full bg-amber-400 text-slate-950 font-black py-3.5 rounded-xl uppercase tracking-wider text-xs">
+                    <button type="submit" className="w-full bg-[#7B1123] hover:bg-[#680E1D] text-white font-bold py-3.5 rounded uppercase tracking-wider text-xs transition-colors cursor-pointer shadow-xs">
                       Submit & Request Test Slot
                     </button>
                   </form>
@@ -1211,15 +1219,15 @@ export const SchoolMaxDemo: React.FC<SchoolMaxDemoProps> = ({ isMobile, isTablet
           VIEW: GALLERY
       ========================================================================= */}
       {activeNav === 'gallery' && (
-        <div className="py-12 px-4 sm:px-6 max-w-7xl mx-auto space-y-10 animate-in fade-in duration-300 text-white">
-          <div className="bg-white/5 p-8 sm:p-12 rounded-3xl border border-white/10 space-y-8">
+        <div className="py-12 px-4 sm:px-6 max-w-7xl mx-auto space-y-10 animate-in fade-in duration-300 text-stone-800">
+          <div className="bg-white p-8 sm:p-12 rounded-xl border border-stone-200 shadow-xs space-y-8">
             <div className="flex flex-col sm:flex-row justify-between items-start sm:items-center gap-4">
               <div>
-                <span className="text-xs font-black uppercase tracking-widest text-amber-400 bg-amber-400/10 px-4 py-1.5 rounded-full border border-amber-400/20">
+                <span className="text-xs font-bold uppercase tracking-widest text-[#7B1123] bg-[#7B1123]/10 px-4 py-1.5 rounded border border-[#7B1123]/20">
                   Media Vault
                 </span>
-                <h2 className="text-3xl sm:text-4xl font-black text-white mt-2 mb-1">Campus Video & Photo Gallery</h2>
-                <p className="text-slate-300 text-sm">Experience our academic pavilions, events, and athletics in high definition.</p>
+                <h2 className="text-3xl sm:text-4xl font-serif font-bold text-[#0B1B3D] mt-2 mb-1">Campus Video & Photo Gallery</h2>
+                <p className="text-stone-600 text-sm">Experience our academic pavilions, events, and athletics in high definition.</p>
               </div>
 
               <div className="flex flex-wrap gap-2 text-xs font-bold">
@@ -1227,8 +1235,8 @@ export const SchoolMaxDemo: React.FC<SchoolMaxDemoProps> = ({ isMobile, isTablet
                   <button
                     key={cat}
                     onClick={() => setGalleryFilter(cat)}
-                    className={`px-3.5 py-2 rounded-xl transition-all ${
-                      galleryFilter === cat ? 'bg-indigo-600 text-white shadow-md' : 'bg-white/5 text-slate-400 hover:text-white'
+                    className={`px-3.5 py-2 rounded transition-all cursor-pointer ${
+                      galleryFilter === cat ? 'bg-[#7B1123] text-white shadow-xs' : 'bg-stone-100 text-stone-700 hover:bg-stone-200'
                     }`}
                   >
                     {cat}
@@ -1244,12 +1252,12 @@ export const SchoolMaxDemo: React.FC<SchoolMaxDemoProps> = ({ isMobile, isTablet
                   <div 
                     key={i} 
                     onClick={() => setLightboxMedia(item)}
-                    className="group relative h-64 rounded-3xl overflow-hidden cursor-pointer border border-white/10 shadow-2xl bg-slate-900"
+                    className="group relative h-64 rounded-xl overflow-hidden cursor-pointer border border-stone-200 shadow-xs bg-[#0B1B3D]"
                   >
                     <img src={item.url} alt={item.title} className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700" />
-                    <div className="absolute inset-0 bg-gradient-to-t from-slate-950 via-slate-950/30 to-transparent flex flex-col justify-end p-5">
-                      <span className="text-[10px] text-amber-300 font-black uppercase">{item.tag}</span>
-                      <p className="text-xs font-bold text-white">{item.title}</p>
+                    <div className="absolute inset-0 bg-gradient-to-t from-[#071326] via-[#071326]/30 to-transparent flex flex-col justify-end p-5">
+                      <span className="text-[10px] text-white bg-[#7B1123] px-2.5 py-0.5 rounded font-bold uppercase self-start">{item.tag}</span>
+                      <p className="text-xs font-serif font-bold text-white mt-1.5">{item.title}</p>
                     </div>
                   </div>
                 ))}
@@ -1262,33 +1270,33 @@ export const SchoolMaxDemo: React.FC<SchoolMaxDemoProps> = ({ isMobile, isTablet
           VIEW: EVENTS
       ========================================================================= */}
       {activeNav === 'events' && (
-        <div className="py-12 px-4 sm:px-6 max-w-7xl mx-auto space-y-10 animate-in fade-in duration-300 text-white">
-          <div className="bg-white/5 p-8 sm:p-12 rounded-3xl border border-white/10 space-y-8">
+        <div className="py-12 px-4 sm:px-6 max-w-7xl mx-auto space-y-10 animate-in fade-in duration-300 text-stone-800">
+          <div className="bg-white p-8 sm:p-12 rounded-xl border border-stone-200 shadow-xs space-y-8">
             <div>
-              <span className="text-xs font-black uppercase tracking-widest text-indigo-400 bg-indigo-500/10 px-4 py-1.5 rounded-full border border-indigo-500/20">
+              <span className="text-xs font-bold uppercase tracking-widest text-[#7B1123] bg-[#7B1123]/10 px-4 py-1.5 rounded border border-[#7B1123]/20">
                 School Calendar
               </span>
-              <h2 className="text-3xl sm:text-4xl font-black text-white mt-2 mb-2">Upcoming Events & Gazette</h2>
-              <p className="text-slate-300 text-sm leading-relaxed">
+              <h2 className="text-3xl sm:text-4xl font-serif font-bold text-[#0B1B3D] mt-2 mb-2">Upcoming Events & Gazette</h2>
+              <p className="text-stone-600 text-sm leading-relaxed">
                 Stay updated with major school conventions, Olympiad dates, and sports championships.
               </p>
             </div>
 
             <div className="space-y-4">
               {newsAnnouncements.map((evt, i) => (
-                <div key={i} className="bg-black/40 p-6 rounded-3xl border border-white/10 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4">
+                <div key={i} className="bg-[#FAF9F6] p-6 rounded-xl border border-stone-200 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4">
                   <div className="flex items-center gap-4">
-                    <div className="w-16 h-16 rounded-2xl bg-indigo-600 text-white flex flex-col items-center justify-center shrink-0 font-black">
-                      <span className="text-base">{evt.date.split(' ')[1]}</span>
-                      <span className="text-[10px] text-amber-300">{evt.date.split(' ')[0]}</span>
+                    <div className="w-16 h-16 rounded bg-[#0B1B3D] text-white flex flex-col items-center justify-center shrink-0 font-bold border border-[#152B57]">
+                      <span className="text-base font-serif">{evt.date.split(' ')[1]}</span>
+                      <span className="text-[10px] text-[#E7C797]">{evt.date.split(' ')[0]}</span>
                     </div>
                     <div>
-                      <span className="text-[10px] font-black text-amber-400 uppercase tracking-widest bg-white/5 px-2.5 py-0.5 rounded">{evt.cat}</span>
-                      <h4 className="font-bold text-base text-white mt-1">{evt.title}</h4>
-                      <p className="text-xs text-slate-400 mt-0.5">{evt.desc}</p>
+                      <span className="text-[10px] font-bold text-[#7B1123] uppercase tracking-widest bg-[#7B1123]/10 border border-[#7B1123]/20 px-2.5 py-0.5 rounded">{evt.cat}</span>
+                      <h4 className="font-serif font-bold text-base text-[#0B1B3D] mt-1">{evt.title}</h4>
+                      <p className="text-xs text-stone-600 mt-0.5">{evt.desc}</p>
                     </div>
                   </div>
-                  <button className="bg-white/10 text-white text-xs font-bold px-4 py-2 rounded-xl hover:bg-white/20 self-start sm:self-auto">
+                  <button className="bg-[#7B1123] text-white text-xs font-bold px-4 py-2 rounded hover:bg-[#680E1D] self-start sm:self-auto transition-colors cursor-pointer uppercase tracking-wider shadow-2xs">
                     Add to Calendar
                   </button>
                 </div>
@@ -1302,38 +1310,38 @@ export const SchoolMaxDemo: React.FC<SchoolMaxDemoProps> = ({ isMobile, isTablet
           VIEW: CONTACT
       ========================================================================= */}
       {activeNav === 'contact' && (
-        <div className="py-12 px-4 sm:px-6 max-w-7xl mx-auto space-y-10 animate-in fade-in duration-300 text-white">
-          <div className="bg-white/5 p-8 sm:p-12 rounded-3xl border border-white/10 space-y-8">
+        <div className="py-12 px-4 sm:px-6 max-w-7xl mx-auto space-y-10 animate-in fade-in duration-300 text-stone-800">
+          <div className="bg-white p-8 sm:p-12 rounded-xl border border-stone-200 shadow-xs space-y-8">
             <div>
-              <span className="text-xs font-black uppercase tracking-widest text-amber-400 bg-amber-400/10 px-4 py-1.5 rounded-full border border-amber-400/20">
+              <span className="text-xs font-bold uppercase tracking-widest text-[#7B1123] bg-[#7B1123]/10 px-4 py-1.5 rounded border border-[#7B1123]/20">
                 Get in Touch
               </span>
-              <h2 className="text-3xl sm:text-4xl font-black text-white mt-2 mb-2">Campus Location & VIP Admissions</h2>
-              <p className="text-slate-300 text-sm leading-relaxed">
+              <h2 className="text-3xl sm:text-4xl font-serif font-bold text-[#0B1B3D] mt-2 mb-2">Campus Location & VIP Admissions</h2>
+              <p className="text-stone-600 text-sm leading-relaxed">
                 Connect directly with the Senior Admissions Directorate or schedule a personalized campus tour.
               </p>
             </div>
 
-            <div className="grid grid-cols-1 lg:grid-cols-12 gap-8">
-              <div className="lg:col-span-5 space-y-4 text-xs text-slate-300">
-                <div className="bg-black/40 p-5 rounded-2xl border border-white/10 space-y-1">
-                  <div className="font-bold text-sm text-white flex items-center gap-2">
-                    <MapPin className="w-4 h-4 text-amber-400" /> Flagship 50-Acre Campus
+            <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
+              <div className="lg:col-span-5 space-y-4 text-xs text-stone-700">
+                <div className="bg-[#FAF9F6] p-5 rounded-xl border border-stone-200 space-y-1">
+                  <div className="font-serif font-bold text-sm text-[#0B1B3D] flex items-center gap-2">
+                    <MapPin className="w-4 h-4 text-[#7B1123]" /> Flagship 50-Acre Campus
                   </div>
-                  <p>Cyber Knowledge City, Express Highway Corridor, Thane West, Maharashtra - 400607</p>
+                  <p>Achievers College, Station Road / Birla College Road, Kalyan, Maharashtra, India - 421301</p>
                 </div>
 
-                <div className="bg-black/40 p-5 rounded-2xl border border-white/10 space-y-1">
-                  <div className="font-bold text-sm text-white flex items-center gap-2">
-                    <Phone className="w-4 h-4 text-amber-400" /> Admissions Direct Desks
+                <div className="bg-[#FAF9F6] p-5 rounded-xl border border-stone-200 space-y-1">
+                  <div className="font-serif font-bold text-sm text-[#0B1B3D] flex items-center gap-2">
+                    <Phone className="w-4 h-4 text-[#7B1123]" /> Admissions Direct Desks
                   </div>
                   <p>Admissions Secretariat: +91 99887 76655 / +91 99887 76656</p>
                   <p>Hostel & Boarding Warden: +91 99887 76660</p>
                 </div>
 
-                <div className="bg-black/40 p-5 rounded-2xl border border-white/10 space-y-1">
-                  <div className="font-bold text-sm text-white flex items-center gap-2">
-                    <Mail className="w-4 h-4 text-amber-400" /> Electronic Correspondence
+                <div className="bg-[#FAF9F6] p-5 rounded-xl border border-stone-200 space-y-1">
+                  <div className="font-serif font-bold text-sm text-[#0B1B3D] flex items-center gap-2">
+                    <Mail className="w-4 h-4 text-[#7B1123]" /> Electronic Correspondence
                   </div>
                   <p>admissions.max@brightfuture.edu.in</p>
                   <p>dean.office@brightfuture.edu.in</p>
@@ -1343,28 +1351,58 @@ export const SchoolMaxDemo: React.FC<SchoolMaxDemoProps> = ({ isMobile, isTablet
                   href="https://wa.me/919988776655?text=Hello%20BrightFuture%20Max,%20I%20wish%20to%20enquire%20about%20VIP%20admissions"
                   target="_blank"
                   rel="noreferrer"
-                  className="w-full bg-emerald-600 hover:bg-emerald-500 text-white font-black py-4 rounded-xl text-center flex items-center justify-center gap-2 shadow-xl uppercase tracking-wider"
+                  className="w-full bg-[#7B1123] hover:bg-[#680E1D] text-white font-bold py-3.5 rounded text-center flex items-center justify-center gap-2 shadow-xs uppercase tracking-wider transition-colors"
                 >
                   <MessageCircle className="w-4 h-4" /> 24/7 VIP WhatsApp Counselor
                 </a>
               </div>
 
-              {/* 3D Map Preview Card */}
-              <div className="lg:col-span-7 bg-black/40 p-6 rounded-3xl border border-white/10 space-y-4">
-                <h4 className="font-bold text-base text-white">Campus Transport & Metro Network</h4>
-                <div className="h-48 bg-slate-900 rounded-2xl border border-white/10 flex flex-col items-center justify-center text-center p-4">
-                  <Globe className="w-10 h-10 text-indigo-400 mb-2 animate-spin-slow" />
-                  <p className="font-bold text-white text-sm">Interactive GPS Campus Locator</p>
-                  <p className="text-[11px] text-slate-400 mt-1">Directly accessible via Mumbai-Nashik Expressway & Dedicated Metro Pillar 142.</p>
-                </div>
-                <div className="grid grid-cols-2 gap-2 text-xs text-slate-300">
-                  <div className="bg-white/5 p-3 rounded-xl border border-white/10">
-                    <span className="font-bold text-amber-400 block">Fleet Coverage:</span>
-                    <span>42 Air-Conditioned WiFi Buses across MMR</span>
+              {/* Campus Location Map & Coordinates */}
+              <div className="lg:col-span-7 bg-[#FAF9F6] p-6 rounded-xl border border-stone-200 space-y-5">
+                <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-3 pb-3 border-b border-stone-200">
+                  <div>
+                    <h4 className="font-serif font-bold text-lg text-[#0B1B3D] flex items-center gap-2">
+                      <MapPin className="w-5 h-5 text-[#7B1123]" />
+                      Campus Location
+                    </h4>
+                    <p className="text-xs text-stone-600 mt-0.5">Visit our campus in Kalyan, Maharashtra.</p>
                   </div>
-                  <div className="bg-white/5 p-3 rounded-xl border border-white/10">
-                    <span className="font-bold text-indigo-300 block">VIP Visiting Hours:</span>
-                    <span>Mon - Sat: 8:00 AM - 5:00 PM</span>
+                  <a
+                    href="https://www.google.com/maps/search/?api=1&query=Achievers+College+Kalyan+Maharashtra+India"
+                    target="_blank"
+                    rel="noreferrer"
+                    className="inline-flex items-center justify-center gap-1.5 bg-[#0B1B3D] hover:bg-[#152B57] text-[#E7C797] hover:text-white font-bold text-xs px-4 py-2.5 rounded transition-colors shadow-2xs self-start sm:self-auto cursor-pointer"
+                  >
+                    <ExternalLink className="w-3.5 h-3.5" />
+                    <span>Open in Google Maps</span>
+                  </a>
+                </div>
+
+                {/* Google Maps Embed with Achievers College, Kalyan */}
+                <div className="w-full h-64 sm:h-72 rounded-xl overflow-hidden border border-stone-300 shadow-xs relative bg-stone-100">
+                  <iframe 
+                    title="Campus Location - Achievers College, Kalyan, Maharashtra"
+                    src="https://maps.google.com/maps?width=100%25&height=600&hl=en&q=Achievers%20College,%20Kalyan,%20Maharashtra,%20India&t=&z=15&ie=UTF8&iwloc=B&output=embed"
+                    className="w-full h-full border-0"
+                    loading="lazy"
+                    allowFullScreen
+                  />
+                </div>
+
+                <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 text-xs text-stone-700">
+                  <div className="bg-white p-3.5 rounded-lg border border-stone-200 flex items-start gap-2.5">
+                    <Building className="w-4 h-4 text-[#7B1123] shrink-0 mt-0.5" />
+                    <div>
+                      <span className="font-serif font-bold text-[#0B1B3D] block">Campus Address:</span>
+                      <span className="text-stone-600">Achievers College, Kalyan, Maharashtra, India</span>
+                    </div>
+                  </div>
+                  <div className="bg-white p-3.5 rounded-lg border border-stone-200 flex items-start gap-2.5">
+                    <Clock className="w-4 h-4 text-[#7B1123] shrink-0 mt-0.5" />
+                    <div>
+                      <span className="font-serif font-bold text-[#0B1B3D] block">Campus Visiting Hours:</span>
+                      <span className="text-stone-600">Mon - Sat: 8:00 AM - 5:00 PM</span>
+                    </div>
                   </div>
                 </div>
               </div>
@@ -1373,27 +1411,27 @@ export const SchoolMaxDemo: React.FC<SchoolMaxDemoProps> = ({ isMobile, isTablet
         </div>
       )}
 
-      {/* Cinematic Luxury Dark Footer */}
-      <footer className="bg-[#0B1329] text-slate-400 py-16 px-4 sm:px-6 border-t border-white/10">
+      {/* Professional Navy & Burgundy School Footer */}
+      <footer className="bg-[#0B1B3D] text-slate-300 py-16 px-4 sm:px-6 border-t border-[#152B57]">
         <div className="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-4 gap-10 text-xs">
           <div className="space-y-4">
-            <div className="flex items-center gap-2 text-white font-black text-xl">
-              <GraduationCap className="w-7 h-7 text-amber-400" /> BRIGHTFUTURE <span className="text-amber-400">MAX</span>
+            <div className="flex items-center gap-2 text-white font-serif font-bold text-xl">
+              <GraduationCap className="w-7 h-7 text-[#E7C797]" /> BRIGHTFUTURE <span className="text-[#E7C797] font-sans font-extrabold">MAX</span>
             </div>
-            <p className="text-slate-400 leading-relaxed">
+            <p className="text-slate-300 leading-relaxed">
               An internationally accredited preparatory academy delivering world-class STEM research, Olympic athletics, and character formation.
             </p>
-            <div className="text-[11px] text-amber-400 font-bold">
+            <div className="text-[11px] text-[#E7C797] font-semibold">
               Affiliated to CBSE, New Delhi • Reg. No. 1130452
             </div>
           </div>
 
           <div>
-            <h4 className="font-bold text-white uppercase tracking-wider mb-4">Navigation</h4>
+            <h4 className="font-serif font-bold text-white uppercase tracking-wider mb-4">Navigation</h4>
             <ul className="space-y-2.5">
               {navItems.map(item => (
                 <li key={item.id}>
-                  <button onClick={() => handleNav(item.id)} className="hover:text-amber-400 transition-colors">
+                  <button onClick={() => handleNav(item.id)} className="hover:text-[#E7C797] transition-colors text-slate-300 cursor-pointer">
                     {item.label}
                   </button>
                 </li>
@@ -1402,8 +1440,8 @@ export const SchoolMaxDemo: React.FC<SchoolMaxDemoProps> = ({ isMobile, isTablet
           </div>
 
           <div>
-            <h4 className="font-bold text-white uppercase tracking-wider mb-4">Academic Departments</h4>
-            <ul className="space-y-2 text-slate-400">
+            <h4 className="font-serif font-bold text-white uppercase tracking-wider mb-4">Academic Departments</h4>
+            <ul className="space-y-2 text-slate-300">
               <li>• Early Discovery Center (Nursery-UKG)</li>
               <li>• Primary Experiential Wing (Grades 1-5)</li>
               <li>• Middle School STEM Wing (Grades 6-8)</li>
@@ -1414,22 +1452,22 @@ export const SchoolMaxDemo: React.FC<SchoolMaxDemoProps> = ({ isMobile, isTablet
           </div>
 
           <div>
-            <h4 className="font-bold text-white uppercase tracking-wider mb-4">Senior Admissions Desk</h4>
-            <p className="text-slate-400 leading-relaxed mb-3">
+            <h4 className="font-serif font-bold text-white uppercase tracking-wider mb-4">Senior Admissions Desk</h4>
+            <p className="text-slate-300 leading-relaxed mb-3">
               Cyber Knowledge City, Express Highway Corridor, Thane West - 400607
             </p>
             <p className="text-white font-bold">Hotline: +91 99887 76655</p>
-            <p className="text-slate-400">Email: admissions.max@brightfuture.edu.in</p>
+            <p className="text-slate-300">Email: admissions.max@brightfuture.edu.in</p>
             <button 
               onClick={() => handleNav('admissions')}
-              className="mt-4 bg-gradient-to-r from-amber-400 to-amber-500 hover:from-amber-500 hover:to-amber-600 text-slate-950 font-black px-4 py-2.5 rounded-xl w-full text-xs transition-all uppercase tracking-wider cursor-pointer"
+              className="mt-4 bg-[#7B1123] hover:bg-[#680E1D] text-white font-bold px-4 py-2.5 rounded w-full text-xs transition-colors uppercase tracking-wider cursor-pointer shadow-xs"
             >
               Apply Online 2026-27
             </button>
           </div>
         </div>
 
-        <div className="max-w-7xl mx-auto border-t border-white/10 mt-12 pt-8 flex flex-col sm:flex-row justify-between items-center text-[11px] text-slate-500 gap-2">
+        <div className="max-w-7xl mx-auto border-t border-[#152B57] mt-12 pt-8 flex flex-col sm:flex-row justify-between items-center text-[11px] text-slate-400 gap-2">
           <span>© 2026 BrightFuture Max Global Academy. All Rights Reserved.</span>
           <span>CBSE & International Baccalaureate Candidate • Ranked Top 5 in India</span>
         </div>

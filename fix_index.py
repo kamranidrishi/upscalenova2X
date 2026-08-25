@@ -1,9 +1,14 @@
-<!doctype html>
-<html lang="en" class="scroll-smooth">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Upscale Nova — Professional Websites & Digital Solutions</title>
+import re
+
+with open("index.html", "r") as f:
+    content = f.read()
+
+# Replace <title>
+new_title = "<title>Upscale Nova — Professional Websites & Digital Solutions</title>"
+content = re.sub(r'<title>.*?</title>', new_title, content)
+
+# Meta tags to inject
+meta_tags = """
     <meta name="description" content="Upscale Nova provides custom website development, digital menu solutions, NFC review cards, and reliable hosting services for businesses in Mumbai and beyond." />
     <link rel="canonical" href="https://upscalenova.com/" />
     
@@ -20,7 +25,10 @@
     <meta name="twitter:title" content="Upscale Nova — Professional Websites & Digital Solutions" />
     <meta name="twitter:description" content="Upscale Nova provides custom website development, digital menu solutions, NFC review cards, and reliable hosting services for businesses in Mumbai and beyond." />
     <meta name="twitter:image" content="https://upscalenova.com/logo.png" />
+"""
 
+# JSON-LD Schema
+json_ld = """
     <script type="application/ld+json">
     {
       "@context": "https://schema.org",
@@ -29,7 +37,7 @@
       "image": "https://upscalenova.com/logo.png",
       "url": "https://upscalenova.com/",
       "telephone": "+919137283810",
-      "email": "hello@upscalenova.com",
+      "email": "upscalenova2x@gmail.com",
       "address": {
         "@type": "PostalAddress",
         "addressLocality": "Mumbai",
@@ -42,15 +50,11 @@
       ]
     }
     </script>
+"""
 
-   <link rel="icon" type="image/png" href="/logo.png" />
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
-  </head>
-  <body class="font-['Plus_Jakarta_Sans',sans-serif] bg-slate-50 text-slate-900 antialiased selection:bg-indigo-500 selection:text-white">
-    <div id="root"></div>
-    <script type="module" src="/src/main.tsx"></script>
-  </body>
-</html>
+# Insert meta_tags and json_ld right after <title>
+content = content.replace(new_title, new_title + meta_tags + json_ld)
+
+with open("index.html", "w") as f:
+    f.write(content)
 

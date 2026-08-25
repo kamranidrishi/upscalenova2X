@@ -1,5 +1,5 @@
 import React from 'react';
-import { QrCode, Sparkles, Check, Share2, Utensils, Link, Wifi } from 'lucide-react';
+import { QrCode, Package, Check, Share2, Utensils, Link, Wifi } from 'lucide-react';
 import { PRODUCTS } from '../data/content';
 
 interface ProductsProps {
@@ -24,8 +24,8 @@ export const ProductsSection: React.FC<ProductsProps> = ({ onOpenQuoteModal }) =
         
         {/* Section Header */}
         <div className="text-center max-w-3xl mx-auto space-y-4">
-          <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-purple-50 border border-purple-100 text-purple-700 text-xs font-bold">
-            <Sparkles className="w-3.5 h-3.5" />
+          <div className="inline-flex items-center gap-1.5 px-4 py-1.5 rounded-full bg-purple-50 border border-purple-100 text-purple-700 text-sm font-semibold tracking-wide">
+            <Package className="w-3.5 h-3.5" />
             <span>NFC & QR Physical Business Stands</span>
           </div>
           <h2 className="text-3xl sm:text-4xl font-extrabold text-slate-900 tracking-tight">
@@ -37,7 +37,7 @@ export const ProductsSection: React.FC<ProductsProps> = ({ onOpenQuoteModal }) =
         </div>
 
         {/* Product Cards Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
           {PRODUCTS.map((prod) => (
             <div
               key={prod.id}
@@ -46,12 +46,12 @@ export const ProductsSection: React.FC<ProductsProps> = ({ onOpenQuoteModal }) =
               <div className="space-y-6">
                 
                 {/* Visual Stand / Card Mockup Header */}
-                <div className="w-full aspect-[4/3] rounded-2xl overflow-hidden shadow-xs border border-slate-100 bg-slate-50 flex items-center justify-center p-1.5 transition-transform group-hover:scale-[1.02]">
+                <div className="w-full aspect-[4/3] rounded-2xl overflow-hidden bg-slate-50 border border-slate-100 flex items-center justify-center p-4">
                   {prod.image ? (
                     <img 
                       src={prod.image} 
                       alt={prod.title} 
-                      className="w-full h-full object-contain rounded-xl"
+                      className="w-full h-full object-contain"
                       referrerPolicy="no-referrer"
                       loading="lazy"
                     />
@@ -92,7 +92,7 @@ export const ProductsSection: React.FC<ProductsProps> = ({ onOpenQuoteModal }) =
               <div className="space-y-2 pt-2">
                 <button
                   onClick={() => onOpenQuoteModal(prod.title)}
-                  className="w-full bg-slate-900 hover:bg-indigo-600 text-white font-bold py-3 px-4 rounded-2xl text-xs sm:text-sm transition-colors shadow-xs"
+                  className="w-full bg-slate-900 hover:bg-indigo-600 text-white font-semibold py-3.5 px-4 rounded-xl text-sm transition-all shadow-md hover:shadow-lg focus:outline-none focus:ring-2 focus:ring-indigo-600 focus:ring-offset-2 active:scale-95"
                 >
                   Request Custom Design
                 </button>

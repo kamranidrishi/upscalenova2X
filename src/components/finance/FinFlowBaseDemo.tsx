@@ -88,7 +88,7 @@ export const FinFlowBaseDemo: React.FC<FinFlowBaseDemoProps> = ({ demo, isMobile
   ];
 
   return (
-    <div className="w-full h-full bg-slate-50 text-slate-800 flex flex-col font-sans overflow-y-auto custom-scrollbar">
+    <div className="w-full min-h-full bg-slate-50 text-slate-800 flex flex-col font-sans custom-scrollbar">
       {/* Top Header / Navigation Bar */}
       <header className="sticky top-0 z-30 bg-white/95 backdrop-blur-md border-b border-slate-200 px-4 sm:px-6 py-3.5 flex items-center justify-between shadow-xs shrink-0">
         <div className="flex items-center gap-3">

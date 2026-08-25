@@ -37,7 +37,7 @@ export const LawFirmDemo: React.FC<{
   ];
 
   return (
-    <div className="w-full h-full bg-[#FAFAFA] text-slate-800 overflow-y-auto overflow-x-hidden font-serif custom-scrollbar">
+    <div className="w-full min-h-full bg-[#FAFAFA] text-slate-800 overflow-x-hidden font-serif custom-scrollbar">
       {/* Topbar */}
       <div className="bg-[#0B132B] text-slate-300 text-[11px] px-6 py-2.5 flex justify-between items-center border-b border-slate-800/50">
         <div className="flex gap-4">

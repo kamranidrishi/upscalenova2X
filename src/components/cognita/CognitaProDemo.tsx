@@ -220,7 +220,7 @@ export const CognitaProDemo: React.FC<CognitaProDemoProps> = ({ isMobile, isTabl
   };
 
   return (
-    <div className="w-full h-full bg-slate-950 text-slate-100 font-sans flex flex-col overflow-y-auto custom-scrollbar select-text">
+    <div className="w-full min-h-full bg-slate-950 text-slate-100 font-sans flex flex-col custom-scrollbar select-text">
       {/* Top Pro SaaS Bar */}
       <header className="sticky top-0 z-40 bg-slate-950/90 backdrop-blur-md border-b border-slate-800/80 shrink-0 px-4 lg:px-8 py-3.5 flex items-center justify-between">
         <div className="flex items-center gap-3">

@@ -1,6 +1,6 @@
 import { PRICING_PLANS } from '../data/content';
-import React, { useState, useEffect } from 'react';
-import { Sparkles, Monitor, GraduationCap, Tablet, Smartphone, X, Check, ChevronRight, ArrowRight } from 'lucide-react';
+import React, { useState, useEffect, useRef } from 'react';
+import { Sparkles, Monitor, GraduationCap, Tablet, Smartphone, X, Check, ChevronRight, ArrowRight, Maximize, Minimize } from 'lucide-react';
 import { DEMO_DATA, PlanType, CategoryType, DemoItem } from '../data/demos';
 import { WebsiteDemoRenderer } from './WebsiteDemoRenderer';
 
@@ -36,8 +36,8 @@ const CATEGORIES: ('All' | CategoryType)[] = [
 
 
 const basePrice = PRICING_PLANS.find(p => p.id === 'base')?.price || '₹24,999';
-const proPrice = PRICING_PLANS.find(p => p.id === 'pro')?.price || '₹39,999';
-const maxPrice = PRICING_PLANS.find(p => p.id === 'max')?.price || '₹59,999';
+const proPrice = PRICING_PLANS.find(p => p.id === 'pro')?.price || '₹34,999';
+const maxPrice = PRICING_PLANS.find(p => p.id === 'max')?.price || '₹54,999';
 
 const getPrice = (name: string) => PRICING_PLANS.find(p => p.name === name)?.price || '';
 
@@ -89,7 +89,7 @@ const DemoCardItem: React.FC<DemoCardItemProps> = ({ demo, images, onSelect }) =
           <span className={`backdrop-blur-sm text-white text-[10px] font-black uppercase tracking-wider px-2.5 py-1 rounded-md shadow-sm ${
             demo.plan === 'Max' ? 'bg-amber-600/90' : demo.plan === 'Pro' ? 'bg-indigo-600/90' : 'bg-slate-800/90'
           }`}>
-            {demo.plan} • {PLANS.find(p => p.id === demo.plan)?.price}
+            {demo.plan} Plan
           </span>
         </div>
 
@@ -147,32 +147,15 @@ const DemoCardItem: React.FC<DemoCardItemProps> = ({ demo, images, onSelect }) =
       <div className="p-6 flex flex-col flex-grow justify-between space-y-4">
         <div>
           <h3 className="text-xl font-extrabold text-slate-900 tracking-tight">{demo.title}</h3>
-          {demo.isRealClient && demo.clientName && (
-            <p className="text-xs text-indigo-600 font-bold mt-0.5">Live Reference: {demo.clientName}</p>
-          )}
-          <p className="text-sm text-slate-600 mt-2 line-clamp-2 leading-relaxed">{demo.description}</p>
+          
+          
         </div>
         
         <div className="space-y-4 pt-2">
-          {/* Feature Pills */}
-          <div className="flex flex-wrap gap-1.5">
-            {getPlanFeatures(demo.plan).slice(0, 3).map((feat, i) => (
-              <span key={i} className="inline-flex items-center gap-1 bg-slate-50 border border-slate-200 text-slate-700 text-[10px] font-bold px-2.5 py-1 rounded-full">
-                <Check className="w-3 h-3 text-indigo-600" />
-                {feat}
-              </span>
-            ))}
-            {getPlanFeatures(demo.plan).length > 3 && (
-               <span className="inline-flex items-center bg-slate-100 text-slate-600 text-[10px] font-bold px-2 py-1 rounded-full">
-                 +{getPlanFeatures(demo.plan).length - 3} more
-               </span>
-            )}
-          </div>
-          
           {/* Launch Live Demo Button */}
           <button 
             onClick={onSelect}
-            className="w-full py-3.5 bg-slate-900 hover:bg-indigo-600 text-white font-bold text-xs uppercase tracking-wider rounded-xl transition-all duration-200 flex items-center justify-center gap-2 group/btn shadow-md hover:shadow-lg cursor-pointer"
+            className="w-full py-3 bg-slate-900 hover:bg-indigo-600 text-white font-semibold text-sm rounded-xl transition-all duration-200 flex items-center justify-center gap-2 group/btn shadow-md hover:shadow-lg cursor-pointer focus:outline-none focus:ring-2 focus:ring-indigo-600 focus:ring-offset-2 active:scale-95"
           >
             <span>View Live Demo</span>
             <ChevronRight className="w-4 h-4 text-slate-400 group-hover/btn:text-white group-hover/btn:translate-x-0.5 transition-all" />
@@ -188,6 +171,23 @@ export const DemoShowroom: React.FC<DemoShowroomProps> = ({ onOpenQuoteModal }) 
   const [activeCategory, setActiveCategory] = useState<'All' | CategoryType>('All');
   const [activeDemo, setActiveDemo] = useState<DemoItem | null>(null);
   const [deviceView, setDeviceView] = useState<'desktop' | 'tablet' | 'mobile'>('desktop');
+  const [isFullscreen, setIsFullscreen] = useState(false);
+  const demoScrollViewportRef = useRef<HTMLDivElement>(null);
+
+  useEffect(() => {
+    const handleKeyDown = (e: KeyboardEvent) => {
+      if (e.key === 'Escape') {
+        if (isFullscreen) {
+          setIsFullscreen(false);
+        } else if (activeDemo) {
+          setActiveDemo(null);
+        }
+      }
+    };
+    window.addEventListener('keydown', handleKeyDown);
+    return () => window.removeEventListener('keydown', handleKeyDown);
+  }, [isFullscreen, activeDemo]);
+
   
   const filteredDemos = DEMO_DATA.filter(demo => {
     if (demo.plan !== activePlan) return false;
@@ -204,6 +204,39 @@ export const DemoShowroom: React.FC<DemoShowroomProps> = ({ onOpenQuoteModal }) 
       setActivePlan(targetPlan);
     }
   };
+
+  // Lock background parent website scrolling completely when demo modal is open
+  useEffect(() => {
+    if (activeDemo) {
+      const originalBodyOverflow = document.body.style.overflow;
+      const originalHtmlOverflow = document.documentElement.style.overflow;
+      const originalBodyOverscroll = document.body.style.overscrollBehavior;
+      const originalPaddingRight = document.body.style.paddingRight;
+      
+      const scrollbarWidth = window.innerWidth - document.documentElement.clientWidth;
+      
+      document.body.style.overflow = 'hidden';
+      document.documentElement.style.overflow = 'hidden';
+      document.body.style.overscrollBehavior = 'none';
+      if (scrollbarWidth > 0) {
+        document.body.style.paddingRight = `${scrollbarWidth}px`;
+      }
+
+      return () => {
+        document.body.style.overflow = originalBodyOverflow;
+        document.documentElement.style.overflow = originalHtmlOverflow;
+        document.body.style.overscrollBehavior = originalBodyOverscroll;
+        document.body.style.paddingRight = originalPaddingRight;
+      };
+    }
+  }, [activeDemo]);
+
+  // Reset demo viewport scroll position to top whenever demo, plan, or device view changes
+  useEffect(() => {
+    if (activeDemo && demoScrollViewportRef.current) {
+      demoScrollViewportRef.current.scrollTop = 0;
+    }
+  }, [activeDemo?.id, activeDemo?.plan, deviceView]);
 
   // Reset category if none exist
   useEffect(() => {
@@ -303,6 +336,7 @@ export const DemoShowroom: React.FC<DemoShowroomProps> = ({ onOpenQuoteModal }) 
                 images={images}
                 onSelect={() => {
                   setActiveDemo(demo);
+                  setIsFullscreen(false);
                   setDeviceView('desktop');
                 }}
               />
@@ -330,7 +364,7 @@ export const DemoShowroom: React.FC<DemoShowroomProps> = ({ onOpenQuoteModal }) 
           <div className="absolute bottom-0 left-0 w-80 h-80 bg-indigo-600/20 rounded-full blur-3xl translate-y-1/2 -translate-x-1/2"></div>
           
           <div className="relative z-10 space-y-6">
-            <span className="bg-amber-400 text-slate-950 text-[10px] font-black uppercase tracking-widest px-3 py-1 rounded-full">
+            <span className="inline-block bg-amber-400 text-slate-950 text-[10px] font-black uppercase tracking-widest px-3 py-1 rounded-full">
               100% Tailored To Your Brand
             </span>
             <h3 className="text-2xl sm:text-3xl lg:text-4xl font-extrabold text-white tracking-tight">
@@ -355,8 +389,12 @@ export const DemoShowroom: React.FC<DemoShowroomProps> = ({ onOpenQuoteModal }) 
       {/* INTERACTIVE MINI-WEBSITE MODAL VIEWER ("A Website Inside My Website") */}
       {/* ========================================================================= */}
       {activeDemo && (
-        <div className="fixed inset-0 z-50 flex items-center justify-center p-0 sm:p-3 md:p-6 bg-slate-950/90 backdrop-blur-md animate-in fade-in duration-200">
-          <div className="bg-slate-950 w-full h-full sm:rounded-3xl border border-slate-800 shadow-2xl flex flex-col overflow-hidden max-w-[1500px]">
+        <div 
+          className={`fixed inset-0 z-50 flex items-center justify-center ${isFullscreen ? 'p-0' : 'p-0 sm:p-3 md:p-6'} bg-slate-950/90 backdrop-blur-md animate-in fade-in duration-200 overscroll-contain select-text`}
+          onWheel={(e) => e.stopPropagation()}
+          onTouchMove={(e) => e.stopPropagation()}
+        >
+          <div className={`bg-slate-950 w-full h-full shadow-2xl flex flex-col overflow-hidden transition-all duration-300 ${isFullscreen ? 'rounded-none border-none max-w-none' : 'sm:rounded-3xl border border-slate-800 max-w-[95vw] 2xl:max-w-[1800px]'}`}>
             
             {/* Modal Top Control Bar */}
             <div className="min-h-[4rem] py-2 border-b border-slate-800 flex flex-wrap items-center justify-between px-4 sm:px-6 bg-slate-900 shrink-0 gap-4 z-50 relative">
@@ -402,6 +440,14 @@ export const DemoShowroom: React.FC<DemoShowroomProps> = ({ onOpenQuoteModal }) 
               <div className="flex items-center gap-2 sm:gap-4 shrink-0">
                 <div className="flex items-center bg-slate-950 border border-slate-800 rounded-xl p-1">
                   <button 
+                    onClick={() => setIsFullscreen(!isFullscreen)}
+                    className={`p-2 rounded-lg transition-colors text-slate-400 hover:text-white mr-1`}
+                    title={isFullscreen ? "Exit Full Screen (ESC)" : "Expand to Full Screen"}
+                  >
+                    {isFullscreen ? <Minimize className="w-4 h-4 text-indigo-400" /> : <Maximize className="w-4 h-4" />}
+                  </button>
+                  <div className="w-px h-4 bg-slate-800 mx-1"></div>
+                  <button 
                     onClick={() => setDeviceView('desktop')}
                     className={`p-2 rounded-lg transition-colors ${deviceView === 'desktop' ? 'bg-slate-800 text-white shadow-sm' : 'text-slate-400 hover:text-white'}`}
                     title="Desktop Preview (100% Width)"
@@ -425,8 +471,8 @@ export const DemoShowroom: React.FC<DemoShowroomProps> = ({ onOpenQuoteModal }) 
                 </div>
 
                 <button 
-                  onClick={() => setActiveDemo(null)}
-                  className="px-3 py-2 text-slate-300 hover:text-white bg-slate-800 hover:bg-rose-600 rounded-xl transition-colors flex items-center gap-1.5 text-xs font-bold"
+                  onClick={() => { setActiveDemo(null); setIsFullscreen(false); }}
+                  className="px-3 py-2 text-slate-300 hover:text-white bg-slate-800 hover:bg-rose-600 rounded-xl transition-colors flex items-center gap-1.5 text-xs font-bold cursor-pointer"
                 >
                   <span className="hidden sm:inline">Close Demo</span>
                   <X className="w-4 h-4" />
@@ -435,12 +481,14 @@ export const DemoShowroom: React.FC<DemoShowroomProps> = ({ onOpenQuoteModal }) 
             </div>
             
             {/* Modal Body - The Interactive Simulated Browser Frame */}
-            <div className="flex-1 bg-slate-950 flex justify-center items-center p-0 sm:p-3 overflow-hidden relative">
+            <div className="flex-1 min-h-0 bg-slate-950 flex justify-center items-center p-0 sm:p-3 overflow-hidden relative">
                <div 
-                  className={`bg-white rounded-none sm:rounded-2xl shadow-2xl overflow-hidden transition-all duration-500 ease-out flex flex-col border border-slate-800
-                    ${deviceView === 'desktop' ? 'w-full h-full max-w-[1400px]' : 
-                      deviceView === 'tablet' ? 'w-[768px] h-full max-h-[960px]' : 
-                      'w-[380px] h-full max-h-[820px] rounded-3xl border-4 border-slate-800'}
+                  className={`bg-white shadow-2xl overflow-hidden transition-all duration-500 ease-out flex flex-col min-h-0
+                    ${deviceView === 'desktop' 
+                      ? `w-full h-full ${isFullscreen ? 'max-w-none rounded-none border-none' : 'max-w-[100%] xl:max-w-[1600px] sm:rounded-2xl border border-slate-800'}` 
+                      : deviceView === 'tablet' 
+                        ? 'w-[768px] h-full max-h-[960px] sm:rounded-2xl border border-slate-800' 
+                        : 'w-[380px] h-full max-h-[820px] rounded-3xl border-4 border-slate-800'}
                   `}
                 >
                   {/* Browser Address Bar */}
@@ -460,8 +508,18 @@ export const DemoShowroom: React.FC<DemoShowroomProps> = ({ onOpenQuoteModal }) 
                     </div>
                   </div>
                   
-                  {/* Simulated Mini-Website Canvas */}
-                  <div className="flex-1 overflow-hidden relative bg-white flex flex-col transform translate-x-0">
+                  {/* Simulated Mini-Website Canvas - Independent Scrollable Area */}
+                  <div 
+                    ref={demoScrollViewportRef}
+                    id="demo-scroll-viewport"
+                    className="flex-1 min-h-0 w-full h-full overflow-y-auto overflow-x-hidden relative bg-white flex flex-col overscroll-contain"
+                    style={{ 
+                      WebkitOverflowScrolling: 'touch',
+                      overscrollBehavior: 'contain'
+                    }}
+                    onWheel={(e) => e.stopPropagation()}
+                    onTouchMove={(e) => e.stopPropagation()}
+                  >
                     <WebsiteDemoRenderer 
                       demo={activeDemo} 
                       device={deviceView} 

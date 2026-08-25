@@ -14,8 +14,8 @@ import { FinFlowProDemo } from './finance/FinFlowProDemo';
 import { FinFlowMaxDemo } from './finance/FinFlowMaxDemo';
 import { PRICING_PLANS } from '../data/content';
 const basePrice = PRICING_PLANS.find(p => p.id === 'base')?.price || '₹24,999';
-const proPrice = PRICING_PLANS.find(p => p.id === 'pro')?.price || '₹39,999';
-const maxPrice = PRICING_PLANS.find(p => p.id === 'max')?.price || '₹59,999';
+const proPrice = PRICING_PLANS.find(p => p.id === 'pro')?.price || '₹34,999';
+const maxPrice = PRICING_PLANS.find(p => p.id === 'max')?.price || '₹54,999';
 
 import {
   Coffee,

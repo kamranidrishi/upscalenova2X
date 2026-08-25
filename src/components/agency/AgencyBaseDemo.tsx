@@ -194,7 +194,7 @@ export const AgencyBaseDemo: React.FC<AgencyBaseDemoProps> = ({ isMobile }) => {
   };
 
   return (
-    <div className="w-full h-full bg-[#0B0F19] text-slate-100 font-sans overflow-y-auto overflow-x-hidden custom-scrollbar">
+    <div className="w-full min-h-full bg-[#0B0F19] text-slate-100 font-sans overflow-x-hidden custom-scrollbar">
       {/* Top Banner */}
       <div className="bg-gradient-to-r from-indigo-950 via-slate-900 to-indigo-950 border-b border-indigo-800/40 text-xs py-2 px-4 text-indigo-200">
         <div className="max-w-7xl mx-auto flex flex-wrap items-center justify-between gap-3">

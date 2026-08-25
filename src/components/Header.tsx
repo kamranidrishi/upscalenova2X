@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Phone, MessageSquare, Menu as MenuIcon, X, Sparkles } from 'lucide-react';
+import { Phone, MessageSquare, Menu as MenuIcon, X, Headset } from 'lucide-react';
 import { COMPANY_PHONE_DISPLAY, WHATSAPP_LINK, CALL_LINK } from '../data/content';
 
 interface HeaderProps {
@@ -48,9 +48,9 @@ export const Header: React.FC<HeaderProps> = ({ onOpenQuoteModal }) => {
           <div className="hidden lg:flex items-center gap-3">
             <button
               onClick={() => onOpenQuoteModal()}
-              className="flex items-center gap-2 bg-slate-900/90 hover:bg-indigo-600 backdrop-blur-md text-white px-4 py-2 rounded-full text-xs font-bold transition-all shadow-sm hover:shadow-indigo-200 hover:-translate-y-0.5 border border-white/20"
+              className="flex items-center gap-2 bg-slate-900/90 hover:bg-indigo-600 backdrop-blur-md text-white px-5 py-2.5 rounded-xl text-sm font-semibold transition-all shadow-sm border border-white/20 focus:outline-none focus:ring-2 focus:ring-indigo-600 focus:ring-offset-2"
             >
-              <Sparkles className="w-3.5 h-3.5 text-indigo-300" />
+              <Headset className="w-3.5 h-3.5 text-indigo-300" />
               <span>Get a Free Consultation</span>
             </button>
           </div>
@@ -133,7 +133,7 @@ export const Header: React.FC<HeaderProps> = ({ onOpenQuoteModal }) => {
           <div className="pt-4 border-t border-slate-100 flex flex-col gap-3">
             <a
               href={CALL_LINK}
-              className="w-full flex items-center justify-center gap-2 bg-indigo-50 text-indigo-700 py-3 rounded-xl font-bold text-sm border border-indigo-200"
+              className="w-full flex items-center justify-center gap-2 bg-white hover:bg-slate-50 text-slate-800 py-3 rounded-xl font-semibold text-sm border border-slate-200 transition-colors focus:outline-none focus:ring-2 focus:ring-slate-200 focus:ring-offset-2"
             >
               <Phone className="w-4 h-4 text-indigo-600" />
               <span>Call Support</span>
@@ -144,7 +144,7 @@ export const Header: React.FC<HeaderProps> = ({ onOpenQuoteModal }) => {
                 setMobileMenuOpen(false);
                 onOpenQuoteModal();
               }}
-              className="w-full bg-slate-900 text-white py-3 rounded-xl font-bold text-sm hover:bg-indigo-600 transition-colors shadow-sm"
+              className="w-full bg-slate-900 hover:bg-indigo-600 text-white py-3 rounded-xl font-semibold text-sm transition-colors shadow-md focus:outline-none focus:ring-2 focus:ring-indigo-600 focus:ring-offset-2"
             >
               Get a Free Consultation
             </button>

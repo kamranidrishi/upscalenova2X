@@ -19,7 +19,7 @@ export const LeadershipSection: React.FC = () => {
       bio: 'Strategic mind focused on scaling modern web solutions, client relationships, and business operations.',
       initials: 'BC',
       photoUrl: 'https://drive.google.com/thumbnail?id=1V3cIDeEYlEnmtHJ-lMmlTGl5d9Rm3NcV&sz=w1000',
-      linkedinUrl: '#',
+      linkedinUrl: 'https://www.linkedin.com/in/brijesh-chauhan-05a211416/',
       instagramUrl: 'https://www.instagram.com/brijes4h/'
     }
   ];

@@ -30,7 +30,7 @@ export const HowItWorksSection: React.FC = () => {
               </span>
 
               <div className="space-y-3 relative z-10">
-                <span className="inline-block px-3 py-1 rounded-full bg-indigo-50 text-indigo-700 text-xs font-bold">
+                <span className="inline-block px-3 py-1 rounded-full bg-indigo-50 text-indigo-700 text-sm font-semibold">
                   Step {step.stepNumber}
                 </span>
 

@@ -110,7 +110,7 @@ export const RepairBaseDemo: React.FC<RepairBaseDemoProps> = ({ isMobile }) => {
   };
 
   return (
-    <div className="w-full h-full bg-slate-50 text-slate-800 font-sans overflow-y-auto overflow-x-hidden custom-scrollbar">
+    <div className="w-full min-h-full bg-slate-50 text-slate-800 font-sans overflow-x-hidden custom-scrollbar">
       
       {/* 1. TOP EMERGENCY NOTIFICATION STRIP */}
       <div className="bg-emerald-700 text-white text-xs py-2 px-4 shadow-sm">

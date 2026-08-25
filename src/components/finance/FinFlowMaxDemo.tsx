@@ -185,7 +185,7 @@ export const FinFlowMaxDemo: React.FC<FinFlowMaxDemoProps> = ({ demo, isMobile, 
   };
 
   return (
-    <div className="w-full h-full bg-[#070a12] text-slate-100 flex flex-col font-sans overflow-y-auto custom-scrollbar">
+    <div className="w-full min-h-full bg-[#070a12] text-slate-100 flex flex-col font-sans custom-scrollbar">
       {/* Enterprise Header Bar */}
       <header className="sticky top-0 z-30 bg-[#070a12]/95 backdrop-blur-md border-b border-cyan-900/40 px-4 sm:px-6 py-3 flex items-center justify-between shadow-2xl shrink-0">
         <div className="flex items-center gap-3">

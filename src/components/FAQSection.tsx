@@ -31,14 +31,14 @@ export const FAQSection: React.FC = () => {
               >
                 <button
                   onClick={() => setOpenId(isOpen ? null : faq.id)}
-                  className="w-full text-left p-6 font-bold text-slate-900 text-base sm:text-lg flex items-center justify-between gap-4 hover:text-indigo-600 transition-colors"
+                  className="w-full text-left p-6 font-semibold text-slate-900 text-base sm:text-lg flex items-center justify-between gap-4 hover:text-indigo-600 transition-colors focus:outline-none focus-visible:ring-2 focus-visible:ring-inset focus-visible:ring-slate-300"
                 >
                   <span>{faq.question}</span>
                   <ChevronDown className={`w-5 h-5 text-slate-500 shrink-0 transition-transform duration-200 ${isOpen ? 'rotate-180 text-indigo-600' : ''}`} />
                 </button>
 
                 {isOpen && (
-                  <div className="px-6 pb-6 pt-0 text-slate-600 text-sm leading-relaxed border-t border-slate-100/60 animate-in fade-in duration-200">
+                  <div className="px-6 pb-6 pt-0 text-slate-600 text-base leading-relaxed border-t border-slate-100/60 animate-in fade-in duration-200">
                     <p className="pt-3">{faq.answer}</p>
                   </div>
                 )}

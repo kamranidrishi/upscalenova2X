@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Mail, Phone, MapPin, Send, Instagram, MessageSquare, CheckCircle, Sparkles } from 'lucide-react';
+import { Mail, Phone, MapPin, Send, Instagram, MessageSquare, CheckCircle, Headset } from 'lucide-react';
 import { COMPANY_PHONE_DISPLAY, COMPANY_EMAIL, COMPANY_LOCATION, WHATSAPP_LINK, CALL_LINK, INSTAGRAM_LINK } from '../data/content';
 import { QuoteFormData } from '../types';
 
@@ -148,7 +148,7 @@ Thank you.`;
               
               <div className="mb-6 space-y-1">
                 <div className="inline-flex items-center gap-1.5 text-xs font-bold text-indigo-600 bg-indigo-50 px-3 py-1 rounded-full">
-                  <Sparkles className="w-3.5 h-3.5" />
+                  <Headset className="w-3.5 h-3.5" />
                   <span>Free Price Consultation</span>
                 </div>
                 <h3 className="text-2xl sm:text-3xl font-extrabold text-slate-900">
@@ -182,24 +182,24 @@ Thank you.`;
                 <form onSubmit={handleSubmit} className="space-y-4">
                   <div className="space-y-4">
                     <div>
-                      <label className="block text-xs font-bold text-slate-700 mb-1">Name *</label>
+                      <label className="block text-sm font-semibold text-slate-700 mb-1.5">Full Name *</label>
                       <input
                         type="text"
                         required
                         value={formData.name}
                         onChange={(e) => setFormData({ ...formData, name: e.target.value })}
                         placeholder="Your Full Name"
-                        className="w-full bg-slate-50 border border-slate-200 rounded-xl px-4 py-3 text-sm font-semibold text-slate-800 focus:outline-none focus:ring-2 focus:ring-indigo-500"
+                        className="w-full bg-white border border-slate-300 rounded-xl px-4 py-3 text-sm text-slate-900 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500 transition-shadow"
                       />
                     </div>
 
                     <div>
-                      <label className="block text-xs font-bold text-slate-700 mb-1">Phone Number *</label>
+                      <label className="block text-sm font-semibold text-slate-700 mb-1.5">Phone Number *</label>
                       <div className="flex gap-2">
                         <select
                           value={formData.countryCode}
                           onChange={(e) => setFormData({ ...formData, countryCode: e.target.value })}
-                          className="bg-slate-50 border border-slate-200 rounded-xl px-3 py-3 text-sm font-semibold text-slate-800 focus:outline-none focus:ring-2 focus:ring-indigo-500 max-w-[100px]"
+                          className="bg-white border border-slate-300 rounded-xl px-3 py-3 text-sm text-slate-900 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500 transition-shadow max-w-[100px]"
                         >
                           <option value="+91">🇮🇳 +91</option>
                         </select>
@@ -214,18 +214,18 @@ Thank you.`;
                             if (val.length === 10) setPhoneError('');
                           }}
                           placeholder="10-digit number"
-                          className="w-full bg-slate-50 border border-slate-200 rounded-xl px-4 py-3 text-sm font-semibold text-slate-800 focus:outline-none focus:ring-2 focus:ring-indigo-500"
+                          className="w-full bg-white border border-slate-300 rounded-xl px-4 py-3 text-sm text-slate-900 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500 transition-shadow"
                         />
                       </div>
                       {phoneError && <p className="text-red-500 text-xs mt-1 font-bold">{phoneError}</p>}
                     </div>
 
                     <div>
-                      <label className="block text-xs font-bold text-slate-700 mb-1">Service Interested In</label>
+                      <label className="block text-sm font-semibold text-slate-700 mb-1.5">Service Interested In</label>
                       <select
                         value={formData.service}
                         onChange={(e) => setFormData({ ...formData, service: e.target.value })}
-                        className="w-full bg-slate-50 border border-slate-200 rounded-xl px-4 py-3 text-sm font-semibold text-slate-800 focus:outline-none focus:ring-2 focus:ring-indigo-500"
+                        className="w-full bg-white border border-slate-300 rounded-xl px-4 py-3 text-sm text-slate-900 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500 transition-shadow"
                       >
                         <option value="Custom Website Design">Custom Website Design</option>
                         <option value="Google Review NFC Card">Google Review NFC Card</option>
