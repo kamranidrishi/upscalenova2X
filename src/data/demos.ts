@@ -1,6 +1,6 @@
 export type PlanType = 'Base' | 'Pro' | 'Max';
-export type BusinessType = 'cafe' | 'restaurant' | 'real-estate' | 'gym' | 'law-firm' | 'marketing' | 'finance' | 'ai' | 'form' | 'school';
-export type CategoryType = 'Café' | 'Restaurant' | 'Flat / Real Estate' | 'Gym' | 'Law Firm' | 'Marketing' | 'Finance' | 'AI / SaaS' | 'Services' | 'School';
+export type BusinessType = 'cafe' | 'restaurant' | 'real-estate' | 'gym' | 'law-firm' | 'marketing' | 'finance' | 'ai' | 'form' | 'school' | 'beauty';
+export type CategoryType = 'Café' | 'Restaurant' | 'Flat / Real Estate' | 'Gym' | 'Law Firm' | 'Marketing' | 'Finance' | 'AI / SaaS' | 'Services' | 'School' | 'Beauty Products';
 
 export interface DemoItem {
   id: string;
@@ -28,7 +28,8 @@ export const BUSINESS_TYPES: { type: BusinessType; label: CategoryType; name: st
   { type: 'marketing', label: 'Marketing', name: 'Nova Digital Agency', icon: 'Sparkles' },
   { type: 'finance', label: 'Finance', name: 'FinFlow Capital & SaaS', icon: 'PieChart' },
   { type: 'ai', label: 'AI / SaaS', name: 'Cognita AI Platform', icon: 'Zap' },
-  { type: 'form', label: 'Services', name: 'Apex Home & Repair Pro', icon: 'Wrench' }
+  { type: 'form', label: 'Services', name: 'Apex Home & Repair Pro', icon: 'Wrench' },
+  { type: 'beauty', label: 'Beauty Products', name: 'Aura Botanicals & Cosmetics', icon: 'Sparkles' }
 ];
 
 export const DEMO_DATA: DemoItem[] = [
@@ -678,5 +679,67 @@ export const DEMO_DATA: DemoItem[] = [
       'https://images.unsplash.com/photo-1577896851231-70ef18881754?auto=format&fit=crop&w=1200&q=80'
     ],
     features: ['Up to 15 pages', 'Student & Parent Portal', 'Advanced online admission', 'Database & Backend', 'Advanced SEO', 'Domain/Hosting: Free']
+  },
+
+  // -------------------------------------------------------------
+  // BEAUTY PRODUCTS (Aura Botanicals & Cosmetics)
+  // -------------------------------------------------------------
+  {
+    id: 'beauty-base',
+    businessId: 'beauty',
+    title: 'Aura Botanicals',
+    category: 'Beauty Products',
+    plan: 'Base',
+    businessType: 'beauty',
+    tagline: 'Clean Biocompatible Skincare & Botanicals',
+    description: 'Clean and elegant beauty & cosmetics landing website with botanical ingredient spotlights, curated product showcase, and direct inquiry booking.',
+    isRealClient: false,
+    themeColor: 'rose',
+    heroImage: 'https://images.unsplash.com/photo-1598440947619-2c35fc9aa908?auto=format&fit=crop&w=1200&q=80',
+    previewImages: [
+      'https://images.unsplash.com/photo-1598440947619-2c35fc9aa908?auto=format&fit=crop&w=1200&q=80',
+      'https://images.unsplash.com/photo-1620916566398-39f1143ab7be?auto=format&fit=crop&w=1200&q=80',
+      'https://images.unsplash.com/photo-1571781926291-c477ebfd024b?auto=format&fit=crop&w=1200&q=80'
+    ],
+    features: ['Single Page / Up to 4 sections', 'Responsive Beauty Showcase', 'Direct WhatsApp & Inquiry Form', 'Ingredient Transparency Cards', 'Domain/Hosting: Free']
+  },
+  {
+    id: 'beauty-pro',
+    businessId: 'beauty',
+    title: 'Aura Botanicals',
+    category: 'Beauty Products',
+    plan: 'Pro',
+    businessType: 'beauty',
+    tagline: 'Luxury Clean Cosmetics & Interactive Storefront',
+    description: 'Advanced cosmetics storefront featuring category filtering, live product search, interactive bag drawer, and quick product view modals.',
+    isRealClient: false,
+    themeColor: 'rose',
+    heroImage: 'https://images.unsplash.com/photo-1620916566398-39f1143ab7be?auto=format&fit=crop&w=1200&q=80',
+    previewImages: [
+      'https://images.unsplash.com/photo-1620916566398-39f1143ab7be?auto=format&fit=crop&w=1200&q=80',
+      'https://images.unsplash.com/photo-1608248597359-299f187a550c?auto=format&fit=crop&w=1200&q=80',
+      'https://images.unsplash.com/photo-1592945403244-b3fbafd7f539?auto=format&fit=crop&w=1200&q=80'
+    ],
+    features: ['Up to 8 interactive sections', 'Live Search & Category Filtering', 'Interactive Shopping Bag Drawer', 'Product Quick-View Modals', 'Skin Match Consultation Form', 'Domain/Hosting: Free']
+  },
+  {
+    id: 'beauty-max',
+    businessId: 'beauty',
+    title: 'Aura Botanicals',
+    category: 'Beauty Products',
+    plan: 'Max',
+    businessType: 'beauty',
+    tagline: 'Haute Clean Cosmetics & Full E-Commerce Ecosystem',
+    description: 'The ultimate luxury beauty e-commerce flagship. Features 3-step checkout, wishlists, VIP reward points, flash deals with countdown timers, customer order tracking, and shoppable editorial blogs.',
+    isRealClient: false,
+    themeColor: 'rose',
+    heroImage: 'https://images.unsplash.com/photo-1592945403244-b3fbafd7f539?auto=format&fit=crop&w=1200&q=80',
+    previewImages: [
+      'https://images.unsplash.com/photo-1592945403244-b3fbafd7f539?auto=format&fit=crop&w=1200&q=80',
+      'https://images.unsplash.com/photo-1620916566398-39f1143ab7be?auto=format&fit=crop&w=1200&q=80',
+      'https://images.unsplash.com/photo-1608248597359-299f187a550c?auto=format&fit=crop&w=1200&q=80',
+      'https://images.unsplash.com/photo-1571781926291-c477ebfd024b?auto=format&fit=crop&w=1200&q=80'
+    ],
+    features: ['Complete E-Commerce Ecosystem', '3-Step Express Checkout & UPI/Card/COD', 'Wishlist & Cart Sample Selector', 'Live GPS Order Tracking', 'VIP Rewards & Scratch Coupons', 'Shoppable Instagram Feed & Blog', 'Domain/Hosting: Free']
   }
 ];

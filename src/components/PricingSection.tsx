@@ -31,6 +31,18 @@ export const PricingSection: React.FC<PricingProps> = ({ onOpenQuoteModal }) => 
             const isPro = plan.isPopular;
             const activePrice = plan.price;
             const periodLabel = '/ one-time';
+            
+            // Calculate discount percentage
+            let discountPercent = 0;
+            if (plan.originalPrice) {
+              const parsePrice = (p: string) => parseInt(p.replace(/[^\d]/g, ''), 10);
+              const originalNum = parsePrice(plan.originalPrice);
+              const finalNum = parsePrice(activePrice);
+              if (originalNum > finalNum && originalNum > 0) {
+                discountPercent = Math.round(((originalNum - finalNum) / originalNum) * 100);
+              }
+            }
+
             return (
               <div
                 key={plan.id}
@@ -53,9 +65,26 @@ export const PricingSection: React.FC<PricingProps> = ({ onOpenQuoteModal }) => 
                     <h3 className={`text-sm font-bold uppercase tracking-widest ${isPro ? 'text-indigo-200' : 'text-slate-500'}`}>
                       {plan.name}
                     </h3>
-                    <div className="mt-3 flex items-baseline gap-1.5">
-                      <span className="text-4xl font-extrabold tracking-tight transition-all duration-300">{activePrice}</span>
-                      <span className={`text-sm font-medium transition-all duration-300 ${isPro ? 'text-indigo-300' : 'text-slate-500'}`}>{periodLabel}</span>
+                    <div className="mt-3 flex flex-col gap-1">
+                      {plan.originalPrice && discountPercent > 0 && (
+                        <div className="flex items-center gap-2">
+                          <span className={`text-base font-medium line-through decoration-1 ${isPro ? 'text-indigo-300' : 'text-slate-400'}`}>
+                            {plan.originalPrice}
+                          </span>
+                          <span className={`text-[11px] font-bold px-2 py-0.5 rounded-full ${isPro ? 'bg-amber-400 text-amber-950' : 'bg-emerald-100 text-emerald-800'}`}>
+                            {discountPercent}% OFF
+                          </span>
+                        </div>
+                      )}
+                      
+                      <div className="flex items-baseline gap-1.5">
+                        <span className="text-4xl font-extrabold tracking-tight transition-all duration-300">{activePrice}</span>
+                        <span className={`text-sm font-medium transition-all duration-300 ${isPro ? 'text-indigo-300' : 'text-slate-500'}`}>{periodLabel}</span>
+                      </div>
+                      
+                      <span className={`text-xs ${isPro ? 'text-indigo-300' : 'text-slate-500'}`}>
+                        Including GST
+                      </span>
                     </div>
                   </div>
 

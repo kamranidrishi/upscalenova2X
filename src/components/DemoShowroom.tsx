@@ -31,7 +31,8 @@ const CATEGORIES: ('All' | CategoryType)[] = [
   'Finance', 
   'AI / SaaS', 
   'Services',
-  'School'
+  'School',
+  'Beauty Products'
 ];
 
 

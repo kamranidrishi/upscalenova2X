@@ -34,21 +34,21 @@ export const Header: React.FC<HeaderProps> = ({ onOpenQuoteModal }) => {
           </a>
 
           {/* Desktop Nav Links */}
-          <nav className="hidden md:flex items-center gap-1.5 bg-slate-900/[0.03] backdrop-blur-md p-1.5 rounded-full border border-white/80 shadow-[inset_0_1px_1px_rgba(255,255,255,0.8)] text-sm font-semibold text-slate-700">
-            <a href="#home" className="px-3.5 py-1 rounded-full hover:bg-white/90 hover:text-indigo-600 hover:shadow-xs transition-all">Home</a>
-            <a href="#services" className="px-3.5 py-1 rounded-full hover:bg-white/90 hover:text-indigo-600 hover:shadow-xs transition-all">Services</a>
-            <a href="#products" className="px-3.5 py-1 rounded-full hover:bg-white/90 hover:text-indigo-600 hover:shadow-xs transition-all">Products</a>
-            <a href="#pricing" className="px-3.5 py-1 rounded-full hover:bg-white/90 hover:text-indigo-600 hover:shadow-xs transition-all">Pricing</a>
-            <a href="#website-demo" className="px-3.5 py-1 rounded-full hover:bg-white/90 hover:text-indigo-600 hover:shadow-xs transition-all">Website Demo</a>
-            <a href="#about" className="px-3.5 py-1 rounded-full hover:bg-white/90 hover:text-indigo-600 hover:shadow-xs transition-all">About</a>
-            <a href="#contact" className="px-3.5 py-1 rounded-full hover:bg-white/90 hover:text-indigo-600 hover:shadow-xs transition-all">Contact</a>
+          <nav className="hidden xl:flex items-center gap-1 lg:gap-1.5 bg-slate-900/[0.03] backdrop-blur-md p-1.5 rounded-full border border-white/80 shadow-[inset_0_1px_1px_rgba(255,255,255,0.8)] text-[13px] lg:text-sm font-semibold text-slate-700">
+            <a href="#home" className="px-2.5 lg:px-3.5 py-1 rounded-full hover:bg-white/90 hover:text-indigo-600 hover:shadow-xs transition-all whitespace-nowrap">Home</a>
+            <a href="#services" className="px-2.5 lg:px-3.5 py-1 rounded-full hover:bg-white/90 hover:text-indigo-600 hover:shadow-xs transition-all whitespace-nowrap">Services</a>
+            <a href="#products" className="px-2.5 lg:px-3.5 py-1 rounded-full hover:bg-white/90 hover:text-indigo-600 hover:shadow-xs transition-all whitespace-nowrap">Products</a>
+            <a href="#pricing" className="px-2.5 lg:px-3.5 py-1 rounded-full hover:bg-white/90 hover:text-indigo-600 hover:shadow-xs transition-all whitespace-nowrap">Pricing</a>
+            <a href="#website-demo" className="px-2.5 lg:px-3.5 py-1 rounded-full hover:bg-white/90 hover:text-indigo-600 hover:shadow-xs transition-all whitespace-nowrap">Website Demo</a>
+            <a href="#about" className="px-2.5 lg:px-3.5 py-1 rounded-full hover:bg-white/90 hover:text-indigo-600 hover:shadow-xs transition-all whitespace-nowrap">About</a>
+            <a href="#contact" className="px-2.5 lg:px-3.5 py-1 rounded-full hover:bg-white/90 hover:text-indigo-600 hover:shadow-xs transition-all whitespace-nowrap">Contact</a>
           </nav>
 
           {/* Action Call & Quote Button */}
           <div className="hidden lg:flex items-center gap-3">
             <button
               onClick={() => onOpenQuoteModal()}
-              className="flex items-center gap-2 bg-slate-900/90 hover:bg-indigo-600 backdrop-blur-md text-white px-5 py-2.5 rounded-xl text-sm font-semibold transition-all shadow-sm border border-white/20 focus:outline-none focus:ring-2 focus:ring-indigo-600 focus:ring-offset-2"
+              className="flex items-center gap-2 bg-slate-900/90 hover:bg-indigo-600 backdrop-blur-md text-white px-4 xl:px-5 py-2.5 rounded-xl text-[13px] xl:text-sm font-semibold transition-all shadow-sm border border-white/20 focus:outline-none focus:ring-2 focus:ring-indigo-600 focus:ring-offset-2 whitespace-nowrap"
             >
               <Headset className="w-3.5 h-3.5 text-indigo-300" />
               <span>Get a Free Consultation</span>
@@ -56,7 +56,7 @@ export const Header: React.FC<HeaderProps> = ({ onOpenQuoteModal }) => {
           </div>
 
           {/* Mobile Menu Button */}
-          <div className="md:hidden flex items-center gap-2">
+          <div className="xl:hidden flex items-center gap-2">
             <a
               href={CALL_LINK}
               className="p-2.5 rounded-full bg-white/60 backdrop-blur-md text-indigo-600 font-bold text-xs flex items-center gap-1 border border-indigo-100/80 shadow-xs"
@@ -77,7 +77,7 @@ export const Header: React.FC<HeaderProps> = ({ onOpenQuoteModal }) => {
 
       {/* Mobile Drawer */}
       {mobileMenuOpen && (
-        <div className="md:hidden bg-white/85 backdrop-blur-2xl border-b border-slate-200/60 px-6 py-6 space-y-4 animate-in slide-in-from-top-4 duration-200 shadow-xl">
+        <div className="xl:hidden bg-white/85 backdrop-blur-2xl border-b border-slate-200/60 px-6 py-6 space-y-4 animate-in slide-in-from-top-4 duration-200 shadow-xl">
           <nav className="flex flex-col space-y-3 text-base font-semibold text-slate-700">
             <a 
               href="#home" 

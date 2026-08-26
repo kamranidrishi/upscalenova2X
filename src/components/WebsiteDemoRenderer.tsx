@@ -3,12 +3,15 @@ import { DemoItem, PlanType } from "../data/demos";
 import { CafeDemo } from "./CafeDemo";
 import { RestaurantDemo } from "./RestaurantDemo";
 import { RealEstateDemo } from "./RealEstateDemo";
+import { RealEstateProDemo } from "./RealEstateProDemo";
+import { FlatMaxDemo } from "./FlatMaxDemo";
 import { GymDemo } from "./GymDemo";
 import { SchoolDemo } from "./SchoolDemo";
 import { LawFirmDemo } from './LawFirmDemo';
 import { AgencyDemo } from './AgencyDemo';
 import { RepairDemo } from './RepairDemo';
 import { CognitaDemo } from './CognitaDemo';
+import { BeautyDemo } from './BeautyDemo';
 import { FinFlowBaseDemo } from './finance/FinFlowBaseDemo';
 import { FinFlowProDemo } from './finance/FinFlowProDemo';
 import { FinFlowMaxDemo } from './finance/FinFlowMaxDemo';
@@ -113,6 +116,26 @@ export const WebsiteDemoRenderer: React.FC<RendererProps> = ({
         />
       );
     case "real-estate":
+      if (demo.plan === "Max") {
+        return (
+          <FlatMaxDemo
+            demo={demo}
+            isMobile={isMobile}
+            isTablet={isTablet}
+            onPlanChange={onPlanChange}
+          />
+        );
+      }
+      if (demo.plan === "Pro") {
+        return (
+          <RealEstateProDemo
+            demo={demo}
+            isMobile={isMobile}
+            isTablet={isTablet}
+            onPlanChange={onPlanChange}
+          />
+        );
+      }
       return (
         <RealEstateDemo
           demo={demo}
@@ -194,6 +217,15 @@ export const WebsiteDemoRenderer: React.FC<RendererProps> = ({
     case "school":
       return (
         <SchoolDemo
+          demo={demo}
+          isMobile={isMobile}
+          isTablet={isTablet}
+          onPlanChange={onPlanChange}
+        />
+      );
+    case "beauty":
+      return (
+        <BeautyDemo
           demo={demo}
           isMobile={isMobile}
           isTablet={isTablet}

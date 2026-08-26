@@ -93,7 +93,7 @@ export const PRODUCTS: ProductItem[] = [
     customization: ['Logo', 'Brand Colors', 'Custom URL', 'Custom Text'],
     badgeColor: 'bg-blue-500',
     iconName: 'Contactless',
-    image: 'https://drive.google.com/thumbnail?id=1lhZlHEMJnv57QOzS9Pb3S4ylDfBvrQBe&sz=w1000'
+    image: '/products/nfc-review-card.png'
   },
   {
     id: 'google-qr-stand',
@@ -102,7 +102,7 @@ export const PRODUCTS: ProductItem[] = [
     customization: ['Logo', 'Brand Colors', 'Custom URL', 'Custom Text'],
     badgeColor: 'bg-emerald-500',
     iconName: 'QrCode',
-    image: 'https://drive.google.com/thumbnail?id=1yTiKIeFA9B7iBUGz18RIHDIOVzMcVcVF&sz=w1000'
+    image: '/products/google-qr-stand.png'
   },
   {
     id: 'social-qr-stand',
@@ -111,7 +111,7 @@ export const PRODUCTS: ProductItem[] = [
     customization: ['Logo', 'Brand Colors', 'Custom URL', 'Custom Text'],
     badgeColor: 'bg-pink-500',
     iconName: 'Share2',
-    image: 'https://drive.google.com/thumbnail?id=1ORF5SSnsUOK7d3RPopk-wG6iGW8iRFiT&sz=w1000'
+    image: '/products/social-qr-stand.png'
   },
   {
     id: 'digital-menu-stand',
@@ -120,7 +120,7 @@ export const PRODUCTS: ProductItem[] = [
     customization: ['Logo', 'Brand Colors', 'Custom URL', 'Custom Text'],
     badgeColor: 'bg-amber-500',
     iconName: 'Utensils',
-    image: 'https://drive.google.com/thumbnail?id=1UGBlMZ1FZ1Fi1GRdp62VtHciQZ1Df6Qq&sz=w1000'
+    image: '/products/digital-menu-stand.png'
   }
 ];
 
@@ -162,6 +162,7 @@ export const PRICING_PLANS: PricingPlan[] = [
     id: 'base',
     name: 'NOVA BASE',
     price: '₹24,999',
+    originalPrice: '₹40,500',
     features: [
       { name: 'Pages', value: '5' },
       { name: 'Custom UI/UX', value: true },
@@ -184,6 +185,7 @@ export const PRICING_PLANS: PricingPlan[] = [
     id: 'pro',
     name: 'NOVA PRO',
     price: '₹34,999',
+    originalPrice: '₹49,500',
     isPopular: true,
     features: [
       { name: 'Pages', value: '10' },
@@ -207,6 +209,7 @@ export const PRICING_PLANS: PricingPlan[] = [
     id: 'max',
     name: 'NOVA MAX',
     price: '₹54,999',
+    originalPrice: '₹78,000',
     features: [
       { name: 'Pages', value: '15' },
       { name: 'Custom UI/UX', value: true },

@@ -22,17 +22,17 @@ export const Hero: React.FC<HeroProps> = ({ onOpenQuoteModal }) => {
           </div>
 
           {/* Main Title */}
-          <h1 className="text-4xl sm:text-5xl lg:text-7xl font-extrabold text-slate-900 tracking-tight leading-[1.15]">
+          <h1 className="text-[clamp(2.5rem,4.5vw,5rem)] font-extrabold text-slate-900 tracking-tight leading-[1.15]">
             Build Your <span className="text-transparent bg-clip-text bg-gradient-to-r from-indigo-600 via-purple-600 to-indigo-800">Business</span> Beyond Limits.
           </h1>
 
           {/* Subtitle */}
-          <p className="text-lg sm:text-xl text-slate-600 font-medium leading-relaxed max-w-2xl mx-auto">
+          <p className="text-[clamp(1.125rem,1.5vw,1.375rem)] text-slate-600 font-medium leading-relaxed max-w-2xl mx-auto">
             From powerful custom websites to smart digital business solutions, Upscale Nova helps businesses build a stronger, high-converting online presence.
           </p>
 
           {/* CTA Buttons */}
-          <div className="flex flex-col sm:flex-row items-center justify-center gap-4 pt-2 w-full sm:w-auto">
+          <div className="flex flex-wrap items-center justify-center gap-4 pt-2 w-full">
             <button
               onClick={() => onOpenQuoteModal("Custom Website")}
               className="w-full sm:w-auto flex items-center justify-center gap-2 bg-indigo-600 hover:bg-indigo-700 text-white font-semibold px-8 py-3.5 rounded-xl text-base shadow-md hover:shadow-lg transition-all focus:outline-none focus:ring-2 focus:ring-indigo-600 focus:ring-offset-2 active:scale-95"
@@ -76,10 +76,10 @@ export const Hero: React.FC<HeroProps> = ({ onOpenQuoteModal }) => {
         <div className="mt-16 bg-slate-900 text-white rounded-3xl p-8 sm:p-12 shadow-2xl relative overflow-hidden">
           <div className="absolute top-0 right-0 w-96 h-96 bg-indigo-500/10 rounded-full blur-3xl pointer-events-none" />
           <div className="relative z-10 max-w-3xl mx-auto text-center space-y-6">
-            <h2 className="text-3xl sm:text-4xl font-extrabold tracking-tight">
+            <h2 className="text-[clamp(1.75rem,3.5vw,2.5rem)] font-extrabold tracking-tight">
               Your business. Your vision. Your custom website.
             </h2>
-            <p className="text-slate-300 text-base sm:text-lg leading-relaxed font-medium">
+            <p className="text-slate-300 text-[clamp(1rem,1.25vw,1.125rem)] leading-relaxed font-medium">
               We design and develop custom websites for cafes, restaurants, gyms, institutes, local businesses, and startups. Tell us what you need, and we'll build it.
             </p>
             <div className="pt-4 flex flex-col sm:flex-row items-center justify-center gap-4">

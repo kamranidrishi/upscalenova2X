@@ -46,7 +46,7 @@ export const ProductsSection: React.FC<ProductsProps> = ({ onOpenQuoteModal }) =
               <div className="space-y-6">
                 
                 {/* Visual Stand / Card Mockup Header */}
-                <div className="w-full aspect-[4/3] rounded-2xl overflow-hidden bg-slate-50 border border-slate-100 flex items-center justify-center p-4">
+                <div className="w-full aspect-[4/3] rounded-2xl overflow-hidden bg-white border border-slate-100 flex items-center justify-center p-3">
                   {prod.image ? (
                     <img 
                       src={prod.image} 
