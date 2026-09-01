@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
-import { Phone, MessageSquare, Menu as MenuIcon, X, Headset } from 'lucide-react';
-import { COMPANY_PHONE_DISPLAY, WHATSAPP_LINK, CALL_LINK } from '../data/content';
+import { Phone, Menu as MenuIcon, X } from 'lucide-react';
+import { CALL_LINK } from '../data/content';
 
 interface HeaderProps {
   onOpenQuoteModal: (serviceName?: string) => void;
@@ -10,24 +10,24 @@ export const Header: React.FC<HeaderProps> = ({ onOpenQuoteModal }) => {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
 
   return (
-    <header className="sticky top-0 z-50 bg-white/70 backdrop-blur-2xl backdrop-saturate-150 border-b border-slate-200/60 shadow-[0_8px_32px_0_rgba(31,38,135,0.05)] transition-all duration-300 relative before:absolute before:inset-x-0 before:top-0 before:h-px before:bg-gradient-to-r before:from-transparent before:via-white/90 before:to-transparent">
+    <header className="sticky top-0 z-50 bg-white/90 backdrop-blur-md border-b border-slate-100 shadow-xs transition-all duration-300">
       {/* Main Navigation */}
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative">
-        <div className="flex items-center justify-between h-16">
-          {/* Logo */}
-          <a href="#" className="flex items-center gap-3 group">
-            <div className="w-10 h-10 flex items-center justify-center shrink-0 p-1 rounded-xl bg-white shadow-xs border border-slate-200/90 group-hover:border-indigo-400 group-hover:shadow-indigo-500/10 transition-all duration-300 overflow-hidden">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="flex items-center justify-between h-20">
+          {/* Logo on Left */}
+          <a href="#" className="flex items-center gap-3 group shrink-0">
+            <div className="w-10 h-10 flex items-center justify-center shrink-0">
               <img 
                 src="/logo.png" 
-                alt="Upscale Nova - Web Design & Digital Solutions in Mumbai" 
+                alt="Upscale Nova" 
                 width="40"
                 height="40"
                 fetchPriority="high"
-                className="w-full h-full object-contain group-hover:scale-105 transition-transform duration-300" 
+                className="w-10 h-10 object-contain rounded-full group-hover:scale-105 transition-transform duration-300" 
               />
             </div>
             <div className="flex flex-col">
-              <span className="text-lg font-extrabold tracking-tight text-slate-900 group-hover:text-indigo-600 transition-colors">
+              <span className="text-xl font-extrabold tracking-tight text-slate-900 group-hover:text-indigo-600 transition-colors">
                 Upscale Nova
               </span>
               <span className="text-[10px] tracking-wider uppercase font-semibold text-slate-500">
@@ -36,40 +36,39 @@ export const Header: React.FC<HeaderProps> = ({ onOpenQuoteModal }) => {
             </div>
           </a>
 
-          {/* Desktop Nav Links */}
-          <nav className="hidden xl:flex items-center gap-1 lg:gap-1.5 bg-slate-900/[0.03] backdrop-blur-md p-1.5 rounded-full border border-white/80 shadow-[inset_0_1px_1px_rgba(255,255,255,0.8)] text-[13px] lg:text-sm font-semibold text-slate-700">
-            <a href="#home" className="px-2.5 lg:px-3.5 py-1 rounded-full hover:bg-white/90 hover:text-indigo-600 hover:shadow-xs transition-all whitespace-nowrap">Home</a>
-            <a href="#services" className="px-2.5 lg:px-3.5 py-1 rounded-full hover:bg-white/90 hover:text-indigo-600 hover:shadow-xs transition-all whitespace-nowrap">Services</a>
-            <a href="#products" className="px-2.5 lg:px-3.5 py-1 rounded-full hover:bg-white/90 hover:text-indigo-600 hover:shadow-xs transition-all whitespace-nowrap">Products</a>
-            <a href="#pricing" className="px-2.5 lg:px-3.5 py-1 rounded-full hover:bg-white/90 hover:text-indigo-600 hover:shadow-xs transition-all whitespace-nowrap">Pricing</a>
-            <a href="#website-demo" className="px-2.5 lg:px-3.5 py-1 rounded-full hover:bg-white/90 hover:text-indigo-600 hover:shadow-xs transition-all whitespace-nowrap">Website Demo</a>
-            <a href="#about" className="px-2.5 lg:px-3.5 py-1 rounded-full hover:bg-white/90 hover:text-indigo-600 hover:shadow-xs transition-all whitespace-nowrap">About</a>
-            <a href="#contact" className="px-2.5 lg:px-3.5 py-1 rounded-full hover:bg-white/90 hover:text-indigo-600 hover:shadow-xs transition-all whitespace-nowrap">Contact</a>
+          {/* Desktop Nav Links - Horizontally Centered */}
+          <nav className="hidden lg:flex items-center gap-7 xl:gap-8 text-sm font-medium text-slate-600">
+            <a href="#home" className="hover:text-indigo-600 transition-colors">Home</a>
+            <a href="#services" className="hover:text-indigo-600 transition-colors">Services</a>
+            <a href="#products" className="hover:text-indigo-600 transition-colors">Products</a>
+            <a href="#pricing" className="hover:text-indigo-600 transition-colors">Pricing</a>
+            <a href="#website-demo" className="hover:text-indigo-600 transition-colors">Website Demo</a>
+            <a href="#about" className="hover:text-indigo-600 transition-colors">About</a>
+            <a href="#contact" className="hover:text-indigo-600 transition-colors">Contact</a>
           </nav>
 
-          {/* Action Call & Quote Button */}
-          <div className="hidden lg:flex items-center gap-3">
+          {/* Action Quote Button on Right */}
+          <div className="hidden lg:flex items-center gap-3 shrink-0">
             <button
               onClick={() => onOpenQuoteModal()}
-              className="flex items-center gap-2 bg-slate-900/90 hover:bg-indigo-600 backdrop-blur-md text-white px-4 xl:px-5 py-2.5 rounded-xl text-[13px] xl:text-sm font-semibold transition-all shadow-sm border border-white/20 focus:outline-none focus:ring-2 focus:ring-indigo-600 focus:ring-offset-2 whitespace-nowrap"
+              className="bg-indigo-600 hover:bg-indigo-700 text-white px-5 py-2.5 rounded-xl text-sm font-semibold transition-all shadow-xs focus:outline-none focus:ring-2 focus:ring-indigo-600 focus:ring-offset-2 whitespace-nowrap active:scale-95 cursor-pointer"
             >
-              <Headset className="w-3.5 h-3.5 text-indigo-300" />
-              <span>Get a Free Consultation</span>
+              Get a Free Consultation
             </button>
           </div>
 
           {/* Mobile Menu Button */}
-          <div className="xl:hidden flex items-center gap-2">
+          <div className="lg:hidden flex items-center gap-2">
             <a
               href={CALL_LINK}
-              className="p-2.5 rounded-full bg-white/60 backdrop-blur-md text-indigo-600 font-bold text-xs flex items-center gap-1 border border-indigo-100/80 shadow-xs"
+              className="p-2 rounded-xl bg-indigo-50 text-indigo-600 font-bold text-xs flex items-center gap-1 border border-indigo-100 shadow-xs"
               aria-label="Call Support"
             >
               <Phone className="w-4 h-4" />
             </a>
             <button
               onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-              className="p-2 rounded-xl text-slate-700 bg-white/50 backdrop-blur-md border border-white/60 hover:bg-white/80 transition-colors shadow-xs"
+              className="p-2 rounded-xl text-slate-700 bg-white border border-slate-200 hover:bg-slate-50 transition-colors shadow-xs"
               aria-label="Toggle Navigation"
             >
               {mobileMenuOpen ? <X className="w-6 h-6" /> : <MenuIcon className="w-6 h-6" />}
@@ -80,7 +79,7 @@ export const Header: React.FC<HeaderProps> = ({ onOpenQuoteModal }) => {
 
       {/* Mobile Drawer */}
       {mobileMenuOpen && (
-        <div className="xl:hidden bg-white/85 backdrop-blur-2xl border-b border-slate-200/60 px-6 py-6 space-y-4 animate-in slide-in-from-top-4 duration-200 shadow-xl">
+        <div className="lg:hidden bg-white border-b border-slate-200 px-6 py-6 space-y-4 animate-in slide-in-from-top-4 duration-200 shadow-xl">
           <nav className="flex flex-col space-y-3 text-base font-semibold text-slate-700">
             <a 
               href="#home" 
@@ -147,7 +146,7 @@ export const Header: React.FC<HeaderProps> = ({ onOpenQuoteModal }) => {
                 setMobileMenuOpen(false);
                 onOpenQuoteModal();
               }}
-              className="w-full bg-slate-900 hover:bg-indigo-600 text-white py-3 rounded-xl font-semibold text-sm transition-colors shadow-md focus:outline-none focus:ring-2 focus:ring-indigo-600 focus:ring-offset-2"
+              className="w-full bg-indigo-600 hover:bg-indigo-700 text-white py-3 rounded-xl font-semibold text-sm transition-colors shadow-md focus:outline-none focus:ring-2 focus:ring-indigo-600 focus:ring-offset-2"
             >
               Get a Free Consultation
             </button>
