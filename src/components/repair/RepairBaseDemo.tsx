@@ -69,14 +69,14 @@ export const RepairBaseDemo: React.FC<RepairBaseDemoProps> = ({ isMobile }) => {
     {
       title: 'Under-Sink Pipe Burst & Valve Replacement',
       category: 'Plumbing',
-      before: 'https://images.unsplash.com/photo-1584622650111-993a426fbf0a?auto=format&fit=crop&w=500&q=80',
-      after: 'https://images.unsplash.com/photo-1585704032915-c3400ca199e7?auto=format&fit=crop&w=500&q=80'
+      before: 'https://images.unsplash.com/photo-1584622650111-993a426fbf0a?auto=format&fit=crop&w=500&q=75',
+      after: 'https://images.unsplash.com/photo-1585704032915-c3400ca199e7?auto=format&fit=crop&w=500&q=75'
     },
     {
       title: 'Main MCB Board Rewiring & Safety Surge Fix',
       category: 'Electrical',
-      before: 'https://images.unsplash.com/photo-1621905251189-08b45d6a269e?auto=format&fit=crop&w=500&q=80',
-      after: 'https://images.unsplash.com/photo-1558494949-ef010cbdcc31?auto=format&fit=crop&w=500&q=80'
+      before: 'https://images.unsplash.com/photo-1621905251189-08b45d6a269e?auto=format&fit=crop&w=500&q=75',
+      after: 'https://images.unsplash.com/photo-1558494949-ef010cbdcc31?auto=format&fit=crop&w=500&q=75'
     }
   ];
 
@@ -503,13 +503,13 @@ export const RepairBaseDemo: React.FC<RepairBaseDemoProps> = ({ isMobile }) => {
                     </div>
                     <div className="grid grid-cols-2 gap-2">
                       <div className="relative rounded-xl overflow-hidden h-36">
-                        <img src={item.before} alt="Before" className="w-full h-full object-cover" />
+                        <img loading="lazy" src={item.before} alt="Before" className="w-full h-full object-cover" />
                         <span className="absolute bottom-2 left-2 bg-rose-600/90 text-white text-[10px] font-bold px-2 py-0.5 rounded">
                           Before Issue
                         </span>
                       </div>
                       <div className="relative rounded-xl overflow-hidden h-36">
-                        <img src={item.after} alt="After" className="w-full h-full object-cover" />
+                        <img loading="lazy" src={item.after} alt="After" className="w-full h-full object-cover" />
                         <span className="absolute bottom-2 left-2 bg-emerald-600/90 text-white text-[10px] font-bold px-2 py-0.5 rounded">
                           Fixed & Tested
                         </span>
@@ -619,8 +619,8 @@ export const RepairBaseDemo: React.FC<RepairBaseDemoProps> = ({ isMobile }) => {
             </div>
 
             <div className="rounded-2xl overflow-hidden shadow-md">
-              <img 
-                src="https://images.unsplash.com/photo-1581578731548-c64695cc6952?auto=format&fit=crop&w=600&q=80" 
+              <img loading="lazy" 
+                src="https://images.unsplash.com/photo-1581578731548-c64695cc6952?auto=format&fit=crop&w=600&q=75" 
                 alt="Technicians at work" 
                 className="w-full h-64 object-cover"
               />
@@ -717,11 +717,11 @@ export const RepairBaseDemo: React.FC<RepairBaseDemoProps> = ({ isMobile }) => {
                 <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                   <div className="space-y-1">
                     <span className="text-[11px] font-bold text-rose-600">BEFORE (Damaged)</span>
-                    <img src={item.before} alt="Before" className="w-full h-48 rounded-2xl object-cover" />
+                    <img loading="lazy" src={item.before} alt="Before" className="w-full h-48 rounded-2xl object-cover" />
                   </div>
                   <div className="space-y-1">
                     <span className="text-[11px] font-bold text-emerald-600">AFTER (Repaired & Tested)</span>
-                    <img src={item.after} alt="After" className="w-full h-48 rounded-2xl object-cover" />
+                    <img loading="lazy" src={item.after} alt="After" className="w-full h-48 rounded-2xl object-cover" />
                   </div>
                 </div>
               </div>

@@ -127,8 +127,9 @@ Thank you.`;
             {/* Form */}
             <form onSubmit={handleSubmit} className="space-y-4">
               <div>
-                <label className="block text-sm font-semibold text-slate-700 mb-1.5">Full Name *</label>
+                <label htmlFor="quote-full-name" className="block text-sm font-semibold text-slate-700 mb-1.5">Full Name *</label>
                 <input
+                  id="quote-full-name"
                   type="text"
                   required
                   value={name}
@@ -139,9 +140,11 @@ Thank you.`;
               </div>
 
               <div>
-                <label className="block text-sm font-semibold text-slate-700 mb-1.5">Phone Number *</label>
+                <label htmlFor="quote-phone-number" className="block text-sm font-semibold text-slate-700 mb-1.5">Phone Number *</label>
                 <div className="flex gap-2">
                   <select
+                    id="quote-country-code"
+                    aria-label="Country Code"
                     value={countryCode}
                     onChange={(e) => setCountryCode(e.target.value)}
                     className="bg-white border border-slate-300 rounded-xl px-3 py-3 text-sm text-slate-900 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500 transition-shadow max-w-[100px]"
@@ -149,6 +152,7 @@ Thank you.`;
                     <option value="+91">🇮🇳 +91</option>
                   </select>
                   <input
+                    id="quote-phone-number"
                     type="tel"
                     required
                     maxLength={10}
@@ -166,8 +170,9 @@ Thank you.`;
               </div>
 
               <div>
-                <label className="block text-sm font-semibold text-slate-700 mb-1.5">Service Interested In</label>
+                <label htmlFor="quote-service-interest" className="block text-sm font-semibold text-slate-700 mb-1.5">Service Interested In</label>
                 <input
+                  id="quote-service-interest"
                   type="text"
                   value={service}
                   onChange={(e) => setService(e.target.value)}

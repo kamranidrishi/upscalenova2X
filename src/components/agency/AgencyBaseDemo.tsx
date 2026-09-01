@@ -98,7 +98,7 @@ export const AgencyBaseDemo: React.FC<AgencyBaseDemoProps> = ({ isMobile }) => {
       id: 'p1',
       title: 'FinVantage Wealth Advisory',
       category: 'Web App & Fintech',
-      image: 'https://images.unsplash.com/photo-1551288049-bebda4e38f71?auto=format&fit=crop&w=800&q=80',
+      image: 'https://images.unsplash.com/photo-1551288049-bebda4e38f71?auto=format&fit=crop&w=800&q=75',
       client: 'FinVantage Capital',
       scope: 'Responsive Corporate Portal & Calculator',
       result: '+240% Inbound Client Inquiries',
@@ -108,7 +108,7 @@ export const AgencyBaseDemo: React.FC<AgencyBaseDemoProps> = ({ isMobile }) => {
       id: 'p2',
       title: 'Aura Luxury Interiors & Living',
       category: 'Brand & E-Commerce',
-      image: 'https://images.unsplash.com/photo-1618221195710-dd6b41faaea6?auto=format&fit=crop&w=800&q=80',
+      image: 'https://images.unsplash.com/photo-1618221195710-dd6b41faaea6?auto=format&fit=crop&w=800&q=75',
       client: 'Aura Lifestyle Group',
       scope: 'Visual Identity & Product Showcase',
       result: '3.2x Average Engagement Time',
@@ -118,7 +118,7 @@ export const AgencyBaseDemo: React.FC<AgencyBaseDemoProps> = ({ isMobile }) => {
       id: 'p3',
       title: 'Nexus Data Cloud Suite',
       category: 'SaaS Platform',
-      image: 'https://images.unsplash.com/photo-1551836022-d5d88e9218df?auto=format&fit=crop&w=800&q=80',
+      image: 'https://images.unsplash.com/photo-1551836022-d5d88e9218df?auto=format&fit=crop&w=800&q=75',
       client: 'Nexus Cloud Corp',
       scope: 'Product Landing Page & Signup Funnel',
       result: '+48% Trial Registration Lift',
@@ -128,7 +128,7 @@ export const AgencyBaseDemo: React.FC<AgencyBaseDemoProps> = ({ isMobile }) => {
       id: 'p4',
       title: 'EcoVibe Activewear Store',
       category: 'Performance Marketing',
-      image: 'https://images.unsplash.com/photo-1518611012118-696072aa579a?auto=format&fit=crop&w=800&q=80',
+      image: 'https://images.unsplash.com/photo-1518611012118-696072aa579a?auto=format&fit=crop&w=800&q=75',
       client: 'EcoVibe Brands',
       scope: 'Omni-Channel Meta Ad Funnel & Web Page',
       result: '4.2x Return on Ad Spend (ROAS)',
@@ -149,21 +149,21 @@ export const AgencyBaseDemo: React.FC<AgencyBaseDemoProps> = ({ isMobile }) => {
       author: "Rajesh Malhotra",
       role: "Founder & CEO, Malhotra Logistics",
       rating: 5,
-      avatar: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&w=200&q=80"
+      avatar: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&w=200&q=75"
     },
     {
       quote: "The quality of code, attention to detail, and seamless WhatsApp integration made our launch smooth and stress-free. Outstanding team!",
       author: "Priya Sundaram",
       role: "Managing Director, Aura Interiors",
       rating: 5,
-      avatar: "https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?auto=format&fit=crop&w=200&q=80"
+      avatar: "https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?auto=format&fit=crop&w=200&q=75"
     },
     {
       quote: "Working with Nova Digital gave us a 4.2x return on ad spend within 45 days. They understand conversions better than anyone else.",
       author: "Vikram Mehta",
       role: "Head of Growth, FinVantage Capital",
       rating: 5,
-      avatar: "https://images.unsplash.com/photo-1500648767791-00dcc994a43e?auto=format&fit=crop&w=200&q=80"
+      avatar: "https://images.unsplash.com/photo-1500648767791-00dcc994a43e?auto=format&fit=crop&w=200&q=75"
     }
   ];
 
@@ -423,7 +423,7 @@ export const AgencyBaseDemo: React.FC<AgencyBaseDemoProps> = ({ isMobile }) => {
                 className="bg-slate-900 border border-slate-800 hover:border-slate-700 rounded-2xl overflow-hidden shadow-xl group transition-all"
               >
                 <div className="relative h-64 overflow-hidden bg-slate-950">
-                  <img
+                  <img loading="lazy"
                     src={proj.image}
                     alt={proj.title}
                     referrerPolicy="no-referrer"
@@ -571,7 +571,7 @@ export const AgencyBaseDemo: React.FC<AgencyBaseDemoProps> = ({ isMobile }) => {
                 </div>
 
                 <div className="flex items-center gap-3 pt-4 border-t border-slate-800">
-                  <img
+                  <img loading="lazy"
                     src={t.avatar}
                     alt={t.author}
                     referrerPolicy="no-referrer"
@@ -784,7 +784,7 @@ export const AgencyBaseDemo: React.FC<AgencyBaseDemoProps> = ({ isMobile }) => {
               <X className="w-5 h-5" />
             </button>
 
-            <img
+            <img loading="lazy"
               src={selectedPortfolioModal.image}
               alt={selectedPortfolioModal.title}
               referrerPolicy="no-referrer"

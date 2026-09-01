@@ -894,14 +894,14 @@ export const RepairProDemo: React.FC<RepairProDemoProps> = ({ isMobile }) => {
               {
                 title: 'Main Incomer 3-Phase MCB Panel Overheating Fix',
                 desc: 'Identified neutral drop and burned terminal blocks using thermal imaging. Rewired with 10mm pure copper and installed Schneider 63A isolator.',
-                before: 'https://images.unsplash.com/photo-1621905251189-08b45d6a269e?auto=format&fit=crop&w=600&q=80',
-                after: 'https://images.unsplash.com/photo-1558494949-ef010cbdcc31?auto=format&fit=crop&w=600&q=80'
+                before: 'https://images.unsplash.com/photo-1621905251189-08b45d6a269e?auto=format&fit=crop&w=600&q=75',
+                after: 'https://images.unsplash.com/photo-1558494949-ef010cbdcc31?auto=format&fit=crop&w=600&q=75'
               },
               {
                 title: 'Concealed Bathroom Shower Diverter Leak Rectification',
                 desc: 'Located hairline crack in internal elbow joint without damaging main tiles. Replaced with CPVC brass fitting and pressure tested at 6 bar.',
-                before: 'https://images.unsplash.com/photo-1584622650111-993a426fbf0a?auto=format&fit=crop&w=600&q=80',
-                after: 'https://images.unsplash.com/photo-1585704032915-c3400ca199e7?auto=format&fit=crop&w=600&q=80'
+                before: 'https://images.unsplash.com/photo-1584622650111-993a426fbf0a?auto=format&fit=crop&w=600&q=75',
+                after: 'https://images.unsplash.com/photo-1585704032915-c3400ca199e7?auto=format&fit=crop&w=600&q=75'
               }
             ].map((report, idx) => (
               <div key={idx} className="bg-slate-900 border border-slate-800 rounded-3xl p-6 space-y-4">
@@ -910,11 +910,11 @@ export const RepairProDemo: React.FC<RepairProDemoProps> = ({ isMobile }) => {
                 <div className="grid grid-cols-2 gap-3">
                   <div>
                     <span className="text-[10px] font-bold text-rose-400 block mb-1">BEFORE (Hazardous)</span>
-                    <img src={report.before} alt="Before" className="w-full h-40 object-cover rounded-2xl" />
+                    <img loading="lazy" src={report.before} alt="Before" className="w-full h-40 object-cover rounded-2xl" />
                   </div>
                   <div>
                     <span className="text-[10px] font-bold text-emerald-400 block mb-1">AFTER (Certified Fixed)</span>
-                    <img src={report.after} alt="After" className="w-full h-40 object-cover rounded-2xl" />
+                    <img loading="lazy" src={report.after} alt="After" className="w-full h-40 object-cover rounded-2xl" />
                   </div>
                 </div>
               </div>

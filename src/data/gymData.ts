@@ -88,7 +88,7 @@ export const GYM_PROGRAMS: GymProgram[] = [
     trainerRole: 'Head Strength Coach',
     spots: '3 spots left',
     desc: 'Periodized barbell strength training, powerlifting compound lifts, and progressive overload hypertrophy routines.',
-    image: 'https://images.unsplash.com/photo-1534438327276-14e5300c3a48?auto=format&fit=crop&w=600&q=80',
+    image: 'https://images.unsplash.com/photo-1534438327276-14e5300c3a48?auto=format&fit=crop&w=600&q=75',
     tags: ['Barbell', 'Deadlifts', 'Power']
   },
   {
@@ -102,7 +102,7 @@ export const GYM_PROGRAMS: GymProgram[] = [
     trainerRole: 'Crossfit & HIIT Lead',
     spots: '5 spots left',
     desc: 'Fast-paced metabolic conditioning with kettlebells, battle ropes, ski-ergs, plyometrics, and functional sprints.',
-    image: 'https://images.unsplash.com/photo-1517838277536-f5f99be501cd?auto=format&fit=crop&w=600&q=80',
+    image: 'https://images.unsplash.com/photo-1517838277536-f5f99be501cd?auto=format&fit=crop&w=600&q=75',
     tags: ['Cardio', 'Agility', 'MetCon']
   },
   {
@@ -116,7 +116,7 @@ export const GYM_PROGRAMS: GymProgram[] = [
     trainerRole: 'Boxing & MMA Specialist',
     spots: 'Open',
     desc: 'Heavy bag power combinations, slip-and-counter defense drills, speed bag rhythm, and core conditioning.',
-    image: 'https://images.unsplash.com/photo-1549060279-7e168fcee0c2?auto=format&fit=crop&w=600&q=80',
+    image: 'https://images.unsplash.com/photo-1549060279-7e168fcee0c2?auto=format&fit=crop&w=600&q=75',
     tags: ['Boxing', 'Defense', 'Stamina']
   },
   {
@@ -130,7 +130,7 @@ export const GYM_PROGRAMS: GymProgram[] = [
     trainerRole: 'Mobility & Physio Coach',
     spots: 'Open',
     desc: 'Joint decompression, myofascial foam rolling, dynamic hip openers, spinal decompression, and breathwork.',
-    image: 'https://images.unsplash.com/photo-1518611012118-696072aa579a?auto=format&fit=crop&w=600&q=80',
+    image: 'https://images.unsplash.com/photo-1518611012118-696072aa579a?auto=format&fit=crop&w=600&q=75',
     tags: ['Mobility', 'Flexibility', 'Zen']
   },
   {
@@ -144,7 +144,7 @@ export const GYM_PROGRAMS: GymProgram[] = [
     trainerRole: 'Oly Lifting Specialist',
     spots: '2 spots left',
     desc: 'Snatch, clean & jerk mastery, gymnastics ring muscle-ups, rope climbs, and timed daily box WODs.',
-    image: 'https://images.unsplash.com/photo-1581009146145-b5ef050c2e1e?auto=format&fit=crop&w=600&q=80',
+    image: 'https://images.unsplash.com/photo-1581009146145-b5ef050c2e1e?auto=format&fit=crop&w=600&q=75',
     tags: ['CrossFit', 'Olympic Lifts', 'WOD']
   },
   {
@@ -158,7 +158,7 @@ export const GYM_PROGRAMS: GymProgram[] = [
     trainerRole: 'Transformation Lead',
     spots: '4 spots left',
     desc: 'Targeted caloric incinerator combining incline treadmill rucks, dumbbell complexes, and core circuits.',
-    image: 'https://images.unsplash.com/photo-1574680096145-d05b474e2155?auto=format&fit=crop&w=600&q=80',
+    image: 'https://images.unsplash.com/photo-1574680096145-d05b474e2155?auto=format&fit=crop&w=600&q=75',
     tags: ['Fat Loss', 'Tone', 'Core']
   }
 ];
@@ -249,7 +249,7 @@ export const GYM_TRAINERS: GymTrainer[] = [
     reviewsCount: 142,
     bio: 'Former national level powerlifter specializing in biomechanics, spine longevity, and raw compound strength building.',
     certifications: ['CSCS Certified', 'Eleiko Strength Coach', 'Kettlebell Master'],
-    image: 'https://images.unsplash.com/photo-1567013127542-490d757e51fc?auto=format&fit=crop&w=600&q=80',
+    image: 'https://images.unsplash.com/photo-1567013127542-490d757e51fc?auto=format&fit=crop&w=600&q=75',
     instagram: '@alexvance_iron'
   },
   {
@@ -262,7 +262,7 @@ export const GYM_TRAINERS: GymTrainer[] = [
     reviewsCount: 118,
     bio: 'CrossFit Level-3 certified coach passionate about athletic conditioning, endurance thresholds, and cardiovascular peak performance.',
     certifications: ['CrossFit Level 3', 'ACE Master Trainer', 'TRX Specialist'],
-    image: 'https://images.unsplash.com/photo-1571019614242-c5c5dee9f50b?auto=format&fit=crop&w=600&q=80',
+    image: 'https://images.unsplash.com/photo-1571019614242-c5c5dee9f50b?auto=format&fit=crop&w=600&q=75',
     instagram: '@sarahconnor_fit'
   },
   {
@@ -275,7 +275,7 @@ export const GYM_TRAINERS: GymTrainer[] = [
     reviewsCount: 95,
     bio: 'Golden Gloves champion trainer bringing authentic pugilistic training, hand-eye coordination, and mental grit to every round.',
     certifications: ['USA Boxing Certified', 'ISSA Combat Fitness', 'Krav Maga L2'],
-    image: 'https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&w=600&q=80',
+    image: 'https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&w=600&q=75',
     instagram: '@marcus_ironring'
   },
   {
@@ -288,18 +288,18 @@ export const GYM_TRAINERS: GymTrainer[] = [
     reviewsCount: 160,
     bio: 'Master physiotherapist and yogi guiding athletes through bulletproof injury prevention, dynamic flexibility, and autonomic recovery.',
     certifications: ['RYT-500 Yoga Master', 'FMS Level 2', 'Dry Needling Cert'],
-    image: 'https://images.unsplash.com/photo-1544005313-94ddf0286df2?auto=format&fit=crop&w=600&q=80',
+    image: 'https://images.unsplash.com/photo-1544005313-94ddf0286df2?auto=format&fit=crop&w=600&q=75',
     instagram: '@elena_recovery'
   }
 ];
 
 export const GYM_GALLERY = [
-  { title: 'Olympic Lifting Platforms', cat: 'Strength', img: 'https://images.unsplash.com/photo-1534438327276-14e5300c3a48?auto=format&fit=crop&w=800&q=80' },
-  { title: 'Custom Dumbbell Rack (Up to 60kg)', cat: 'Free Weights', img: 'https://images.unsplash.com/photo-1581009146145-b5ef050c2e1e?auto=format&fit=crop&w=800&q=80' },
-  { title: 'CrossFit Rig & Turf Sled Track', cat: 'Functional', img: 'https://images.unsplash.com/photo-1517838277536-f5f99be501cd?auto=format&fit=crop&w=800&q=80' },
-  { title: 'Cardio Deck with Ski-Ergs & Rowers', cat: 'Cardio', img: 'https://images.unsplash.com/photo-1574680096145-d05b474e2155?auto=format&fit=crop&w=800&q=80' },
-  { title: 'Boxing Ring & Combat Zone', cat: 'Combat', img: 'https://images.unsplash.com/photo-1549060279-7e168fcee0c2?auto=format&fit=crop&w=800&q=80' },
-  { title: 'Scandinavian Cedarwood Sauna & Ice Bath', cat: 'Recovery', img: 'https://images.unsplash.com/photo-1540555700478-4be289fbecef?auto=format&fit=crop&w=800&q=80' }
+  { title: 'Olympic Lifting Platforms', cat: 'Strength', img: 'https://images.unsplash.com/photo-1534438327276-14e5300c3a48?auto=format&fit=crop&w=800&q=75' },
+  { title: 'Custom Dumbbell Rack (Up to 60kg)', cat: 'Free Weights', img: 'https://images.unsplash.com/photo-1581009146145-b5ef050c2e1e?auto=format&fit=crop&w=800&q=75' },
+  { title: 'CrossFit Rig & Turf Sled Track', cat: 'Functional', img: 'https://images.unsplash.com/photo-1517838277536-f5f99be501cd?auto=format&fit=crop&w=800&q=75' },
+  { title: 'Cardio Deck with Ski-Ergs & Rowers', cat: 'Cardio', img: 'https://images.unsplash.com/photo-1574680096145-d05b474e2155?auto=format&fit=crop&w=800&q=75' },
+  { title: 'Boxing Ring & Combat Zone', cat: 'Combat', img: 'https://images.unsplash.com/photo-1549060279-7e168fcee0c2?auto=format&fit=crop&w=800&q=75' },
+  { title: 'Scandinavian Cedarwood Sauna & Ice Bath', cat: 'Recovery', img: 'https://images.unsplash.com/photo-1540555700478-4be289fbecef?auto=format&fit=crop&w=800&q=75' }
 ];
 
 export const GYM_TESTIMONIALS = [
@@ -309,7 +309,7 @@ export const GYM_TESTIMONIALS = [
     change: '-18kg Fat Loss & +8kg Muscle',
     comment: 'IronFit has completely transformed my lifestyle. The coaches don’t just watch; they correct every millimetre of form. Cleanest gym in the city with top-tier Eleiko plates.',
     rating: 5,
-    avatar: 'https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&w=200&q=80'
+    avatar: 'https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&w=200&q=75'
   },
   {
     name: 'Ananya Deshmukh',
@@ -317,7 +317,7 @@ export const GYM_TESTIMONIALS = [
     change: 'Deadlift PR: 60kg → 135kg',
     comment: 'The energy at 6 AM is unmatched! Having the mobile pass and automated attendance makes slipping in for morning workouts completely frictionless.',
     rating: 5,
-    avatar: 'https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&w=200&q=80'
+    avatar: 'https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&w=200&q=75'
   },
   {
     name: 'Kabir Malhotra',
@@ -325,16 +325,16 @@ export const GYM_TESTIMONIALS = [
     change: 'Half-Marathon time dropped 22 mins',
     comment: 'The combination of heavy strength work and Elena’s mobility recovery sessions kept me completely injury-free for my entire race season. Worth every rupee.',
     rating: 5,
-    avatar: 'https://images.unsplash.com/photo-1500648767791-00dcc994a43e?auto=format&fit=crop&w=200&q=80'
+    avatar: 'https://images.unsplash.com/photo-1500648767791-00dcc994a43e?auto=format&fit=crop&w=200&q=75'
   }
 ];
 
 export const TODAY_WORKOUT_EXERCISES: WorkoutExercise[] = [
-  { id: 'w1', name: 'Barbell Flat Bench Press', target: 'Chest (Mid / Sternal)', sets: 4, reps: '8-10 reps', weight: '85 kg', rest: '90s', completed: true, videoThumb: 'https://images.unsplash.com/photo-1534438327276-14e5300c3a48?auto=format&fit=crop&w=300&q=80' },
-  { id: 'w2', name: 'Incline Dumbbell Press', target: 'Upper Chest (Clavicular)', sets: 3, reps: '10-12 reps', weight: '32 kg each', rest: '75s', completed: true, videoThumb: 'https://images.unsplash.com/photo-1581009146145-b5ef050c2e1e?auto=format&fit=crop&w=300&q=80' },
-  { id: 'w3', name: 'Standing Cable Fly Crossover', target: 'Inner Chest Squeeze', sets: 3, reps: '12-15 reps', weight: '18 kg/side', rest: '60s', completed: false, videoThumb: 'https://images.unsplash.com/photo-1574680096145-d05b474e2155?auto=format&fit=crop&w=300&q=80' },
-  { id: 'w4', name: 'Rope Tricep Cable Pushdown', target: 'Triceps (Lateral Head)', sets: 4, reps: '12 reps', weight: '27.5 kg', rest: '45s', completed: false, videoThumb: 'https://images.unsplash.com/photo-1517838277536-f5f99be501cd?auto=format&fit=crop&w=300&q=80' },
-  { id: 'w5', name: 'Parallel Bar Bodyweight Dips', target: 'Lower Chest & Triceps', sets: 3, reps: 'To Failure (~15)', weight: 'Bodyweight', rest: '60s', completed: false, videoThumb: 'https://images.unsplash.com/photo-1549060279-7e168fcee0c2?auto=format&fit=crop&w=300&q=80' }
+  { id: 'w1', name: 'Barbell Flat Bench Press', target: 'Chest (Mid / Sternal)', sets: 4, reps: '8-10 reps', weight: '85 kg', rest: '90s', completed: true, videoThumb: 'https://images.unsplash.com/photo-1534438327276-14e5300c3a48?auto=format&fit=crop&w=300&q=75' },
+  { id: 'w2', name: 'Incline Dumbbell Press', target: 'Upper Chest (Clavicular)', sets: 3, reps: '10-12 reps', weight: '32 kg each', rest: '75s', completed: true, videoThumb: 'https://images.unsplash.com/photo-1581009146145-b5ef050c2e1e?auto=format&fit=crop&w=300&q=75' },
+  { id: 'w3', name: 'Standing Cable Fly Crossover', target: 'Inner Chest Squeeze', sets: 3, reps: '12-15 reps', weight: '18 kg/side', rest: '60s', completed: false, videoThumb: 'https://images.unsplash.com/photo-1574680096145-d05b474e2155?auto=format&fit=crop&w=300&q=75' },
+  { id: 'w4', name: 'Rope Tricep Cable Pushdown', target: 'Triceps (Lateral Head)', sets: 4, reps: '12 reps', weight: '27.5 kg', rest: '45s', completed: false, videoThumb: 'https://images.unsplash.com/photo-1517838277536-f5f99be501cd?auto=format&fit=crop&w=300&q=75' },
+  { id: 'w5', name: 'Parallel Bar Bodyweight Dips', target: 'Lower Chest & Triceps', sets: 3, reps: 'To Failure (~15)', weight: 'Bodyweight', rest: '60s', completed: false, videoThumb: 'https://images.unsplash.com/photo-1549060279-7e168fcee0c2?auto=format&fit=crop&w=300&q=75' }
 ];
 
 export const INITIAL_LEADS: GymLead[] = [

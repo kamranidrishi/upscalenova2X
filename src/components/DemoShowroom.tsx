@@ -22,6 +22,7 @@ interface DemoShowroomProps {
 
 const CATEGORIES: ('All' | CategoryType)[] = [
   'All', 
+  'Fashion / Apparel',
   'Café', 
   'Restaurant', 
   'Flat / Real Estate',
@@ -68,7 +69,9 @@ const DemoCardItem: React.FC<DemoCardItemProps> = ({ demo, images, onSelect }) =
       >
         <img 
           src={images[currentImgIndex] || demo.heroImage} 
-          alt={demo.title} 
+          alt={`${demo.title} - ${demo.category} Website Design Demo by Upscale Nova`}
+          width="480"
+          height="300"
           className="w-full h-full object-cover transform group-hover:scale-105 transition-transform duration-500" 
           loading="lazy"
         />
@@ -138,7 +141,7 @@ const DemoCardItem: React.FC<DemoCardItemProps> = ({ demo, images, onSelect }) =
                   : 'border-slate-200 opacity-70 hover:opacity-100'
               }`}
             >
-              <img src={imgUrl} alt={`${demo.title} view ${idx + 1}`} className="w-full h-full object-cover" />
+              <img loading="lazy" src={imgUrl} alt={`${demo.title} view ${idx + 1}`} className="w-full h-full object-cover" />
             </button>
           ))}
         </div>

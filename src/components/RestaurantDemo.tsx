@@ -50,7 +50,7 @@ export const RESTAURANT_ITEMS: RestaurantItem[] = [
     category: 'Starters',
     price: 680,
     description: 'Fresh Hokkaido scallops on cauliflower velvet purée, crispy pancetta lardons, black truffle vinaigrette.',
-    image: 'https://images.unsplash.com/photo-1544025162-d76694265947?auto=format&fit=crop&w=600&q=80',
+    image: 'https://images.unsplash.com/photo-1544025162-d76694265947?auto=format&fit=crop&w=600&q=75',
     isVeg: false,
     isChefSpecial: true
   },
@@ -60,7 +60,7 @@ export const RESTAURANT_ITEMS: RestaurantItem[] = [
     category: 'Starters',
     price: 520,
     description: 'Creamy artisanal burrata from Puglia, heirloom cherry tomatoes, basil pesto drizzle, toasted sourdough.',
-    image: 'https://images.unsplash.com/photo-1592417817098-8f3d6910985b?auto=format&fit=crop&w=600&q=80',
+    image: 'https://images.unsplash.com/photo-1592417817098-8f3d6910985b?auto=format&fit=crop&w=600&q=75',
     isVeg: true,
     isChefSpecial: true
   },
@@ -70,7 +70,7 @@ export const RESTAURANT_ITEMS: RestaurantItem[] = [
     category: 'Starters',
     price: 440,
     description: 'Slow-caramelized sweet onions in rich beef bone broth topped with crusty Gruyère sourdough croute.',
-    image: 'https://images.unsplash.com/photo-1547592166-23ac45744acd?auto=format&fit=crop&w=600&q=80',
+    image: 'https://images.unsplash.com/photo-1547592166-23ac45744acd?auto=format&fit=crop&w=600&q=75',
     isVeg: false
   },
   {
@@ -79,7 +79,7 @@ export const RESTAURANT_ITEMS: RestaurantItem[] = [
     category: 'Starters',
     price: 490,
     description: 'Crispy Carnaroli risotto croquettes stuffed with fontina cheese, wild porcini mushrooms, garlic aioli.',
-    image: 'https://images.unsplash.com/photo-1541529086526-db283c563270?auto=format&fit=crop&w=600&q=80',
+    image: 'https://images.unsplash.com/photo-1541529086526-db283c563270?auto=format&fit=crop&w=600&q=75',
     isVeg: true
   },
 
@@ -90,7 +90,7 @@ export const RESTAURANT_ITEMS: RestaurantItem[] = [
     category: 'Pastas & Mains',
     price: 890,
     description: 'Egg pasta tossed in 24-month aged Parmigiano-Reggiano cream with freshly shaved black winter truffle.',
-    image: 'https://images.unsplash.com/photo-1551183053-bf91a1d81141?auto=format&fit=crop&w=600&q=80',
+    image: 'https://images.unsplash.com/photo-1551183053-bf91a1d81141?auto=format&fit=crop&w=600&q=75',
     isVeg: true,
     isChefSpecial: true
   },
@@ -100,7 +100,7 @@ export const RESTAURANT_ITEMS: RestaurantItem[] = [
     category: 'Pastas & Mains',
     price: 1150,
     description: '12-hour braised New Zealand lamb shank over saffron Milanese risotto with natural rosemary jus.',
-    image: 'https://images.unsplash.com/photo-1544025162-d76694265947?auto=format&fit=crop&w=600&q=80',
+    image: 'https://images.unsplash.com/photo-1544025162-d76694265947?auto=format&fit=crop&w=600&q=75',
     isVeg: false,
     isChefSpecial: true
   },
@@ -110,7 +110,7 @@ export const RESTAURANT_ITEMS: RestaurantItem[] = [
     category: 'Pastas & Mains',
     price: 780,
     description: 'Ribbon pasta with wild Kashmiri morels, garlic herb butter, crème fraîche, and toasted pine nuts.',
-    image: 'https://images.unsplash.com/photo-1621996346565-e3d5d62810f2?auto=format&fit=crop&w=600&q=80',
+    image: 'https://images.unsplash.com/photo-1621996346565-e3d5d62810f2?auto=format&fit=crop&w=600&q=75',
     isVeg: true
   },
   {
@@ -119,7 +119,7 @@ export const RESTAURANT_ITEMS: RestaurantItem[] = [
     category: 'Pastas & Mains',
     price: 720,
     description: 'Hand-rolled potato gnocchi in rich blue cheese cream, candied walnuts, and baby spinach leaves.',
-    image: 'https://images.unsplash.com/photo-1551183053-bf91a1d81141?auto=format&fit=crop&w=600&q=80',
+    image: 'https://images.unsplash.com/photo-1551183053-bf91a1d81141?auto=format&fit=crop&w=600&q=75',
     isVeg: true
   },
 
@@ -130,7 +130,7 @@ export const RESTAURANT_ITEMS: RestaurantItem[] = [
     category: 'Steaks & Grills',
     price: 1490,
     description: 'Charcoal-grilled prime Angus beef with roasted bone marrow butter, grilled asparagus, and red wine jus.',
-    image: 'https://images.unsplash.com/photo-1558030006-450675393462?auto=format&fit=crop&w=600&q=80',
+    image: 'https://images.unsplash.com/photo-1558030006-450675393462?auto=format&fit=crop&w=600&q=75',
     isVeg: false,
     isChefSpecial: true
   },
@@ -140,7 +140,7 @@ export const RESTAURANT_ITEMS: RestaurantItem[] = [
     category: 'Steaks & Grills',
     price: 1350,
     description: 'Flame-seared tender lamb cutlets with mint chimichurri, glazed baby carrots, and truffle pomme purée.',
-    image: 'https://images.unsplash.com/photo-1544025162-d76694265947?auto=format&fit=crop&w=600&q=80',
+    image: 'https://images.unsplash.com/photo-1544025162-d76694265947?auto=format&fit=crop&w=600&q=75',
     isVeg: false
   },
   {
@@ -149,7 +149,7 @@ export const RESTAURANT_ITEMS: RestaurantItem[] = [
     category: 'Steaks & Grills',
     price: 860,
     description: 'Sous-vide free-range chicken roasted with thyme, lemon garlic butter, blistered vine tomatoes.',
-    image: 'https://images.unsplash.com/photo-1598103442097-8b74394b95c6?auto=format&fit=crop&w=600&q=80',
+    image: 'https://images.unsplash.com/photo-1598103442097-8b74394b95c6?auto=format&fit=crop&w=600&q=75',
     isVeg: false
   },
   {
@@ -158,7 +158,7 @@ export const RESTAURANT_ITEMS: RestaurantItem[] = [
     category: 'Steaks & Grills',
     price: 740,
     description: 'Marinated giant portobello mushrooms layered with goat cheese, roasted bell peppers, and balsamic reduction.',
-    image: 'https://images.unsplash.com/photo-1540420773420-3366772f4999?auto=format&fit=crop&w=600&q=80',
+    image: 'https://images.unsplash.com/photo-1540420773420-3366772f4999?auto=format&fit=crop&w=600&q=75',
     isVeg: true
   },
 
@@ -169,7 +169,7 @@ export const RESTAURANT_ITEMS: RestaurantItem[] = [
     category: 'Seafood',
     price: 1580,
     description: 'Pan-roasted deep-sea bass in brown butter lemon caper emulsion with saffron baby potatoes.',
-    image: 'https://images.unsplash.com/photo-1519708227418-c8fd9a32b7a2?auto=format&fit=crop&w=600&q=80',
+    image: 'https://images.unsplash.com/photo-1519708227418-c8fd9a32b7a2?auto=format&fit=crop&w=600&q=75',
     isVeg: false,
     isChefSpecial: true
   },
@@ -179,7 +179,7 @@ export const RESTAURANT_ITEMS: RestaurantItem[] = [
     category: 'Seafood',
     price: 1250,
     description: 'Flamed Bay of Bengal prawns tossed in roasted garlic chive butter with toasted herb ciabatta.',
-    image: 'https://images.unsplash.com/photo-1565680018434-b513d5e5fd47?auto=format&fit=crop&w=600&q=80',
+    image: 'https://images.unsplash.com/photo-1565680018434-b513d5e5fd47?auto=format&fit=crop&w=600&q=75',
     isVeg: false
   },
   {
@@ -188,7 +188,7 @@ export const RESTAURANT_ITEMS: RestaurantItem[] = [
     category: 'Seafood',
     price: 1390,
     description: 'Pan-seared Norwegian salmon fillet with dill velouté, sautéed haricot verts, and lemon oil.',
-    image: 'https://images.unsplash.com/photo-1467003909585-2f8a72700288?auto=format&fit=crop&w=600&q=80',
+    image: 'https://images.unsplash.com/photo-1467003909585-2f8a72700288?auto=format&fit=crop&w=600&q=75',
     isVeg: false
   },
 
@@ -199,7 +199,7 @@ export const RESTAURANT_ITEMS: RestaurantItem[] = [
     category: 'Desserts',
     price: 540,
     description: 'Molten warm 70% Guanaja chocolate soufflé served with Bourbon Madagascar vanilla bean crème anglaise.',
-    image: 'https://images.unsplash.com/photo-1541781774459-bb2af2f05b55?auto=format&fit=crop&w=600&q=80',
+    image: 'https://images.unsplash.com/photo-1541781774459-bb2af2f05b55?auto=format&fit=crop&w=600&q=75',
     isVeg: true,
     isChefSpecial: true
   },
@@ -209,7 +209,7 @@ export const RESTAURANT_ITEMS: RestaurantItem[] = [
     category: 'Desserts',
     price: 460,
     description: 'Silky rich custard with caramelized brittle sugar crust and seasonal wild macerated berries.',
-    image: 'https://images.unsplash.com/photo-1517427294546-5aa121f68e8a?auto=format&fit=crop&w=600&q=80',
+    image: 'https://images.unsplash.com/photo-1517427294546-5aa121f68e8a?auto=format&fit=crop&w=600&q=75',
     isVeg: true
   },
   {
@@ -218,7 +218,7 @@ export const RESTAURANT_ITEMS: RestaurantItem[] = [
     category: 'Desserts',
     price: 480,
     description: 'Espresso-soaked Savoiardi ladyfingers layered with zabaione mascarpone and dusted with Dutch cocoa.',
-    image: 'https://images.unsplash.com/photo-1571877227200-a0d98ea607e9?auto=format&fit=crop&w=600&q=80',
+    image: 'https://images.unsplash.com/photo-1571877227200-a0d98ea607e9?auto=format&fit=crop&w=600&q=75',
     isVeg: true
   },
   {
@@ -227,7 +227,7 @@ export const RESTAURANT_ITEMS: RestaurantItem[] = [
     category: 'Desserts',
     price: 490,
     description: 'Caramelized Granny Smith apples in flaky puff pastry served with artisanal cinnamon gelato.',
-    image: 'https://images.unsplash.com/photo-1535141192574-5d4897c13136?auto=format&fit=crop&w=600&q=80',
+    image: 'https://images.unsplash.com/photo-1535141192574-5d4897c13136?auto=format&fit=crop&w=600&q=75',
     isVeg: true
   },
 
@@ -238,7 +238,7 @@ export const RESTAURANT_ITEMS: RestaurantItem[] = [
     category: 'Fine Beverages',
     price: 380,
     description: 'De-alcoholized Cabernet grape reduction, sparkling tonic water, fresh rosemary sprig, and orange zest.',
-    image: 'https://images.unsplash.com/photo-1514362545857-3bc16c4c7d1b?auto=format&fit=crop&w=600&q=80',
+    image: 'https://images.unsplash.com/photo-1514362545857-3bc16c4c7d1b?auto=format&fit=crop&w=600&q=75',
     isVeg: true,
     isChefSpecial: true
   },
@@ -248,7 +248,7 @@ export const RESTAURANT_ITEMS: RestaurantItem[] = [
     category: 'Fine Beverages',
     price: 360,
     description: 'Wild Mexican hibiscus extract, pink grapefruit cordial, agave nectar, smoked sea salt rim.',
-    image: 'https://images.unsplash.com/photo-1551024709-8f23befc6f87?auto=format&fit=crop&w=600&q=80',
+    image: 'https://images.unsplash.com/photo-1551024709-8f23befc6f87?auto=format&fit=crop&w=600&q=75',
     isVeg: true
   },
   {
@@ -257,7 +257,7 @@ export const RESTAURANT_ITEMS: RestaurantItem[] = [
     category: 'Fine Beverages',
     price: 320,
     description: 'Imported natural sparkling mineral water bottled at the source in San Pellegrino Terme, Italy.',
-    image: 'https://images.unsplash.com/photo-1548839140-29a749e1bc4e?auto=format&fit=crop&w=600&q=80',
+    image: 'https://images.unsplash.com/photo-1548839140-29a749e1bc4e?auto=format&fit=crop&w=600&q=75',
     isVeg: true
   }
 ];
@@ -781,8 +781,8 @@ export const RestaurantDemo: React.FC<RestaurantDemoProps> = ({ demo, onPlanChan
       {/* ------------------------------------------------------------- */}
       <section className="relative min-h-[460px] flex items-center justify-center text-center px-4 sm:px-6 py-16 overflow-hidden">
         <div className="absolute inset-0">
-          <img 
-            src="https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?auto=format&fit=crop&w=1400&q=80" 
+          <img loading="lazy" 
+            src="https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?auto=format&fit=crop&w=1400&q=75" 
             alt="La Maison Gourmet Bistro Ambiance" 
             className={`w-full h-full object-cover ${isBase ? 'brightness-[0.85] opacity-25' : 'brightness-[0.35]'}`} 
           />
@@ -940,7 +940,7 @@ export const RestaurantDemo: React.FC<RestaurantDemoProps> = ({ demo, onPlanChan
               >
                 {/* Image Container */}
                 <div className={`aspect-[4/3] relative overflow-hidden ${theme.cardImageBg}`}>
-                  <img 
+                  <img loading="lazy" 
                     src={item.image} 
                     alt={item.name} 
                     className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" 
@@ -1068,8 +1068,8 @@ export const RestaurantDemo: React.FC<RestaurantDemoProps> = ({ demo, onPlanChan
 
             <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
               <div className={`p-5 sm:p-6 rounded-3xl border shadow-xs flex flex-col sm:flex-row gap-4 items-center ${theme.specialsCardBg}`}>
-                <img 
-                  src="https://images.unsplash.com/photo-1558030006-450675393462?auto=format&fit=crop&w=300&q=80" 
+                <img loading="lazy" 
+                  src="https://images.unsplash.com/photo-1558030006-450675393462?auto=format&fit=crop&w=300&q=75" 
                   alt="Steak & Wine Degustation" 
                   className={`w-24 h-24 rounded-2xl object-cover shrink-0 border ${theme.cardImageBg}`} 
                 />
@@ -1087,8 +1087,8 @@ export const RestaurantDemo: React.FC<RestaurantDemoProps> = ({ demo, onPlanChan
               </div>
 
               <div className={`p-5 sm:p-6 rounded-3xl border shadow-xs flex flex-col sm:flex-row gap-4 items-center ${theme.specialsCardBg}`}>
-                <img 
-                  src="https://images.unsplash.com/photo-1551183053-bf91a1d81141?auto=format&fit=crop&w=300&q=80" 
+                <img loading="lazy" 
+                  src="https://images.unsplash.com/photo-1551183053-bf91a1d81141?auto=format&fit=crop&w=300&q=75" 
                   alt="Truffle Pasta & Souffle" 
                   className={`w-24 h-24 rounded-2xl object-cover shrink-0 border ${theme.cardImageBg}`} 
                 />
@@ -1136,8 +1136,8 @@ export const RestaurantDemo: React.FC<RestaurantDemoProps> = ({ demo, onPlanChan
             </div>
           </div>
           <div>
-            <img 
-              src="https://images.unsplash.com/photo-1550966871-3ed3cdb5ed0c?auto=format&fit=crop&w=800&q=80" 
+            <img loading="lazy" 
+              src="https://images.unsplash.com/photo-1550966871-3ed3cdb5ed0c?auto=format&fit=crop&w=800&q=75" 
               alt="La Maison Chef Plating" 
               className={`rounded-3xl shadow-xl w-full aspect-[4/3] object-cover border ${theme.cardBg}`} 
             />
@@ -1649,7 +1649,7 @@ export const RestaurantDemo: React.FC<RestaurantDemoProps> = ({ demo, onPlanChan
                 ) : (
                   cart.map(({ item, qty }) => (
                     <div key={item.id} className="p-3 rounded-2xl bg-[#1A0A11] border border-[#331424] flex items-center justify-between gap-3">
-                      <img src={item.image} alt={item.name} className="w-12 h-12 rounded-xl object-cover" />
+                      <img loading="lazy" src={item.image} alt={item.name} className="w-12 h-12 rounded-xl object-cover" />
                       <div className="flex-1 min-w-0">
                         <h4 className="font-serif text-xs font-bold text-white truncate">{item.name}</h4>
                         <div className="text-[11px] text-rose-400 font-bold">₹{item.price * qty}</div>
@@ -1952,7 +1952,7 @@ export const RestaurantDemo: React.FC<RestaurantDemoProps> = ({ demo, onPlanChan
                 return (
                   <div key={item.id} className="p-3 rounded-2xl bg-[#1A0A11] border border-[#331424] flex items-center justify-between gap-3">
                     <div className="flex items-center gap-3 min-w-0">
-                      <img src={item.image} alt={item.name} className="w-10 h-10 rounded-xl object-cover" />
+                      <img loading="lazy" src={item.image} alt={item.name} className="w-10 h-10 rounded-xl object-cover" />
                       <div className="min-w-0">
                         <div className="font-serif text-xs font-bold text-white truncate">{item.name}</div>
                         <div className="text-[10px] text-slate-400">{item.category} • ₹{item.price}</div>

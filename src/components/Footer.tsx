@@ -25,8 +25,11 @@ export const Footer: React.FC<FooterProps> = ({
             <div className="flex items-center gap-3">
               <div className="w-10 h-10 flex items-center justify-center shrink-0 p-1 rounded-xl bg-white border border-slate-700 shadow-xs overflow-hidden">
                 <img 
+                  loading="lazy" 
                   src="/logo.png" 
-                  alt="Upscale Nova Logo" 
+                  alt="Upscale Nova - Web Design & Digital Business Solutions in Mumbai" 
+                  width="40"
+                  height="40"
                   className="w-full h-full object-contain" 
                 />
               </div>

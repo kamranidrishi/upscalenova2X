@@ -54,8 +54,12 @@ import {
   RefreshCw,
   ExternalLink,
   BookOpen,
-  Share2
+  Share2,
+  Menu,
+  LayoutGrid,
+  Waves
 } from 'lucide-react';
+import { BeautyReelsSection } from './BeautyReelsSection';
 
 interface BeautyMaxDemoProps {
   demo: DemoItem;
@@ -70,7 +74,46 @@ interface CartItem {
   selectedShade?: string;
 }
 
-export const BeautyMaxDemo: React.FC<BeautyMaxDemoProps> = () => {
+export const SIDEBAR_CATEGORIES = [
+  {
+    name: 'Shop All',
+    icon: LayoutGrid,
+    subtext: 'Explore full catalog'
+  },
+  {
+    name: 'Best Sellers',
+    icon: Star,
+    subtext: 'Award-winning formulas'
+  },
+  {
+    name: 'Skincare',
+    icon: Droplets,
+    subtext: 'Serums, SPF & Creams'
+  },
+  {
+    name: 'Hair Care',
+    icon: Waves,
+    subtext: 'Oils, masks & tonics'
+  },
+  {
+    name: 'Makeup',
+    icon: Sparkles,
+    subtext: 'Lip oils & tinted glow'
+  },
+  {
+    name: 'Korean Skincare',
+    icon: Heart,
+    subtext: 'Glass skin & barrier dew'
+  }
+];
+
+export const BeautyMaxDemo: React.FC<BeautyMaxDemoProps> = ({ demo, isMobile, isTablet }) => {
+  const isMaxPlan = demo?.plan === 'Max' || !demo?.plan;
+
+  // Sidebar State (Flipkart/Meesho slide-in style)
+  const [sidebarOpen, setSidebarOpen] = useState(false);
+  const [activeSidebarCategory, setActiveSidebarCategory] = useState<string>('Shop All');
+
   // Navigation & Filtering
   const [activeCategory, setActiveCategory] = useState<string>('All');
   const [activeSkinType, setActiveSkinType] = useState<string>('All');
@@ -94,7 +137,7 @@ export const BeautyMaxDemo: React.FC<BeautyMaxDemoProps> = () => {
   const [couponScratchSuccess, setCouponScratchSuccess] = useState(false);
 
   // State Management
-  const [wishlist, setWishlist] = useState<string[]>(['prod-1', 'prod-4']);
+  const [wishlist, setWishlist] = useState<string[]>(['skin-1', 'skin-4']);
   const [cart, setCart] = useState<CartItem[]>([
     {
       product: BEAUTY_PRODUCTS[0],
@@ -132,39 +175,86 @@ export const BeautyMaxDemo: React.FC<BeautyMaxDemoProps> = () => {
     return () => clearInterval(timer);
   }, []);
 
-  // Hero carousel slide
+  // Hero carousel slide & timer management
   const [heroSlide, setHeroSlide] = useState(0);
   const heroSlides = [
     {
-      badge: 'The Imperial Rose Collection',
-      title: 'Damask Rose & 24K Botanical Gold',
-      subtitle: 'Award-winning anti-aging elixir cold-formulated to illuminate and firm skin.',
-      image: 'https://images.unsplash.com/photo-1620916566398-39f1143ab7be?auto=format&fit=crop&w=1200&q=80',
-      tag: 'New Limited Batch'
-    },
-    {
-      badge: 'Overnight Barrier Restoration',
-      title: 'Midnight Bakuchiol & Blue Tansy',
-      subtitle: 'Gentle Ayurvedic retinol alternative for velvety smooth, calm morning skin.',
-      image: 'https://images.unsplash.com/photo-1608248597359-299f187a550c?auto=format&fit=crop&w=1200&q=80',
-      tag: 'Dermatologist Choice'
-    },
-    {
-      badge: 'Artisan French Perfumery',
-      title: 'Fleur Royale Haute Eau De Parfum',
+      badge: 'LUXURY FRAGRANCE',
+      title: 'Fleur Royale Eau De Parfum',
       subtitle: 'Hand-harvested Grasse Jasmine blended with green pear and warm cashmere amber.',
-      image: 'https://images.unsplash.com/photo-1592945403244-b3fbafd7f539?auto=format&fit=crop&w=1200&q=80',
-      tag: 'Haute Fragrance'
+      image: 'https://images.unsplash.com/photo-1592945403244-b3fbafd7f539?auto=format&fit=crop&w=800&q=75',
+      cta: 'Shop Fragrances',
+      category: 'Fragrance'
+    },
+    {
+      badge: 'SKINCARE ESSENTIALS',
+      title: 'Radiance Starts With Your Skin',
+      subtitle: 'Cold-formulated botanical actives and 24K gold serum for luminous, restored skin.',
+      image: 'https://images.unsplash.com/photo-1620916566398-39f1143ab7be?auto=format&fit=crop&w=800&q=75',
+      cta: 'Explore Skincare',
+      category: 'Skincare'
+    },
+    {
+      badge: 'HAIR CARE',
+      title: 'Stronger Hair, Naturally',
+      subtitle: 'Cold-pressed rosemary, biotin, and peptide complex to fortify follicles and restore silkiness.',
+      image: 'https://images.unsplash.com/photo-1608248597359-299f187a550c?auto=format&fit=crop&w=800&q=75',
+      cta: 'Shop Hair Care',
+      category: 'Haircare'
+    },
+    {
+      badge: 'MAKEUP COLLECTION',
+      title: 'Beauty, Your Way',
+      subtitle: 'Ultra-weightless silk serum foundation and velvet lip couture with pure botanical pigments.',
+      image: 'https://images.unsplash.com/photo-1522335789203-aabd1fc54bc9?auto=format&fit=crop&w=800&q=75',
+      cta: 'Explore Makeup',
+      category: 'Makeup'
+    },
+    {
+      badge: 'BODY CARE',
+      title: 'Pure Care From Head To Toe',
+      subtitle: 'Whipped murumuru butter, Himalayan pink salt scrubs, and restorative nourishing creams.',
+      image: 'https://images.unsplash.com/photo-1601049541289-9b1b7bbbfe19?auto=format&fit=crop&w=800&q=75',
+      cta: 'Shop Body Care',
+      category: 'Body Care'
+    },
+    {
+      badge: 'WELLNESS',
+      title: 'Everyday Wellness, Elevated',
+      subtitle: 'Holistic self-care rituals, soothing herbal bath teas, and sculpted rose quartz gua sha.',
+      image: 'https://images.unsplash.com/photo-1540555700478-4be289fbecef?auto=format&fit=crop&w=800&q=75',
+      cta: 'Discover Wellness',
+      category: 'All'
+    },
+    {
+      badge: 'EXCLUSIVE COLLECTION',
+      title: 'The Aura Botanicals Collection',
+      subtitle: 'Handcrafted master formulations blending timeless flora with modern clean clinical science.',
+      image: 'https://images.unsplash.com/photo-1556228720-195a672e8a03?auto=format&fit=crop&w=800&q=75',
+      cta: 'View Collection',
+      category: 'All'
     }
   ];
 
-  // Auto slide hero
+  const handleNextSlide = () => {
+    setHeroSlide((prev) => (prev + 1) % heroSlides.length);
+  };
+
+  const handlePrevSlide = () => {
+    setHeroSlide((prev) => (prev - 1 + heroSlides.length) % heroSlides.length);
+  };
+
+  const handleSelectSlide = (idx: number) => {
+    setHeroSlide(idx);
+  };
+
+  // Auto slide hero every 2.5 seconds (resets timer when heroSlide changes from manual click or auto)
   useEffect(() => {
     const interval = setInterval(() => {
       setHeroSlide((prev) => (prev + 1) % heroSlides.length);
-    }, 5500);
+    }, 2500);
     return () => clearInterval(interval);
-  }, [heroSlides.length]);
+  }, [heroSlide, heroSlides.length]);
 
   // Wishlist toggle
   const toggleWishlist = (productId: string) => {
@@ -172,6 +262,13 @@ export const BeautyMaxDemo: React.FC<BeautyMaxDemoProps> = () => {
       prev.includes(productId) ? prev.filter((id) => id !== productId) : [...prev, productId]
     );
   };
+
+  // Single Source of Truth for Wishlist items
+  const wishlistedProducts = useMemo(() => {
+    return wishlist
+      .map((id) => BEAUTY_PRODUCTS.find((p) => p.id === id))
+      .filter((p): p is BeautyProduct => Boolean(p));
+  }, [wishlist]);
 
   // Filtered & Sorted Products
   const filteredProducts = useMemo(() => {
@@ -194,6 +291,52 @@ export const BeautyMaxDemo: React.FC<BeautyMaxDemoProps> = () => {
 
     return list;
   }, [activeCategory, activeSkinType, activeBenefit, sortBy, searchQuery]);
+
+  // Handle category navigation from slide-in sidebar
+  const handleSidebarCategorySelect = (categoryName: string) => {
+    setActiveSidebarCategory(categoryName);
+    setSidebarOpen(false);
+
+    if (categoryName === 'Shop All') {
+      setActiveCategory('All');
+      setActiveSkinType('All');
+      setActiveBenefit('All');
+      setSearchQuery('');
+    } else if (categoryName === 'Best Sellers') {
+      setActiveCategory('All');
+      setSortBy('rating');
+      setActiveSkinType('All');
+      setActiveBenefit('All');
+      setSearchQuery('');
+    } else if (categoryName === 'Skincare') {
+      setActiveCategory('Skincare');
+      setActiveSkinType('All');
+      setActiveBenefit('All');
+      setSearchQuery('');
+    } else if (categoryName === 'Hair Care') {
+      setActiveCategory('Haircare');
+      setActiveSkinType('All');
+      setActiveBenefit('All');
+      setSearchQuery('');
+    } else if (categoryName === 'Makeup') {
+      setActiveCategory('Makeup');
+      setActiveSkinType('All');
+      setActiveBenefit('All');
+      setSearchQuery('');
+    } else if (categoryName === 'Korean Skincare') {
+      setActiveCategory('Skincare');
+      setActiveSkinType('All');
+      setActiveBenefit('Brightening');
+      setSearchQuery('');
+    }
+
+    setTimeout(() => {
+      const catalogElem = document.getElementById('catalog-section');
+      if (catalogElem) {
+        catalogElem.scrollIntoView({ behavior: 'smooth', block: 'start' });
+      }
+    }, 120);
+  };
 
   // Cart operations
   const cartItemCount = cart.reduce((total, item) => total + item.quantity, 0);
@@ -253,7 +396,7 @@ export const BeautyMaxDemo: React.FC<BeautyMaxDemoProps> = () => {
       >
         {/* Thumbnail */}
         <div className="aspect-square bg-rose-50/40 relative overflow-hidden">
-          <img
+          <img loading="lazy"
             src={prod.image}
             alt={prod.name}
             className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
@@ -395,18 +538,39 @@ export const BeautyMaxDemo: React.FC<BeautyMaxDemoProps> = () => {
       <header className="sticky top-0 z-40 bg-white/95 backdrop-blur-md border-b border-rose-100 shadow-xs">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-20 flex items-center justify-between gap-4">
           
-          {/* Brand Logo */}
-          <div className="flex items-center gap-3 shrink-0 cursor-pointer">
-            <div className="w-11 h-11 rounded-full bg-gradient-to-tr from-rose-100 via-rose-50 to-amber-50 border border-rose-200 flex items-center justify-center text-rose-700 shadow-xs">
-              <Sparkles className="w-5 h-5" />
-            </div>
-            <div>
-              <span className="font-serif text-xl sm:text-2xl font-bold tracking-widest text-stone-900 block leading-tight">
-                AURA BOTANICALS
-              </span>
-              <span className="text-[10px] uppercase tracking-widest text-rose-600 font-bold block">
-                Haute Clean Cosmetics & E-Commerce
-              </span>
+          {/* Top-Left: Hamburger Menu Icon + Brand Logo (Exclusive to MAX Plan) */}
+          <div className="flex items-center gap-3 shrink-0">
+            {isMaxPlan && (
+              <button
+                onClick={() => setSidebarOpen(!sidebarOpen)}
+                className="p-2 sm:p-2.5 rounded-xl text-stone-800 hover:text-rose-600 hover:bg-rose-50 border border-stone-200/80 hover:border-rose-300 transition-all shadow-2xs active:scale-95 flex items-center justify-center cursor-pointer"
+                aria-label="Open category navigation menu"
+                title="Browse Categories"
+              >
+                <Menu className="w-5 h-5 sm:w-6 sm:h-6" />
+              </button>
+            )}
+
+            {/* Brand Logo */}
+            <div 
+              onClick={() => {
+                setActiveCategory('All');
+                setActiveSidebarCategory('Shop All');
+                window.scrollTo({ top: 0, behavior: 'smooth' });
+              }}
+              className="flex items-center gap-2.5 sm:gap-3 cursor-pointer group"
+            >
+              <div className="w-10 h-10 sm:w-11 sm:h-11 rounded-full bg-gradient-to-tr from-rose-100 via-rose-50 to-amber-50 border border-rose-200 flex items-center justify-center text-rose-700 shadow-xs group-hover:scale-105 transition-transform">
+                <Sparkles className="w-5 h-5" />
+              </div>
+              <div>
+                <span className="font-serif text-xl sm:text-2xl font-bold tracking-widest text-stone-900 block leading-tight group-hover:text-rose-700 transition-colors">
+                  AURA BOTANICALS
+                </span>
+                <span className="text-[10px] uppercase tracking-widest text-rose-600 font-bold block">
+                  Haute Clean Cosmetics & E-Commerce
+                </span>
+              </div>
             </div>
           </div>
 
@@ -450,9 +614,9 @@ export const BeautyMaxDemo: React.FC<BeautyMaxDemoProps> = () => {
               title="Wishlist"
             >
               <Heart className="w-5 h-5" />
-              {wishlist.length > 0 && (
+              {wishlistedProducts.length > 0 && (
                 <span className="absolute top-1 right-1 w-4 h-4 rounded-full bg-rose-600 text-white text-[9px] font-black flex items-center justify-center shadow-xs">
-                  {wishlist.length}
+                  {wishlistedProducts.length}
                 </span>
               )}
             </button>
@@ -488,64 +652,266 @@ export const BeautyMaxDemo: React.FC<BeautyMaxDemoProps> = () => {
         </div>
       </header>
 
-      {/* Dynamic Multi-Slide Hero Carousel */}
-      <section className="relative bg-stone-950 text-white overflow-hidden">
-        <div className="relative aspect-[21/9] min-h-[360px] sm:min-h-[440px] flex items-center">
-          
-          {/* Background Image */}
-          <img
-            src={heroSlides[heroSlide].image}
-            alt={heroSlides[heroSlide].title}
-            className="absolute inset-0 w-full h-full object-cover opacity-65 transition-all duration-700 transform scale-105"
-          />
-          <div className="absolute inset-0 bg-gradient-to-r from-stone-950/90 via-stone-950/60 to-transparent"></div>
+      {/* Slide-in Left Sidebar Menu (Flipkart / Meesho / Shopee style - Max Plan Exclusive) */}
+      {isMaxPlan && sidebarOpen && (
+        <div
+          onClick={() => setSidebarOpen(false)}
+          className="fixed inset-0 z-50 bg-stone-950/60 backdrop-blur-xs transition-opacity duration-300 animate-in fade-in"
+          aria-hidden="true"
+        />
+      )}
 
-          {/* Hero Slide Content */}
-          <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-10 space-y-4 max-w-2xl">
-            <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-rose-500/30 border border-rose-400/40 text-rose-300 text-xs font-bold backdrop-blur-md">
-              <Sparkles className="w-3.5 h-3.5" />
-              <span>{heroSlides[heroSlide].badge}</span>
+      {isMaxPlan && (
+        <aside
+          className={`fixed inset-y-0 left-0 z-50 w-72 sm:w-80 bg-white shadow-2xl border-r border-rose-100 flex flex-col justify-between transform transition-transform duration-300 ease-in-out ${
+            sidebarOpen ? 'translate-x-0' : '-translate-x-full'
+          }`}
+          aria-label="Category Sidebar Navigation"
+        >
+        {/* Sidebar Header */}
+        <div className="p-4 sm:p-5 border-b border-rose-100 bg-gradient-to-r from-rose-50/80 to-white flex items-center justify-between">
+          <div className="flex items-center gap-2.5">
+            <div className="w-9 h-9 rounded-full bg-rose-600 text-white flex items-center justify-center shadow-xs">
+              <Sparkles className="w-4 h-4" />
+            </div>
+            <div>
+              <h3 className="font-serif text-base font-bold tracking-wider text-stone-900 leading-tight">
+                AURA BOTANICALS
+              </h3>
+              <p className="text-[10px] uppercase tracking-widest text-rose-600 font-bold">
+                Shop by Category
+              </p>
+            </div>
+          </div>
+          <button
+            onClick={() => setSidebarOpen(false)}
+            className="p-1.5 rounded-lg text-stone-400 hover:text-stone-700 hover:bg-rose-100/60 transition-colors cursor-pointer"
+            aria-label="Close menu"
+          >
+            <X className="w-5 h-5" />
+          </button>
+        </div>
+
+        {/* Scrollable Categories & Account Area */}
+        <div className="flex-1 overflow-y-auto divide-y divide-rose-50/90 py-2">
+          
+          {/* Vertical List of Category Items */}
+          <div className="py-2">
+            <div className="px-4 pb-2">
+              <span className="text-[10px] font-extrabold uppercase tracking-widest text-stone-400">
+                Categories
+              </span>
             </div>
 
-            <h1 className="font-serif text-3xl sm:text-4xl lg:text-5xl font-bold leading-tight tracking-tight">
-              {heroSlides[heroSlide].title}
-            </h1>
+            <div className="space-y-1.5 px-2">
+              {SIDEBAR_CATEGORIES.map((cat) => {
+                const Icon = cat.icon;
+                const isActive = activeSidebarCategory === cat.name;
+                return (
+                  <button
+                    key={cat.name}
+                    onClick={() => handleSidebarCategorySelect(cat.name)}
+                    className={`w-full py-2.5 px-3 rounded-r-xl transition-all text-left flex flex-col items-start gap-1 group cursor-pointer ${
+                      isActive
+                        ? 'border-l-4 border-rose-600 bg-rose-50/90 text-rose-900 font-bold shadow-2xs'
+                        : 'border-l-4 border-transparent text-stone-700 hover:bg-stone-50 hover:text-rose-700 font-medium'
+                    }`}
+                  >
+                    {/* Small Icon on Top */}
+                    <div className={`p-1.5 rounded-lg flex items-center justify-center transition-all ${
+                      isActive ? 'bg-rose-600 text-white shadow-xs' : 'bg-rose-100/70 text-rose-600 group-hover:bg-rose-200/80'
+                    }`}>
+                      <Icon className="w-4 h-4" />
+                    </div>
 
-            <p className="text-stone-300 text-xs sm:text-sm leading-relaxed">
-              {heroSlides[heroSlide].subtitle}
-            </p>
-
-            <div className="flex items-center gap-3 pt-2">
-              <button
-                onClick={() => {
-                  const el = document.getElementById('catalog-section');
-                  if (el) el.scrollIntoView({ behavior: 'smooth' });
-                }}
-                className="px-6 py-3 rounded-full bg-rose-500 hover:bg-rose-400 text-white text-xs font-bold tracking-wider transition-all shadow-lg active:scale-95 flex items-center gap-2"
-              >
-                <span>Shop This Ritual</span>
-                <ArrowRight className="w-4 h-4" />
-              </button>
-
-              <button
-                onClick={() => setSelectedProduct(BEAUTY_PRODUCTS[0])}
-                className="px-5 py-3 rounded-full bg-white/20 hover:bg-white/30 backdrop-blur-md border border-white/30 text-white text-xs font-bold transition-all"
-              >
-                View Clinical Study
-              </button>
+                    {/* Label Below It */}
+                    <div className="flex flex-col">
+                      <span className={`text-xs ${isActive ? 'font-bold text-rose-900' : 'font-semibold text-stone-800'}`}>
+                        {cat.name}
+                      </span>
+                      <span className="text-[10px] text-stone-400 font-normal leading-tight">
+                        {cat.subtext}
+                      </span>
+                    </div>
+                  </button>
+                );
+              })}
             </div>
           </div>
 
-          {/* Slide Indicators */}
-          <div className="absolute bottom-4 right-6 sm:bottom-6 sm:right-8 z-20 flex items-center gap-2 bg-stone-900/60 backdrop-blur-md p-1.5 rounded-full border border-white/10">
+          {/* ACCOUNT Section Header */}
+          <div className="pt-3 pb-2">
+            <div className="px-4 pb-2">
+              <span className="text-[11px] font-extrabold uppercase tracking-widest text-stone-400">
+                ACCOUNT
+              </span>
+            </div>
+
+            <div className="space-y-1 px-2">
+              <button
+                onClick={() => {
+                  setSidebarOpen(false);
+                  setAccountModalOpen(true);
+                }}
+                className="w-full px-3 py-2 rounded-xl flex items-center gap-3 text-stone-700 hover:bg-rose-50 hover:text-rose-800 transition-colors text-xs font-semibold cursor-pointer"
+              >
+                <div className="w-7 h-7 rounded-lg bg-stone-100 text-stone-600 flex items-center justify-center">
+                  <User className="w-3.5 h-3.5" />
+                </div>
+                <div className="flex-1 text-left">
+                  <div>My Profile & VIP Rewards</div>
+                  <div className="text-[10px] text-stone-400 font-normal">1,420 Points Available</div>
+                </div>
+                <ChevronRight className="w-3.5 h-3.5 text-stone-400" />
+              </button>
+
+              <button
+                onClick={() => {
+                  setSidebarOpen(false);
+                  setTrackingModalOpen(true);
+                }}
+                className="w-full px-3 py-2 rounded-xl flex items-center gap-3 text-stone-700 hover:bg-rose-50 hover:text-rose-800 transition-colors text-xs font-semibold cursor-pointer"
+              >
+                <div className="w-7 h-7 rounded-lg bg-stone-100 text-stone-600 flex items-center justify-center">
+                  <Truck className="w-3.5 h-3.5" />
+                </div>
+                <div className="flex-1 text-left">
+                  <div>Track Orders</div>
+                  <div className="text-[10px] text-stone-400 font-normal">Live Delivery Status</div>
+                </div>
+                <ChevronRight className="w-3.5 h-3.5 text-stone-400" />
+              </button>
+
+              <button
+                onClick={() => {
+                  setSidebarOpen(false);
+                  setWishlistOpen(true);
+                }}
+                className="w-full px-3 py-2 rounded-xl flex items-center gap-3 text-stone-700 hover:bg-rose-50 hover:text-rose-800 transition-colors text-xs font-semibold cursor-pointer"
+              >
+                <div className="w-7 h-7 rounded-lg bg-stone-100 text-stone-600 flex items-center justify-center">
+                  <Heart className="w-3.5 h-3.5" />
+                </div>
+                <div className="flex-1 text-left">
+                  <div>My Wishlist</div>
+                  <div className="text-[10px] text-stone-400 font-normal">{wishlistedProducts.length} Saved Items</div>
+                </div>
+                <ChevronRight className="w-3.5 h-3.5 text-stone-400" />
+              </button>
+            </div>
+          </div>
+        </div>
+
+        {/* Sidebar Footer */}
+        <div className="p-3.5 border-t border-rose-100 bg-rose-50/40 text-xs text-stone-600 flex items-center justify-between">
+          <div className="flex items-center gap-2">
+            <Shield className="w-4 h-4 text-rose-600" />
+            <span className="font-semibold text-[11px]">100% Certified Clean Beauty</span>
+          </div>
+          <span className="text-[10px] text-stone-400">v2.4</span>
+        </div>
+      </aside>
+      )}
+
+      {/* Dynamic Multi-Slide Hero Carousel */}
+      <section className="relative bg-stone-950 text-white overflow-hidden select-none">
+        <div className="relative aspect-[21/9] min-h-[380px] sm:min-h-[460px] flex items-center">
+          
+          {/* All 7 Slides with smooth fade + horizontal slide transition (600ms) */}
+          {heroSlides.map((slide, index) => {
+            const isActive = heroSlide === index;
+            return (
+              <div
+                key={index}
+                className={`absolute inset-0 w-full h-full flex items-center transition-all duration-600 ease-out ${
+                  isActive
+                    ? 'opacity-100 translate-x-0 pointer-events-auto z-10'
+                    : 'opacity-0 translate-x-8 pointer-events-none z-0'
+                }`}
+              >
+                {/* Background Image with subtle scale */}
+                <img loading="lazy"
+                  src={slide.image}
+                  alt={slide.title}
+                  className={`absolute inset-0 w-full h-full object-cover opacity-60 transition-transform duration-1000 ease-out ${
+                    isActive ? 'scale-105' : 'scale-100'
+                  }`}
+                />
+                <div className="absolute inset-0 bg-gradient-to-r from-stone-950/95 via-stone-950/70 to-transparent"></div>
+
+                {/* Hero Slide Content */}
+                <div className="relative z-10 max-w-7xl mx-auto px-6 sm:px-12 lg:px-16 py-10 space-y-4 max-w-2xl">
+                  <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-rose-500/30 border border-rose-400/40 text-rose-300 text-xs font-bold backdrop-blur-md">
+                    <Sparkles className="w-3.5 h-3.5" />
+                    <span>{slide.badge}</span>
+                  </div>
+
+                  <h1 className="font-serif text-3xl sm:text-4xl lg:text-5xl font-bold leading-tight tracking-tight text-white">
+                    {slide.title}
+                  </h1>
+
+                  <p className="text-stone-300 text-xs sm:text-sm leading-relaxed max-w-lg">
+                    {slide.subtitle}
+                  </p>
+
+                  <div className="flex items-center gap-3 pt-2">
+                    <button
+                      onClick={() => {
+                        if (slide.category) {
+                          setActiveCategory(slide.category);
+                        }
+                        const el = document.getElementById('catalog-section');
+                        if (el) el.scrollIntoView({ behavior: 'smooth' });
+                      }}
+                      className="px-6 py-3 rounded-full bg-rose-500 hover:bg-rose-400 text-white text-xs font-bold tracking-wider transition-all shadow-lg active:scale-95 flex items-center gap-2 cursor-pointer"
+                    >
+                      <span>{slide.cta}</span>
+                      <ArrowRight className="w-4 h-4" />
+                    </button>
+
+                    <button
+                      onClick={() => setSelectedProduct(BEAUTY_PRODUCTS[0])}
+                      className="px-5 py-3 rounded-full bg-white/20 hover:bg-white/30 backdrop-blur-md border border-white/30 text-white text-xs font-bold transition-all cursor-pointer"
+                    >
+                      View Clinical Study
+                    </button>
+                  </div>
+                </div>
+              </div>
+            );
+          })}
+
+          {/* Previous Slide Button */}
+          <button
+            onClick={handlePrevSlide}
+            className="absolute left-3 sm:left-6 top-1/2 -translate-y-1/2 z-20 p-2 sm:p-3 rounded-full bg-stone-900/70 hover:bg-rose-600 text-white backdrop-blur-md border border-white/10 transition-all active:scale-90 shadow-lg cursor-pointer"
+            aria-label="Previous slide"
+            title="Previous Slide"
+          >
+            <ChevronLeft className="w-5 h-5" />
+          </button>
+
+          {/* Next Slide Button */}
+          <button
+            onClick={handleNextSlide}
+            className="absolute right-3 sm:right-6 top-1/2 -translate-y-1/2 z-20 p-2 sm:p-3 rounded-full bg-stone-900/70 hover:bg-rose-600 text-white backdrop-blur-md border border-white/10 transition-all active:scale-90 shadow-lg cursor-pointer"
+            aria-label="Next slide"
+            title="Next Slide"
+          >
+            <ChevronRight className="w-5 h-5" />
+          </button>
+
+          {/* Slide Indicator Dots (7 Dots) */}
+          <div className="absolute bottom-4 sm:bottom-6 left-1/2 -translate-x-1/2 z-20 flex items-center gap-1.5 sm:gap-2 bg-stone-900/75 backdrop-blur-md py-1.5 px-3 rounded-full border border-white/10">
             {heroSlides.map((_, idx) => (
               <button
                 key={idx}
-                onClick={() => setHeroSlide(idx)}
-                className={`h-2 rounded-full transition-all ${
-                  heroSlide === idx ? 'w-6 bg-rose-400' : 'w-2 bg-white/40 hover:bg-white/70'
+                onClick={() => handleSelectSlide(idx)}
+                className={`h-2 rounded-full transition-all duration-300 cursor-pointer ${
+                  heroSlide === idx ? 'w-6 sm:w-7 bg-rose-400' : 'w-2 bg-white/40 hover:bg-white/70'
                 }`}
                 title={`Slide ${idx + 1}`}
+                aria-label={`Slide ${idx + 1}`}
               />
             ))}
           </div>
@@ -589,7 +955,7 @@ export const BeautyMaxDemo: React.FC<BeautyMaxDemoProps> = () => {
             </div>
             <button
               onClick={() => {
-                const prod = BEAUTY_PRODUCTS.find((p) => p.id === 'prod-11');
+                const prod = BEAUTY_PRODUCTS.find((p) => p.id === 'skin-14') || BEAUTY_PRODUCTS[0];
                 if (prod) addToCart(prod);
                 setCartOpen(true);
               }}
@@ -618,7 +984,7 @@ export const BeautyMaxDemo: React.FC<BeautyMaxDemoProps> = () => {
               }`}
             >
               <div className="w-10 h-10 rounded-xl overflow-hidden shrink-0 border border-rose-100">
-                <img src={cat.image} alt={cat.name} className="w-full h-full object-cover" />
+                <img loading="lazy" src={cat.image} alt={cat.name} className="w-full h-full object-cover" />
               </div>
               <div className="min-w-0">
                 <span className="font-serif text-xs font-bold text-stone-900 block truncate">
@@ -1022,6 +1388,14 @@ export const BeautyMaxDemo: React.FC<BeautyMaxDemoProps> = () => {
         </div>
       </section>
 
+      {/* Shoppable Reels Section - Exclusively on MAX Plan */}
+      {isMaxPlan && (
+        <BeautyReelsSection
+          onAddToCart={(product) => addToCart(product)}
+          onQuickView={(product) => setSelectedProduct(product)}
+        />
+      )}
+
       {/* Beauty Blog & Skincare Editorial Section */}
       <section className="py-14 sm:py-20 bg-[#FAF7F5]">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-10">
@@ -1042,7 +1416,7 @@ export const BeautyMaxDemo: React.FC<BeautyMaxDemoProps> = () => {
                 className="bg-white rounded-3xl border border-rose-100 overflow-hidden shadow-xs hover:shadow-lg transition-all flex flex-col justify-between"
               >
                 <div className="aspect-[16/10] overflow-hidden bg-rose-50">
-                  <img src={blog.image} alt={blog.title} className="w-full h-full object-cover hover:scale-105 transition-transform duration-500" />
+                  <img loading="lazy" src={blog.image} alt={blog.title} className="w-full h-full object-cover hover:scale-105 transition-transform duration-500" />
                 </div>
                 <div className="p-6 space-y-3 flex flex-col justify-between flex-grow">
                   <div className="space-y-2">
@@ -1090,7 +1464,7 @@ export const BeautyMaxDemo: React.FC<BeautyMaxDemoProps> = () => {
           <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
             {INSTAGRAM_POSTS.map((post) => (
               <div key={post.id} className="group relative rounded-2xl overflow-hidden aspect-square border border-rose-100 shadow-xs">
-                <img src={post.image} alt={post.user} className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" />
+                <img loading="lazy" src={post.image} alt={post.user} className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" />
                 <div className="absolute inset-0 bg-stone-950/40 opacity-0 group-hover:opacity-100 transition-opacity flex flex-col justify-between p-4 text-white">
                   <span className="text-xs font-bold">{post.user}</span>
                   <div className="space-y-1">
@@ -1116,7 +1490,7 @@ export const BeautyMaxDemo: React.FC<BeautyMaxDemoProps> = () => {
             {/* Left Image Gallery */}
             <div className="md:w-1/2 bg-rose-50/50 p-6 flex flex-col justify-between border-b md:border-b-0 md:border-r border-rose-100">
               <div className="aspect-square rounded-2xl overflow-hidden bg-white shadow-xs border border-rose-100 relative">
-                <img
+                <img loading="lazy"
                   src={selectedProduct.galleryImages[activeGalleryImgIndex] || selectedProduct.image}
                   alt={selectedProduct.name}
                   className="w-full h-full object-cover"
@@ -1133,7 +1507,7 @@ export const BeautyMaxDemo: React.FC<BeautyMaxDemoProps> = () => {
                       activeGalleryImgIndex === idx ? 'border-rose-600 ring-2 ring-rose-500/20' : 'border-rose-100 opacity-70 hover:opacity-100'
                     }`}
                   >
-                    <img src={img} alt="Thumbnail" className="w-full h-full object-cover" />
+                    <img loading="lazy" src={img} alt="Thumbnail" className="w-full h-full object-cover" />
                   </button>
                 ))}
               </div>
@@ -1239,8 +1613,19 @@ export const BeautyMaxDemo: React.FC<BeautyMaxDemoProps> = () => {
                 )}
               </div>
 
-              {/* Add to Cart Footer */}
+              {/* Add to Cart & Wishlist Footer */}
               <div className="pt-4 border-t border-rose-100 flex gap-3">
+                <button
+                  onClick={() => toggleWishlist(selectedProduct.id)}
+                  className={`p-3.5 rounded-full border transition-all flex items-center justify-center ${
+                    wishlist.includes(selectedProduct.id)
+                      ? 'bg-rose-50 border-rose-300 text-rose-600 shadow-xs'
+                      : 'border-stone-200 text-stone-600 hover:border-rose-300 hover:text-rose-600'
+                  }`}
+                  title={wishlist.includes(selectedProduct.id) ? 'Remove from Wishlist' : 'Add to Wishlist'}
+                >
+                  <Heart className={`w-5 h-5 ${wishlist.includes(selectedProduct.id) ? 'fill-current' : ''}`} />
+                </button>
                 <button
                   onClick={() => {
                     addToCart(selectedProduct, selectedProduct.volume, selectedShade || undefined);
@@ -1309,7 +1694,7 @@ export const BeautyMaxDemo: React.FC<BeautyMaxDemoProps> = () => {
               {cart.map((item) => (
                 <div key={item.product.id} className="flex gap-3.5 p-3 rounded-2xl bg-[#FCF9F7] border border-rose-100">
                   <div className="w-16 h-16 rounded-xl overflow-hidden bg-white border border-rose-200 shrink-0">
-                    <img src={item.product.image} alt={item.product.name} className="w-full h-full object-cover" />
+                    <img loading="lazy" src={item.product.image} alt={item.product.name} className="w-full h-full object-cover" />
                   </div>
                   
                   <div className="flex-1 min-w-0 space-y-1">
@@ -1698,35 +2083,129 @@ export const BeautyMaxDemo: React.FC<BeautyMaxDemoProps> = () => {
         <div className="fixed inset-0 z-50 flex justify-end bg-stone-950/75 backdrop-blur-xs animate-in fade-in">
           <div className="bg-white w-full max-w-md h-full shadow-2xl flex flex-col justify-between overflow-hidden animate-in slide-in-from-right duration-300 border-l border-rose-100">
             
+            {/* Header */}
             <div className="p-5 border-b border-rose-100 flex items-center justify-between bg-[#FAF7F5]">
               <div className="flex items-center gap-2">
-                <Heart className="w-5 h-5 text-rose-600 fill-rose-600" />
-                <h3 className="font-serif text-lg font-bold text-stone-900">Saved Wishlist ({wishlist.length})</h3>
+                <div className="w-8 h-8 rounded-full bg-rose-100 text-rose-600 flex items-center justify-center">
+                  <Heart className="w-4 h-4 fill-rose-600" />
+                </div>
+                <div>
+                  <h3 className="font-serif text-base sm:text-lg font-bold text-stone-900 leading-tight">
+                    Saved Wishlist
+                  </h3>
+                  <span className="text-[11px] text-stone-500 font-medium">
+                    {wishlistedProducts.length} {wishlistedProducts.length === 1 ? 'item' : 'items'} saved
+                  </span>
+                </div>
               </div>
-              <button onClick={() => setWishlistOpen(false)} className="p-1.5 rounded-full hover:bg-rose-100 text-stone-500">
-                <X className="w-5 h-5" />
-              </button>
+              <div className="flex items-center gap-2">
+                {wishlistedProducts.length > 0 && (
+                  <button
+                    onClick={() => setWishlist([])}
+                    className="text-[11px] font-bold text-stone-400 hover:text-rose-600 transition-colors px-2 py-1"
+                    title="Clear All Wishlist Items"
+                  >
+                    Clear All
+                  </button>
+                )}
+                <button
+                  onClick={() => setWishlistOpen(false)}
+                  className="p-1.5 rounded-full hover:bg-rose-100 text-stone-500 transition-colors"
+                  aria-label="Close Wishlist"
+                >
+                  <X className="w-5 h-5" />
+                </button>
+              </div>
             </div>
 
-            <div className="flex-1 overflow-y-auto p-5 space-y-3">
-              {wishlist.length === 0 ? (
-                <div className="text-center py-16 space-y-2">
-                  <Heart className="w-12 h-12 text-rose-200 mx-auto" />
-                  <p className="font-serif text-sm font-bold">Your wishlist is empty</p>
+            {/* Product Cards List */}
+            <div className="flex-1 overflow-y-auto p-4 sm:p-5 space-y-3">
+              {wishlistedProducts.length === 0 ? (
+                <div className="text-center py-16 px-4 space-y-4">
+                  <div className="w-16 h-16 rounded-full bg-rose-50 border border-rose-200 flex items-center justify-center mx-auto text-rose-400">
+                    <Heart className="w-8 h-8" />
+                  </div>
+                  <div>
+                    <p className="font-serif text-base font-bold text-stone-900">Your wishlist is empty</p>
+                    <p className="text-xs text-stone-500 mt-1 max-w-xs mx-auto">
+                      Explore our botanical formulas and click the heart icon on any product to save your favorites!
+                    </p>
+                  </div>
+                  <button
+                    onClick={() => {
+                      setWishlistOpen(false);
+                      const catalogElem = document.getElementById('catalog-section');
+                      if (catalogElem) catalogElem.scrollIntoView({ behavior: 'smooth' });
+                    }}
+                    className="mt-2 px-5 py-2.5 rounded-full bg-stone-900 hover:bg-stone-800 text-white text-xs font-bold transition-all shadow-xs"
+                  >
+                    Explore Catalog
+                  </button>
                 </div>
               ) : (
-                wishlist.map((id) => {
-                  const prod = BEAUTY_PRODUCTS.find((p) => p.id === id);
-                  if (!prod) return null;
-                  return (
-                    <div key={prod.id} className="p-3 rounded-2xl bg-[#FCF9F7] border border-rose-100 flex items-center justify-between gap-3">
-                      <div className="w-14 h-14 rounded-xl overflow-hidden bg-white border border-rose-200 shrink-0">
-                        <img src={prod.image} alt={prod.name} className="w-full h-full object-cover" />
+                wishlistedProducts.map((prod) => (
+                  <div
+                    key={prod.id}
+                    className="p-3.5 rounded-2xl bg-[#FCF9F7] border border-rose-100/90 hover:border-rose-200 transition-all flex gap-3.5 items-center group shadow-2xs"
+                  >
+                    {/* Thumbnail */}
+                    <div
+                      onClick={() => {
+                        setSelectedProduct(prod);
+                        setActiveGalleryImgIndex(0);
+                        setActiveProductTab('overview');
+                        setWishlistOpen(false);
+                      }}
+                      className="w-18 h-18 rounded-xl overflow-hidden bg-white border border-rose-200/80 shrink-0 cursor-pointer relative"
+                    >
+                      <img
+                        loading="lazy"
+                        src={prod.image}
+                        alt={prod.name}
+                        className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
+                      />
+                    </div>
+
+                    {/* Product Details */}
+                    <div className="flex-1 min-w-0">
+                      <div className="flex items-center justify-between gap-1">
+                        <span className="text-[10px] font-bold uppercase tracking-wider text-rose-600">
+                          {prod.category}
+                        </span>
+                        {/* Remove button */}
+                        <button
+                          onClick={() => toggleWishlist(prod.id)}
+                          className="text-stone-400 hover:text-rose-600 p-1 rounded-lg hover:bg-rose-50 transition-colors"
+                          title="Remove from Wishlist"
+                        >
+                          <Trash2 className="w-3.5 h-3.5" />
+                        </button>
                       </div>
-                      <div className="flex-1 min-w-0">
-                        <h4 className="font-serif text-xs font-bold text-stone-900 truncate">{prod.name}</h4>
-                        <span className="text-xs font-bold text-rose-700">₹{prod.price.toLocaleString()}</span>
+
+                      <h4
+                        onClick={() => {
+                          setSelectedProduct(prod);
+                          setActiveGalleryImgIndex(0);
+                          setActiveProductTab('overview');
+                          setWishlistOpen(false);
+                        }}
+                        className="font-serif text-xs font-bold text-stone-900 truncate mt-0.5 cursor-pointer hover:text-rose-600 transition-colors"
+                      >
+                        {prod.name}
+                      </h4>
+
+                      <div className="flex items-center gap-2 mt-1">
+                        <span className="text-xs font-bold text-stone-900">
+                          ₹{prod.price.toLocaleString()}
+                        </span>
+                        {prod.originalPrice > prod.price && (
+                          <span className="text-[11px] text-stone-400 line-through">
+                            ₹{prod.originalPrice.toLocaleString()}
+                          </span>
+                        )}
                       </div>
+
+                      {/* Add to Cart button */}
                       <button
                         onClick={() => {
                           addToCart(prod);
@@ -1734,20 +2213,22 @@ export const BeautyMaxDemo: React.FC<BeautyMaxDemoProps> = () => {
                           setWishlistOpen(false);
                           setCartOpen(true);
                         }}
-                        className="px-3 py-1.5 rounded-xl bg-stone-900 text-white text-[11px] font-bold"
+                        className="mt-2.5 w-full py-1.5 px-3 rounded-xl bg-stone-900 hover:bg-rose-600 text-white text-[11px] font-bold transition-colors flex items-center justify-center gap-1.5 shadow-2xs cursor-pointer active:scale-98"
                       >
-                        Move to Bag
+                        <ShoppingBag className="w-3 h-3" />
+                        <span>Move to Bag</span>
                       </button>
                     </div>
-                  );
-                })
+                  </div>
+                ))
               )}
             </div>
 
+            {/* Footer */}
             <div className="p-5 border-t border-rose-100 bg-[#FAF7F5]">
               <button
                 onClick={() => setWishlistOpen(false)}
-                className="w-full py-2.5 rounded-full bg-stone-900 text-white text-xs font-bold"
+                className="w-full py-2.5 rounded-full bg-stone-900 hover:bg-stone-800 text-white text-xs font-bold transition-all shadow-sm"
               >
                 Continue Shopping
               </button>
@@ -1776,7 +2257,7 @@ export const BeautyMaxDemo: React.FC<BeautyMaxDemoProps> = () => {
             <p className="text-[11px] text-stone-400">By {blogModal.author} • {blogModal.date}</p>
 
             <div className="aspect-[16/9] rounded-2xl overflow-hidden">
-              <img src={blogModal.image} alt={blogModal.title} className="w-full h-full object-cover" />
+              <img loading="lazy" src={blogModal.image} alt={blogModal.title} className="w-full h-full object-cover" />
             </div>
 
             <p className="text-xs sm:text-sm text-stone-600 leading-relaxed">{blogModal.content}</p>

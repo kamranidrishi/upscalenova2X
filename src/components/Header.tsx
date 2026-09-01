@@ -19,7 +19,10 @@ export const Header: React.FC<HeaderProps> = ({ onOpenQuoteModal }) => {
             <div className="w-10 h-10 flex items-center justify-center shrink-0 p-1 rounded-xl bg-white shadow-xs border border-slate-200/90 group-hover:border-indigo-400 group-hover:shadow-indigo-500/10 transition-all duration-300 overflow-hidden">
               <img 
                 src="/logo.png" 
-                alt="Upscale Nova Logo" 
+                alt="Upscale Nova - Web Design & Digital Solutions in Mumbai" 
+                width="40"
+                height="40"
+                fetchPriority="high"
                 className="w-full h-full object-contain group-hover:scale-105 transition-transform duration-300" 
               />
             </div>

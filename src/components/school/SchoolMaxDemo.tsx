@@ -48,22 +48,22 @@ export const SchoolMaxDemo: React.FC<SchoolMaxDemoProps> = ({ isMobile, isTablet
   ];
 
   const galleryData = [
-    { type: 'photo' as const, title: 'Artificial Intelligence & Aero Lab', url: 'https://images.unsplash.com/photo-1497633762265-9d179a990aa6?auto=format&fit=crop&w=800&q=80', tag: 'Innovation' },
-    { type: 'video' as const, title: '360° Aerial Campus Cinematic Flight', url: 'https://images.unsplash.com/photo-1541339907198-e08756dedf3f?auto=format&fit=crop&w=800&q=80', tag: 'Campus Tour' },
-    { type: 'photo' as const, title: 'World Class Olympic Aquatic Arena', url: 'https://images.unsplash.com/photo-1530549387789-4c1017266635?auto=format&fit=crop&w=800&q=80', tag: 'Sports' },
-    { type: 'photo' as const, title: 'Central Knowledge & Research Dome', url: 'https://images.unsplash.com/photo-1523050854058-8df90110c9f1?auto=format&fit=crop&w=800&q=80', tag: 'Library' },
-    { type: 'video' as const, title: 'Annual Symphony & TEDx Youth Stage', url: 'https://images.unsplash.com/photo-1511578314322-379afb476865?auto=format&fit=crop&w=800&q=80', tag: 'Cultural' },
-    { type: 'photo' as const, title: 'Advanced Nanotech & Biotech Suite', url: 'https://images.unsplash.com/photo-1573164713988-8665fc963095?auto=format&fit=crop&w=800&q=80', tag: 'Innovation' },
-    { type: 'photo' as const, title: 'International Model UN Summit', url: 'https://images.unsplash.com/photo-1523240795612-9a054b0db644?auto=format&fit=crop&w=800&q=80', tag: 'Leadership' },
-    { type: 'photo' as const, title: 'Synthetic FIFA-Standard Turf Arena', url: 'https://images.unsplash.com/photo-1461896836934-ffe607ba8211?auto=format&fit=crop&w=800&q=80', tag: 'Sports' },
-    { type: 'video' as const, title: 'Robotics & Autonomous Rover Trials', url: 'https://images.unsplash.com/photo-1485827404703-89b55fcc595e?auto=format&fit=crop&w=800&q=80', tag: 'Innovation' },
+    { type: 'photo' as const, title: 'Artificial Intelligence & Aero Lab', url: 'https://images.unsplash.com/photo-1497633762265-9d179a990aa6?auto=format&fit=crop&w=800&q=75', tag: 'Innovation' },
+    { type: 'video' as const, title: '360° Aerial Campus Cinematic Flight', url: 'https://images.unsplash.com/photo-1541339907198-e08756dedf3f?auto=format&fit=crop&w=800&q=75', tag: 'Campus Tour' },
+    { type: 'photo' as const, title: 'World Class Olympic Aquatic Arena', url: 'https://images.unsplash.com/photo-1530549387789-4c1017266635?auto=format&fit=crop&w=800&q=75', tag: 'Sports' },
+    { type: 'photo' as const, title: 'Central Knowledge & Research Dome', url: 'https://images.unsplash.com/photo-1523050854058-8df90110c9f1?auto=format&fit=crop&w=800&q=75', tag: 'Library' },
+    { type: 'video' as const, title: 'Annual Symphony & TEDx Youth Stage', url: 'https://images.unsplash.com/photo-1511578314322-379afb476865?auto=format&fit=crop&w=800&q=75', tag: 'Cultural' },
+    { type: 'photo' as const, title: 'Advanced Nanotech & Biotech Suite', url: 'https://images.unsplash.com/photo-1573164713988-8665fc963095?auto=format&fit=crop&w=800&q=75', tag: 'Innovation' },
+    { type: 'photo' as const, title: 'International Model UN Summit', url: 'https://images.unsplash.com/photo-1523240795612-9a054b0db644?auto=format&fit=crop&w=800&q=75', tag: 'Leadership' },
+    { type: 'photo' as const, title: 'Synthetic FIFA-Standard Turf Arena', url: 'https://images.unsplash.com/photo-1461896836934-ffe607ba8211?auto=format&fit=crop&w=800&q=75', tag: 'Sports' },
+    { type: 'video' as const, title: 'Robotics & Autonomous Rover Trials', url: 'https://images.unsplash.com/photo-1485827404703-89b55fcc595e?auto=format&fit=crop&w=800&q=75', tag: 'Innovation' },
   ];
 
   const facultyProfiles = [
-    { name: 'Dr. Sunita Sharma', role: 'Director General & Academic Dean', qual: 'Ph.D. Education (Oxford & IIT-B Advisory)', awards: 'National Best Educator Award', img: 'https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?auto=format&fit=crop&w=400&q=80', dept: 'Senior Leadership' },
-    { name: 'Dr. Arvind Subramaniam', role: 'Head of Quantum Sciences & AI', qual: 'Ph.D. Quantum Physics (IISc Bangalore)', awards: 'Author of 14 Research Papers', img: 'https://images.unsplash.com/photo-1560250097-0b93528c311a?auto=format&fit=crop&w=400&q=80', dept: 'STEM Faculty' },
-    { name: 'Prof. Evelyn Reed-Kulkarni', role: 'Dean of Global Humanities & Law', qual: 'M.Phil. International Law (LSE London)', awards: 'Diplomatic Affairs Fellow', img: 'https://images.unsplash.com/photo-1573497019940-1c28c88b4f3e?auto=format&fit=crop&w=400&q=80', dept: 'Humanities' },
-    { name: 'Coach Marcus Vance', role: 'Director of High-Performance Athletics', qual: 'High Performance Coach (Ex-Olympian Trainer)', awards: 'National Track Laurels', img: 'https://images.unsplash.com/photo-1519085360753-af0119f7cbe7?auto=format&fit=crop&w=400&q=80', dept: 'Olympic Sports' },
+    { name: 'Dr. Sunita Sharma', role: 'Director General & Academic Dean', qual: 'Ph.D. Education (Oxford & IIT-B Advisory)', awards: 'National Best Educator Award', img: 'https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?auto=format&fit=crop&w=400&q=75', dept: 'Senior Leadership' },
+    { name: 'Dr. Arvind Subramaniam', role: 'Head of Quantum Sciences & AI', qual: 'Ph.D. Quantum Physics (IISc Bangalore)', awards: 'Author of 14 Research Papers', img: 'https://images.unsplash.com/photo-1560250097-0b93528c311a?auto=format&fit=crop&w=400&q=75', dept: 'STEM Faculty' },
+    { name: 'Prof. Evelyn Reed-Kulkarni', role: 'Dean of Global Humanities & Law', qual: 'M.Phil. International Law (LSE London)', awards: 'Diplomatic Affairs Fellow', img: 'https://images.unsplash.com/photo-1573497019940-1c28c88b4f3e?auto=format&fit=crop&w=400&q=75', dept: 'Humanities' },
+    { name: 'Coach Marcus Vance', role: 'Director of High-Performance Athletics', qual: 'High Performance Coach (Ex-Olympian Trainer)', awards: 'National Track Laurels', img: 'https://images.unsplash.com/photo-1519085360753-af0119f7cbe7?auto=format&fit=crop&w=400&q=75', dept: 'Olympic Sports' },
   ];
 
   const alumniSpotlights = [
@@ -99,7 +99,7 @@ export const SchoolMaxDemo: React.FC<SchoolMaxDemoProps> = ({ isMobile, isTablet
               <X className="w-6 h-6" />
             </button>
             <div className="relative aspect-video bg-black flex items-center justify-center">
-              <img src={lightboxMedia.url} alt={lightboxMedia.title} className="w-full h-full object-cover" />
+              <img loading="lazy" src={lightboxMedia.url} alt={lightboxMedia.title} className="w-full h-full object-cover" />
               {lightboxMedia.type === 'video' && (
                 <div className="absolute inset-0 bg-black/40 flex items-center justify-center">
                   <div className="w-16 h-16 rounded-full bg-[#7B1123] text-white flex items-center justify-center shadow-lg hover:scale-105 transition-transform">
@@ -278,8 +278,8 @@ export const SchoolMaxDemo: React.FC<SchoolMaxDemoProps> = ({ isMobile, isTablet
           <section className="relative min-h-[580px] lg:min-h-[640px] flex items-center px-4 sm:px-8 lg:px-16 overflow-hidden">
             {/* Background Image with Deep Navy Gradient Overlay */}
             <div className="absolute inset-0 z-0">
-              <img 
-                src="https://images.unsplash.com/photo-1541829070764-84a7d30dd3f3?auto=format&fit=crop&w=1920&q=80" 
+              <img loading="lazy" 
+                src="https://images.unsplash.com/photo-1541829070764-84a7d30dd3f3?auto=format&fit=crop&w=1920&q=75" 
                 alt="BrightFuture School campus" 
                 className="w-full h-full object-cover filter brightness-[0.45]"
               />
@@ -410,7 +410,7 @@ export const SchoolMaxDemo: React.FC<SchoolMaxDemoProps> = ({ isMobile, isTablet
               <div className="lg:col-span-6 relative">
                 <div className="rounded-xl overflow-hidden border border-stone-200 bg-[#0B1B3D] relative shadow-md group cursor-pointer" onClick={() => setLightboxMedia(galleryData[1])}>
                   <div className="aspect-[16/10] overflow-hidden">
-                    <img src="https://images.unsplash.com/photo-1541339907198-e08756dedf3f?auto=format&fit=crop&w=1200&q=80" alt="Director message teaser" className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700 filter brightness-90" />
+                    <img loading="lazy" src="https://images.unsplash.com/photo-1541339907198-e08756dedf3f?auto=format&fit=crop&w=800&q=75" alt="Director message teaser" className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700 filter brightness-90" />
                   </div>
                   <div className="absolute inset-0 bg-gradient-to-t from-[#071326] via-[#071326]/40 to-transparent flex flex-col justify-between p-6">
                     <span className="bg-[#7B1123] text-white font-bold text-xs px-3 py-1 rounded self-start shadow-xs">
@@ -545,12 +545,12 @@ export const SchoolMaxDemo: React.FC<SchoolMaxDemoProps> = ({ isMobile, isTablet
                     </div>
 
                     <div className="lg:col-span-5 h-64 rounded-lg overflow-hidden border border-stone-200 relative shadow-2xs">
-                      <img 
+                      <img loading="lazy" 
                         src={activeSeniorStream === 'stem' 
-                          ? 'https://images.unsplash.com/photo-1573164713988-8665fc963095?auto=format&fit=crop&w=800&q=80' 
+                          ? 'https://images.unsplash.com/photo-1573164713988-8665fc963095?auto=format&fit=crop&w=800&q=75' 
                           : activeSeniorStream === 'fintech'
-                          ? 'https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?auto=format&fit=crop&w=800&q=80'
-                          : 'https://images.unsplash.com/photo-1523240795612-9a054b0db644?auto=format&fit=crop&w=800&q=80'
+                          ? 'https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?auto=format&fit=crop&w=800&q=75'
+                          : 'https://images.unsplash.com/photo-1523240795612-9a054b0db644?auto=format&fit=crop&w=800&q=75'
                         } 
                         alt="Department stream visual" 
                         className="w-full h-full object-cover"
@@ -593,16 +593,16 @@ export const SchoolMaxDemo: React.FC<SchoolMaxDemoProps> = ({ isMobile, isTablet
 
             <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
               {[
-                { title: 'Quantum AI & Robotics Wing', desc: 'Equipped with Boston Dynamics robot simulators, 3D laser cutters, and high-performance GPU clusters.', img: 'https://images.unsplash.com/photo-1497633762265-9d179a990aa6?auto=format&fit=crop&w=600&q=80', tag: 'AI & STEM' },
-                { title: 'Olympic Aquatic & Turf Village', desc: 'Heated 50m Olympic swimming pool, FIFA-grade turf football arena, and 8-lane synthetic track.', img: 'https://images.unsplash.com/photo-1530549387789-4c1017266635?auto=format&fit=crop&w=600&q=80', tag: 'Olympic Sports' },
-                { title: 'Central Knowledge & Research Dome', desc: 'Over 50,000 physical volumes, JSTOR access, private acoustic research pods, and digital archives.', img: 'https://images.unsplash.com/photo-1523050854058-8df90110c9f1?auto=format&fit=crop&w=600&q=80', tag: 'Library' },
-                { title: '1,200-Seat Grand Amphitheater', desc: 'Acoustically tuned performing arts center hosting annual TEDx youth conferences and symphonies.', img: 'https://images.unsplash.com/photo-1511578314322-379afb476865?auto=format&fit=crop&w=600&q=80', tag: 'Performing Arts' },
-                { title: '50-Foot Celestial Observatory', desc: 'Equipped with computerized high-magnification Schmidt-Cassegrain telescopes for space studies.', img: 'https://images.unsplash.com/photo-1541339907198-e08756dedf3f?auto=format&fit=crop&w=600&q=80', tag: 'Astrophysics' },
-                { title: '5-Star Residential Boarding Wing', desc: 'Modern air-conditioned suites with 24/7 security, resident tutors, and nutritionist-crafted dining.', img: 'https://images.unsplash.com/photo-1509062522246-3755977927d7?auto=format&fit=crop&w=600&q=80', tag: 'Residential' },
+                { title: 'Quantum AI & Robotics Wing', desc: 'Equipped with Boston Dynamics robot simulators, 3D laser cutters, and high-performance GPU clusters.', img: 'https://images.unsplash.com/photo-1497633762265-9d179a990aa6?auto=format&fit=crop&w=600&q=75', tag: 'AI & STEM' },
+                { title: 'Olympic Aquatic & Turf Village', desc: 'Heated 50m Olympic swimming pool, FIFA-grade turf football arena, and 8-lane synthetic track.', img: 'https://images.unsplash.com/photo-1530549387789-4c1017266635?auto=format&fit=crop&w=600&q=75', tag: 'Olympic Sports' },
+                { title: 'Central Knowledge & Research Dome', desc: 'Over 50,000 physical volumes, JSTOR access, private acoustic research pods, and digital archives.', img: 'https://images.unsplash.com/photo-1523050854058-8df90110c9f1?auto=format&fit=crop&w=600&q=75', tag: 'Library' },
+                { title: '1,200-Seat Grand Amphitheater', desc: 'Acoustically tuned performing arts center hosting annual TEDx youth conferences and symphonies.', img: 'https://images.unsplash.com/photo-1511578314322-379afb476865?auto=format&fit=crop&w=600&q=75', tag: 'Performing Arts' },
+                { title: '50-Foot Celestial Observatory', desc: 'Equipped with computerized high-magnification Schmidt-Cassegrain telescopes for space studies.', img: 'https://images.unsplash.com/photo-1541339907198-e08756dedf3f?auto=format&fit=crop&w=600&q=75', tag: 'Astrophysics' },
+                { title: '5-Star Residential Boarding Wing', desc: 'Modern air-conditioned suites with 24/7 security, resident tutors, and nutritionist-crafted dining.', img: 'https://images.unsplash.com/photo-1509062522246-3755977927d7?auto=format&fit=crop&w=600&q=75', tag: 'Residential' },
               ].map((item, i) => (
                 <div key={i} className="bg-white rounded-xl overflow-hidden border border-stone-200 hover:border-stone-300 hover:shadow-md transition-all group shadow-xs">
                   <div className="h-48 overflow-hidden relative">
-                    <img src={item.img} alt={item.title} className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700" />
+                    <img loading="lazy" src={item.img} alt={item.title} className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700" />
                     <span className="absolute top-3 left-3 bg-[#7B1123] text-white text-[10px] font-bold uppercase tracking-wider px-2.5 py-1 rounded shadow-xs">
                       {item.tag}
                     </span>
@@ -669,7 +669,7 @@ export const SchoolMaxDemo: React.FC<SchoolMaxDemoProps> = ({ isMobile, isTablet
               {facultyProfiles.map((fac, i) => (
                 <div key={i} className="bg-white rounded-xl overflow-hidden border border-stone-200 p-6 text-center space-y-4 shadow-xs hover:shadow-md transition-shadow">
                   <div className="w-24 h-24 rounded-full overflow-hidden mx-auto border-2 border-[#7B1123] shadow-xs">
-                    <img src={fac.img} alt={fac.name} className="w-full h-full object-cover" />
+                    <img loading="lazy" src={fac.img} alt={fac.name} className="w-full h-full object-cover" />
                   </div>
                   <div>
                     <span className="text-[10px] bg-stone-100 text-[#0B1B3D] font-bold px-3 py-1 rounded border border-stone-200">
@@ -719,7 +719,7 @@ export const SchoolMaxDemo: React.FC<SchoolMaxDemoProps> = ({ isMobile, isTablet
                       onClick={() => setLightboxMedia(item)}
                       className="group relative h-64 rounded-xl overflow-hidden cursor-pointer border border-stone-200 shadow-xs bg-[#0B1B3D]"
                     >
-                      <img src={item.url} alt={item.title} className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700 filter brightness-90" />
+                      <img loading="lazy" src={item.url} alt={item.title} className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700 filter brightness-90" />
                       <div className="absolute inset-0 bg-gradient-to-t from-[#071326] via-[#071326]/30 to-transparent flex flex-col justify-between p-5">
                         <div className="flex justify-between items-center">
                           <span className="text-[10px] text-white font-bold uppercase tracking-wider bg-[#7B1123] px-3 py-1 rounded shadow-xs">
@@ -983,7 +983,7 @@ export const SchoolMaxDemo: React.FC<SchoolMaxDemoProps> = ({ isMobile, isTablet
               <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
                 {facultyProfiles.map((fac, i) => (
                   <div key={i} className="bg-[#FAF9F6] p-5 rounded-xl border border-stone-200 text-center space-y-3">
-                    <img src={fac.img} alt={fac.name} className="w-20 h-20 rounded-full mx-auto object-cover border-2 border-[#7B1123] shadow-xs" />
+                    <img loading="lazy" src={fac.img} alt={fac.name} className="w-20 h-20 rounded-full mx-auto object-cover border-2 border-[#7B1123] shadow-xs" />
                     <div>
                       <h5 className="font-serif font-bold text-sm text-[#0B1B3D]">{fac.name}</h5>
                       <p className="text-xs text-[#7B1123] font-medium">{fac.role}</p>
@@ -1083,7 +1083,7 @@ export const SchoolMaxDemo: React.FC<SchoolMaxDemoProps> = ({ isMobile, isTablet
               {galleryData.map((item, i) => (
                 <div key={i} onClick={() => setLightboxMedia(item)} className="bg-white rounded-xl overflow-hidden border border-stone-200 cursor-pointer group shadow-xs hover:shadow-md transition-shadow">
                   <div className="h-52 overflow-hidden relative">
-                    <img src={item.url} alt={item.title} className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700" />
+                    <img loading="lazy" src={item.url} alt={item.title} className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700" />
                     <span className="absolute top-3 left-3 bg-[#7B1123] text-white text-[10px] font-bold px-3 py-1 rounded shadow-xs uppercase">
                       {item.tag}
                     </span>
@@ -1254,7 +1254,7 @@ export const SchoolMaxDemo: React.FC<SchoolMaxDemoProps> = ({ isMobile, isTablet
                     onClick={() => setLightboxMedia(item)}
                     className="group relative h-64 rounded-xl overflow-hidden cursor-pointer border border-stone-200 shadow-xs bg-[#0B1B3D]"
                   >
-                    <img src={item.url} alt={item.title} className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700" />
+                    <img loading="lazy" src={item.url} alt={item.title} className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700" />
                     <div className="absolute inset-0 bg-gradient-to-t from-[#071326] via-[#071326]/30 to-transparent flex flex-col justify-end p-5">
                       <span className="text-[10px] text-white bg-[#7B1123] px-2.5 py-0.5 rounded font-bold uppercase self-start">{item.tag}</span>
                       <p className="text-xs font-serif font-bold text-white mt-1.5">{item.title}</p>

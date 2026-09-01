@@ -340,8 +340,8 @@ export const RealEstateDemo: React.FC<RealEstateDemoProps> = ({ demo, isMobile, 
           {/* Hero Section */}
           <div className="relative min-h-[540px] flex items-center px-4 sm:px-8 md:px-12 py-16 overflow-hidden">
             <div className="absolute inset-0 z-0">
-              <img
-                src="https://images.unsplash.com/photo-1545324418-cc1a3fa10c00?auto=format&fit=crop&w=1600&q=80"
+              <img loading="lazy"
+                src="https://images.unsplash.com/photo-1545324418-cc1a3fa10c00?auto=format&fit=crop&w=1000&q=75"
                 alt="Nova Heights Residences"
                 className="w-full h-full object-cover opacity-35"
               />
@@ -456,8 +456,8 @@ export const RealEstateDemo: React.FC<RealEstateDemoProps> = ({ demo, isMobile, 
               </div>
 
               <div className="w-full md:w-1/2 relative rounded-2xl overflow-hidden aspect-[4/3] border border-slate-800 shadow-2xl">
-                <img
-                  src="https://images.unsplash.com/photo-1600585154340-be6161a56a0c?auto=format&fit=crop&w=1000&q=80"
+                <img loading="lazy"
+                  src="https://images.unsplash.com/photo-1600585154340-be6161a56a0c?auto=format&fit=crop&w=1000&q=75"
                   alt="Nova Infra Architecture"
                   className="w-full h-full object-cover"
                 />
@@ -519,7 +519,7 @@ export const RealEstateDemo: React.FC<RealEstateDemoProps> = ({ demo, isMobile, 
                   <div>
                     {/* Property Image & Badges */}
                     <div className="relative aspect-[16/10] overflow-hidden">
-                      <img
+                      <img loading="lazy"
                         src={property.image}
                         alt={property.title}
                         className="w-full h-full object-cover transform group-hover:scale-105 transition-transform duration-500"
@@ -709,8 +709,8 @@ export const RealEstateDemo: React.FC<RealEstateDemoProps> = ({ demo, isMobile, 
 
               {/* Simulated Interactive Map Display */}
               <div className="relative aspect-[4/3] rounded-2xl overflow-hidden border border-slate-700 shadow-2xl bg-slate-950 flex items-center justify-center">
-                <img
-                  src="https://images.unsplash.com/photo-1526778548025-fa2f459cd5c1?auto=format&fit=crop&w=1000&q=80"
+                <img loading="lazy"
+                  src="https://images.unsplash.com/photo-1526778548025-fa2f459cd5c1?auto=format&fit=crop&w=1000&q=75"
                   alt="Location Map Preview"
                   className="w-full h-full object-cover opacity-60"
                 />
@@ -1079,7 +1079,7 @@ export const RealEstateDemo: React.FC<RealEstateDemoProps> = ({ demo, isMobile, 
 
           {/* Virtual Tour Viewer Window */}
           <div className="relative aspect-[16/9] bg-slate-950 rounded-3xl overflow-hidden border border-teal-500/40 shadow-2xl">
-            <img
+            <img loading="lazy"
               src={currentTourRoom.image}
               alt={currentTourRoom.name}
               className="w-full h-full object-cover transition-opacity duration-700"
@@ -1596,7 +1596,7 @@ export const RealEstateDemo: React.FC<RealEstateDemoProps> = ({ demo, isMobile, 
             </div>
 
             <div className="aspect-[16/9] rounded-2xl overflow-hidden border border-slate-800 relative">
-              <img
+              <img loading="lazy"
                 src={selectedPropertyForModal.image}
                 alt={selectedPropertyForModal.title}
                 className="w-full h-full object-cover"

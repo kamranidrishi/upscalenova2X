@@ -50,7 +50,9 @@ export const ProductsSection: React.FC<ProductsProps> = ({ onOpenQuoteModal }) =
                   {prod.image ? (
                     <img 
                       src={prod.image} 
-                      alt={prod.title} 
+                      alt={`${prod.title} - Contactless NFC and QR Code solution for business`}
+                      width="320"
+                      height="240"
                       className="w-full h-full object-contain"
                       referrerPolicy="no-referrer"
                       loading="lazy"

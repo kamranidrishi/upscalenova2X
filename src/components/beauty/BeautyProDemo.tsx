@@ -34,7 +34,8 @@ import {
   Facebook,
   ChevronRight,
   Filter,
-  SlidersHorizontal
+  SlidersHorizontal,
+  User
 } from 'lucide-react';
 
 interface BeautyProDemoProps {
@@ -185,18 +186,26 @@ export const BeautyProDemo: React.FC<BeautyProDemoProps> = () => {
       <header className="sticky top-0 z-40 bg-white/95 backdrop-blur-md border-b border-rose-100/90 shadow-xs">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-18 sm:h-20 flex items-center justify-between gap-4">
           
-          {/* Logo */}
-          <div className="flex items-center gap-3 shrink-0 cursor-pointer">
-            <div className="w-10 h-10 rounded-full bg-gradient-to-tr from-rose-100 to-rose-50 border border-rose-200 flex items-center justify-center text-rose-700 shadow-xs">
-              <Sparkles className="w-5 h-5" />
-            </div>
-            <div>
-              <span className="font-serif text-xl sm:text-2xl font-bold tracking-wider text-stone-900 block leading-tight">
-                AURA BOTANICALS
-              </span>
-              <span className="text-[10px] uppercase tracking-widest text-rose-600 font-bold block">
-                Advanced Clean Cosmetics & Skincare
-              </span>
+          {/* Brand Logo */}
+          <div className="flex items-center gap-3 shrink-0">
+            <div 
+              onClick={() => {
+                setActiveCategory('All');
+                window.scrollTo({ top: 0, behavior: 'smooth' });
+              }}
+              className="flex items-center gap-2.5 sm:gap-3 cursor-pointer group"
+            >
+              <div className="w-10 h-10 rounded-full bg-gradient-to-tr from-rose-100 to-rose-50 border border-rose-200 flex items-center justify-center text-rose-700 shadow-xs group-hover:scale-105 transition-transform">
+                <Sparkles className="w-5 h-5" />
+              </div>
+              <div>
+                <span className="font-serif text-xl sm:text-2xl font-bold tracking-wider text-stone-900 block leading-tight group-hover:text-rose-700 transition-colors">
+                  AURA BOTANICALS
+                </span>
+                <span className="text-[10px] uppercase tracking-widest text-rose-600 font-bold block">
+                  Advanced Clean Cosmetics & Skincare
+                </span>
+              </div>
             </div>
           </div>
 
@@ -340,8 +349,8 @@ export const BeautyProDemo: React.FC<BeautyProDemoProps> = () => {
             {/* Right Hero Image (5 cols) */}
             <div className="lg:col-span-5 relative">
               <div className="aspect-[4/5] rounded-3xl overflow-hidden shadow-2xl border-4 border-white relative group">
-                <img
-                  src="https://images.unsplash.com/photo-1620916566398-39f1143ab7be?auto=format&fit=crop&w=1000&q=80"
+                <img loading="lazy"
+                  src="https://images.unsplash.com/photo-1620916566398-39f1143ab7be?auto=format&fit=crop&w=1000&q=75"
                   alt="Aura Luxury Skincare"
                   className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700"
                 />
@@ -374,7 +383,7 @@ export const BeautyProDemo: React.FC<BeautyProDemoProps> = () => {
                 <p className="text-xs text-stone-500 mt-1">Damask Rose & Hyaluronic Hydration</p>
                 <button
                   onClick={() => {
-                    const prod = BEAUTY_PRODUCTS.find((p) => p.id === 'prod-3');
+                    const prod = BEAUTY_PRODUCTS.find((p) => p.id === 'skin-13') || BEAUTY_PRODUCTS[2];
                     if (prod) setSelectedProduct(prod);
                   }}
                   className="mt-3 text-xs font-bold text-rose-700 hover:text-rose-800 flex items-center gap-1"
@@ -384,8 +393,8 @@ export const BeautyProDemo: React.FC<BeautyProDemoProps> = () => {
                 </button>
               </div>
               <div className="w-20 h-20 rounded-xl overflow-hidden shadow-xs border border-rose-200/70 shrink-0">
-                <img
-                  src="https://images.unsplash.com/photo-1556228720-195a672e8a03?auto=format&fit=crop&w=200&q=80"
+                <img loading="lazy"
+                  src="https://images.unsplash.com/photo-1556228720-195a672e8a03?auto=format&fit=crop&w=200&q=75"
                   alt="Rose Mist"
                   className="w-full h-full object-cover"
                 />
@@ -399,7 +408,7 @@ export const BeautyProDemo: React.FC<BeautyProDemoProps> = () => {
                 <p className="text-xs text-stone-500 mt-1">Gentle Retinol Alternative</p>
                 <button
                   onClick={() => {
-                    const prod = BEAUTY_PRODUCTS.find((p) => p.id === 'prod-5');
+                    const prod = BEAUTY_PRODUCTS.find((p) => p.id === 'skin-4') || BEAUTY_PRODUCTS[3];
                     if (prod) setSelectedProduct(prod);
                   }}
                   className="mt-3 text-xs font-bold text-indigo-700 hover:text-indigo-800 flex items-center gap-1"
@@ -409,8 +418,8 @@ export const BeautyProDemo: React.FC<BeautyProDemoProps> = () => {
                 </button>
               </div>
               <div className="w-20 h-20 rounded-xl overflow-hidden shadow-xs border border-indigo-200/70 shrink-0">
-                <img
-                  src="https://images.unsplash.com/photo-1608248597359-299f187a550c?auto=format&fit=crop&w=200&q=80"
+                <img loading="lazy"
+                  src="https://images.unsplash.com/photo-1608248597359-299f187a550c?auto=format&fit=crop&w=200&q=75"
                   alt="Bakuchiol Night Oil"
                   className="w-full h-full object-cover"
                 />
@@ -424,7 +433,7 @@ export const BeautyProDemo: React.FC<BeautyProDemoProps> = () => {
                 <p className="text-xs text-stone-500 mt-1">Grasse Jasmine & Amber</p>
                 <button
                   onClick={() => {
-                    const prod = BEAUTY_PRODUCTS.find((p) => p.id === 'prod-6');
+                    const prod = BEAUTY_PRODUCTS.find((p) => p.id === 'frag-1') || BEAUTY_PRODUCTS[4];
                     if (prod) setSelectedProduct(prod);
                   }}
                   className="mt-3 text-xs font-bold text-amber-800 hover:text-amber-900 flex items-center gap-1"
@@ -434,8 +443,8 @@ export const BeautyProDemo: React.FC<BeautyProDemoProps> = () => {
                 </button>
               </div>
               <div className="w-20 h-20 rounded-xl overflow-hidden shadow-xs border border-amber-200/70 shrink-0">
-                <img
-                  src="https://images.unsplash.com/photo-1592945403244-b3fbafd7f539?auto=format&fit=crop&w=200&q=80"
+                <img loading="lazy"
+                  src="https://images.unsplash.com/photo-1592945403244-b3fbafd7f539?auto=format&fit=crop&w=200&q=75"
                   alt="Fleur Royale Perfume"
                   className="w-full h-full object-cover"
                 />
@@ -485,7 +494,7 @@ export const BeautyProDemo: React.FC<BeautyProDemoProps> = () => {
             >
               {/* Product Thumbnail Area */}
               <div className="aspect-square bg-rose-50/40 relative overflow-hidden">
-                <img
+                <img loading="lazy"
                   src={prod.image}
                   alt={prod.name}
                   className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
@@ -666,7 +675,7 @@ export const BeautyProDemo: React.FC<BeautyProDemoProps> = () => {
                 </div>
 
                 <div className="pt-3 border-t border-rose-50 flex items-center gap-3">
-                  <img
+                  <img loading="lazy"
                     src={rev.avatar}
                     alt={rev.author}
                     className="w-9 h-9 rounded-full object-cover border border-rose-200"
@@ -790,7 +799,7 @@ export const BeautyProDemo: React.FC<BeautyProDemoProps> = () => {
                     className="flex gap-3.5 p-3 rounded-2xl bg-[#FCF9F7] border border-rose-100"
                   >
                     <div className="w-16 h-16 rounded-xl overflow-hidden bg-white border border-rose-200/80 shrink-0">
-                      <img
+                      <img loading="lazy"
                         src={item.product.image}
                         alt={item.product.name}
                         className="w-full h-full object-cover"
@@ -891,7 +900,7 @@ export const BeautyProDemo: React.FC<BeautyProDemoProps> = () => {
             
             {/* Modal Image */}
             <div className="md:w-1/2 aspect-square md:aspect-auto relative bg-rose-50">
-              <img
+              <img loading="lazy"
                 src={selectedProduct.image}
                 alt={selectedProduct.name}
                 className="w-full h-full object-cover"

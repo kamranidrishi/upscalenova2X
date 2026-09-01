@@ -1,23 +1,25 @@
-import React, { useState } from 'react';
+import React, { useState, Suspense, lazy } from 'react';
 import { Header } from './components/Header';
 import { Hero } from './components/Hero';
-import { IndustriesSection } from './components/IndustriesSection';
-import { ServicesSection } from './components/ServicesSection';
-import { ProductsSection } from './components/ProductsSection';
-import { HowItWorksSection } from './components/HowItWorksSection';
-import { WhyChooseUsSection } from './components/WhyChooseUsSection';
-import { PricingSection } from './components/PricingSection';
-import { DemoShowroom } from './components/DemoShowroom';
-import { LeadershipSection } from './components/LeadershipSection';
-import { TestimonialsSection } from './components/TestimonialsSection';
-import { FAQSection } from './components/FAQSection';
-import { ContactSection } from './components/ContactSection';
-import { Footer } from './components/Footer';
-import { FloatingSupport } from './components/FloatingSupport';
-import { QuoteModal } from './components/QuoteModal';
-import { PrivacyPolicyModal } from './components/PrivacyPolicyModal';
-import { RefundPolicyModal } from './components/RefundPolicyModal';
-import { TermsModal } from './components/TermsModal';
+
+// Lazy load below-the-fold components to improve initial page load performance
+const IndustriesSection = lazy(() => import('./components/IndustriesSection').then(m => ({ default: m.IndustriesSection })));
+const ServicesSection = lazy(() => import('./components/ServicesSection').then(m => ({ default: m.ServicesSection })));
+const ProductsSection = lazy(() => import('./components/ProductsSection').then(m => ({ default: m.ProductsSection })));
+const HowItWorksSection = lazy(() => import('./components/HowItWorksSection').then(m => ({ default: m.HowItWorksSection })));
+const WhyChooseUsSection = lazy(() => import('./components/WhyChooseUsSection').then(m => ({ default: m.WhyChooseUsSection })));
+const PricingSection = lazy(() => import('./components/PricingSection').then(m => ({ default: m.PricingSection })));
+const DemoShowroom = lazy(() => import('./components/DemoShowroom').then(m => ({ default: m.DemoShowroom })));
+const LeadershipSection = lazy(() => import('./components/LeadershipSection').then(m => ({ default: m.LeadershipSection })));
+const TestimonialsSection = lazy(() => import('./components/TestimonialsSection').then(m => ({ default: m.TestimonialsSection })));
+const FAQSection = lazy(() => import('./components/FAQSection').then(m => ({ default: m.FAQSection })));
+const ContactSection = lazy(() => import('./components/ContactSection').then(m => ({ default: m.ContactSection })));
+const Footer = lazy(() => import('./components/Footer').then(m => ({ default: m.Footer })));
+const FloatingSupport = lazy(() => import('./components/FloatingSupport').then(m => ({ default: m.FloatingSupport })));
+const QuoteModal = lazy(() => import('./components/QuoteModal').then(m => ({ default: m.QuoteModal })));
+const PrivacyPolicyModal = lazy(() => import('./components/PrivacyPolicyModal').then(m => ({ default: m.PrivacyPolicyModal })));
+const RefundPolicyModal = lazy(() => import('./components/RefundPolicyModal').then(m => ({ default: m.RefundPolicyModal })));
+const TermsModal = lazy(() => import('./components/TermsModal').then(m => ({ default: m.TermsModal })));
 
 export default function App() {
   const [modalOpen, setModalOpen] = useState(false);
@@ -40,74 +42,78 @@ export default function App() {
         {/* Hero Section */}
         <Hero onOpenQuoteModal={handleOpenQuoteModal} />
 
-        {/* Industries We Empower */}
-        <IndustriesSection onOpenQuoteModal={handleOpenQuoteModal} />
+        <Suspense fallback={<div className="min-h-screen"></div>}>
+          {/* Industries We Empower */}
+          <IndustriesSection onOpenQuoteModal={handleOpenQuoteModal} />
 
-        {/* Services Section */}
-        <ServicesSection onOpenQuoteModal={handleOpenQuoteModal} />
+          {/* Services Section */}
+          <ServicesSection onOpenQuoteModal={handleOpenQuoteModal} />
 
-        {/* Products & QR/NFC Stands */}
-        <ProductsSection onOpenQuoteModal={handleOpenQuoteModal} />
+          {/* Products & QR/NFC Stands */}
+          <ProductsSection onOpenQuoteModal={handleOpenQuoteModal} />
 
-        {/* Process - How It Works */}
-        <HowItWorksSection />
+          {/* Process - How It Works */}
+          <HowItWorksSection />
 
-        {/* Why Choose Us */}
-        <WhyChooseUsSection onOpenQuoteModal={() => handleOpenQuoteModal("Custom Project")} />
+          {/* Why Choose Us */}
+          <WhyChooseUsSection onOpenQuoteModal={() => handleOpenQuoteModal("Custom Project")} />
 
-        {/* Pricing Plans */}
-        <PricingSection onOpenQuoteModal={handleOpenQuoteModal} />
+          {/* Pricing Plans */}
+          <PricingSection onOpenQuoteModal={handleOpenQuoteModal} />
 
-        {/* Demo Showroom */}
-        <DemoShowroom onOpenQuoteModal={handleOpenQuoteModal} />
+          {/* Demo Showroom */}
+          <DemoShowroom onOpenQuoteModal={handleOpenQuoteModal} />
 
-        {/* Meet Leadership */}
-        <LeadershipSection />
+          {/* Meet Leadership */}
+          <LeadershipSection />
 
-        {/* Testimonials */}
-        <TestimonialsSection />
+          {/* Testimonials */}
+          <TestimonialsSection />
 
-        {/* FAQ */}
-        <FAQSection />
+          {/* FAQ */}
+          <FAQSection />
 
-        {/* Contact Us Form */}
-        <ContactSection prefilledService={selectedService} />
+          {/* Contact Us Form */}
+          <ContactSection prefilledService={selectedService} />
+        </Suspense>
       </main>
 
       {/* Footer */}
-      <Footer 
-        onOpenPrivacyPolicy={() => setPrivacyModalOpen(true)}
-        onOpenRefundPolicy={() => setRefundModalOpen(true)}
-        onOpenTerms={() => setTermsModalOpen(true)}
-      />
+      <Suspense fallback={null}>
+        <Footer 
+          onOpenPrivacyPolicy={() => setPrivacyModalOpen(true)}
+          onOpenRefundPolicy={() => setRefundModalOpen(true)}
+          onOpenTerms={() => setTermsModalOpen(true)}
+        />
 
-      {/* Floating Call & WhatsApp Support Hub */}
-      <FloatingSupport />
+        {/* Floating Call & WhatsApp Support Hub */}
+        <FloatingSupport />
 
-      {/* Interactive Consultation Modal */}
-      <QuoteModal
-        isOpen={modalOpen}
-        onClose={() => setModalOpen(false)}
-        serviceTitle={selectedService}
-      />
+        {/* Interactive Consultation Modal */}
+        <QuoteModal
+          isOpen={modalOpen}
+          onClose={() => setModalOpen(false)}
+          serviceTitle={selectedService}
+        />
 
-      {/* Privacy Policy Modal */}
-      <PrivacyPolicyModal
-        isOpen={privacyModalOpen}
-        onClose={() => setPrivacyModalOpen(false)}
-      />
+        {/* Privacy Policy Modal */}
+        <PrivacyPolicyModal
+          isOpen={privacyModalOpen}
+          onClose={() => setPrivacyModalOpen(false)}
+        />
 
-      {/* Refund & Cancellation Policy Modal */}
-      <RefundPolicyModal
-        isOpen={refundModalOpen}
-        onClose={() => setRefundModalOpen(false)}
-      />
+        {/* Refund & Cancellation Policy Modal */}
+        <RefundPolicyModal
+          isOpen={refundModalOpen}
+          onClose={() => setRefundModalOpen(false)}
+        />
 
-      {/* Terms & Conditions Modal */}
-      <TermsModal
-        isOpen={termsModalOpen}
-        onClose={() => setTermsModalOpen(false)}
-      />
+        {/* Terms & Conditions Modal */}
+        <TermsModal
+          isOpen={termsModalOpen}
+          onClose={() => setTermsModalOpen(false)}
+        />
+      </Suspense>
     </div>
   );
 }

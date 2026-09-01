@@ -629,8 +629,8 @@ export const GymDemo: React.FC<GymDemoProps> = ({
           {/* HERO SECTION */}
           <section className="relative min-h-[560px] md:min-h-[620px] flex items-center px-6 md:px-14 py-20 overflow-hidden bg-[#070D18]">
             <div className="absolute inset-0">
-              <img
-                src="https://images.unsplash.com/photo-1534438327276-14e5300c3a48?auto=format&fit=crop&w=1600&q=80"
+              <img loading="lazy"
+                src="https://images.unsplash.com/photo-1534438327276-14e5300c3a48?auto=format&fit=crop&w=1000&q=75"
                 alt="IronFit Gym"
                 className="w-full h-full object-cover grayscale opacity-25"
               />
@@ -791,8 +791,8 @@ export const GymDemo: React.FC<GymDemoProps> = ({
               {/* Visual Showcase Box */}
               <div className="relative">
                 <div className="relative rounded-2xl overflow-hidden border border-slate-800 shadow-2xl">
-                  <img
-                    src="https://images.unsplash.com/photo-1581009146145-b5ef050c2e1e?auto=format&fit=crop&w=800&q=80"
+                  <img loading="lazy"
+                    src="https://images.unsplash.com/photo-1581009146145-b5ef050c2e1e?auto=format&fit=crop&w=800&q=75"
                     alt="Gym floor"
                     className="w-full h-[400px] object-cover"
                   />
@@ -863,7 +863,7 @@ export const GymDemo: React.FC<GymDemoProps> = ({
                   className="bg-[#0A1426] rounded-2xl border border-slate-800 hover:border-cyan-500/50 overflow-hidden flex flex-col justify-between transition-all group hover:shadow-xl hover:shadow-cyan-500/10"
                 >
                   <div className="relative h-48 overflow-hidden">
-                    <img
+                    <img loading="lazy"
                       src={prog.image}
                       alt={prog.title}
                       className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
@@ -1085,7 +1085,7 @@ export const GymDemo: React.FC<GymDemoProps> = ({
                   className="bg-[#0A1426] rounded-2xl border border-slate-800 overflow-hidden flex flex-col justify-between hover:border-cyan-500/40 transition-all group"
                 >
                   <div className="relative h-64 overflow-hidden">
-                    <img
+                    <img loading="lazy"
                       src={trainer.image}
                       alt={trainer.name}
                       className="w-full h-full object-cover grayscale group-hover:grayscale-0 group-hover:scale-105 transition-all duration-500"
@@ -1159,7 +1159,7 @@ export const GymDemo: React.FC<GymDemoProps> = ({
                   key={idx}
                   className="relative group rounded-xl overflow-hidden h-52 border border-slate-800"
                 >
-                  <img
+                  <img loading="lazy"
                     src={gal.img}
                     alt={gal.title}
                     className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
@@ -1210,7 +1210,7 @@ export const GymDemo: React.FC<GymDemoProps> = ({
                   </div>
 
                   <div className="flex items-center gap-3 pt-4 border-t border-slate-800">
-                    <img
+                    <img loading="lazy"
                       src={t.avatar}
                       alt={t.name}
                       className="w-10 h-10 rounded-full object-cover border border-cyan-400/40"
@@ -1472,8 +1472,8 @@ export const GymDemo: React.FC<GymDemoProps> = ({
           <div className="bg-gradient-to-r from-[#0B1528] via-[#0E1E3A] to-[#0A1426] p-6 sm:p-8 rounded-3xl border border-cyan-500/30 flex flex-col md:flex-row items-start md:items-center justify-between gap-6 shadow-2xl">
             <div className="flex items-center gap-4">
               <div className="w-16 h-16 rounded-2xl bg-gradient-to-tr from-cyan-400 to-blue-600 p-0.5 shadow-xl shadow-cyan-500/30 shrink-0">
-                <img
-                  src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&w=200&q=80"
+                <img loading="lazy"
+                  src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&w=200&q=75"
                   alt="Alex"
                   className="w-full h-full object-cover rounded-[14px]"
                 />

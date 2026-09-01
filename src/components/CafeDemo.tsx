@@ -54,7 +54,7 @@ const CAFE_ITEMS: MenuItem[] = [
     category: 'Hot Coffee',
     price: 220,
     description: 'Double shot 100% Chikmagalur Arabica espresso with velvety micro-foam and roasted hazelnut infusion.',
-    image: 'https://images.unsplash.com/photo-1572442388796-11668a67e53d?auto=format&fit=crop&w=600&q=80',
+    image: 'https://images.unsplash.com/photo-1572442388796-11668a67e53d?auto=format&fit=crop&w=600&q=75',
     isVeg: true,
     isBestseller: true,
     animationType: 'steam'
@@ -65,7 +65,7 @@ const CAFE_ITEMS: MenuItem[] = [
     category: 'Hot Coffee',
     price: 190,
     description: 'Equal parts single-origin intense espresso and warm silky textured milk for coffee purists.',
-    image: 'https://images.unsplash.com/photo-1514432324607-a09d9b4aefdd?auto=format&fit=crop&w=600&q=80',
+    image: 'https://images.unsplash.com/photo-1514432324607-a09d9b4aefdd?auto=format&fit=crop&w=600&q=75',
     isVeg: true,
     animationType: 'steam'
   },
@@ -75,7 +75,7 @@ const CAFE_ITEMS: MenuItem[] = [
     category: 'Hot Coffee',
     price: 240,
     description: 'Rich espresso folded with organic Madagascar vanilla bean syrup and Sri Lankan cinnamon bark.',
-    image: 'https://images.unsplash.com/photo-1541167760496-1628856ab772?auto=format&fit=crop&w=600&q=80',
+    image: 'https://images.unsplash.com/photo-1541167760496-1628856ab772?auto=format&fit=crop&w=600&q=75',
     isVeg: true,
     animationType: 'steam'
   },
@@ -85,7 +85,7 @@ const CAFE_ITEMS: MenuItem[] = [
     category: 'Hot Coffee',
     price: 260,
     description: 'Signature espresso poured over 70% molten Belgian dark chocolate with steamed milk.',
-    image: 'https://images.unsplash.com/photo-1578314675249-a6910f80cc4e?auto=format&fit=crop&w=600&q=80',
+    image: 'https://images.unsplash.com/photo-1578314675249-a6910f80cc4e?auto=format&fit=crop&w=600&q=75',
     isVeg: true,
     isBestseller: true,
     animationType: 'chocolate'
@@ -96,7 +96,7 @@ const CAFE_ITEMS: MenuItem[] = [
     category: 'Hot Coffee',
     price: 230,
     description: 'Specialty V60 manual pour-over delivering bright floral jasmine aromatics and bergamot citrus notes.',
-    image: 'https://images.unsplash.com/photo-1495474472287-4d71bcdd2085?auto=format&fit=crop&w=600&q=80',
+    image: 'https://images.unsplash.com/photo-1495474472287-4d71bcdd2085?auto=format&fit=crop&w=600&q=75',
     isVeg: true,
     isChefSpecial: true,
     animationType: 'steam'
@@ -107,7 +107,7 @@ const CAFE_ITEMS: MenuItem[] = [
     category: 'Hot Coffee',
     price: 270,
     description: 'Middle-Eastern inspired roast with crushed pistachio butter, green cardamom, and micro-steamed whole milk.',
-    image: 'https://images.unsplash.com/photo-1517701604599-bb29b565090c?auto=format&fit=crop&w=600&q=80',
+    image: 'https://images.unsplash.com/photo-1517701604599-bb29b565090c?auto=format&fit=crop&w=600&q=75',
     isVeg: true,
     isChefSpecial: true,
     animationType: 'steam'
@@ -120,7 +120,7 @@ const CAFE_ITEMS: MenuItem[] = [
     category: 'Cold Coffee',
     price: 250,
     description: 'Nitrogen-infused slow steeped 18-hour cold brew with a creamy stout-like head and zero bitterness.',
-    image: 'https://images.unsplash.com/photo-1517701550927-30cf4ba1dba5?auto=format&fit=crop&w=600&q=80',
+    image: 'https://images.unsplash.com/photo-1517701550927-30cf4ba1dba5?auto=format&fit=crop&w=600&q=75',
     isVeg: true,
     isBestseller: true,
     animationType: 'cold'
@@ -131,7 +131,7 @@ const CAFE_ITEMS: MenuItem[] = [
     category: 'Cold Coffee',
     price: 270,
     description: 'Blended arabica coffee, sea-salted caramel drizzle, and fresh whipped cream.',
-    image: 'https://images.unsplash.com/photo-1572490122747-3968b75cc699?auto=format&fit=crop&w=600&q=80',
+    image: 'https://images.unsplash.com/photo-1572490122747-3968b75cc699?auto=format&fit=crop&w=600&q=75',
     isVeg: true,
     animationType: 'cold'
   },
@@ -141,7 +141,7 @@ const CAFE_ITEMS: MenuItem[] = [
     category: 'Cold Coffee',
     price: 230,
     description: 'Double espresso poured over chilled condensed milk and crystal clear ice cubes.',
-    image: 'https://images.unsplash.com/photo-1517701604599-bb29b565090c?auto=format&fit=crop&w=600&q=80',
+    image: 'https://images.unsplash.com/photo-1517701604599-bb29b565090c?auto=format&fit=crop&w=600&q=75',
     isVeg: true,
     animationType: 'cold'
   },
@@ -151,7 +151,7 @@ const CAFE_ITEMS: MenuItem[] = [
     category: 'Cold Coffee',
     price: 280,
     description: 'First-harvest Uji matcha whisked with chilled oat milk and natural agave nectar.',
-    image: 'https://images.unsplash.com/photo-1536256263959-770b48d82b0a?auto=format&fit=crop&w=600&q=80',
+    image: 'https://images.unsplash.com/photo-1536256263959-770b48d82b0a?auto=format&fit=crop&w=600&q=75',
     isVeg: true,
     animationType: 'cold'
   },
@@ -161,7 +161,7 @@ const CAFE_ITEMS: MenuItem[] = [
     category: 'Cold Coffee',
     price: 290,
     description: 'Crushed Belgian speculoos cookies blended with cold brew espresso, caramel, and topped with cookie crunch.',
-    image: 'https://images.unsplash.com/photo-1577968897966-3d4325b36b61?auto=format&fit=crop&w=600&q=80',
+    image: 'https://images.unsplash.com/photo-1577968897966-3d4325b36b61?auto=format&fit=crop&w=600&q=75',
     isVeg: true,
     isBestseller: true,
     animationType: 'cold'
@@ -172,7 +172,7 @@ const CAFE_ITEMS: MenuItem[] = [
     category: 'Cold Coffee',
     price: 260,
     description: 'Sparkling botanical tonic water topped with espresso cold brew and fresh Valencia orange slice.',
-    image: 'https://images.unsplash.com/photo-1517701550927-30cf4ba1dba5?auto=format&fit=crop&w=600&q=80',
+    image: 'https://images.unsplash.com/photo-1517701550927-30cf4ba1dba5?auto=format&fit=crop&w=600&q=75',
     isVeg: true,
     isChefSpecial: true,
     animationType: 'cold'
@@ -185,7 +185,7 @@ const CAFE_ITEMS: MenuItem[] = [
     category: 'Bakery',
     price: 180,
     description: '27-layer flaky French butter pastry stuffed with dual batons of Valrhona dark chocolate.',
-    image: 'https://images.unsplash.com/photo-1555507036-ab1f4038808a?auto=format&fit=crop&w=600&q=80',
+    image: 'https://images.unsplash.com/photo-1555507036-ab1f4038808a?auto=format&fit=crop&w=600&q=75',
     isVeg: true,
     isBestseller: true,
     animationType: 'chocolate'
@@ -196,7 +196,7 @@ const CAFE_ITEMS: MenuItem[] = [
     category: 'Bakery',
     price: 195,
     description: 'Golden puff pastry filled with almond frangipane cream and topped with toasted flaked almonds.',
-    image: 'https://images.unsplash.com/photo-1509440159596-0249088772ff?auto=format&fit=crop&w=600&q=80',
+    image: 'https://images.unsplash.com/photo-1509440159596-0249088772ff?auto=format&fit=crop&w=600&q=75',
     isVeg: true,
     animationType: 'steam'
   },
@@ -206,7 +206,7 @@ const CAFE_ITEMS: MenuItem[] = [
     category: 'Bakery',
     price: 165,
     description: 'Traditional braided Swedish sweet bun infused with crushed green cardamom and raw brown sugar.',
-    image: 'https://images.unsplash.com/photo-1586985289688-ca3cf47d3e6e?auto=format&fit=crop&w=600&q=80',
+    image: 'https://images.unsplash.com/photo-1586985289688-ca3cf47d3e6e?auto=format&fit=crop&w=600&q=75',
     isVeg: true,
     animationType: 'steam'
   },
@@ -216,7 +216,7 @@ const CAFE_ITEMS: MenuItem[] = [
     category: 'Bakery',
     price: 240,
     description: 'Round wheel croissant filled with silky Sicilian pistachio ganache and coated in crushed pistachios.',
-    image: 'https://images.unsplash.com/photo-1555507036-ab1f4038808a?auto=format&fit=crop&w=600&q=80',
+    image: 'https://images.unsplash.com/photo-1555507036-ab1f4038808a?auto=format&fit=crop&w=600&q=75',
     isVeg: true,
     isChefSpecial: true,
     animationType: 'chocolate'
@@ -227,7 +227,7 @@ const CAFE_ITEMS: MenuItem[] = [
     category: 'Bakery',
     price: 175,
     description: 'Savory warm golden scone packed with aged sharp cheddar, chives, and Spanish smoked paprika.',
-    image: 'https://images.unsplash.com/photo-1509440159596-0249088772ff?auto=format&fit=crop&w=600&q=80',
+    image: 'https://images.unsplash.com/photo-1509440159596-0249088772ff?auto=format&fit=crop&w=600&q=75',
     isVeg: true,
     animationType: 'cheese'
   },
@@ -239,7 +239,7 @@ const CAFE_ITEMS: MenuItem[] = [
     category: 'Breakfast',
     price: 340,
     description: 'Artisan sourdough slice with Hass avocado mash, sun-dried tomatoes, feta cheese, and dukkah spice.',
-    image: 'https://images.unsplash.com/photo-1525351484163-7529414344d8?auto=format&fit=crop&w=600&q=80',
+    image: 'https://images.unsplash.com/photo-1525351484163-7529414344d8?auto=format&fit=crop&w=600&q=75',
     isVeg: true,
     isBestseller: true,
     animationType: 'salt'
@@ -250,7 +250,7 @@ const CAFE_ITEMS: MenuItem[] = [
     category: 'Breakfast',
     price: 320,
     description: 'Farm-fresh organic eggs slow-scrambled with white truffle oil, chives, and toasted brioche bread.',
-    image: 'https://images.unsplash.com/photo-1528736235302-52922df5c122?auto=format&fit=crop&w=600&q=80',
+    image: 'https://images.unsplash.com/photo-1528736235302-52922df5c122?auto=format&fit=crop&w=600&q=75',
     isVeg: false,
     animationType: 'salt'
   },
@@ -260,7 +260,7 @@ const CAFE_ITEMS: MenuItem[] = [
     category: 'Breakfast',
     price: 360,
     description: 'Spiced bell pepper and heirloom tomato sauce with poached eggs, creamy goat cheese, and garlic baguette.',
-    image: 'https://images.unsplash.com/photo-1590412200988-a436970781fa?auto=format&fit=crop&w=600&q=80',
+    image: 'https://images.unsplash.com/photo-1590412200988-a436970781fa?auto=format&fit=crop&w=600&q=75',
     isVeg: false,
     animationType: 'steam'
   },
@@ -270,7 +270,7 @@ const CAFE_ITEMS: MenuItem[] = [
     category: 'Breakfast',
     price: 290,
     description: 'Thick sourdough soaked in vanilla custard, griddled golden, topped with Nutella and caramelized bananas.',
-    image: 'https://images.unsplash.com/photo-1484723091739-30a097e8f929?auto=format&fit=crop&w=600&q=80',
+    image: 'https://images.unsplash.com/photo-1484723091739-30a097e8f929?auto=format&fit=crop&w=600&q=75',
     isVeg: true,
     animationType: 'chocolate'
   },
@@ -280,7 +280,7 @@ const CAFE_ITEMS: MenuItem[] = [
     category: 'Breakfast',
     price: 380,
     description: 'Whole artisanal burrata cheese sphere on garlic-rubbed sourdough with fresh basil pesto & balsamic drizzle.',
-    image: 'https://images.unsplash.com/photo-1525351484163-7529414344d8?auto=format&fit=crop&w=600&q=80',
+    image: 'https://images.unsplash.com/photo-1525351484163-7529414344d8?auto=format&fit=crop&w=600&q=75',
     isVeg: true,
     isChefSpecial: true,
     animationType: 'cheese'
@@ -293,7 +293,7 @@ const CAFE_ITEMS: MenuItem[] = [
     category: 'Snacks',
     price: 380,
     description: 'Grilled herb-smoked chicken breast, house Genovese basil pesto, mozzarella, and roasted peppers in ciabatta.',
-    image: 'https://images.unsplash.com/photo-1528735602780-2552fd46c7af?auto=format&fit=crop&w=600&q=80',
+    image: 'https://images.unsplash.com/photo-1528735602780-2552fd46c7af?auto=format&fit=crop&w=600&q=75',
     isVeg: false,
     isBestseller: true,
     animationType: 'cheese'
@@ -304,7 +304,7 @@ const CAFE_ITEMS: MenuItem[] = [
     category: 'Snacks',
     price: 310,
     description: 'Aged English cheddar, gooey mozzarella, and Swiss emmental melted between butter-crisped sourdough.',
-    image: 'https://images.unsplash.com/photo-1550547660-d9450f859349?auto=format&fit=crop&w=600&q=80',
+    image: 'https://images.unsplash.com/photo-1550547660-d9450f859349?auto=format&fit=crop&w=600&q=75',
     isVeg: true,
     isBestseller: true,
     animationType: 'cheese'
@@ -315,7 +315,7 @@ const CAFE_ITEMS: MenuItem[] = [
     category: 'Snacks',
     price: 240,
     description: 'Crispy skin-on golden potato wedges tossed in aromatic Italian truffle oil, sea salt, and aged parmesan.',
-    image: 'https://images.unsplash.com/photo-1573080496219-bb080dd4f877?auto=format&fit=crop&w=600&q=80',
+    image: 'https://images.unsplash.com/photo-1573080496219-bb080dd4f877?auto=format&fit=crop&w=600&q=75',
     isVeg: true,
     animationType: 'salt'
   },
@@ -325,7 +325,7 @@ const CAFE_ITEMS: MenuItem[] = [
     category: 'Snacks',
     price: 420,
     description: 'Crispy thin woodfired sourdough flatbread topped with sautéed wild porcini mushrooms, goat cheese & thyme.',
-    image: 'https://images.unsplash.com/photo-1513104890138-7c749659a591?auto=format&fit=crop&w=600&q=80',
+    image: 'https://images.unsplash.com/photo-1513104890138-7c749659a591?auto=format&fit=crop&w=600&q=75',
     isVeg: true,
     isChefSpecial: true,
     animationType: 'cheese'
@@ -336,7 +336,7 @@ const CAFE_ITEMS: MenuItem[] = [
     category: 'Snacks',
     price: 410,
     description: 'Fresh artisanal pasta parcels stuffed with ricotta & spinach, tossed in creamy sun-dried tomato sauce.',
-    image: 'https://images.unsplash.com/photo-1551183053-bf91a1d81141?auto=format&fit=crop&w=600&q=80',
+    image: 'https://images.unsplash.com/photo-1551183053-bf91a1d81141?auto=format&fit=crop&w=600&q=75',
     isVeg: true,
     isChefSpecial: true,
     animationType: 'steam'
@@ -349,7 +349,7 @@ const CAFE_ITEMS: MenuItem[] = [
     category: 'Desserts',
     price: 330,
     description: 'Crisp pearl-sugar Belgian waffles stacked with wild blueberry compote and pure Madagascar vanilla gelato.',
-    image: 'https://images.unsplash.com/photo-1562376552-0d160a2f238d?auto=format&fit=crop&w=600&q=80',
+    image: 'https://images.unsplash.com/photo-1562376552-0d160a2f238d?auto=format&fit=crop&w=600&q=75',
     isVeg: true,
     isBestseller: true,
     animationType: 'chocolate'
@@ -360,7 +360,7 @@ const CAFE_ITEMS: MenuItem[] = [
     category: 'Desserts',
     price: 290,
     description: 'Savoiardi ladyfingers soaked in our freshly pulled espresso, layered with whipped mascarpone cream & cocoa.',
-    image: 'https://images.unsplash.com/photo-1571877227200-a0d98ea607e9?auto=format&fit=crop&w=600&q=80',
+    image: 'https://images.unsplash.com/photo-1571877227200-a0d98ea607e9?auto=format&fit=crop&w=600&q=75',
     isVeg: true,
     animationType: 'chocolate'
   },
@@ -370,7 +370,7 @@ const CAFE_ITEMS: MenuItem[] = [
     category: 'Desserts',
     price: 310,
     description: 'Crustless caramelized Basque cheesecake with a molten creamy center and sea-salted caramel drizzle.',
-    image: 'https://images.unsplash.com/photo-1533134242443-d4fd215305ad?auto=format&fit=crop&w=600&q=80',
+    image: 'https://images.unsplash.com/photo-1533134242443-d4fd215305ad?auto=format&fit=crop&w=600&q=75',
     isVeg: true,
     isBestseller: true,
     animationType: 'chocolate'
@@ -1076,8 +1076,8 @@ export const CafeDemo: React.FC<CafeDemoProps> = ({ demo, isMobile }) => {
           {/* ------------------------------------------------------------- */}
           <section className="relative min-h-[440px] flex items-center justify-center text-center px-4 sm:px-6 py-16 overflow-hidden">
             <div className="absolute inset-0">
-              <img 
-                src="https://images.unsplash.com/photo-1501339847302-ac426a4a7cbb?auto=format&fit=crop&w=1400&q=80" 
+              <img loading="lazy" 
+                src="https://images.unsplash.com/photo-1501339847302-ac426a4a7cbb?auto=format&fit=crop&w=1400&q=75" 
                 alt="Nova Cafe Ambience" 
                 className={`w-full h-full object-cover ${isBase ? 'brightness-[0.85] opacity-20' : isPro ? 'brightness-[0.35]' : 'brightness-[0.35]'}`} 
               />
@@ -1239,7 +1239,7 @@ export const CafeDemo: React.FC<CafeDemoProps> = ({ demo, isMobile }) => {
                   >
                     {/* Image Container with Rounded Corners */}
                     <div className={`aspect-[4/3] relative overflow-hidden ${theme.cardImageBg}`}>
-                      <img 
+                      <img loading="lazy" 
                         src={item.image} 
                         alt={item.name} 
                         className={`w-full h-full object-cover transition-transform duration-500 ${
@@ -1381,8 +1381,8 @@ export const CafeDemo: React.FC<CafeDemoProps> = ({ demo, isMobile }) => {
 
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                   <div className={`p-5 sm:p-6 rounded-3xl border shadow-xs flex flex-col sm:flex-row gap-4 items-center ${theme.specialsCardBg}`}>
-                    <img 
-                      src="https://images.unsplash.com/photo-1555507036-ab1f4038808a?auto=format&fit=crop&w=300&q=80" 
+                    <img loading="lazy" 
+                      src="https://images.unsplash.com/photo-1555507036-ab1f4038808a?auto=format&fit=crop&w=300&q=75" 
                       alt="Morning Combo" 
                       className={`w-24 h-24 rounded-2xl object-cover shrink-0 border ${theme.cardImageBg}`} 
                     />
@@ -1400,8 +1400,8 @@ export const CafeDemo: React.FC<CafeDemoProps> = ({ demo, isMobile }) => {
                   </div>
 
                   <div className={`p-5 sm:p-6 rounded-3xl border shadow-xs flex flex-col sm:flex-row gap-4 items-center ${theme.specialsCardBg}`}>
-                    <img 
-                      src="https://images.unsplash.com/photo-1562376552-0d160a2f238d?auto=format&fit=crop&w=300&q=80" 
+                    <img loading="lazy" 
+                      src="https://images.unsplash.com/photo-1562376552-0d160a2f238d?auto=format&fit=crop&w=300&q=75" 
                       alt="Evening Waffle" 
                       className={`w-24 h-24 rounded-2xl object-cover shrink-0 border ${theme.cardImageBg}`} 
                     />
@@ -1450,8 +1450,8 @@ export const CafeDemo: React.FC<CafeDemoProps> = ({ demo, isMobile }) => {
               </div>
 
               <div className="relative">
-                <img 
-                  src="https://images.unsplash.com/photo-1495474472287-4d71bcdd2085?auto=format&fit=crop&w=800&q=80" 
+                <img loading="lazy" 
+                  src="https://images.unsplash.com/photo-1495474472287-4d71bcdd2085?auto=format&fit=crop&w=800&q=75" 
                   alt="Nova Barista at work" 
                   className={`rounded-3xl shadow-xl w-full aspect-[4/3] object-cover border ${theme.cardBg}`} 
                 />
@@ -2004,7 +2004,7 @@ export const CafeDemo: React.FC<CafeDemoProps> = ({ demo, isMobile }) => {
         <div className="fixed bottom-6 left-6 z-50 animate-in slide-in-from-bottom-5 duration-300 pointer-events-none">
           <div className="bg-[#0E1424] text-slate-200 p-4 rounded-2xl border border-cyan-500/50 shadow-2xl flex items-center gap-3.5 max-w-sm">
             <div className="w-12 h-12 rounded-xl bg-[#090D16] overflow-hidden relative shrink-0 flex items-center justify-center border border-slate-800">
-              <img src={activeAnimation.item.image} alt={activeAnimation.item.name} className="w-full h-full object-cover" />
+              <img loading="lazy" src={activeAnimation.item.image} alt={activeAnimation.item.name} className="w-full h-full object-cover" />
               
               {activeAnimation.type === 'salt' && (
                 <div className="absolute inset-0 bg-black/40 flex items-center justify-center">
@@ -2100,7 +2100,7 @@ export const CafeDemo: React.FC<CafeDemoProps> = ({ demo, isMobile }) => {
                       {msg.recommendedItem && (
                         <div className="mt-2.5 pt-2 border-t border-slate-800 flex items-center justify-between gap-2">
                           <div className="flex items-center gap-2">
-                            <img src={msg.recommendedItem.image} alt={msg.recommendedItem.name} className="w-8 h-8 rounded-lg object-cover" />
+                            <img loading="lazy" src={msg.recommendedItem.image} alt={msg.recommendedItem.name} className="w-8 h-8 rounded-lg object-cover" />
                             <div>
                               <div className="font-bold text-[11px] text-white truncate max-w-[120px]">{msg.recommendedItem.name}</div>
                               <div className="text-[10px] text-cyan-400 font-bold">₹{msg.recommendedItem.price}</div>
@@ -2199,7 +2199,7 @@ export const CafeDemo: React.FC<CafeDemoProps> = ({ demo, isMobile }) => {
                       {cart.map(({ item, qty }) => (
                         <div key={item.id} className="p-2.5 bg-[#090D16] rounded-2xl border border-slate-800 flex items-center justify-between gap-3">
                           <div className="flex items-center gap-2.5">
-                            <img src={item.image} alt={item.name} className="w-10 h-10 rounded-xl object-cover border border-slate-800" />
+                            <img loading="lazy" src={item.image} alt={item.name} className="w-10 h-10 rounded-xl object-cover border border-slate-800" />
                             <div>
                               <h4 className="font-bold text-xs text-white line-clamp-1">{item.name}</h4>
                               <div className="text-[11px] text-cyan-400 font-bold">₹{item.price} each</div>
@@ -2705,7 +2705,7 @@ export const CafeDemo: React.FC<CafeDemoProps> = ({ demo, isMobile }) => {
                       }`}
                     >
                       <div className="flex items-center gap-3 min-w-0">
-                        <img 
+                        <img loading="lazy" 
                           src={item.image} 
                           alt={item.name} 
                           className={`w-11 h-11 rounded-xl object-cover border ${

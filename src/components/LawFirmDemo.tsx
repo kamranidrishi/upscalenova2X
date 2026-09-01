@@ -130,8 +130,8 @@ export const LawFirmDemo: React.FC<{
           {/* Hero */}
           <div className="relative min-h-[500px] flex items-center px-6 md:px-16 py-20 overflow-hidden">
             <div className="absolute inset-0">
-              <img
-                src="https://images.unsplash.com/photo-1589829085413-56de8ae18c73?auto=format&fit=crop&w=1400&q=80"
+              <img loading="lazy"
+                src="https://images.unsplash.com/photo-1589829085413-56de8ae18c73?auto=format&fit=crop&w=1400&q=75"
                 alt="Law"
                 className="w-full h-full object-cover"
               />
@@ -183,7 +183,7 @@ export const LawFirmDemo: React.FC<{
                 Whether navigating complex corporate litigation or sensitive family disputes, we approach every case with unwavering commitment and personalized attention.
               </p>
               <div className="pt-4">
-                <img src="https://upload.wikimedia.org/wikipedia/commons/f/fa/Signature_of_John_Hancock.svg" alt="Signature" className="h-12 opacity-80" />
+                <img loading="lazy" src="https://upload.wikimedia.org/wikipedia/commons/f/fa/Signature_of_John_Hancock.svg" alt="Signature" className="h-12 opacity-80" />
                 <div className="text-sm font-bold font-sans mt-2 text-[#0B132B]">Robert Sterling, Managing Partner</div>
               </div>
             </div>
@@ -243,7 +243,7 @@ export const LawFirmDemo: React.FC<{
               {attorneys.map((attorney, i) => (
                 <div key={i} className="group cursor-pointer">
                   <div className="relative aspect-[3/4] overflow-hidden rounded-xl mb-4 bg-slate-200">
-                    <img src={`https://images.unsplash.com/photo-15${50000000000 + i}?auto=format&fit=crop&w=600&q=80`} alt={attorney.name} className="w-full h-full object-cover grayscale group-hover:grayscale-0 transition-all duration-500" />
+                    <img loading="lazy" src={`https://images.unsplash.com/photo-15${50000000000 + i}?auto=format&fit=crop&w=600&q=75`} alt={attorney.name} className="w-full h-full object-cover grayscale group-hover:grayscale-0 transition-all duration-500" />
                     <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity flex items-end p-6">
                       <button className="bg-amber-600 text-white font-bold py-2 px-4 rounded text-xs uppercase tracking-wider w-full">View Profile</button>
                     </div>
@@ -288,7 +288,7 @@ export const LawFirmDemo: React.FC<{
                 ].map((post, i) => (
                   <div key={i} className="group cursor-pointer">
                     <div className="aspect-video bg-slate-200 rounded-xl mb-4 overflow-hidden relative">
-                       <img src={`https://images.unsplash.com/photo-1450101499163-c8848c66ca85?auto=format&fit=crop&w=600&q=80`} className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" />
+                       <img loading="lazy" src={`https://images.unsplash.com/photo-1450101499163-c8848c66ca85?auto=format&fit=crop&w=600&q=75`} className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" />
                        <div className="absolute top-4 left-4 bg-white px-3 py-1 text-xs font-bold uppercase tracking-wider rounded shadow-md">{post.cat}</div>
                     </div>
                     <div className="text-slate-500 text-sm mb-2">{post.date}</div>
@@ -376,7 +376,7 @@ export const LawFirmDemo: React.FC<{
                 </div>
               </div>
               <div className="w-full md:w-1/2 min-h-[400px] relative">
-                <img src="https://images.unsplash.com/photo-1524661135-423995f22d0b?auto=format&fit=crop&w=800&q=80" alt="Map" className="absolute inset-0 w-full h-full object-cover grayscale opacity-80 mix-blend-multiply" />
+                <img loading="lazy" src="https://images.unsplash.com/photo-1524661135-423995f22d0b?auto=format&fit=crop&w=800&q=75" alt="Map" className="absolute inset-0 w-full h-full object-cover grayscale opacity-80 mix-blend-multiply" />
                 <div className="absolute inset-0 bg-blue-900/20 mix-blend-multiply"></div>
                 <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 flex flex-col items-center">
                   <div className="w-12 h-12 bg-amber-600 text-white rounded-full flex items-center justify-center shadow-xl border-4 border-white animate-bounce">
@@ -650,7 +650,7 @@ export const LawFirmDemo: React.FC<{
                      </div>
                      <div className="p-6 space-y-6">
                        <div className="flex items-center gap-4">
-                         <img src="https://images.unsplash.com/photo-1560250097-0b93528c311a?auto=format&fit=crop&w=150&q=80" className="w-12 h-12 rounded-full object-cover border border-slate-200" />
+                         <img loading="lazy" src="https://images.unsplash.com/photo-1560250097-0b93528c311a?auto=format&fit=crop&w=150&q=75" className="w-12 h-12 rounded-full object-cover border border-slate-200" />
                          <div>
                            <div className="font-bold text-slate-800">Robert Sterling</div>
                            <div className="text-xs text-slate-500 uppercase">Lead Attorney</div>

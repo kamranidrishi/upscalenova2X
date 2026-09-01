@@ -12,10 +12,7 @@ import {
   Heart,
   ShieldCheck,
   Leaf,
-  Droplets,
   MessageCircle,
-  Menu,
-  X,
   ExternalLink
 } from 'lucide-react';
 
@@ -26,7 +23,6 @@ interface BeautyBaseDemoProps {
 }
 
 export const BeautyBaseDemo: React.FC<BeautyBaseDemoProps> = () => {
-  const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const [contactSubmitted, setContactSubmitted] = useState(false);
   const [selectedCategory, setSelectedCategory] = useState<string>('All');
   const [formData, setFormData] = useState({
@@ -38,7 +34,6 @@ export const BeautyBaseDemo: React.FC<BeautyBaseDemoProps> = () => {
   });
 
   const scrollTo = (id: string) => {
-    setMobileMenuOpen(false);
     const elem = document.getElementById(id);
     if (elem) {
       elem.scrollIntoView({ behavior: 'smooth', block: 'start' });
@@ -72,7 +67,13 @@ export const BeautyBaseDemo: React.FC<BeautyBaseDemoProps> = () => {
         <div className="max-w-6xl mx-auto px-4 sm:px-6 h-16 sm:h-20 flex items-center justify-between">
           
           {/* Brand Logo */}
-          <div className="flex items-center gap-2.5">
+          <div 
+            onClick={() => {
+              setSelectedCategory('All');
+              window.scrollTo({ top: 0, behavior: 'smooth' });
+            }}
+            className="flex items-center gap-2.5 cursor-pointer"
+          >
             <div className="w-9 h-9 rounded-full bg-rose-50 border border-rose-200 flex items-center justify-center text-rose-600">
               <Sparkles className="w-4 h-4" />
             </div>
@@ -104,37 +105,8 @@ export const BeautyBaseDemo: React.FC<BeautyBaseDemoProps> = () => {
               <MessageCircle className="w-3.5 h-3.5" />
               <span>Direct Enquiry</span>
             </button>
-
-            {/* Mobile Hamburger */}
-            <button
-              onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-              className="md:hidden p-2 rounded-lg text-stone-600 hover:text-stone-900 hover:bg-rose-50"
-              aria-label="Toggle Menu"
-            >
-              {mobileMenuOpen ? <X className="w-5 h-5" /> : <Menu className="w-5 h-5" />}
-            </button>
           </div>
         </div>
-
-        {/* Mobile Dropdown Menu */}
-        {mobileMenuOpen && (
-          <div className="md:hidden bg-white border-b border-rose-100 px-4 py-4 space-y-3 shadow-lg animate-in slide-in-from-top-2">
-            <button onClick={() => scrollTo('hero')} className="block w-full text-left py-2 text-sm font-medium text-stone-700 hover:text-rose-600">Home</button>
-            <button onClick={() => scrollTo('categories')} className="block w-full text-left py-2 text-sm font-medium text-stone-700 hover:text-rose-600">Categories</button>
-            <button onClick={() => scrollTo('featured')} className="block w-full text-left py-2 text-sm font-medium text-stone-700 hover:text-rose-600">Featured Products</button>
-            <button onClick={() => scrollTo('about')} className="block w-full text-left py-2 text-sm font-medium text-stone-700 hover:text-rose-600">Brand Story</button>
-            <button onClick={() => scrollTo('contact')} className="block w-full text-left py-2 text-sm font-medium text-stone-700 hover:text-rose-600">Contact & Enquiry</button>
-            <div className="pt-2 border-t border-rose-100">
-              <button
-                onClick={() => scrollTo('contact')}
-                className="w-full py-2.5 rounded-full bg-rose-600 text-white text-xs font-bold flex items-center justify-center gap-2"
-              >
-                <Phone className="w-3.5 h-3.5" />
-                <span>Contact Aura Botanicals</span>
-              </button>
-            </div>
-          </div>
-        )}
       </header>
 
       {/* Hero Section */}
@@ -196,8 +168,8 @@ export const BeautyBaseDemo: React.FC<BeautyBaseDemoProps> = () => {
             {/* Right Hero Image */}
             <div className="relative">
               <div className="aspect-[4/3] sm:aspect-square rounded-3xl overflow-hidden shadow-xl border-4 border-white">
-                <img
-                  src="https://images.unsplash.com/photo-1620916566398-39f1143ab7be?auto=format&fit=crop&w=1000&q=80"
+                <img loading="lazy"
+                  src="https://images.unsplash.com/photo-1620916566398-39f1143ab7be?auto=format&fit=crop&w=1000&q=75"
                   alt="Aura Botanicals Luxury Glow Serum"
                   className="w-full h-full object-cover"
                 />
@@ -206,8 +178,8 @@ export const BeautyBaseDemo: React.FC<BeautyBaseDemoProps> = () => {
               {/* Floating Product Highlight Card */}
               <div className="absolute -bottom-4 -left-4 sm:bottom-6 sm:left-4 bg-white/95 backdrop-blur-md p-3 sm:p-4 rounded-2xl border border-rose-100 shadow-xl flex items-center gap-3.5 max-w-xs">
                 <div className="w-12 h-12 rounded-xl bg-rose-50 overflow-hidden shrink-0 border border-rose-100">
-                  <img
-                    src="https://images.unsplash.com/photo-1598440947619-2c35fc9aa908?auto=format&fit=crop&w=200&q=80"
+                  <img loading="lazy"
+                    src="https://images.unsplash.com/photo-1598440947619-2c35fc9aa908?auto=format&fit=crop&w=200&q=75"
                     alt="Rose Elixir"
                     className="w-full h-full object-cover"
                   />
@@ -245,7 +217,7 @@ export const BeautyBaseDemo: React.FC<BeautyBaseDemoProps> = () => {
                 className="group relative rounded-2xl overflow-hidden border border-rose-100 bg-[#FAF7F5] hover:shadow-md transition-all duration-300 flex flex-col"
               >
                 <div className="aspect-[4/3] overflow-hidden bg-rose-50">
-                  <img
+                  <img loading="lazy"
                     src={cat.image}
                     alt={cat.name}
                     className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
@@ -302,7 +274,7 @@ export const BeautyBaseDemo: React.FC<BeautyBaseDemoProps> = () => {
               >
                 {/* Product Image */}
                 <div className="aspect-square bg-rose-50/50 relative overflow-hidden group">
-                  <img
+                  <img loading="lazy"
                     src={prod.image}
                     alt={prod.name}
                     className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
@@ -380,8 +352,8 @@ export const BeautyBaseDemo: React.FC<BeautyBaseDemoProps> = () => {
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-10 items-center">
             
             <div className="relative rounded-3xl overflow-hidden aspect-[4/3] border-4 border-[#FAF7F5] shadow-lg">
-              <img
-                src="https://images.unsplash.com/photo-1556228720-195a672e8a03?auto=format&fit=crop&w=800&q=80"
+              <img loading="lazy"
+                src="https://images.unsplash.com/photo-1556228720-195a672e8a03?auto=format&fit=crop&w=800&q=75"
                 alt="Aura Botanicals Apothecary Preparation"
                 className="w-full h-full object-cover"
               />

@@ -125,8 +125,8 @@ export const AgencyDemo: React.FC<{
           <div className="relative animate-in fade-in zoom-in-95 duration-1000 delay-300 fill-mode-both lg:h-[600px] flex items-center justify-center">
             {/* Cinematic abstract visual */}
             <div className="absolute inset-0 bg-gradient-to-br from-red-600/20 to-black rounded-full blur-3xl"></div>
-            <img 
-              src="https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?auto=format&fit=crop&w=800&q=80" 
+            <img loading="lazy" 
+              src="https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?auto=format&fit=crop&w=800&q=75" 
               alt="Abstract 3D Visual" 
               className="w-full h-auto object-cover rounded-[3rem] border border-white/10 shadow-2xl opacity-80 mix-blend-luminosity hover:mix-blend-normal transition-all duration-700 relative z-10"
             />
@@ -215,17 +215,17 @@ export const AgencyDemo: React.FC<{
 
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
             {[
-              { title: 'Business Website', img: 'https://images.unsplash.com/photo-1497366216548-37526070297c?auto=format&fit=crop&w=600&q=80' },
-              { title: 'School / College Website', img: 'https://images.unsplash.com/photo-1523050854058-8df90110c9f1?auto=format&fit=crop&w=600&q=80' },
-              { title: 'E-commerce Website', img: 'https://images.unsplash.com/photo-1472851294608-062f824d29cc?auto=format&fit=crop&w=600&q=80' },
-              { title: 'Portfolio Website', img: 'https://images.unsplash.com/photo-1481481600673-c6cb16d4e5f4?auto=format&fit=crop&w=600&q=80' },
-              { title: 'Agency Website', img: 'https://images.unsplash.com/photo-1460925895917-afdab827c52f?auto=format&fit=crop&w=600&q=80' },
-              { title: 'Restaurant Website', img: 'https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?auto=format&fit=crop&w=600&q=80' },
-              { title: 'Real Estate Website', img: 'https://images.unsplash.com/photo-1600596542815-ffad4c1539a9?auto=format&fit=crop&w=600&q=80' },
-              { title: 'Healthcare Website', img: 'https://images.unsplash.com/photo-1519494026892-80bbd2d6fd0d?auto=format&fit=crop&w=600&q=80' }
+              { title: 'Business Website', img: 'https://images.unsplash.com/photo-1497366216548-37526070297c?auto=format&fit=crop&w=600&q=75' },
+              { title: 'School / College Website', img: 'https://images.unsplash.com/photo-1523050854058-8df90110c9f1?auto=format&fit=crop&w=600&q=75' },
+              { title: 'E-commerce Website', img: 'https://images.unsplash.com/photo-1472851294608-062f824d29cc?auto=format&fit=crop&w=600&q=75' },
+              { title: 'Portfolio Website', img: 'https://images.unsplash.com/photo-1481481600673-c6cb16d4e5f4?auto=format&fit=crop&w=600&q=75' },
+              { title: 'Agency Website', img: 'https://images.unsplash.com/photo-1460925895917-afdab827c52f?auto=format&fit=crop&w=600&q=75' },
+              { title: 'Restaurant Website', img: 'https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?auto=format&fit=crop&w=600&q=75' },
+              { title: 'Real Estate Website', img: 'https://images.unsplash.com/photo-1600596542815-ffad4c1539a9?auto=format&fit=crop&w=600&q=75' },
+              { title: 'Healthcare Website', img: 'https://images.unsplash.com/photo-1519494026892-80bbd2d6fd0d?auto=format&fit=crop&w=600&q=75' }
             ].map((item, i) => (
               <div key={i} className="group relative rounded-2xl overflow-hidden aspect-[4/5] cursor-pointer">
-                <img src={item.img} alt={item.title} className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110 opacity-60 group-hover:opacity-100" />
+                <img loading="lazy" src={item.img} alt={item.title} className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110 opacity-60 group-hover:opacity-100" />
                 <div className="absolute inset-0 bg-gradient-to-t from-[#050505] via-[#050505]/40 to-transparent"></div>
                 <div className="absolute inset-0 p-6 flex flex-col justify-end">
                   <h3 className="text-xl font-bold text-white mb-2">{item.title}</h3>
@@ -341,16 +341,16 @@ export const AgencyDemo: React.FC<{
 
           <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
             {[
-              { id: '01', title: 'Education Platform', cat: 'EdTech', img: 'https://images.unsplash.com/photo-1509062522246-3755977927d7?auto=format&fit=crop&w=800&q=80', desc: 'A complete digital transformation for a premium educational institute.' },
-              { id: '02', title: 'Luxury Restaurant', cat: 'Hospitality', img: 'https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?auto=format&fit=crop&w=800&q=80', desc: 'Immersive visual experience and booking platform for fine dining.' },
-              { id: '03', title: 'Real Estate Brand', cat: 'Real Estate', img: 'https://images.unsplash.com/photo-1600596542815-ffad4c1539a9?auto=format&fit=crop&w=800&q=80', desc: 'High-end property showcase with virtual tours and lead generation.' },
-              { id: '04', title: 'Corporate Business', cat: 'B2B', img: 'https://images.unsplash.com/photo-1497366216548-37526070297c?auto=format&fit=crop&w=800&q=80', desc: 'Sleek, professional corporate identity and service presentation.' },
-              { id: '05', title: 'E-commerce Store', cat: 'Retail', img: 'https://images.unsplash.com/photo-1472851294608-062f824d29cc?auto=format&fit=crop&w=800&q=80', desc: 'Conversion-optimized storefront with seamless payment integrations.' },
-              { id: '06', title: 'Creative Portfolio', cat: 'Design', img: 'https://images.unsplash.com/photo-1460925895917-afdab827c52f?auto=format&fit=crop&w=800&q=80', desc: 'Minimalist showcase for a high-end photography studio.' }
+              { id: '01', title: 'Education Platform', cat: 'EdTech', img: 'https://images.unsplash.com/photo-1509062522246-3755977927d7?auto=format&fit=crop&w=800&q=75', desc: 'A complete digital transformation for a premium educational institute.' },
+              { id: '02', title: 'Luxury Restaurant', cat: 'Hospitality', img: 'https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?auto=format&fit=crop&w=800&q=75', desc: 'Immersive visual experience and booking platform for fine dining.' },
+              { id: '03', title: 'Real Estate Brand', cat: 'Real Estate', img: 'https://images.unsplash.com/photo-1600596542815-ffad4c1539a9?auto=format&fit=crop&w=800&q=75', desc: 'High-end property showcase with virtual tours and lead generation.' },
+              { id: '04', title: 'Corporate Business', cat: 'B2B', img: 'https://images.unsplash.com/photo-1497366216548-37526070297c?auto=format&fit=crop&w=800&q=75', desc: 'Sleek, professional corporate identity and service presentation.' },
+              { id: '05', title: 'E-commerce Store', cat: 'Retail', img: 'https://images.unsplash.com/photo-1472851294608-062f824d29cc?auto=format&fit=crop&w=800&q=75', desc: 'Conversion-optimized storefront with seamless payment integrations.' },
+              { id: '06', title: 'Creative Portfolio', cat: 'Design', img: 'https://images.unsplash.com/photo-1460925895917-afdab827c52f?auto=format&fit=crop&w=800&q=75', desc: 'Minimalist showcase for a high-end photography studio.' }
             ].map((proj, i) => (
               <div key={i} className="group cursor-pointer">
                 <div className="overflow-hidden rounded-[2rem] aspect-[4/3] mb-8 relative">
-                  <img src={proj.img} alt={proj.title} className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700 opacity-80 group-hover:opacity-100" />
+                  <img loading="lazy" src={proj.img} alt={proj.title} className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700 opacity-80 group-hover:opacity-100" />
                   <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent"></div>
                   <div className="absolute bottom-0 left-0 p-8 w-full flex justify-between items-end">
                     <span className="text-red-500 font-mono font-bold text-xl">{proj.id}</span>
@@ -402,7 +402,7 @@ export const AgencyDemo: React.FC<{
           </div>
           <div className="relative">
             <div className="aspect-square rounded-[3rem] overflow-hidden border border-white/10 relative">
-              <img src="https://images.unsplash.com/photo-1522071820081-009f0129c71c?auto=format&fit=crop&w=800&q=80" alt="Team collaborating" className="w-full h-full object-cover opacity-80" />
+              <img loading="lazy" src="https://images.unsplash.com/photo-1522071820081-009f0129c71c?auto=format&fit=crop&w=800&q=75" alt="Team collaborating" className="w-full h-full object-cover opacity-80" />
               <div className="absolute inset-0 bg-gradient-to-tr from-[#050505] to-transparent"></div>
             </div>
             <div className="absolute -bottom-10 -left-10 bg-red-600 p-10 rounded-[2rem] shadow-[0_0_40px_rgba(220,38,38,0.4)]">
@@ -452,8 +452,8 @@ export const AgencyDemo: React.FC<{
         <div className="max-w-7xl mx-auto px-6 lg:px-8">
           <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
             {[
-              { text: "Nova transformed our online presence completely. The final website feels premium, modern and incredibly easy to use. Our conversion rates have doubled since launch.", name: "Sarah Jenkins", role: "CMO, Lumina Luxury", img: "https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?auto=format&fit=crop&w=200&q=80" },
-              { text: "The attention to detail and design aesthetics are unmatched. They didn't just build a website, they elevated our entire brand identity.", name: "Michael Chang", role: "Founder, Apex Capital", img: "https://images.unsplash.com/photo-1560250097-0b93528c311a?auto=format&fit=crop&w=200&q=80" }
+              { text: "Nova transformed our online presence completely. The final website feels premium, modern and incredibly easy to use. Our conversion rates have doubled since launch.", name: "Sarah Jenkins", role: "CMO, Lumina Luxury", img: "https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?auto=format&fit=crop&w=200&q=75" },
+              { text: "The attention to detail and design aesthetics are unmatched. They didn't just build a website, they elevated our entire brand identity.", name: "Michael Chang", role: "Founder, Apex Capital", img: "https://images.unsplash.com/photo-1560250097-0b93528c311a?auto=format&fit=crop&w=200&q=75" }
             ].map((testimonial, i) => (
               <div key={i} className="bg-white/[0.02] border border-white/5 p-12 rounded-[2rem] relative hover:bg-white/[0.04] transition-colors">
                 <div className="absolute top-10 right-10 opacity-10">
@@ -464,7 +464,7 @@ export const AgencyDemo: React.FC<{
                 </div>
                 <p className="text-xl md:text-2xl text-gray-300 leading-relaxed mb-10 relative z-10 font-medium">"{testimonial.text}"</p>
                 <div className="flex items-center gap-4">
-                  <img src={testimonial.img} alt={testimonial.name} className="w-14 h-14 rounded-full object-cover border-2 border-red-600/50" />
+                  <img loading="lazy" src={testimonial.img} alt={testimonial.name} className="w-14 h-14 rounded-full object-cover border-2 border-red-600/50" />
                   <div>
                     <h4 className="text-white font-bold text-lg">{testimonial.name}</h4>
                     <p className="text-gray-500 text-sm">{testimonial.role}</p>

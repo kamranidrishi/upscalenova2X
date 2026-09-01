@@ -19,7 +19,7 @@ export const LeadershipSection: React.FC = () => {
       bio: 'Strategic mind focused on scaling modern web solutions, client relationships, and business operations.',
       initials: 'BC',
       photoUrl: 'https://drive.google.com/thumbnail?id=1V3cIDeEYlEnmtHJ-lMmlTGl5d9Rm3NcV&sz=w1000',
-      linkedinUrl: 'https://www.linkedin.com/in/brijesh-chauhan-05a211416/',
+      linkedinUrl: 'https://www.linkedin.com/in/brijeshchauhan0831/',
       instagramUrl: 'https://www.instagram.com/brijes4h/'
     }
   ];
@@ -48,7 +48,15 @@ export const LeadershipSection: React.FC = () => {
               {/* Avatar Icon */}
               <div className="w-24 h-24 rounded-full bg-indigo-100 text-indigo-600 flex items-center justify-center font-black text-2xl shadow-inner border-4 border-white overflow-hidden relative">
                 {leader.photoUrl ? (
-                  <img src={leader.photoUrl} alt={leader.name} className="w-full h-full object-cover" referrerPolicy="no-referrer" />
+                  <img 
+                    loading="lazy" 
+                    src={leader.photoUrl} 
+                    alt={`${leader.name} - ${leader.role} at Upscale Nova`} 
+                    width="96"
+                    height="96"
+                    className="w-full h-full object-cover" 
+                    referrerPolicy="no-referrer" 
+                  />
                 ) : (
                   <User className="w-12 h-12 text-indigo-500" />
                 )}

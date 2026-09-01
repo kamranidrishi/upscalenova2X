@@ -55,31 +55,31 @@ export const SchoolBaseDemo: React.FC<SchoolBaseDemoProps> = () => {
       title: 'Interactive Classrooms',
       category: 'Classroom',
       desc: 'Spacious, well-lit, and technology-enabled learning spaces for active student engagement.',
-      image: 'https://images.unsplash.com/photo-1580582932707-520aed937b7b?auto=format&fit=crop&w=800&q=80'
+      image: 'https://images.unsplash.com/photo-1580582932707-520aed937b7b?auto=format&fit=crop&w=800&q=75'
     },
     {
       title: 'Collaborative Learning',
       category: 'Students Studying',
       desc: 'Encouraging peer discussions, curiosity-driven inquiry, and academic discipline.',
-      image: 'https://images.unsplash.com/photo-1577896851231-70ef18881754?auto=format&fit=crop&w=800&q=80'
+      image: 'https://images.unsplash.com/photo-1577896851231-70ef18881754?auto=format&fit=crop&w=800&q=75'
     },
     {
       title: 'Science & Discovery',
       category: 'School Activity',
       desc: 'Hands-on practical experiments in modern physics, chemistry, and biology laboratories.',
-      image: 'https://images.unsplash.com/photo-1581093458791-9f3c3900df4b?auto=format&fit=crop&w=800&q=80'
+      image: 'https://images.unsplash.com/photo-1581093458791-9f3c3900df4b?auto=format&fit=crop&w=800&q=75'
     },
     {
       title: 'Sports & Athletics',
       category: 'Outdoor Activity',
       desc: 'Fostering physical fitness, leadership, and sportsmanship on sprawling playfields.',
-      image: 'https://images.unsplash.com/photo-1526676037777-05a232554f77?auto=format&fit=crop&w=800&q=80'
+      image: 'https://images.unsplash.com/photo-1526676037777-05a232554f77?auto=format&fit=crop&w=800&q=75'
     },
     {
       title: 'Library & Creative Arts',
       category: 'Library & Arts',
       desc: 'Quiet reading zones with extensive collections and vibrant visual arts studios.',
-      image: 'https://images.unsplash.com/photo-1521587760476-6c12a4b040da?auto=format&fit=crop&w=800&q=80'
+      image: 'https://images.unsplash.com/photo-1521587760476-6c12a4b040da?auto=format&fit=crop&w=800&q=75'
     }
   ];
 
@@ -88,32 +88,32 @@ export const SchoolBaseDemo: React.FC<SchoolBaseDemoProps> = () => {
     {
       title: 'Main Academic Campus',
       category: 'Campus Grounds',
-      image: 'https://images.unsplash.com/photo-1562774053-701939374585?auto=format&fit=crop&w=800&q=80'
+      image: 'https://images.unsplash.com/photo-1562774053-701939374585?auto=format&fit=crop&w=800&q=75'
     },
     {
       title: 'Science & Discovery Center',
       category: 'Laboratories',
-      image: 'https://images.unsplash.com/photo-1581093458791-9f3c3900df4b?auto=format&fit=crop&w=800&q=80'
+      image: 'https://images.unsplash.com/photo-1581093458791-9f3c3900df4b?auto=format&fit=crop&w=800&q=75'
     },
     {
       title: 'Athletics & Sports Ground',
       category: 'Sports & Fitness',
-      image: 'https://images.unsplash.com/photo-1526676037777-05a232554f77?auto=format&fit=crop&w=800&q=80'
+      image: 'https://images.unsplash.com/photo-1526676037777-05a232554f77?auto=format&fit=crop&w=800&q=75'
     },
     {
       title: 'Smart Computer Center',
       category: 'Technology',
-      image: 'https://images.unsplash.com/photo-1516321318423-f06f85e504b3?auto=format&fit=crop&w=800&q=80'
+      image: 'https://images.unsplash.com/photo-1516321318423-f06f85e504b3?auto=format&fit=crop&w=800&q=75'
     },
     {
       title: 'Creative Art & Studio Hall',
       category: 'Creative Arts',
-      image: 'https://images.unsplash.com/photo-1509062522246-3755977927d7?auto=format&fit=crop&w=800&q=80'
+      image: 'https://images.unsplash.com/photo-1509062522246-3755977927d7?auto=format&fit=crop&w=800&q=75'
     },
     {
       title: 'Central Library & Reading Hall',
       category: 'Resource Center',
-      image: 'https://images.unsplash.com/photo-1541829070764-84a7d30dd3f3?auto=format&fit=crop&w=800&q=80'
+      image: 'https://images.unsplash.com/photo-1541829070764-84a7d30dd3f3?auto=format&fit=crop&w=800&q=75'
     }
   ];
 
@@ -268,8 +268,8 @@ export const SchoolBaseDemo: React.FC<SchoolBaseDemoProps> = () => {
       <section id="hero" className="relative bg-[#0B1B3D] text-white overflow-hidden">
         {/* Realistic School Campus Background Image with dark overlay */}
         <div className="absolute inset-0 z-0">
-          <img 
-            src="https://images.unsplash.com/photo-1562774053-701939374585?auto=format&fit=crop&w=1800&q=80" 
+          <img loading="lazy" 
+            src="https://images.unsplash.com/photo-1562774053-701939374585?auto=format&fit=crop&w=1800&q=75" 
             alt="BrightFuture School Building"
             className="w-full h-full object-cover object-center opacity-30"
           />
@@ -362,7 +362,7 @@ export const SchoolBaseDemo: React.FC<SchoolBaseDemoProps> = () => {
                 }`}
               >
                 <div className={`overflow-hidden bg-slate-100 relative ${idx === 0 ? 'h-64 sm:h-72' : 'h-52 sm:h-56'}`}>
-                  <img 
+                  <img loading="lazy" 
                     src={item.image} 
                     alt={item.title}
                     className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" 
@@ -397,8 +397,8 @@ export const SchoolBaseDemo: React.FC<SchoolBaseDemoProps> = () => {
             {/* Image Column */}
             <div className="lg:col-span-6">
               <div className="relative rounded-lg overflow-hidden border border-slate-200 shadow-sm">
-                <img 
-                  src="https://images.unsplash.com/photo-1541829070764-84a7d30dd3f3?auto=format&fit=crop&w=1000&q=80" 
+                <img loading="lazy" 
+                  src="https://images.unsplash.com/photo-1541829070764-84a7d30dd3f3?auto=format&fit=crop&w=1000&q=75" 
                   alt="BrightFuture Central Academic Building"
                   className="w-full h-[360px] sm:h-[420px] object-cover"
                 />
@@ -505,7 +505,7 @@ export const SchoolBaseDemo: React.FC<SchoolBaseDemoProps> = () => {
                 className="group border border-slate-200 rounded-lg overflow-hidden bg-white shadow-xs hover:shadow-md transition-all cursor-pointer"
               >
                 <div className="aspect-[4/3] overflow-hidden relative bg-slate-100">
-                  <img 
+                  <img loading="lazy" 
                     src={photo.image} 
                     alt={photo.title}
                     className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
@@ -543,7 +543,7 @@ export const SchoolBaseDemo: React.FC<SchoolBaseDemoProps> = () => {
             >
               <X className="w-5 h-5" />
             </button>
-            <img src={selectedPhoto.image} alt={selectedPhoto.title} className="w-full max-h-[70vh] object-cover" />
+            <img loading="lazy" src={selectedPhoto.image} alt={selectedPhoto.title} className="w-full max-h-[70vh] object-cover" />
             <div className="p-4 bg-white">
               <span className="text-xs font-bold text-blue-700 uppercase tracking-wider">{selectedPhoto.category}</span>
               <h3 className="text-base font-bold text-[#0B1B3D]">{selectedPhoto.title}</h3>

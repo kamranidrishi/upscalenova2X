@@ -1,6 +1,6 @@
 export type PlanType = 'Base' | 'Pro' | 'Max';
-export type BusinessType = 'cafe' | 'restaurant' | 'real-estate' | 'gym' | 'law-firm' | 'marketing' | 'finance' | 'ai' | 'form' | 'school' | 'beauty';
-export type CategoryType = 'Café' | 'Restaurant' | 'Flat / Real Estate' | 'Gym' | 'Law Firm' | 'Marketing' | 'Finance' | 'AI / SaaS' | 'Services' | 'School' | 'Beauty Products';
+export type BusinessType = 'cafe' | 'restaurant' | 'real-estate' | 'gym' | 'law-firm' | 'marketing' | 'finance' | 'ai' | 'form' | 'school' | 'beauty' | 'fashion';
+export type CategoryType = 'Café' | 'Restaurant' | 'Flat / Real Estate' | 'Gym' | 'Law Firm' | 'Marketing' | 'Finance' | 'AI / SaaS' | 'Services' | 'School' | 'Beauty Products' | 'Fashion / Apparel';
 
 export interface DemoItem {
   id: string;
@@ -20,6 +20,7 @@ export interface DemoItem {
 }
 
 export const BUSINESS_TYPES: { type: BusinessType; label: CategoryType; name: string; icon: string }[] = [
+  { type: 'fashion', label: 'Fashion / Apparel', name: 'NOVA Fashion Storefront', icon: 'Shirt' },
   { type: 'cafe', label: 'Café', name: 'Nova Café & Roasters', icon: 'Coffee' },
   { type: 'restaurant', label: 'Restaurant', name: 'La Maison Gourmet Bistro', icon: 'Utensils' },
   { type: 'real-estate', label: 'Flat / Real Estate', name: 'Nova Heights Residences', icon: 'Building2' },
@@ -29,7 +30,7 @@ export const BUSINESS_TYPES: { type: BusinessType; label: CategoryType; name: st
   { type: 'finance', label: 'Finance', name: 'FinFlow Capital & SaaS', icon: 'PieChart' },
   { type: 'ai', label: 'AI / SaaS', name: 'Cognita AI Platform', icon: 'Zap' },
   { type: 'form', label: 'Services', name: 'Apex Home & Repair Pro', icon: 'Wrench' },
-  { type: 'beauty', label: 'Beauty Products', name: 'Aura Botanicals & Cosmetics', icon: 'Sparkles' }
+  { type: 'beauty', label: 'Beauty Products', name: 'Aura Botanicals – Beauty & Cosmetics', icon: 'Sparkles' }
 ];
 
 export const DEMO_DATA: DemoItem[] = [
@@ -48,12 +49,12 @@ export const DEMO_DATA: DemoItem[] = [
     isRealClient: true,
     clientName: 'Nova Café',
     themeColor: 'amber',
-    heroImage: 'https://images.unsplash.com/photo-1501339847302-ac426a4a7cbb?auto=format&fit=crop&w=1200&q=80',
+    heroImage: 'https://images.unsplash.com/photo-1501339847302-ac426a4a7cbb?auto=format&fit=crop&w=800&q=75',
     previewImages: [
-      'https://images.unsplash.com/photo-1501339847302-ac426a4a7cbb?auto=format&fit=crop&w=1200&q=80',
-      'https://images.unsplash.com/photo-1554118811-1e0d58224f24?auto=format&fit=crop&w=1200&q=80',
-      'https://images.unsplash.com/photo-1495474472287-4d71bcdd2085?auto=format&fit=crop&w=1200&q=80',
-      'https://images.unsplash.com/photo-1514432324607-a09d9b4aefdd?auto=format&fit=crop&w=1200&q=80'
+      'https://images.unsplash.com/photo-1501339847302-ac426a4a7cbb?auto=format&fit=crop&w=800&q=75',
+      'https://images.unsplash.com/photo-1554118811-1e0d58224f24?auto=format&fit=crop&w=800&q=75',
+      'https://images.unsplash.com/photo-1495474472287-4d71bcdd2085?auto=format&fit=crop&w=800&q=75',
+      'https://images.unsplash.com/photo-1514432324607-a09d9b4aefdd?auto=format&fit=crop&w=800&q=75'
     ],
     features: ['Smooth Rounded Aesthetic', '18+ Handcrafted Menu Items', 'Veg & Non-Veg Badges', 'Daily 8 AM - 11 PM Timings', 'Heritage Roastery Story', 'Direct Call Ordering']
   },
@@ -69,12 +70,12 @@ export const DEMO_DATA: DemoItem[] = [
     isRealClient: true,
     clientName: 'Nova Café',
     themeColor: 'amber',
-    heroImage: 'https://images.unsplash.com/photo-1554118811-1e0d58224f24?auto=format&fit=crop&w=1200&q=80',
+    heroImage: 'https://images.unsplash.com/photo-1554118811-1e0d58224f24?auto=format&fit=crop&w=800&q=75',
     previewImages: [
-      'https://images.unsplash.com/photo-1554118811-1e0d58224f24?auto=format&fit=crop&w=1200&q=80',
-      'https://images.unsplash.com/photo-1495474472287-4d71bcdd2085?auto=format&fit=crop&w=1200&q=80',
-      'https://images.unsplash.com/photo-1501339847302-ac426a4a7cbb?auto=format&fit=crop&w=1200&q=80',
-      'https://images.unsplash.com/photo-1447933601403-0c6688de566e?auto=format&fit=crop&w=1200&q=80'
+      'https://images.unsplash.com/photo-1554118811-1e0d58224f24?auto=format&fit=crop&w=800&q=75',
+      'https://images.unsplash.com/photo-1495474472287-4d71bcdd2085?auto=format&fit=crop&w=800&q=75',
+      'https://images.unsplash.com/photo-1501339847302-ac426a4a7cbb?auto=format&fit=crop&w=800&q=75',
+      'https://images.unsplash.com/photo-1447933601403-0c6688de566e?auto=format&fit=crop&w=800&q=75'
     ],
     features: ['Warm Beige & Coffee Palette', 'Top-Right Live Basket Button', 'Direct WhatsApp Ordering with Receipt', 'In-Basket Table & Extra Notes Input', 'Food Search & Category Filters', 'Customer Reviews & Social Media']
   },
@@ -90,12 +91,12 @@ export const DEMO_DATA: DemoItem[] = [
     isRealClient: true,
     clientName: 'Nova Café',
     themeColor: 'amber',
-    heroImage: 'https://images.unsplash.com/photo-1495474472287-4d71bcdd2085?auto=format&fit=crop&w=1200&q=80',
+    heroImage: 'https://images.unsplash.com/photo-1495474472287-4d71bcdd2085?auto=format&fit=crop&w=800&q=75',
     previewImages: [
-      'https://images.unsplash.com/photo-1495474472287-4d71bcdd2085?auto=format&fit=crop&w=1200&q=80',
-      'https://images.unsplash.com/photo-1501339847302-ac426a4a7cbb?auto=format&fit=crop&w=1200&q=80',
-      'https://images.unsplash.com/photo-1554118811-1e0d58224f24?auto=format&fit=crop&w=1200&q=80',
-      'https://images.unsplash.com/photo-1517256064527-09c73fc73e38?auto=format&fit=crop&w=1200&q=80'
+      'https://images.unsplash.com/photo-1495474472287-4d71bcdd2085?auto=format&fit=crop&w=800&q=75',
+      'https://images.unsplash.com/photo-1501339847302-ac426a4a7cbb?auto=format&fit=crop&w=800&q=75',
+      'https://images.unsplash.com/photo-1554118811-1e0d58224f24?auto=format&fit=crop&w=800&q=75',
+      'https://images.unsplash.com/photo-1517256064527-09c73fc73e38?auto=format&fit=crop&w=800&q=75'
     ],
     features: ['Interactive Food Touch FX (Salt/Cheese/Steam)', '3 Basket Options: Bill, Order & Payment', 'Simulated UPI (GPay/PhonePe/Paytm/BHIM)', 'Live Interactive Map & Apni Location Tracker', 'Embedded Nova AI Barista Assistant', 'Live Kitchen KDS & Sales Dashboard']
   },
@@ -114,12 +115,12 @@ export const DEMO_DATA: DemoItem[] = [
     description: 'Champagne cream luxury bistro website with 22+ artisan gourmet courses, chef highlights, location details, and direct phone reservation.',
     isRealClient: false,
     themeColor: 'rose',
-    heroImage: 'https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?auto=format&fit=crop&w=1200&q=80',
+    heroImage: 'https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?auto=format&fit=crop&w=800&q=75',
     previewImages: [
-      'https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?auto=format&fit=crop&w=1200&q=80',
-      'https://images.unsplash.com/photo-1550966871-3ed3cdb5ed0c?auto=format&fit=crop&w=1200&q=80',
-      'https://images.unsplash.com/photo-1544025162-d76694265947?auto=format&fit=crop&w=1200&q=80',
-      'https://images.unsplash.com/photo-1414235077428-338989a2e8c0?auto=format&fit=crop&w=1200&q=80'
+      'https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?auto=format&fit=crop&w=800&q=75',
+      'https://images.unsplash.com/photo-1550966871-3ed3cdb5ed0c?auto=format&fit=crop&w=800&q=75',
+      'https://images.unsplash.com/photo-1544025162-d76694265947?auto=format&fit=crop&w=800&q=75',
+      'https://images.unsplash.com/photo-1414235077428-338989a2e8c0?auto=format&fit=crop&w=800&q=75'
     ],
     features: ['22+ Curated Gourmet Food Items', 'French Champagne Cream Luxury Layout', 'Live Kitchen Stock Manager', 'Location & VIP Table Hotline']
   },
@@ -134,12 +135,12 @@ export const DEMO_DATA: DemoItem[] = [
     description: 'Bordeaux wine velvet luxury experience with 22+ gourmet dishes, vegetarian filters, 3 Basket Options (Bill/WhatsApp/UPI), and online table booking.',
     isRealClient: false,
     themeColor: 'rose',
-    heroImage: 'https://images.unsplash.com/photo-1550966871-3ed3cdb5ed0c?auto=format&fit=crop&w=1200&q=80',
+    heroImage: 'https://images.unsplash.com/photo-1550966871-3ed3cdb5ed0c?auto=format&fit=crop&w=800&q=75',
     previewImages: [
-      'https://images.unsplash.com/photo-1550966871-3ed3cdb5ed0c?auto=format&fit=crop&w=1200&q=80',
-      'https://images.unsplash.com/photo-1544025162-d76694265947?auto=format&fit=crop&w=1200&q=80',
-      'https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?auto=format&fit=crop&w=1200&q=80',
-      'https://images.unsplash.com/photo-1559339352-11d035aa65de?auto=format&fit=crop&w=1200&q=80'
+      'https://images.unsplash.com/photo-1550966871-3ed3cdb5ed0c?auto=format&fit=crop&w=800&q=75',
+      'https://images.unsplash.com/photo-1544025162-d76694265947?auto=format&fit=crop&w=800&q=75',
+      'https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?auto=format&fit=crop&w=800&q=75',
+      'https://images.unsplash.com/photo-1559339352-11d035aa65de?auto=format&fit=crop&w=800&q=75'
     ],
     features: ['22+ Gourmet Food & Beverage Items', 'Bordeaux Wine & Antique Gold Theme', '3 Basket Options (Bill, WhatsApp, UPI)', 'Instant Table Reservation Engine', 'Live Stock & Sold-Out Manager']
   },
@@ -154,12 +155,12 @@ export const DEMO_DATA: DemoItem[] = [
     description: 'Haute Gastronomy cyber-bordeaux platform with 22+ dishes, 3 Basket Options, Live Interactive Map & Apni Location distance tracking, Sommelier AI, and KDS screen.',
     isRealClient: false,
     themeColor: 'rose',
-    heroImage: 'https://images.unsplash.com/photo-1544025162-d76694265947?auto=format&fit=crop&w=1200&q=80',
+    heroImage: 'https://images.unsplash.com/photo-1544025162-d76694265947?auto=format&fit=crop&w=800&q=75',
     previewImages: [
-      'https://images.unsplash.com/photo-1544025162-d76694265947?auto=format&fit=crop&w=1200&q=80',
-      'https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?auto=format&fit=crop&w=1200&q=80',
-      'https://images.unsplash.com/photo-1550966871-3ed3cdb5ed0c?auto=format&fit=crop&w=1200&q=80',
-      'https://images.unsplash.com/photo-1555396273-367ea4eb4db5?auto=format&fit=crop&w=1200&q=80'
+      'https://images.unsplash.com/photo-1544025162-d76694265947?auto=format&fit=crop&w=800&q=75',
+      'https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?auto=format&fit=crop&w=800&q=75',
+      'https://images.unsplash.com/photo-1550966871-3ed3cdb5ed0c?auto=format&fit=crop&w=800&q=75',
+      'https://images.unsplash.com/photo-1555396273-367ea4eb4db5?auto=format&fit=crop&w=800&q=75'
     ],
     features: ['22+ Gourmet Food Items & Wine Pairings', '3 Basket Options (Bill, WhatsApp, UPI)', 'Live Interactive Map & Apni Location Tracker', 'Maison Sommelier AI Assistant', 'Live Kitchen KDS Chef Display']
   },
@@ -178,12 +179,12 @@ export const DEMO_DATA: DemoItem[] = [
     description: 'A professional website to showcase flats, apartments and residential projects with developer overview, BHK details, gallery, amenities, and WhatsApp inquiry.',
     isRealClient: false,
     themeColor: 'emerald',
-    heroImage: 'https://images.unsplash.com/photo-1545324418-cc1a3fa10c00?auto=format&fit=crop&w=1200&q=80',
+    heroImage: 'https://images.unsplash.com/photo-1545324418-cc1a3fa10c00?auto=format&fit=crop&w=800&q=75',
     previewImages: [
-      'https://images.unsplash.com/photo-1545324418-cc1a3fa10c00?auto=format&fit=crop&w=1200&q=80',
-      'https://images.unsplash.com/photo-1600585154340-be6161a56a0c?auto=format&fit=crop&w=1200&q=80',
-      'https://images.unsplash.com/photo-1600596542815-ffad4c1539a9?auto=format&fit=crop&w=1200&q=80',
-      'https://images.unsplash.com/photo-1600565193348-f74bd3c7ccdf?auto=format&fit=crop&w=1200&q=80'
+      'https://images.unsplash.com/photo-1545324418-cc1a3fa10c00?auto=format&fit=crop&w=800&q=75',
+      'https://images.unsplash.com/photo-1600585154340-be6161a56a0c?auto=format&fit=crop&w=800&q=75',
+      'https://images.unsplash.com/photo-1600596542815-ffad4c1539a9?auto=format&fit=crop&w=800&q=75',
+      'https://images.unsplash.com/photo-1600565193348-f74bd3c7ccdf?auto=format&fit=crop&w=800&q=75'
     ],
     features: ['Property Listings (2, 3 & 4 BHK)', 'BHK Details & Carpet Area', 'Amenities & Image Gallery', 'Location & Google Maps', 'Schedule Site Visit & WhatsApp Form']
   },
@@ -198,12 +199,12 @@ export const DEMO_DATA: DemoItem[] = [
     description: 'A complete property website with advanced BHK/price search, interactive 2D/3D floor plans, brochure downloads, appointment scheduler, and full leads CRM.',
     isRealClient: false,
     themeColor: 'emerald',
-    heroImage: 'https://images.unsplash.com/photo-1600585154340-be6161a56a0c?auto=format&fit=crop&w=1200&q=80',
+    heroImage: 'https://images.unsplash.com/photo-1600585154340-be6161a56a0c?auto=format&fit=crop&w=800&q=75',
     previewImages: [
-      'https://images.unsplash.com/photo-1600585154340-be6161a56a0c?auto=format&fit=crop&w=1200&q=80',
-      'https://images.unsplash.com/photo-1600596542815-ffad4c1539a9?auto=format&fit=crop&w=1200&q=80',
-      'https://images.unsplash.com/photo-1545324418-cc1a3fa10c00?auto=format&fit=crop&w=1200&q=80',
-      'https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?auto=format&fit=crop&w=1200&q=80'
+      'https://images.unsplash.com/photo-1600585154340-be6161a56a0c?auto=format&fit=crop&w=800&q=75',
+      'https://images.unsplash.com/photo-1600596542815-ffad4c1539a9?auto=format&fit=crop&w=800&q=75',
+      'https://images.unsplash.com/photo-1545324418-cc1a3fa10c00?auto=format&fit=crop&w=800&q=75',
+      'https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?auto=format&fit=crop&w=800&q=75'
     ],
     features: ['Advanced BHK & Price Search Filter', 'Interactive Floor Plans & Room Specs', 'Download Project PDF Brochure', 'Schedule Site Visit & Cab Pickup', 'Leads Management CRM & EMI Calculator']
   },
@@ -218,12 +219,12 @@ export const DEMO_DATA: DemoItem[] = [
     description: 'A complete AI-powered real estate platform for property discovery, 360° virtual tours, online token booking payments, customer portal, and AI property assistant.',
     isRealClient: false,
     themeColor: 'emerald',
-    heroImage: 'https://images.unsplash.com/photo-1600596542815-ffad4c1539a9?auto=format&fit=crop&w=1200&q=80',
+    heroImage: 'https://images.unsplash.com/photo-1600596542815-ffad4c1539a9?auto=format&fit=crop&w=800&q=75',
     previewImages: [
-      'https://images.unsplash.com/photo-1600596542815-ffad4c1539a9?auto=format&fit=crop&w=1200&q=80',
-      'https://images.unsplash.com/photo-1600585154340-be6161a56a0c?auto=format&fit=crop&w=1200&q=80',
-      'https://images.unsplash.com/photo-1545324418-cc1a3fa10c00?auto=format&fit=crop&w=1200&q=80',
-      'https://images.unsplash.com/photo-1600566753376-12c8ab7fb75b?auto=format&fit=crop&w=1200&q=80'
+      'https://images.unsplash.com/photo-1600596542815-ffad4c1539a9?auto=format&fit=crop&w=800&q=75',
+      'https://images.unsplash.com/photo-1600585154340-be6161a56a0c?auto=format&fit=crop&w=800&q=75',
+      'https://images.unsplash.com/photo-1545324418-cc1a3fa10c00?auto=format&fit=crop&w=800&q=75',
+      'https://images.unsplash.com/photo-1600566753376-12c8ab7fb75b?auto=format&fit=crop&w=800&q=75'
     ],
     features: ['Property Listings & BHK Search', 'Floor Plans & 360° Virtual Tour', 'Online Token Booking & Payment UI', 'Buyer & Sales Executive Dashboards', 'Leads CRM & AI Property Assistant']
   },
@@ -242,12 +243,12 @@ export const DEMO_DATA: DemoItem[] = [
     description: 'Professional gym website with Hero, About, 6 Training Programs, 4 Membership Tiers, Certified Coaches, Gallery, Testimonials & Free Trial Pass Form.',
     isRealClient: false,
     themeColor: 'blue',
-    heroImage: 'https://images.unsplash.com/photo-1534438327276-14e5300c3a48?auto=format&fit=crop&w=1200&q=80',
+    heroImage: 'https://images.unsplash.com/photo-1534438327276-14e5300c3a48?auto=format&fit=crop&w=800&q=75',
     previewImages: [
-      'https://images.unsplash.com/photo-1534438327276-14e5300c3a48?auto=format&fit=crop&w=1200&q=80',
-      'https://images.unsplash.com/photo-1581009146145-b5ef050c2e1e?auto=format&fit=crop&w=1200&q=80',
-      'https://images.unsplash.com/photo-1517838277536-f5f99be501cd?auto=format&fit=crop&w=1200&q=80',
-      'https://images.unsplash.com/photo-1574680096145-d05b474e2155?auto=format&fit=crop&w=1200&q=80'
+      'https://images.unsplash.com/photo-1534438327276-14e5300c3a48?auto=format&fit=crop&w=800&q=75',
+      'https://images.unsplash.com/photo-1581009146145-b5ef050c2e1e?auto=format&fit=crop&w=800&q=75',
+      'https://images.unsplash.com/photo-1517838277536-f5f99be501cd?auto=format&fit=crop&w=800&q=75',
+      'https://images.unsplash.com/photo-1574680096145-d05b474e2155?auto=format&fit=crop&w=800&q=75'
     ],
     features: ['Elite Training Programs Grid', 'Master Coaches Profiles', '4 Membership Tiers Matrix', '1-Day Free Trial Lead Form', 'Facility Gallery & Map']
   },
@@ -262,12 +263,12 @@ export const DEMO_DATA: DemoItem[] = [
     description: 'Member Portal with Digital QR Pass, 12-Day Workout Streak, Live Exercise Tracker with sets & reps, Attendance Calendar, Lead CRM & Online Payment UI.',
     isRealClient: false,
     themeColor: 'blue',
-    heroImage: 'https://images.unsplash.com/photo-1581009146145-b5ef050c2e1e?auto=format&fit=crop&w=1200&q=80',
+    heroImage: 'https://images.unsplash.com/photo-1581009146145-b5ef050c2e1e?auto=format&fit=crop&w=800&q=75',
     previewImages: [
-      'https://images.unsplash.com/photo-1581009146145-b5ef050c2e1e?auto=format&fit=crop&w=1200&q=80',
-      'https://images.unsplash.com/photo-1534438327276-14e5300c3a48?auto=format&fit=crop&w=1200&q=80',
-      'https://images.unsplash.com/photo-1517838277536-f5f99be501cd?auto=format&fit=crop&w=1200&q=80',
-      'https://images.unsplash.com/photo-1583454110551-21f2fa2afe61?auto=format&fit=crop&w=1200&q=80'
+      'https://images.unsplash.com/photo-1581009146145-b5ef050c2e1e?auto=format&fit=crop&w=800&q=75',
+      'https://images.unsplash.com/photo-1534438327276-14e5300c3a48?auto=format&fit=crop&w=800&q=75',
+      'https://images.unsplash.com/photo-1517838277536-f5f99be501cd?auto=format&fit=crop&w=800&q=75',
+      'https://images.unsplash.com/photo-1583454110551-21f2fa2afe61?auto=format&fit=crop&w=800&q=75'
     ],
     features: ['Member Login & Dashboard', 'Digital QR Membership Pass', 'Live Workout & Streak Tracker', 'Leads Management CRM', 'Simulated UPI Payment UI']
   },
@@ -282,12 +283,12 @@ export const DEMO_DATA: DemoItem[] = [
     description: 'Complete gym automation ecosystem: Executive Owner BI Dashboard, Multi-Role Access (Owner/Trainer/Member), Diet & Macro Meal Engine, Automated WhatsApp Flows & IronFit AI Coach.',
     isRealClient: false,
     themeColor: 'cyan',
-    heroImage: 'https://images.unsplash.com/photo-1517838277536-f5f99be501cd?auto=format&fit=crop&w=1200&q=80',
+    heroImage: 'https://images.unsplash.com/photo-1517838277536-f5f99be501cd?auto=format&fit=crop&w=800&q=75',
     previewImages: [
-      'https://images.unsplash.com/photo-1517838277536-f5f99be501cd?auto=format&fit=crop&w=1200&q=80',
-      'https://images.unsplash.com/photo-1534438327276-14e5300c3a48?auto=format&fit=crop&w=1200&q=80',
-      'https://images.unsplash.com/photo-1581009146145-b5ef050c2e1e?auto=format&fit=crop&w=1200&q=80',
-      'https://images.unsplash.com/photo-1540497077202-7c8a3999166f?auto=format&fit=crop&w=1200&q=80'
+      'https://images.unsplash.com/photo-1517838277536-f5f99be501cd?auto=format&fit=crop&w=800&q=75',
+      'https://images.unsplash.com/photo-1534438327276-14e5300c3a48?auto=format&fit=crop&w=800&q=75',
+      'https://images.unsplash.com/photo-1581009146145-b5ef050c2e1e?auto=format&fit=crop&w=800&q=75',
+      'https://images.unsplash.com/photo-1540497077202-7c8a3999166f?auto=format&fit=crop&w=800&q=75'
     ],
     features: ['Executive Owner BI Analytics', 'Multi-Role Access (Owner/Admin/PT)', 'Diet & Nutrition Meal Engine', 'IronFit AI Fitness Coach Assistant', 'Automated WhatsApp Workflow Center']
   },
@@ -306,12 +307,12 @@ export const DEMO_DATA: DemoItem[] = [
     description: 'Authoritative, elegant law firm website showcasing corporate, civil, and criminal practice areas, managing partner credentials, and quick consultation request.',
     isRealClient: false,
     themeColor: 'slate',
-    heroImage: 'https://images.unsplash.com/photo-1589829085413-56de8ae18c73?auto=format&fit=crop&w=1200&q=80',
+    heroImage: 'https://images.unsplash.com/photo-1589829085413-56de8ae18c73?auto=format&fit=crop&w=800&q=75',
     previewImages: [
-      'https://images.unsplash.com/photo-1589829085413-56de8ae18c73?auto=format&fit=crop&w=1200&q=80',
-      'https://images.unsplash.com/photo-1497366216548-37526070297c?auto=format&fit=crop&w=1200&q=80',
-      'https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?auto=format&fit=crop&w=1200&q=80',
-      'https://images.unsplash.com/photo-1450133064473-71024230f91b?auto=format&fit=crop&w=1200&q=80'
+      'https://images.unsplash.com/photo-1589829085413-56de8ae18c73?auto=format&fit=crop&w=800&q=75',
+      'https://images.unsplash.com/photo-1497366216548-37526070297c?auto=format&fit=crop&w=800&q=75',
+      'https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?auto=format&fit=crop&w=800&q=75',
+      'https://images.unsplash.com/photo-1450133064473-71024230f91b?auto=format&fit=crop&w=800&q=75'
     ],
     features: ['Practice Areas Showcase', 'Attorney Profile Cards', 'Confidential Consultation Form', 'Office Location & Emergency Line']
   },
@@ -326,12 +327,12 @@ export const DEMO_DATA: DemoItem[] = [
     description: 'Advanced legal platform with interactive practice filter, multi-attorney directory with education and bar admissions, landmark case settlements, and calendar appointment scheduler.',
     isRealClient: false,
     themeColor: 'slate',
-    heroImage: 'https://images.unsplash.com/photo-1497366216548-37526070297c?auto=format&fit=crop&w=1200&q=80',
+    heroImage: 'https://images.unsplash.com/photo-1497366216548-37526070297c?auto=format&fit=crop&w=800&q=75',
     previewImages: [
-      'https://images.unsplash.com/photo-1497366216548-37526070297c?auto=format&fit=crop&w=1200&q=80',
-      'https://images.unsplash.com/photo-1589829085413-56de8ae18c73?auto=format&fit=crop&w=1200&q=80',
-      'https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?auto=format&fit=crop&w=1200&q=80',
-      'https://images.unsplash.com/photo-1505664194779-8beaceb93744?auto=format&fit=crop&w=1200&q=80'
+      'https://images.unsplash.com/photo-1497366216548-37526070297c?auto=format&fit=crop&w=800&q=75',
+      'https://images.unsplash.com/photo-1589829085413-56de8ae18c73?auto=format&fit=crop&w=800&q=75',
+      'https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?auto=format&fit=crop&w=800&q=75',
+      'https://images.unsplash.com/photo-1505664194779-8beaceb93744?auto=format&fit=crop&w=800&q=75'
     ],
     features: ['Practice Area Deep-Dives', 'Attorney Directory with Credentials', 'Verified Case Verdicts & Settlements', 'Interactive Consultation Booking', 'Client Testimonial Vault']
   },
@@ -346,12 +347,12 @@ export const DEMO_DATA: DemoItem[] = [
     description: 'Enterprise legal management system: Client Case Tracker with document vault & court date milestones, paired with Law Partner Lead CRM with conflict check automation.',
     isRealClient: false,
     themeColor: 'slate',
-    heroImage: 'https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?auto=format&fit=crop&w=1200&q=80',
+    heroImage: 'https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?auto=format&fit=crop&w=800&q=75',
     previewImages: [
-      'https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?auto=format&fit=crop&w=1200&q=80',
-      'https://images.unsplash.com/photo-1589829085413-56de8ae18c73?auto=format&fit=crop&w=1200&q=80',
-      'https://images.unsplash.com/photo-1497366216548-37526070297c?auto=format&fit=crop&w=1200&q=80',
-      'https://images.unsplash.com/photo-1521791136064-7986c2920216?auto=format&fit=crop&w=1200&q=80'
+      'https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?auto=format&fit=crop&w=800&q=75',
+      'https://images.unsplash.com/photo-1589829085413-56de8ae18c73?auto=format&fit=crop&w=800&q=75',
+      'https://images.unsplash.com/photo-1497366216548-37526070297c?auto=format&fit=crop&w=800&q=75',
+      'https://images.unsplash.com/photo-1521791136064-7986c2920216?auto=format&fit=crop&w=800&q=75'
     ],
     features: ['Secure Client Case Tracker', 'Document Vault & Hearing Timeline', 'Automated Conflict Check Workflow', 'Partner Intake Pipeline CRM', 'Retainer & Invoicing Status']
   },
@@ -371,12 +372,12 @@ export const DEMO_DATA: DemoItem[] = [
     isRealClient: true,
     clientName: 'Nova Studio',
     themeColor: 'indigo',
-    heroImage: 'https://images.unsplash.com/photo-1460925895917-afdab827c52f?auto=format&fit=crop&w=1200&q=80',
+    heroImage: 'https://images.unsplash.com/photo-1460925895917-afdab827c52f?auto=format&fit=crop&w=800&q=75',
     previewImages: [
-      'https://images.unsplash.com/photo-1460925895917-afdab827c52f?auto=format&fit=crop&w=1200&q=80',
-      'https://images.unsplash.com/photo-1557804506-669a67965ba0?auto=format&fit=crop&w=1200&q=80',
-      'https://images.unsplash.com/photo-1522071820081-009f0129c71c?auto=format&fit=crop&w=1200&q=80',
-      'https://images.unsplash.com/photo-1531403009284-440f080d1e12?auto=format&fit=crop&w=1200&q=80'
+      'https://images.unsplash.com/photo-1460925895917-afdab827c52f?auto=format&fit=crop&w=800&q=75',
+      'https://images.unsplash.com/photo-1557804506-669a67965ba0?auto=format&fit=crop&w=800&q=75',
+      'https://images.unsplash.com/photo-1522071820081-009f0129c71c?auto=format&fit=crop&w=800&q=75',
+      'https://images.unsplash.com/photo-1531403009284-440f080d1e12?auto=format&fit=crop&w=800&q=75'
     ],
     features: ['Services Grid', 'Featured Project Cards', 'Client Testimonials', 'Project Scope Form']
   },
@@ -392,12 +393,12 @@ export const DEMO_DATA: DemoItem[] = [
     isRealClient: true,
     clientName: 'Nova Studio',
     themeColor: 'indigo',
-    heroImage: 'https://images.unsplash.com/photo-1557804506-669a67965ba0?auto=format&fit=crop&w=1200&q=80',
+    heroImage: 'https://images.unsplash.com/photo-1557804506-669a67965ba0?auto=format&fit=crop&w=800&q=75',
     previewImages: [
-      'https://images.unsplash.com/photo-1557804506-669a67965ba0?auto=format&fit=crop&w=1200&q=80',
-      'https://images.unsplash.com/photo-1460925895917-afdab827c52f?auto=format&fit=crop&w=1200&q=80',
-      'https://images.unsplash.com/photo-1522071820081-009f0129c71c?auto=format&fit=crop&w=1200&q=80',
-      'https://images.unsplash.com/photo-1552664730-d307ca884978?auto=format&fit=crop&w=1200&q=80'
+      'https://images.unsplash.com/photo-1557804506-669a67965ba0?auto=format&fit=crop&w=800&q=75',
+      'https://images.unsplash.com/photo-1460925895917-afdab827c52f?auto=format&fit=crop&w=800&q=75',
+      'https://images.unsplash.com/photo-1522071820081-009f0129c71c?auto=format&fit=crop&w=800&q=75',
+      'https://images.unsplash.com/photo-1552664730-d307ca884978?auto=format&fit=crop&w=800&q=75'
     ],
     features: ['Filterable Portfolio Showcase', 'In-Depth Case Study Drawers', 'Interactive Budget & ROI Calculator', 'Client Logos & Video Reviews', 'Our 4-Step Agile Process']
   },
@@ -413,12 +414,12 @@ export const DEMO_DATA: DemoItem[] = [
     isRealClient: true,
     clientName: 'Nova Studio',
     themeColor: 'indigo',
-    heroImage: 'https://images.unsplash.com/photo-1522071820081-009f0129c71c?auto=format&fit=crop&w=1200&q=80',
+    heroImage: 'https://images.unsplash.com/photo-1522071820081-009f0129c71c?auto=format&fit=crop&w=800&q=75',
     previewImages: [
-      'https://images.unsplash.com/photo-1522071820081-009f0129c71c?auto=format&fit=crop&w=1200&q=80',
-      'https://images.unsplash.com/photo-1557804506-669a67965ba0?auto=format&fit=crop&w=1200&q=80',
-      'https://images.unsplash.com/photo-1460925895917-afdab827c52f?auto=format&fit=crop&w=1200&q=80',
-      'https://images.unsplash.com/photo-1553877522-43269d4ea984?auto=format&fit=crop&w=1200&q=80'
+      'https://images.unsplash.com/photo-1522071820081-009f0129c71c?auto=format&fit=crop&w=800&q=75',
+      'https://images.unsplash.com/photo-1557804506-669a67965ba0?auto=format&fit=crop&w=800&q=75',
+      'https://images.unsplash.com/photo-1460925895917-afdab827c52f?auto=format&fit=crop&w=800&q=75',
+      'https://images.unsplash.com/photo-1553877522-43269d4ea984?auto=format&fit=crop&w=800&q=75'
     ],
     features: ['Client Live Campaign Analytics', 'Real-time ROAS & Spend Charts', 'Agency Deal Flow Kanban CRM', 'Automated Onboarding Workflow', 'A/B Creative Testing Matrix']
   },
@@ -437,12 +438,12 @@ export const DEMO_DATA: DemoItem[] = [
     description: 'Sleek financial web application interface featuring live account balance, recent transactions feed, income/expense breakdown, and quick transfer trigger.',
     isRealClient: false,
     themeColor: 'blue',
-    heroImage: 'https://images.unsplash.com/photo-1551288049-bebda4e38f71?auto=format&fit=crop&w=1200&q=80',
+    heroImage: 'https://images.unsplash.com/photo-1551288049-bebda4e38f71?auto=format&fit=crop&w=800&q=75',
     previewImages: [
-      'https://images.unsplash.com/photo-1551288049-bebda4e38f71?auto=format&fit=crop&w=1200&q=80',
-      'https://images.unsplash.com/photo-1563986768609-322da13575f3?auto=format&fit=crop&w=1200&q=80',
-      'https://images.unsplash.com/photo-1611974789855-9c2a0a7236a3?auto=format&fit=crop&w=1200&q=80',
-      'https://images.unsplash.com/photo-1460925895917-afdab827c52f?auto=format&fit=crop&w=1200&q=80'
+      'https://images.unsplash.com/photo-1551288049-bebda4e38f71?auto=format&fit=crop&w=800&q=75',
+      'https://images.unsplash.com/photo-1563986768609-322da13575f3?auto=format&fit=crop&w=800&q=75',
+      'https://images.unsplash.com/photo-1611974789855-9c2a0a7236a3?auto=format&fit=crop&w=800&q=75',
+      'https://images.unsplash.com/photo-1460925895917-afdab827c52f?auto=format&fit=crop&w=800&q=75'
     ],
     features: ['Total Balance Overview', 'Recent Transactions Log', 'Monthly Income/Expense Tracker', 'Clean Web Dashboard Layout']
   },
@@ -457,12 +458,12 @@ export const DEMO_DATA: DemoItem[] = [
     description: 'Comprehensive financial dashboard with multi-account switching (Business, Checking, Crypto), interactive cash flow charts (Weekly/Monthly), virtual card controls, and Send Money demo.',
     isRealClient: false,
     themeColor: 'blue',
-    heroImage: 'https://images.unsplash.com/photo-1563986768609-322da13575f3?auto=format&fit=crop&w=1200&q=80',
+    heroImage: 'https://images.unsplash.com/photo-1563986768609-322da13575f3?auto=format&fit=crop&w=800&q=75',
     previewImages: [
-      'https://images.unsplash.com/photo-1563986768609-322da13575f3?auto=format&fit=crop&w=1200&q=80',
-      'https://images.unsplash.com/photo-1551288049-bebda4e38f71?auto=format&fit=crop&w=1200&q=80',
-      'https://images.unsplash.com/photo-1611974789855-9c2a0a7236a3?auto=format&fit=crop&w=1200&q=80',
-      'https://images.unsplash.com/photo-1559526324-4b87b5e36e44?auto=format&fit=crop&w=1200&q=80'
+      'https://images.unsplash.com/photo-1563986768609-322da13575f3?auto=format&fit=crop&w=800&q=75',
+      'https://images.unsplash.com/photo-1551288049-bebda4e38f71?auto=format&fit=crop&w=800&q=75',
+      'https://images.unsplash.com/photo-1611974789855-9c2a0a7236a3?auto=format&fit=crop&w=800&q=75',
+      'https://images.unsplash.com/photo-1559526324-4b87b5e36e44?auto=format&fit=crop&w=800&q=75'
     ],
     features: ['Multi-Account Switcher', 'Interactive Cash Flow Charts', 'Virtual Cards & Limit Sliders', 'Send Money Simulated Modal', 'Expense Categorization Graph']
   },
@@ -477,12 +478,12 @@ export const DEMO_DATA: DemoItem[] = [
     description: 'Advanced financial terminal with asset allocation pie charts, live stock/crypto watchlists, automated round-up savings rules builder, and one-click invoice generator.',
     isRealClient: false,
     themeColor: 'blue',
-    heroImage: 'https://images.unsplash.com/photo-1611974789855-9c2a0a7236a3?auto=format&fit=crop&w=1200&q=80',
+    heroImage: 'https://images.unsplash.com/photo-1611974789855-9c2a0a7236a3?auto=format&fit=crop&w=800&q=75',
     previewImages: [
-      'https://images.unsplash.com/photo-1611974789855-9c2a0a7236a3?auto=format&fit=crop&w=1200&q=80',
-      'https://images.unsplash.com/photo-1563986768609-322da13575f3?auto=format&fit=crop&w=1200&q=80',
-      'https://images.unsplash.com/photo-1551288049-bebda4e38f71?auto=format&fit=crop&w=1200&q=80',
-      'https://images.unsplash.com/photo-1590283603385-17ffb3a7f29f?auto=format&fit=crop&w=1200&q=80'
+      'https://images.unsplash.com/photo-1611974789855-9c2a0a7236a3?auto=format&fit=crop&w=800&q=75',
+      'https://images.unsplash.com/photo-1563986768609-322da13575f3?auto=format&fit=crop&w=800&q=75',
+      'https://images.unsplash.com/photo-1551288049-bebda4e38f71?auto=format&fit=crop&w=800&q=75',
+      'https://images.unsplash.com/photo-1590283603385-17ffb3a7f29f?auto=format&fit=crop&w=800&q=75'
     ],
     features: ['Investment Portfolio Terminal', 'Realtime Asset Allocation', 'Automated Recurring Rules Engine', 'Instant Invoicing & Payroll UI', 'AI Fraud Alert Anomaly Tracker']
   },
@@ -501,12 +502,12 @@ export const DEMO_DATA: DemoItem[] = [
     description: 'Modern AI SaaS product landing page with live prompt teaser, model capabilities breakdown, integration badges, and early access signup.',
     isRealClient: false,
     themeColor: 'violet',
-    heroImage: 'https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?auto=format&fit=crop&w=1200&q=80',
+    heroImage: 'https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?auto=format&fit=crop&w=800&q=75',
     previewImages: [
-      'https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?auto=format&fit=crop&w=1200&q=80',
-      'https://images.unsplash.com/photo-1620712943543-bcc4688e7485?auto=format&fit=crop&w=1200&q=80',
-      'https://images.unsplash.com/photo-1639762681485-074b7f938ba0?auto=format&fit=crop&w=1200&q=80',
-      'https://images.unsplash.com/photo-1677442136019-21780ecad995?auto=format&fit=crop&w=1200&q=80'
+      'https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?auto=format&fit=crop&w=800&q=75',
+      'https://images.unsplash.com/photo-1620712943543-bcc4688e7485?auto=format&fit=crop&w=800&q=75',
+      'https://images.unsplash.com/photo-1639762681485-074b7f938ba0?auto=format&fit=crop&w=800&q=75',
+      'https://images.unsplash.com/photo-1677442136019-21780ecad995?auto=format&fit=crop&w=800&q=75'
     ],
     features: ['AI Model Capabilities Grid', 'Interactive Prompt Preview', 'Enterprise Integrations List', 'Waitlist & Pricing CTA']
   },
@@ -521,12 +522,12 @@ export const DEMO_DATA: DemoItem[] = [
     description: 'Fully interactive AI web workspace with live prompt input, simulated generative response, model selector (GPT-4o, Claude 3.5, Gemini Pro), prompt templates, and chat history.',
     isRealClient: false,
     themeColor: 'violet',
-    heroImage: 'https://images.unsplash.com/photo-1620712943543-bcc4688e7485?auto=format&fit=crop&w=1200&q=80',
+    heroImage: 'https://images.unsplash.com/photo-1620712943543-bcc4688e7485?auto=format&fit=crop&w=800&q=75',
     previewImages: [
-      'https://images.unsplash.com/photo-1620712943543-bcc4688e7485?auto=format&fit=crop&w=1200&q=80',
-      'https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?auto=format&fit=crop&w=1200&q=80',
-      'https://images.unsplash.com/photo-1639762681485-074b7f938ba0?auto=format&fit=crop&w=1200&q=80',
-      'https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?auto=format&fit=crop&w=1200&q=80'
+      'https://images.unsplash.com/photo-1620712943543-bcc4688e7485?auto=format&fit=crop&w=800&q=75',
+      'https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?auto=format&fit=crop&w=800&q=75',
+      'https://images.unsplash.com/photo-1639762681485-074b7f938ba0?auto=format&fit=crop&w=800&q=75',
+      'https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?auto=format&fit=crop&w=800&q=75'
     ],
     features: ['Interactive Chat Playground', 'Multi-Model Switcher', 'Pre-Built Prompt Library', 'Live Markdown & Code Formatter', 'Chat History Management']
   },
@@ -541,12 +542,12 @@ export const DEMO_DATA: DemoItem[] = [
     description: 'Enterprise AI suite: Real-time Token Usage & Latency telemetry monitor, API key management with rate-limiting controls, and visual Drag-and-Drop Autonomous Agent workflow builder.',
     isRealClient: false,
     themeColor: 'violet',
-    heroImage: 'https://images.unsplash.com/photo-1639762681485-074b7f938ba0?auto=format&fit=crop&w=1200&q=80',
+    heroImage: 'https://images.unsplash.com/photo-1639762681485-074b7f938ba0?auto=format&fit=crop&w=800&q=75',
     previewImages: [
-      'https://images.unsplash.com/photo-1639762681485-074b7f938ba0?auto=format&fit=crop&w=1200&q=80',
-      'https://images.unsplash.com/photo-1620712943543-bcc4688e7485?auto=format&fit=crop&w=1200&q=80',
-      'https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?auto=format&fit=crop&w=1200&q=80',
-      'https://images.unsplash.com/photo-1676299081847-824916de030a?auto=format&fit=crop&w=1200&q=80'
+      'https://images.unsplash.com/photo-1639762681485-074b7f938ba0?auto=format&fit=crop&w=800&q=75',
+      'https://images.unsplash.com/photo-1620712943543-bcc4688e7485?auto=format&fit=crop&w=800&q=75',
+      'https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?auto=format&fit=crop&w=800&q=75',
+      'https://images.unsplash.com/photo-1676299081847-824916de030a?auto=format&fit=crop&w=800&q=75'
     ],
     features: ['Token Usage & Latency Telemetry', 'API Key & Rate Limit Controls', 'Autonomous Agent Workflow Canvas', 'Fine-Tuning Dataset Manager', 'Enterprise Security & Audit Logs']
   },
@@ -566,12 +567,12 @@ export const DEMO_DATA: DemoItem[] = [
     isRealClient: true,
     clientName: 'Apex Services',
     themeColor: 'emerald',
-    heroImage: 'https://images.unsplash.com/photo-1581578731548-c64695cc6952?auto=format&fit=crop&w=1200&q=80',
+    heroImage: 'https://images.unsplash.com/photo-1581578731548-c64695cc6952?auto=format&fit=crop&w=800&q=75',
     previewImages: [
-      'https://images.unsplash.com/photo-1581578731548-c64695cc6952?auto=format&fit=crop&w=1200&q=80',
-      'https://images.unsplash.com/photo-1621905251189-08b45d6a269e?auto=format&fit=crop&w=1200&q=80',
-      'https://images.unsplash.com/photo-1504307651254-35680f356dfd?auto=format&fit=crop&w=1200&q=80',
-      'https://images.unsplash.com/photo-1581092160607-ee22621dd758?auto=format&fit=crop&w=1200&q=80'
+      'https://images.unsplash.com/photo-1581578731548-c64695cc6952?auto=format&fit=crop&w=800&q=75',
+      'https://images.unsplash.com/photo-1621905251189-08b45d6a269e?auto=format&fit=crop&w=800&q=75',
+      'https://images.unsplash.com/photo-1504307651254-35680f356dfd?auto=format&fit=crop&w=800&q=75',
+      'https://images.unsplash.com/photo-1581092160607-ee22621dd758?auto=format&fit=crop&w=800&q=75'
     ],
     features: ['24/7 Emergency Call CTA', 'Service Offerings Grid', 'Instant Quote Request Form', 'Customer Trust Badges']
   },
@@ -587,12 +588,12 @@ export const DEMO_DATA: DemoItem[] = [
     isRealClient: true,
     clientName: 'Apex Services',
     themeColor: 'emerald',
-    heroImage: 'https://images.unsplash.com/photo-1621905251189-08b45d6a269e?auto=format&fit=crop&w=1200&q=80',
+    heroImage: 'https://images.unsplash.com/photo-1621905251189-08b45d6a269e?auto=format&fit=crop&w=800&q=75',
     previewImages: [
-      'https://images.unsplash.com/photo-1621905251189-08b45d6a269e?auto=format&fit=crop&w=1200&q=80',
-      'https://images.unsplash.com/photo-1581578731548-c64695cc6952?auto=format&fit=crop&w=1200&q=80',
-      'https://images.unsplash.com/photo-1504307651254-35680f356dfd?auto=format&fit=crop&w=1200&q=80',
-      'https://images.unsplash.com/photo-1581092335397-9583fe92d232?auto=format&fit=crop&w=1200&q=80'
+      'https://images.unsplash.com/photo-1621905251189-08b45d6a269e?auto=format&fit=crop&w=800&q=75',
+      'https://images.unsplash.com/photo-1581578731548-c64695cc6952?auto=format&fit=crop&w=800&q=75',
+      'https://images.unsplash.com/photo-1504307651254-35680f356dfd?auto=format&fit=crop&w=800&q=75',
+      'https://images.unsplash.com/photo-1581092335397-9583fe92d232?auto=format&fit=crop&w=800&q=75'
     ],
     features: ['Multi-Step Cost Estimator', 'Zip Code Service Checker', 'Technician Credentials & Badges', 'Verified Homeowner Reviews', 'Emergency Dispatch System']
   },
@@ -608,12 +609,12 @@ export const DEMO_DATA: DemoItem[] = [
     isRealClient: true,
     clientName: 'Apex Services',
     themeColor: 'emerald',
-    heroImage: 'https://images.unsplash.com/photo-1504307651254-35680f356dfd?auto=format&fit=crop&w=1200&q=80',
+    heroImage: 'https://images.unsplash.com/photo-1504307651254-35680f356dfd?auto=format&fit=crop&w=800&q=75',
     previewImages: [
-      'https://images.unsplash.com/photo-1504307651254-35680f356dfd?auto=format&fit=crop&w=1200&q=80',
-      'https://images.unsplash.com/photo-1621905251189-08b45d6a269e?auto=format&fit=crop&w=1200&q=80',
-      'https://images.unsplash.com/photo-1581578731548-c64695cc6952?auto=format&fit=crop&w=1200&q=80',
-      'https://images.unsplash.com/photo-1581092580497-e0d23cbdf1dc?auto=format&fit=crop&w=1200&q=80'
+      'https://images.unsplash.com/photo-1504307651254-35680f356dfd?auto=format&fit=crop&w=800&q=75',
+      'https://images.unsplash.com/photo-1621905251189-08b45d6a269e?auto=format&fit=crop&w=800&q=75',
+      'https://images.unsplash.com/photo-1581578731548-c64695cc6952?auto=format&fit=crop&w=800&q=75',
+      'https://images.unsplash.com/photo-1581092580497-e0d23cbdf1dc?auto=format&fit=crop&w=800&q=75'
     ],
     features: ['Technician Live GPS Tracker', 'Customer Real-Time ETA Status', 'Dispatcher Job Dispatch Board', 'Automated Invoice & SMS Dispatch', 'Fleet Telematics & Revenue CRM']
   },
@@ -631,12 +632,12 @@ export const DEMO_DATA: DemoItem[] = [
     description: 'A professional school website tailored for the Nova Base plan. Includes up to 5 responsive pages, WhatsApp integration, basic contact form, courses info, basic gallery, and basic SEO. (Domain & Hosting: Not Free)',
     isRealClient: false,
     themeColor: 'blue',
-    heroImage: 'https://images.unsplash.com/photo-1562774053-701939374585?auto=format&fit=crop&w=1200&q=80',
+    heroImage: 'https://images.unsplash.com/photo-1562774053-701939374585?auto=format&fit=crop&w=800&q=75',
     previewImages: [
-      'https://images.unsplash.com/photo-1562774053-701939374585?auto=format&fit=crop&w=1200&q=80',
-      'https://images.unsplash.com/photo-1580582932707-520aed937b7b?auto=format&fit=crop&w=1200&q=80',
-      'https://images.unsplash.com/photo-1541829070764-84a7d30dd3f3?auto=format&fit=crop&w=1200&q=80',
-      'https://images.unsplash.com/photo-1509062522246-3755977927d7?auto=format&fit=crop&w=1200&q=80'
+      'https://images.unsplash.com/photo-1562774053-701939374585?auto=format&fit=crop&w=800&q=75',
+      'https://images.unsplash.com/photo-1580582932707-520aed937b7b?auto=format&fit=crop&w=800&q=75',
+      'https://images.unsplash.com/photo-1541829070764-84a7d30dd3f3?auto=format&fit=crop&w=800&q=75',
+      'https://images.unsplash.com/photo-1509062522246-3755977927d7?auto=format&fit=crop&w=800&q=75'
     ],
     features: ['Up to 5 pages', 'Responsive design', 'WhatsApp integration', 'Basic enquiry form', 'Basic SEO', 'Domain/Hosting: Not Free']
   },
@@ -651,12 +652,12 @@ export const DEMO_DATA: DemoItem[] = [
     description: 'Upgraded school presence tailored for the Nova Pro plan. Features up to 10 pages, custom UI/UX, advanced admission forms, events & notice board, analytics, basic backend, and technical SEO. (Domain & Hosting: Free)',
     isRealClient: false,
     themeColor: 'indigo',
-    heroImage: 'https://images.unsplash.com/photo-1541829070764-84a7d30dd3f3?auto=format&fit=crop&w=1200&q=80',
+    heroImage: 'https://images.unsplash.com/photo-1541829070764-84a7d30dd3f3?auto=format&fit=crop&w=800&q=75',
     previewImages: [
-      'https://images.unsplash.com/photo-1541829070764-84a7d30dd3f3?auto=format&fit=crop&w=1200&q=80',
-      'https://images.unsplash.com/photo-1523050854058-8df90110c9f1?auto=format&fit=crop&w=1200&q=80',
-      'https://images.unsplash.com/photo-1509062522246-3755977927d7?auto=format&fit=crop&w=1200&q=80',
-      'https://images.unsplash.com/photo-1427504494785-3a9ca7044f45?auto=format&fit=crop&w=1200&q=80'
+      'https://images.unsplash.com/photo-1541829070764-84a7d30dd3f3?auto=format&fit=crop&w=800&q=75',
+      'https://images.unsplash.com/photo-1523050854058-8df90110c9f1?auto=format&fit=crop&w=800&q=75',
+      'https://images.unsplash.com/photo-1509062522246-3755977927d7?auto=format&fit=crop&w=800&q=75',
+      'https://images.unsplash.com/photo-1427504494785-3a9ca7044f45?auto=format&fit=crop&w=800&q=75'
     ],
     features: ['Up to 10 pages', 'Custom UI/UX', 'Advanced admission form', 'Events & Notice Board', 'Analytics & Basic Backend', 'Domain/Hosting: Free']
   },
@@ -671,75 +672,142 @@ export const DEMO_DATA: DemoItem[] = [
     description: 'The ultimate digital school ecosystem tailored for the Nova Max plan. Includes up to 15 pages, advanced custom UI, student/parent portals, faculty management, online admissions, database, and advanced SEO. (Domain & Hosting: Free)',
     isRealClient: false,
     themeColor: 'slate',
-    heroImage: 'https://images.unsplash.com/photo-1509062522246-3755977927d7?auto=format&fit=crop&w=1200&q=80',
+    heroImage: 'https://images.unsplash.com/photo-1509062522246-3755977927d7?auto=format&fit=crop&w=800&q=75',
     previewImages: [
-      'https://images.unsplash.com/photo-1509062522246-3755977927d7?auto=format&fit=crop&w=1200&q=80',
-      'https://images.unsplash.com/photo-1541829070764-84a7d30dd3f3?auto=format&fit=crop&w=1200&q=80',
-      'https://images.unsplash.com/photo-1523050854058-8df90110c9f1?auto=format&fit=crop&w=1200&q=80',
-      'https://images.unsplash.com/photo-1577896851231-70ef18881754?auto=format&fit=crop&w=1200&q=80'
+      'https://images.unsplash.com/photo-1509062522246-3755977927d7?auto=format&fit=crop&w=800&q=75',
+      'https://images.unsplash.com/photo-1541829070764-84a7d30dd3f3?auto=format&fit=crop&w=800&q=75',
+      'https://images.unsplash.com/photo-1523050854058-8df90110c9f1?auto=format&fit=crop&w=800&q=75',
+      'https://images.unsplash.com/photo-1577896851231-70ef18881754?auto=format&fit=crop&w=800&q=75'
     ],
     features: ['Up to 15 pages', 'Student & Parent Portal', 'Advanced online admission', 'Database & Backend', 'Advanced SEO', 'Domain/Hosting: Free']
   },
 
   // -------------------------------------------------------------
-  // BEAUTY PRODUCTS (Aura Botanicals & Cosmetics)
+  // BEAUTY PRODUCTS (Aura Botanicals – Beauty & Cosmetics)
   // -------------------------------------------------------------
   {
     id: 'beauty-base',
     businessId: 'beauty',
-    title: 'Aura Botanicals',
+    title: 'Aura Botanicals – Beauty & Cosmetics',
     category: 'Beauty Products',
     plan: 'Base',
     businessType: 'beauty',
     tagline: 'Clean Biocompatible Skincare & Botanicals',
     description: 'Clean and elegant beauty & cosmetics landing website with botanical ingredient spotlights, curated product showcase, and direct inquiry booking.',
     isRealClient: false,
+    clientName: 'Aura Botanicals – Beauty & Cosmetics',
     themeColor: 'rose',
-    heroImage: 'https://images.unsplash.com/photo-1598440947619-2c35fc9aa908?auto=format&fit=crop&w=1200&q=80',
+    heroImage: 'https://images.unsplash.com/photo-1598440947619-2c35fc9aa908?auto=format&fit=crop&w=800&q=75',
     previewImages: [
-      'https://images.unsplash.com/photo-1598440947619-2c35fc9aa908?auto=format&fit=crop&w=1200&q=80',
-      'https://images.unsplash.com/photo-1620916566398-39f1143ab7be?auto=format&fit=crop&w=1200&q=80',
-      'https://images.unsplash.com/photo-1571781926291-c477ebfd024b?auto=format&fit=crop&w=1200&q=80'
+      'https://images.unsplash.com/photo-1598440947619-2c35fc9aa908?auto=format&fit=crop&w=800&q=75',
+      'https://images.unsplash.com/photo-1620916566398-39f1143ab7be?auto=format&fit=crop&w=800&q=75',
+      'https://images.unsplash.com/photo-1571781926291-c477ebfd024b?auto=format&fit=crop&w=800&q=75'
     ],
     features: ['Single Page / Up to 4 sections', 'Responsive Beauty Showcase', 'Direct WhatsApp & Inquiry Form', 'Ingredient Transparency Cards', 'Domain/Hosting: Free']
   },
   {
     id: 'beauty-pro',
     businessId: 'beauty',
-    title: 'Aura Botanicals',
+    title: 'Aura Botanicals – Beauty & Cosmetics',
     category: 'Beauty Products',
     plan: 'Pro',
     businessType: 'beauty',
     tagline: 'Luxury Clean Cosmetics & Interactive Storefront',
     description: 'Advanced cosmetics storefront featuring category filtering, live product search, interactive bag drawer, and quick product view modals.',
     isRealClient: false,
+    clientName: 'Aura Botanicals – Beauty & Cosmetics',
     themeColor: 'rose',
-    heroImage: 'https://images.unsplash.com/photo-1620916566398-39f1143ab7be?auto=format&fit=crop&w=1200&q=80',
+    heroImage: 'https://images.unsplash.com/photo-1620916566398-39f1143ab7be?auto=format&fit=crop&w=800&q=75',
     previewImages: [
-      'https://images.unsplash.com/photo-1620916566398-39f1143ab7be?auto=format&fit=crop&w=1200&q=80',
-      'https://images.unsplash.com/photo-1608248597359-299f187a550c?auto=format&fit=crop&w=1200&q=80',
-      'https://images.unsplash.com/photo-1592945403244-b3fbafd7f539?auto=format&fit=crop&w=1200&q=80'
+      'https://images.unsplash.com/photo-1620916566398-39f1143ab7be?auto=format&fit=crop&w=800&q=75',
+      'https://images.unsplash.com/photo-1608248597359-299f187a550c?auto=format&fit=crop&w=800&q=75',
+      'https://images.unsplash.com/photo-1592945403244-b3fbafd7f539?auto=format&fit=crop&w=800&q=75'
     ],
     features: ['Up to 8 interactive sections', 'Live Search & Category Filtering', 'Interactive Shopping Bag Drawer', 'Product Quick-View Modals', 'Skin Match Consultation Form', 'Domain/Hosting: Free']
   },
   {
     id: 'beauty-max',
     businessId: 'beauty',
-    title: 'Aura Botanicals',
+    title: 'Aura Botanicals – Beauty & Cosmetics',
     category: 'Beauty Products',
     plan: 'Max',
     businessType: 'beauty',
     tagline: 'Haute Clean Cosmetics & Full E-Commerce Ecosystem',
     description: 'The ultimate luxury beauty e-commerce flagship. Features 3-step checkout, wishlists, VIP reward points, flash deals with countdown timers, customer order tracking, and shoppable editorial blogs.',
     isRealClient: false,
+    clientName: 'Aura Botanicals – Beauty & Cosmetics',
     themeColor: 'rose',
-    heroImage: 'https://images.unsplash.com/photo-1592945403244-b3fbafd7f539?auto=format&fit=crop&w=1200&q=80',
+    heroImage: 'https://images.unsplash.com/photo-1592945403244-b3fbafd7f539?auto=format&fit=crop&w=800&q=75',
     previewImages: [
-      'https://images.unsplash.com/photo-1592945403244-b3fbafd7f539?auto=format&fit=crop&w=1200&q=80',
-      'https://images.unsplash.com/photo-1620916566398-39f1143ab7be?auto=format&fit=crop&w=1200&q=80',
-      'https://images.unsplash.com/photo-1608248597359-299f187a550c?auto=format&fit=crop&w=1200&q=80',
-      'https://images.unsplash.com/photo-1571781926291-c477ebfd024b?auto=format&fit=crop&w=1200&q=80'
+      'https://images.unsplash.com/photo-1592945403244-b3fbafd7f539?auto=format&fit=crop&w=800&q=75',
+      'https://images.unsplash.com/photo-1620916566398-39f1143ab7be?auto=format&fit=crop&w=800&q=75',
+      'https://images.unsplash.com/photo-1608248597359-299f187a550c?auto=format&fit=crop&w=800&q=75',
+      'https://images.unsplash.com/photo-1571781926291-c477ebfd024b?auto=format&fit=crop&w=800&q=75'
     ],
     features: ['Complete E-Commerce Ecosystem', '3-Step Express Checkout & UPI/Card/COD', 'Wishlist & Cart Sample Selector', 'Live GPS Order Tracking', 'VIP Rewards & Scratch Coupons', 'Shoppable Instagram Feed & Blog', 'Domain/Hosting: Free']
+  },
+  // -------------------------------------------------------------
+  // FASHION / STREETWEAR (NOVA)
+  // -------------------------------------------------------------
+  {
+    id: 'fashion-base',
+    businessId: 'fashion',
+    title: 'NOVA',
+    category: 'Fashion / Apparel',
+    plan: 'Base',
+    businessType: 'fashion',
+    tagline: 'Define Your Style • Premium Fashion Lookbook',
+    description: 'Clean, high-fashion apparel storefront featuring minimalist editorial typography, curated product archive, instant WhatsApp order inquiries, and modern responsive layouts.',
+    isRealClient: true,
+    clientName: 'NOVA Apparel',
+    themeColor: 'stone',
+    heroImage: 'https://images.unsplash.com/photo-1515886657613-9f3515b0c78f?auto=format&fit=crop&w=1200&q=80',
+    previewImages: [
+      'https://images.unsplash.com/photo-1515886657613-9f3515b0c78f?auto=format&fit=crop&w=800&q=75',
+      'https://images.unsplash.com/photo-1509631179647-0177331693ae?auto=format&fit=crop&w=800&q=75',
+      'https://images.unsplash.com/photo-1490481651871-ab68de25d43d?auto=format&fit=crop&w=800&q=75'
+    ],
+    features: ['Minimalist Editorial Lookbook', '16+ Handpicked Silhouettes', 'Direct WhatsApp & Inquiry Flow', 'Responsive Mobile Design', 'Domain/Hosting: Free']
+  },
+  {
+    id: 'fashion-pro',
+    businessId: 'fashion',
+    title: 'NOVA',
+    category: 'Fashion / Apparel',
+    plan: 'Pro',
+    businessType: 'fashion',
+    tagline: 'Define Your Style • Interactive Storefront & Bag Drawer',
+    description: 'Dynamic apparel storefront featuring multi-angle product cards, live keyword search, interactive shopping bag drawer, and quick product view modals.',
+    isRealClient: true,
+    clientName: 'NOVA Apparel',
+    themeColor: 'stone',
+    heroImage: 'https://images.unsplash.com/photo-1509631179647-0177331693ae?auto=format&fit=crop&w=1200&q=80',
+    previewImages: [
+      'https://images.unsplash.com/photo-1509631179647-0177331693ae?auto=format&fit=crop&w=800&q=75',
+      'https://images.unsplash.com/photo-1515886657613-9f3515b0c78f?auto=format&fit=crop&w=800&q=75',
+      'https://images.unsplash.com/photo-1483985988355-763728e1935b?auto=format&fit=crop&w=800&q=75'
+    ],
+    features: ['Interactive Category Filters', 'Live Product Search', 'Slide-Out Bag Drawer', 'Product Detail Quick Views', 'Domain/Hosting: Free']
+  },
+  {
+    id: 'fashion-max',
+    businessId: 'fashion',
+    title: 'NOVA',
+    category: 'Fashion / Apparel',
+    plan: 'Max',
+    businessType: 'fashion',
+    tagline: 'Define Your Style • Full Luxury Fashion E-Commerce Flagship',
+    description: 'The ultimate modern fashion e-commerce storefront. Features 7-slide hero carousel (2.5s cycle), 48-piece catalog across Men, Women, Streetwear & Accessories, live countdown flash sales, 5-step express checkout, live dispatch tracker simulator, wishlist drawers, and floating NOVA Style Assist AI.',
+    isRealClient: true,
+    clientName: 'NOVA Apparel',
+    themeColor: 'stone',
+    heroImage: 'https://images.unsplash.com/photo-1490481651871-ab68de25d43d?auto=format&fit=crop&w=1200&q=80',
+    previewImages: [
+      'https://images.unsplash.com/photo-1490481651871-ab68de25d43d?auto=format&fit=crop&w=800&q=75',
+      'https://images.unsplash.com/photo-1515886657613-9f3515b0c78f?auto=format&fit=crop&w=800&q=75',
+      'https://images.unsplash.com/photo-1509631179647-0177331693ae?auto=format&fit=crop&w=800&q=75',
+      'https://images.unsplash.com/photo-1483985988355-763728e1935b?auto=format&fit=crop&w=800&q=75'
+    ],
+    features: ['7-Slide Hero Carousel (2.5s Loop)', '48+ Curated Fashion Silhouettes', '5-Step Express Checkout & UPI/Cards/COD', 'Live Order Tracking Simulator', 'Wishlist & Cart Drawers', 'Flash Sale Countdown Engine', 'NOVA Style Assist AI Assistant', 'Domain/Hosting: Free']
   }
 ];

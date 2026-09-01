@@ -106,7 +106,7 @@ export const RepairMaxDemo: React.FC<RepairMaxDemoProps> = ({ isMobile }) => {
       rating: '4.98 ★ (1,840+ Jobs)',
       verified: 'Police & Polytech Certified',
       status: 'En-Route (Assigned to Your Job #APX-994)',
-      image: 'https://images.unsplash.com/photo-1544005313-94ddf0286df2?auto=format&fit=crop&w=300&q=80'
+      image: 'https://images.unsplash.com/photo-1544005313-94ddf0286df2?auto=format&fit=crop&w=300&q=75'
     },
     {
       name: 'Mohammed Arshad',
@@ -115,7 +115,7 @@ export const RepairMaxDemo: React.FC<RepairMaxDemoProps> = ({ isMobile }) => {
       rating: '4.96 ★ (1,420+ Jobs)',
       verified: 'Certified CPVC & Pump Master',
       status: 'On Standby in Indiranagar Hub',
-      image: 'https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?auto=format&fit=crop&w=300&q=80'
+      image: 'https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?auto=format&fit=crop&w=300&q=75'
     },
     {
       name: 'Rajesh Nair',
@@ -124,7 +124,7 @@ export const RepairMaxDemo: React.FC<RepairMaxDemoProps> = ({ isMobile }) => {
       rating: '4.95 ★ (1,290+ Jobs)',
       verified: 'Daikin & Carrier Certified',
       status: 'Completing Service in Koramangala',
-      image: 'https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&w=300&q=80'
+      image: 'https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&w=300&q=75'
     }
   ];
 
@@ -334,7 +334,7 @@ export const RepairMaxDemo: React.FC<RepairMaxDemoProps> = ({ isMobile }) => {
 
                 <div className="space-y-3">
                   <div className="bg-slate-950 border border-slate-800 rounded-2xl p-4 flex items-center gap-4">
-                    <img
+                    <img loading="lazy"
                       src={certifiedEngineers[0].image}
                       alt="Assigned Tech"
                       className="w-12 h-12 rounded-xl object-cover border border-emerald-500"
@@ -586,7 +586,7 @@ export const RepairMaxDemo: React.FC<RepairMaxDemoProps> = ({ isMobile }) => {
                 </div>
 
                 <div className="flex items-center gap-4">
-                  <img
+                  <img loading="lazy"
                     src={certifiedEngineers[0].image}
                     alt={certifiedEngineers[0].name}
                     className="w-16 h-16 rounded-2xl object-cover border-2 border-emerald-500"

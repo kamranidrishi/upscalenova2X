@@ -70,14 +70,14 @@ const FLAT_LISTINGS: FlatItem[] = [
     floor: '12th Floor (Tower A)',
     facing: 'East Facing (Vastu Compliant)',
     possession: 'Ready to Move',
-    image: 'https://images.unsplash.com/photo-1545324418-cc1a3fa10c00?auto=format&fit=crop&w=1000&q=80',
+    image: 'https://images.unsplash.com/photo-1545324418-cc1a3fa10c00?auto=format&fit=crop&w=1000&q=75',
     gallery: [
-      'https://images.unsplash.com/photo-1545324418-cc1a3fa10c00?auto=format&fit=crop&w=1200&q=80',
-      'https://images.unsplash.com/photo-1600585154340-be6161a56a0c?auto=format&fit=crop&w=1200&q=80',
-      'https://images.unsplash.com/photo-1600566753190-17f0baa2a6c3?auto=format&fit=crop&w=1200&q=80',
-      'https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?auto=format&fit=crop&w=1200&q=80'
+      'https://images.unsplash.com/photo-1545324418-cc1a3fa10c00?auto=format&fit=crop&w=800&q=75',
+      'https://images.unsplash.com/photo-1600585154340-be6161a56a0c?auto=format&fit=crop&w=800&q=75',
+      'https://images.unsplash.com/photo-1600566753190-17f0baa2a6c3?auto=format&fit=crop&w=800&q=75',
+      'https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?auto=format&fit=crop&w=800&q=75'
     ],
-    floorPlan: 'https://images.unsplash.com/photo-1600585154526-990dced4db0d?auto=format&fit=crop&w=1000&q=80',
+    floorPlan: 'https://images.unsplash.com/photo-1600585154526-990dced4db0d?auto=format&fit=crop&w=1000&q=75',
     specs: {
       beds: 2,
       baths: 2,
@@ -109,14 +109,14 @@ const FLAT_LISTINGS: FlatItem[] = [
     floor: '18th Floor (Tower B)',
     facing: 'North-East (Sea & Skyline View)',
     possession: 'Dec 2026 (Fast-Track)',
-    image: 'https://images.unsplash.com/photo-1600596542815-ffad4c1539a9?auto=format&fit=crop&w=1000&q=80',
+    image: 'https://images.unsplash.com/photo-1600596542815-ffad4c1539a9?auto=format&fit=crop&w=1000&q=75',
     gallery: [
-      'https://images.unsplash.com/photo-1600596542815-ffad4c1539a9?auto=format&fit=crop&w=1200&q=80',
-      'https://images.unsplash.com/photo-1600566753376-12c8ab7fb75b?auto=format&fit=crop&w=1200&q=80',
-      'https://images.unsplash.com/photo-1600210492486-724fe5c67fb0?auto=format&fit=crop&w=1200&q=80',
-      'https://images.unsplash.com/photo-1600585154526-990dced4db0d?auto=format&fit=crop&w=1200&q=80'
+      'https://images.unsplash.com/photo-1600596542815-ffad4c1539a9?auto=format&fit=crop&w=800&q=75',
+      'https://images.unsplash.com/photo-1600566753376-12c8ab7fb75b?auto=format&fit=crop&w=800&q=75',
+      'https://images.unsplash.com/photo-1600210492486-724fe5c67fb0?auto=format&fit=crop&w=800&q=75',
+      'https://images.unsplash.com/photo-1600585154526-990dced4db0d?auto=format&fit=crop&w=800&q=75'
     ],
-    floorPlan: 'https://images.unsplash.com/photo-1600585154340-be6161a56a0c?auto=format&fit=crop&w=1000&q=80',
+    floorPlan: 'https://images.unsplash.com/photo-1600585154340-be6161a56a0c?auto=format&fit=crop&w=1000&q=75',
     specs: {
       beds: 3,
       baths: 3,
@@ -148,13 +148,13 @@ const FLAT_LISTINGS: FlatItem[] = [
     floor: '8th Floor (Tower C)',
     facing: 'East Facing',
     possession: 'Ready to Move',
-    image: 'https://images.unsplash.com/photo-1502672260266-1c1ef2d93688?auto=format&fit=crop&w=1000&q=80',
+    image: 'https://images.unsplash.com/photo-1502672260266-1c1ef2d93688?auto=format&fit=crop&w=1000&q=75',
     gallery: [
-      'https://images.unsplash.com/photo-1502672260266-1c1ef2d93688?auto=format&fit=crop&w=1200&q=80',
-      'https://images.unsplash.com/photo-1560448204-e02f11c3d0e2?auto=format&fit=crop&w=1200&q=80',
-      'https://images.unsplash.com/photo-1545324418-cc1a3fa10c00?auto=format&fit=crop&w=1200&q=80'
+      'https://images.unsplash.com/photo-1502672260266-1c1ef2d93688?auto=format&fit=crop&w=800&q=75',
+      'https://images.unsplash.com/photo-1560448204-e02f11c3d0e2?auto=format&fit=crop&w=800&q=75',
+      'https://images.unsplash.com/photo-1545324418-cc1a3fa10c00?auto=format&fit=crop&w=800&q=75'
     ],
-    floorPlan: 'https://images.unsplash.com/photo-1600585154526-990dced4db0d?auto=format&fit=crop&w=1000&q=80',
+    floorPlan: 'https://images.unsplash.com/photo-1600585154526-990dced4db0d?auto=format&fit=crop&w=1000&q=75',
     specs: {
       beds: 1,
       baths: 1,
@@ -186,13 +186,13 @@ const FLAT_LISTINGS: FlatItem[] = [
     floor: '24th Floor (Sky Tower)',
     facing: 'West Facing (Arabian Sea View)',
     possession: 'March 2027',
-    image: 'https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?auto=format&fit=crop&w=1000&q=80',
+    image: 'https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?auto=format&fit=crop&w=1000&q=75',
     gallery: [
-      'https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?auto=format&fit=crop&w=1200&q=80',
-      'https://images.unsplash.com/photo-1600585154340-be6161a56a0c?auto=format&fit=crop&w=1200&q=80',
-      'https://images.unsplash.com/photo-1600566753376-12c8ab7fb75b?auto=format&fit=crop&w=1200&q=80'
+      'https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?auto=format&fit=crop&w=800&q=75',
+      'https://images.unsplash.com/photo-1600585154340-be6161a56a0c?auto=format&fit=crop&w=800&q=75',
+      'https://images.unsplash.com/photo-1600566753376-12c8ab7fb75b?auto=format&fit=crop&w=800&q=75'
     ],
-    floorPlan: 'https://images.unsplash.com/photo-1600585154340-be6161a56a0c?auto=format&fit=crop&w=1000&q=80',
+    floorPlan: 'https://images.unsplash.com/photo-1600585154340-be6161a56a0c?auto=format&fit=crop&w=1000&q=75',
     specs: {
       beds: 4,
       baths: 4,
@@ -224,13 +224,13 @@ const FLAT_LISTINGS: FlatItem[] = [
     floor: '6th Floor (Wing B)',
     facing: 'North Facing (Garden & Pool)',
     possession: 'Ready to Move',
-    image: 'https://images.unsplash.com/photo-1512917774080-9991f1c4c750?auto=format&fit=crop&w=1000&q=80',
+    image: 'https://images.unsplash.com/photo-1512917774080-9991f1c4c750?auto=format&fit=crop&w=1000&q=75',
     gallery: [
-      'https://images.unsplash.com/photo-1512917774080-9991f1c4c750?auto=format&fit=crop&w=1200&q=80',
-      'https://images.unsplash.com/photo-1545324418-cc1a3fa10c00?auto=format&fit=crop&w=1200&q=80',
-      'https://images.unsplash.com/photo-1600585154340-be6161a56a0c?auto=format&fit=crop&w=1200&q=80'
+      'https://images.unsplash.com/photo-1512917774080-9991f1c4c750?auto=format&fit=crop&w=800&q=75',
+      'https://images.unsplash.com/photo-1545324418-cc1a3fa10c00?auto=format&fit=crop&w=800&q=75',
+      'https://images.unsplash.com/photo-1600585154340-be6161a56a0c?auto=format&fit=crop&w=800&q=75'
     ],
-    floorPlan: 'https://images.unsplash.com/photo-1600585154526-990dced4db0d?auto=format&fit=crop&w=1000&q=80',
+    floorPlan: 'https://images.unsplash.com/photo-1600585154526-990dced4db0d?auto=format&fit=crop&w=1000&q=75',
     specs: {
       beds: 2,
       baths: 2,
@@ -262,13 +262,13 @@ const FLAT_LISTINGS: FlatItem[] = [
     floor: '32nd Penthouse Floor',
     facing: 'Lakefront & Green Hills (360° Panoramic)',
     possession: 'Dec 2026',
-    image: 'https://images.unsplash.com/photo-1600566753376-12c8ab7fb75b?auto=format&fit=crop&w=1000&q=80',
+    image: 'https://images.unsplash.com/photo-1600566753376-12c8ab7fb75b?auto=format&fit=crop&w=1000&q=75',
     gallery: [
-      'https://images.unsplash.com/photo-1600566753376-12c8ab7fb75b?auto=format&fit=crop&w=1200&q=80',
-      'https://images.unsplash.com/photo-1600596542815-ffad4c1539a9?auto=format&fit=crop&w=1200&q=80',
-      'https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?auto=format&fit=crop&w=1200&q=80'
+      'https://images.unsplash.com/photo-1600566753376-12c8ab7fb75b?auto=format&fit=crop&w=800&q=75',
+      'https://images.unsplash.com/photo-1600596542815-ffad4c1539a9?auto=format&fit=crop&w=800&q=75',
+      'https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?auto=format&fit=crop&w=800&q=75'
     ],
-    floorPlan: 'https://images.unsplash.com/photo-1600585154340-be6161a56a0c?auto=format&fit=crop&w=1000&q=80',
+    floorPlan: 'https://images.unsplash.com/photo-1600585154340-be6161a56a0c?auto=format&fit=crop&w=1000&q=75',
     specs: {
       beds: 4,
       baths: 5,
@@ -294,7 +294,7 @@ const FLAT_TYPES_DATA = [
     desc: 'Compact & efficient modern homes ideal for young working professionals and couples.',
     area: '450 - 620 sq.ft',
     price: 'Starting ₹42 Lakh',
-    image: 'https://images.unsplash.com/photo-1502672260266-1c1ef2d93688?auto=format&fit=crop&w=600&q=80'
+    image: 'https://images.unsplash.com/photo-1502672260266-1c1ef2d93688?auto=format&fit=crop&w=600&q=75'
   },
   {
     type: '2 BHK',
@@ -302,7 +302,7 @@ const FLAT_TYPES_DATA = [
     desc: 'Thoughtfully designed spacious apartments with balconies for modern growing families.',
     area: '750 - 1,100 sq.ft',
     price: 'Starting ₹85 Lakh',
-    image: 'https://images.unsplash.com/photo-1545324418-cc1a3fa10c00?auto=format&fit=crop&w=600&q=80'
+    image: 'https://images.unsplash.com/photo-1545324418-cc1a3fa10c00?auto=format&fit=crop&w=600&q=75'
   },
   {
     type: '3 BHK',
@@ -310,7 +310,7 @@ const FLAT_TYPES_DATA = [
     desc: 'Expansive luxury residences with master suites, private balconies & utility spaces.',
     area: '1,250 - 1,750 sq.ft',
     price: 'Starting ₹1.48 Crore',
-    image: 'https://images.unsplash.com/photo-1600596542815-ffad4c1539a9?auto=format&fit=crop&w=600&q=80'
+    image: 'https://images.unsplash.com/photo-1600596542815-ffad4c1539a9?auto=format&fit=crop&w=600&q=75'
   },
   {
     type: '4 BHK',
@@ -318,7 +318,7 @@ const FLAT_TYPES_DATA = [
     desc: 'Ultra-spacious grand residences with servant quarters, private foyers & panoramic views.',
     area: '2,100 - 3,200 sq.ft',
     price: 'Starting ₹2.85 Crore',
-    image: 'https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?auto=format&fit=crop&w=600&q=80'
+    image: 'https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?auto=format&fit=crop&w=600&q=75'
   },
   {
     type: 'Premium',
@@ -326,7 +326,7 @@ const FLAT_TYPES_DATA = [
     desc: 'Exclusive sky villas & penthouses with private decks, jacuzzi & concierge services.',
     area: '3,500+ sq.ft',
     price: 'Starting ₹4.20 Crore',
-    image: 'https://images.unsplash.com/photo-1600566753376-12c8ab7fb75b?auto=format&fit=crop&w=600&q=80'
+    image: 'https://images.unsplash.com/photo-1600566753376-12c8ab7fb75b?auto=format&fit=crop&w=600&q=75'
   }
 ];
 
@@ -337,7 +337,7 @@ const LOCATIONS_DATA = [
     tagline: 'Lakefront & Corporate Hub',
     count: '14 Active Flats',
     startPrice: 'Starting ₹75 Lakh',
-    image: 'https://images.unsplash.com/photo-1570125909232-eb263c188f7e?auto=format&fit=crop&w=600&q=80',
+    image: 'https://images.unsplash.com/photo-1570125909232-eb263c188f7e?auto=format&fit=crop&w=600&q=75',
     highlights: ['Metro Line 6 (Upcoming)', 'Hiranandani Business Hub', 'Top Schools & Multi-speciality Hospitals']
   },
   {
@@ -346,7 +346,7 @@ const LOCATIONS_DATA = [
     tagline: 'Prime Sea Link Corridor',
     count: '8 Active Flats',
     startPrice: 'Starting ₹1.48 Crore',
-    image: 'https://images.unsplash.com/photo-1512917774080-9991f1c4c750?auto=format&fit=crop&w=600&q=80',
+    image: 'https://images.unsplash.com/photo-1512917774080-9991f1c4c750?auto=format&fit=crop&w=600&q=75',
     highlights: ['Bandra-Worli Sea Link', 'High-end Dining & Lifestyle', '15 mins to BKC Financial District']
   },
   {
@@ -355,7 +355,7 @@ const LOCATIONS_DATA = [
     tagline: 'Green Living & Fast Connectivity',
     count: '22 Active Flats',
     startPrice: 'Starting ₹48 Lakh',
-    image: 'https://images.unsplash.com/photo-1545324418-cc1a3fa10c00?auto=format&fit=crop&w=600&q=80',
+    image: 'https://images.unsplash.com/photo-1545324418-cc1a3fa10c00?auto=format&fit=crop&w=600&q=75',
     highlights: ['Ghodbunder 8-lane Expressway', 'Viviana & Korum Malls', 'Yeoor Hills Scenic Backdrop']
   },
   {
@@ -364,7 +364,7 @@ const LOCATIONS_DATA = [
     tagline: 'Metro Junction & Entertainment',
     count: '16 Active Flats',
     startPrice: 'Starting ₹88 Lakh',
-    image: 'https://images.unsplash.com/photo-1502672260266-1c1ef2d93688?auto=format&fit=crop&w=600&q=80',
+    image: 'https://images.unsplash.com/photo-1502672260266-1c1ef2d93688?auto=format&fit=crop&w=600&q=75',
     highlights: ['Versova-Ghatkopar Metro Line 1', 'Infinity Mall & Lokhandwala Hub', '20 mins to International Airport']
   },
   {
@@ -373,7 +373,7 @@ const LOCATIONS_DATA = [
     tagline: 'Sea Face & Luxury Residences',
     count: '6 Active Flats',
     startPrice: 'Starting ₹2.50 Crore',
-    image: 'https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?auto=format&fit=crop&w=600&q=80',
+    image: 'https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?auto=format&fit=crop&w=600&q=75',
     highlights: ['Coastal Road & Sea Link Entry', 'Four Seasons & St. Regis', 'Direct BKC & South Mumbai Access']
   }
 ];
@@ -762,8 +762,8 @@ export const FlatMaxDemo: React.FC<FlatMaxDemoProps> = ({ demo, isMobile, onPlan
             {/* Right Hero Apartment Image */}
             <div className="lg:col-span-5 relative">
               <div className="relative rounded-3xl overflow-hidden shadow-2xl border-4 border-white bg-slate-200 aspect-[4/3] sm:aspect-[1/1] lg:aspect-[4/5]">
-                <img
-                  src="https://images.unsplash.com/photo-1545324418-cc1a3fa10c00?auto=format&fit=crop&w=1200&q=80"
+                <img loading="lazy"
+                  src="https://images.unsplash.com/photo-1545324418-cc1a3fa10c00?auto=format&fit=crop&w=800&q=75"
                   alt="Modern Apartment Building"
                   className="w-full h-full object-cover"
                 />
@@ -945,7 +945,7 @@ export const FlatMaxDemo: React.FC<FlatMaxDemoProps> = ({ demo, isMobile, onPlan
               >
                 <div className="space-y-4">
                   <div className="relative rounded-xl overflow-hidden aspect-[4/3] bg-slate-200">
-                    <img
+                    <img loading="lazy"
                       src={item.image}
                       alt={item.title}
                       className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
@@ -1197,7 +1197,7 @@ export const FlatMaxDemo: React.FC<FlatMaxDemoProps> = ({ demo, isMobile, onPlan
               >
                 <div>
                   <div className="relative aspect-[16/10] bg-slate-200 overflow-hidden">
-                    <img
+                    <img loading="lazy"
                       src={loc.image}
                       alt={loc.name}
                       className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
@@ -2089,7 +2089,7 @@ export const FlatMaxDemo: React.FC<FlatMaxDemoProps> = ({ demo, isMobile, onPlan
               {/* Photo Gallery with Thumbnail switcher */}
               <div className="space-y-2">
                 <div className="aspect-[16/9] rounded-2xl overflow-hidden bg-slate-100 relative">
-                  <img
+                  <img loading="lazy"
                     src={selectedFlatForDetails.gallery[activeGalleryIdx] || selectedFlatForDetails.image}
                     alt={selectedFlatForDetails.name}
                     className="w-full h-full object-cover"
@@ -2108,7 +2108,7 @@ export const FlatMaxDemo: React.FC<FlatMaxDemoProps> = ({ demo, isMobile, onPlan
                         activeGalleryIdx === idx ? 'border-orange-500 scale-95' : 'border-transparent opacity-70 hover:opacity-100'
                       }`}
                     >
-                      <img src={img} alt={`Thumb ${idx}`} className="w-full h-full object-cover" />
+                      <img loading="lazy" src={img} alt={`Thumb ${idx}`} className="w-full h-full object-cover" />
                     </div>
                   ))}
                 </div>

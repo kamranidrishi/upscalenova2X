@@ -57,42 +57,42 @@ export const BEAUTY_CATEGORIES = [
     id: 'Skincare',
     name: 'Skincare Essentials',
     subtitle: 'Serums, Creams, Toners & SPF',
-    image: 'https://images.unsplash.com/photo-1598440947619-2c35fc9aa908?auto=format&fit=crop&w=600&q=80',
+    image: 'https://images.unsplash.com/photo-1598440947619-2c35fc9aa908?auto=format&fit=crop&w=600&q=75',
     itemCount: '15 Products'
   },
   {
     id: 'Makeup',
     name: 'Makeup Collection',
     subtitle: 'Foundations, Lipsticks & Eye Palettes',
-    image: 'https://images.unsplash.com/photo-1512496015851-a90fb38ba796?auto=format&fit=crop&w=600&q=80',
+    image: 'https://images.unsplash.com/photo-1512496015851-a90fb38ba796?auto=format&fit=crop&w=600&q=75',
     itemCount: '15 Products'
   },
   {
     id: 'Haircare',
     name: 'Hair Care Rituals',
     subtitle: 'Shampoos, Oils, Serums & Masks',
-    image: 'https://images.unsplash.com/photo-1527799820374-dcf8d9d4a388?auto=format&fit=crop&w=600&q=80',
+    image: 'https://images.unsplash.com/photo-1527799820374-dcf8d9d4a388?auto=format&fit=crop&w=600&q=75',
     itemCount: '7 Products'
   },
   {
     id: 'Body Care',
     name: 'Body Care & Bath',
     subtitle: 'Whipped Butters, Lotions & Scrubs',
-    image: 'https://images.unsplash.com/photo-1608248597359-299f187a550c?auto=format&fit=crop&w=600&q=80',
+    image: 'https://images.unsplash.com/photo-1608248597359-299f187a550c?auto=format&fit=crop&w=600&q=75',
     itemCount: '6 Products'
   },
   {
     id: 'Fragrance',
     name: 'Artisan Fragrances',
     subtitle: 'Eau de Parfum, Mists & Gift Sets',
-    image: 'https://images.unsplash.com/photo-1592945403244-b3fbafd7f539?auto=format&fit=crop&w=600&q=80',
+    image: 'https://images.unsplash.com/photo-1592945403244-b3fbafd7f539?auto=format&fit=crop&w=600&q=75',
     itemCount: '4 Fragrances'
   },
   {
     id: 'Accessories',
     name: 'Beauty Accessories',
     subtitle: 'Brushes, Blenders, Rollers & Gua Sha',
-    image: 'https://images.unsplash.com/photo-1522337360788-8b13dee7a37e?auto=format&fit=crop&w=600&q=80',
+    image: 'https://images.unsplash.com/photo-1522337360788-8b13dee7a37e?auto=format&fit=crop&w=600&q=75',
     itemCount: '6 Tools'
   }
 ];
@@ -110,11 +110,11 @@ export const BEAUTY_PRODUCTS: BeautyProduct[] = [
     originalPrice: 2499,
     rating: 4.9,
     reviewsCount: 342,
-    image: 'https://images.unsplash.com/photo-1620916566398-39f1143ab7be?auto=format&fit=crop&w=800&q=80',
+    image: 'https://images.unsplash.com/photo-1620916566398-39f1143ab7be?auto=format&fit=crop&w=800&q=75',
     galleryImages: [
-      'https://images.unsplash.com/photo-1620916566398-39f1143ab7be?auto=format&fit=crop&w=800&q=80',
-      'https://images.unsplash.com/photo-1608248597359-299f187a550c?auto=format&fit=crop&w=800&q=80',
-      'https://images.unsplash.com/photo-1570172619644-dfd03ed5d881?auto=format&fit=crop&w=800&q=80'
+      'https://images.unsplash.com/photo-1620916566398-39f1143ab7be?auto=format&fit=crop&w=800&q=75',
+      'https://images.unsplash.com/photo-1608248597359-299f187a550c?auto=format&fit=crop&w=800&q=75',
+      'https://images.unsplash.com/photo-1570172619644-dfd03ed5d881?auto=format&fit=crop&w=800&q=75'
     ],
     volume: '30 ml / 1.0 fl oz',
     skinType: 'All Skin Types',
@@ -137,10 +137,10 @@ export const BEAUTY_PRODUCTS: BeautyProduct[] = [
     originalPrice: 899,
     rating: 4.8,
     reviewsCount: 198,
-    image: 'https://images.unsplash.com/photo-1556228720-195a672e8a03?auto=format&fit=crop&w=800&q=80',
+    image: 'https://images.unsplash.com/photo-1556228720-195a672e8a03?auto=format&fit=crop&w=800&q=75',
     galleryImages: [
-      'https://images.unsplash.com/photo-1556228720-195a672e8a03?auto=format&fit=crop&w=800&q=80',
-      'https://images.unsplash.com/photo-1598440947619-2c35fc9aa908?auto=format&fit=crop&w=800&q=80'
+      'https://images.unsplash.com/photo-1556228720-195a672e8a03?auto=format&fit=crop&w=800&q=75',
+      'https://images.unsplash.com/photo-1598440947619-2c35fc9aa908?auto=format&fit=crop&w=800&q=75'
     ],
     volume: '150 ml / 5.1 fl oz',
     skinType: 'Sensitive',
@@ -162,10 +162,10 @@ export const BEAUTY_PRODUCTS: BeautyProduct[] = [
     originalPrice: 650,
     rating: 4.7,
     reviewsCount: 284,
-    image: 'https://images.unsplash.com/photo-1556228722-d0b73c438b4c?auto=format&fit=crop&w=800&q=80',
+    image: 'https://images.unsplash.com/photo-1556228722-d0b73c438b4c?auto=format&fit=crop&w=800&q=75',
     galleryImages: [
-      'https://images.unsplash.com/photo-1556228722-d0b73c438b4c?auto=format&fit=crop&w=800&q=80',
-      'https://images.unsplash.com/photo-1570172619644-dfd03ed5d881?auto=format&fit=crop&w=800&q=80'
+      'https://images.unsplash.com/photo-1556228722-d0b73c438b4c?auto=format&fit=crop&w=800&q=75',
+      'https://images.unsplash.com/photo-1570172619644-dfd03ed5d881?auto=format&fit=crop&w=800&q=75'
     ],
     volume: '120 ml / 4.0 fl oz',
     skinType: 'Oily & Acne-Prone',
@@ -187,10 +187,10 @@ export const BEAUTY_PRODUCTS: BeautyProduct[] = [
     originalPrice: 1599,
     rating: 4.9,
     reviewsCount: 512,
-    image: 'https://images.unsplash.com/photo-1570172619644-dfd03ed5d881?auto=format&fit=crop&w=800&q=80',
+    image: 'https://images.unsplash.com/photo-1570172619644-dfd03ed5d881?auto=format&fit=crop&w=800&q=75',
     galleryImages: [
-      'https://images.unsplash.com/photo-1570172619644-dfd03ed5d881?auto=format&fit=crop&w=800&q=80',
-      'https://images.unsplash.com/photo-1620916566398-39f1143ab7be?auto=format&fit=crop&w=800&q=80'
+      'https://images.unsplash.com/photo-1570172619644-dfd03ed5d881?auto=format&fit=crop&w=800&q=75',
+      'https://images.unsplash.com/photo-1620916566398-39f1143ab7be?auto=format&fit=crop&w=800&q=75'
     ],
     volume: '30 ml / 1.0 fl oz',
     skinType: 'All Skin Types',
@@ -213,10 +213,10 @@ export const BEAUTY_PRODUCTS: BeautyProduct[] = [
     originalPrice: 1299,
     rating: 4.8,
     reviewsCount: 375,
-    image: 'https://images.unsplash.com/photo-1617897903246-719242758050?auto=format&fit=crop&w=800&q=80',
+    image: 'https://images.unsplash.com/photo-1617897903246-719242758050?auto=format&fit=crop&w=800&q=75',
     galleryImages: [
-      'https://images.unsplash.com/photo-1617897903246-719242758050?auto=format&fit=crop&w=800&q=80',
-      'https://images.unsplash.com/photo-1556228720-195a672e8a03?auto=format&fit=crop&w=800&q=80'
+      'https://images.unsplash.com/photo-1617897903246-719242758050?auto=format&fit=crop&w=800&q=75',
+      'https://images.unsplash.com/photo-1556228720-195a672e8a03?auto=format&fit=crop&w=800&q=75'
     ],
     volume: '30 ml / 1.0 fl oz',
     skinType: 'Dry & Dehydrated',
@@ -237,9 +237,9 @@ export const BEAUTY_PRODUCTS: BeautyProduct[] = [
     originalPrice: 1199,
     rating: 4.8,
     reviewsCount: 430,
-    image: 'https://images.unsplash.com/photo-1601049541289-9b1b7bbbfe19?auto=format&fit=crop&w=800&q=80',
+    image: 'https://images.unsplash.com/photo-1601049541289-9b1b7bbbfe19?auto=format&fit=crop&w=800&q=75',
     galleryImages: [
-      'https://images.unsplash.com/photo-1601049541289-9b1b7bbbfe19?auto=format&fit=crop&w=800&q=80'
+      'https://images.unsplash.com/photo-1601049541289-9b1b7bbbfe19?auto=format&fit=crop&w=800&q=75'
     ],
     volume: '30 ml / 1.0 fl oz',
     skinType: 'Oily & Acne-Prone',
@@ -261,9 +261,9 @@ export const BEAUTY_PRODUCTS: BeautyProduct[] = [
     originalPrice: 1999,
     rating: 4.9,
     reviewsCount: 290,
-    image: 'https://images.unsplash.com/photo-1629732047847-50219e9c5aef?auto=format&fit=crop&w=800&q=80',
+    image: 'https://images.unsplash.com/photo-1629732047847-50219e9c5aef?auto=format&fit=crop&w=800&q=75',
     galleryImages: [
-      'https://images.unsplash.com/photo-1629732047847-50219e9c5aef?auto=format&fit=crop&w=800&q=80'
+      'https://images.unsplash.com/photo-1629732047847-50219e9c5aef?auto=format&fit=crop&w=800&q=75'
     ],
     volume: '30 ml / 1.0 fl oz',
     skinType: 'All Skin Types',
@@ -285,10 +285,10 @@ export const BEAUTY_PRODUCTS: BeautyProduct[] = [
     originalPrice: 1699,
     rating: 4.9,
     reviewsCount: 480,
-    image: 'https://images.unsplash.com/photo-1598440947619-2c35fc9aa908?auto=format&fit=crop&w=800&q=80',
+    image: 'https://images.unsplash.com/photo-1598440947619-2c35fc9aa908?auto=format&fit=crop&w=800&q=75',
     galleryImages: [
-      'https://images.unsplash.com/photo-1598440947619-2c35fc9aa908?auto=format&fit=crop&w=800&q=80',
-      'https://images.unsplash.com/photo-1556228720-195a672e8a03?auto=format&fit=crop&w=800&q=80'
+      'https://images.unsplash.com/photo-1598440947619-2c35fc9aa908?auto=format&fit=crop&w=800&q=75',
+      'https://images.unsplash.com/photo-1556228720-195a672e8a03?auto=format&fit=crop&w=800&q=75'
     ],
     volume: '50 ml / 1.7 oz',
     skinType: 'Sensitive',
@@ -310,9 +310,9 @@ export const BEAUTY_PRODUCTS: BeautyProduct[] = [
     originalPrice: 2200,
     rating: 4.9,
     reviewsCount: 220,
-    image: 'https://images.unsplash.com/photo-1567928815104-b7980ee5032e?auto=format&fit=crop&w=800&q=80',
+    image: 'https://images.unsplash.com/photo-1567928815104-b7980ee5032e?auto=format&fit=crop&w=800&q=75',
     galleryImages: [
-      'https://images.unsplash.com/photo-1567928815104-b7980ee5032e?auto=format&fit=crop&w=800&q=80'
+      'https://images.unsplash.com/photo-1567928815104-b7980ee5032e?auto=format&fit=crop&w=800&q=75'
     ],
     volume: '50 ml / 1.7 oz',
     skinType: 'Dry & Dehydrated',
@@ -334,9 +334,9 @@ export const BEAUTY_PRODUCTS: BeautyProduct[] = [
     originalPrice: 1199,
     rating: 4.7,
     reviewsCount: 160,
-    image: 'https://images.unsplash.com/photo-1535585209827-a15fcdbc4c2d?auto=format&fit=crop&w=800&q=80',
+    image: 'https://images.unsplash.com/photo-1535585209827-a15fcdbc4c2d?auto=format&fit=crop&w=800&q=75',
     galleryImages: [
-      'https://images.unsplash.com/photo-1535585209827-a15fcdbc4c2d?auto=format&fit=crop&w=800&q=80'
+      'https://images.unsplash.com/photo-1535585209827-a15fcdbc4c2d?auto=format&fit=crop&w=800&q=75'
     ],
     volume: '50 ml / 1.7 oz',
     skinType: 'Combination',
@@ -358,9 +358,9 @@ export const BEAUTY_PRODUCTS: BeautyProduct[] = [
     originalPrice: 999,
     rating: 4.9,
     reviewsCount: 650,
-    image: 'https://images.unsplash.com/photo-1563178406-4cdc2923acbc?auto=format&fit=crop&w=800&q=80',
+    image: 'https://images.unsplash.com/photo-1563178406-4cdc2923acbc?auto=format&fit=crop&w=800&q=75',
     galleryImages: [
-      'https://images.unsplash.com/photo-1563178406-4cdc2923acbc?auto=format&fit=crop&w=800&q=80'
+      'https://images.unsplash.com/photo-1563178406-4cdc2923acbc?auto=format&fit=crop&w=800&q=75'
     ],
     volume: '50 ml / 1.7 fl oz',
     skinType: 'All Skin Types',
@@ -383,9 +383,9 @@ export const BEAUTY_PRODUCTS: BeautyProduct[] = [
     originalPrice: 1099,
     rating: 4.7,
     reviewsCount: 190,
-    image: 'https://images.unsplash.com/photo-1556228578-8c89e6adf883?auto=format&fit=crop&w=800&q=80',
+    image: 'https://images.unsplash.com/photo-1556228578-8c89e6adf883?auto=format&fit=crop&w=800&q=75',
     galleryImages: [
-      'https://images.unsplash.com/photo-1556228578-8c89e6adf883?auto=format&fit=crop&w=800&q=80'
+      'https://images.unsplash.com/photo-1556228578-8c89e6adf883?auto=format&fit=crop&w=800&q=75'
     ],
     volume: '50 g / 1.7 oz',
     skinType: 'Sensitive',
@@ -407,9 +407,9 @@ export const BEAUTY_PRODUCTS: BeautyProduct[] = [
     originalPrice: 799,
     rating: 4.8,
     reviewsCount: 310,
-    image: 'https://images.unsplash.com/photo-1616683693504-3ea7e9ad6fec?auto=format&fit=crop&w=800&q=80',
+    image: 'https://images.unsplash.com/photo-1616683693504-3ea7e9ad6fec?auto=format&fit=crop&w=800&q=75',
     galleryImages: [
-      'https://images.unsplash.com/photo-1616683693504-3ea7e9ad6fec?auto=format&fit=crop&w=800&q=80'
+      'https://images.unsplash.com/photo-1616683693504-3ea7e9ad6fec?auto=format&fit=crop&w=800&q=75'
     ],
     volume: '120 ml / 4.0 fl oz',
     skinType: 'All Skin Types',
@@ -431,9 +431,9 @@ export const BEAUTY_PRODUCTS: BeautyProduct[] = [
     originalPrice: 999,
     rating: 4.8,
     reviewsCount: 245,
-    image: 'https://images.unsplash.com/photo-1571781926291-c477ebfd024b?auto=format&fit=crop&w=800&q=80',
+    image: 'https://images.unsplash.com/photo-1571781926291-c477ebfd024b?auto=format&fit=crop&w=800&q=75',
     galleryImages: [
-      'https://images.unsplash.com/photo-1571781926291-c477ebfd024b?auto=format&fit=crop&w=800&q=80'
+      'https://images.unsplash.com/photo-1571781926291-c477ebfd024b?auto=format&fit=crop&w=800&q=75'
     ],
     volume: '80 g / 2.8 oz',
     skinType: 'Oily & Acne-Prone',
@@ -455,9 +455,9 @@ export const BEAUTY_PRODUCTS: BeautyProduct[] = [
     originalPrice: 1299,
     rating: 4.8,
     reviewsCount: 390,
-    image: 'https://images.unsplash.com/photo-1512290900672-1f02e8633346?auto=format&fit=crop&w=800&q=80',
+    image: 'https://images.unsplash.com/photo-1512290900672-1f02e8633346?auto=format&fit=crop&w=800&q=75',
     galleryImages: [
-      'https://images.unsplash.com/photo-1512290900672-1f02e8633346?auto=format&fit=crop&w=800&q=80'
+      'https://images.unsplash.com/photo-1512290900672-1f02e8633346?auto=format&fit=crop&w=800&q=75'
     ],
     volume: '15 ml / 0.5 fl oz',
     skinType: 'All Skin Types',
@@ -483,9 +483,9 @@ export const BEAUTY_PRODUCTS: BeautyProduct[] = [
     originalPrice: 1999,
     rating: 4.9,
     reviewsCount: 620,
-    image: 'https://images.unsplash.com/photo-1522337360788-8b13dee7a37e?auto=format&fit=crop&w=800&q=80',
+    image: 'https://images.unsplash.com/photo-1522337360788-8b13dee7a37e?auto=format&fit=crop&w=800&q=75',
     galleryImages: [
-      'https://images.unsplash.com/photo-1522337360788-8b13dee7a37e?auto=format&fit=crop&w=800&q=80'
+      'https://images.unsplash.com/photo-1522337360788-8b13dee7a37e?auto=format&fit=crop&w=800&q=75'
     ],
     volume: '30 ml / 1.0 fl oz',
     skinType: 'All Skin Types',
@@ -514,9 +514,9 @@ export const BEAUTY_PRODUCTS: BeautyProduct[] = [
     originalPrice: 899,
     rating: 4.8,
     reviewsCount: 380,
-    image: 'https://images.unsplash.com/photo-1599733589046-10c005738ef9?auto=format&fit=crop&w=800&q=80',
+    image: 'https://images.unsplash.com/photo-1599733589046-10c005738ef9?auto=format&fit=crop&w=800&q=75',
     galleryImages: [
-      'https://images.unsplash.com/photo-1599733589046-10c005738ef9?auto=format&fit=crop&w=800&q=80'
+      'https://images.unsplash.com/photo-1599733589046-10c005738ef9?auto=format&fit=crop&w=800&q=75'
     ],
     volume: '6 ml / 0.2 fl oz',
     skinType: 'All Skin Types',
@@ -543,9 +543,9 @@ export const BEAUTY_PRODUCTS: BeautyProduct[] = [
     originalPrice: 799,
     rating: 4.7,
     reviewsCount: 290,
-    image: 'https://images.unsplash.com/photo-1512496015851-a90fb38ba796?auto=format&fit=crop&w=800&q=80',
+    image: 'https://images.unsplash.com/photo-1512496015851-a90fb38ba796?auto=format&fit=crop&w=800&q=75',
     galleryImages: [
-      'https://images.unsplash.com/photo-1512496015851-a90fb38ba796?auto=format&fit=crop&w=800&q=80'
+      'https://images.unsplash.com/photo-1512496015851-a90fb38ba796?auto=format&fit=crop&w=800&q=75'
     ],
     volume: '9 g / 0.3 oz',
     skinType: 'Oily & Acne-Prone',
@@ -572,9 +572,9 @@ export const BEAUTY_PRODUCTS: BeautyProduct[] = [
     originalPrice: 1199,
     rating: 4.9,
     reviewsCount: 410,
-    image: 'https://images.unsplash.com/photo-1596462502278-27bfdc403348?auto=format&fit=crop&w=800&q=80',
+    image: 'https://images.unsplash.com/photo-1596462502278-27bfdc403348?auto=format&fit=crop&w=800&q=75',
     galleryImages: [
-      'https://images.unsplash.com/photo-1596462502278-27bfdc403348?auto=format&fit=crop&w=800&q=80'
+      'https://images.unsplash.com/photo-1596462502278-27bfdc403348?auto=format&fit=crop&w=800&q=75'
     ],
     volume: '15 g / 0.5 oz',
     skinType: 'All Skin Types',
@@ -596,9 +596,9 @@ export const BEAUTY_PRODUCTS: BeautyProduct[] = [
     originalPrice: 850,
     rating: 4.9,
     reviewsCount: 360,
-    image: 'https://images.unsplash.com/photo-1596704017254-9b121068fb31?auto=format&fit=crop&w=800&q=80',
+    image: 'https://images.unsplash.com/photo-1596704017254-9b121068fb31?auto=format&fit=crop&w=800&q=75',
     galleryImages: [
-      'https://images.unsplash.com/photo-1596704017254-9b121068fb31?auto=format&fit=crop&w=800&q=80'
+      'https://images.unsplash.com/photo-1596704017254-9b121068fb31?auto=format&fit=crop&w=800&q=75'
     ],
     volume: '8 g / 0.28 oz',
     skinType: 'All Skin Types',
@@ -625,9 +625,9 @@ export const BEAUTY_PRODUCTS: BeautyProduct[] = [
     originalPrice: 1099,
     rating: 4.8,
     reviewsCount: 270,
-    image: 'https://images.unsplash.com/photo-1583241800698-e8ab01830a07?auto=format&fit=crop&w=800&q=80',
+    image: 'https://images.unsplash.com/photo-1583241800698-e8ab01830a07?auto=format&fit=crop&w=800&q=75',
     galleryImages: [
-      'https://images.unsplash.com/photo-1583241800698-e8ab01830a07?auto=format&fit=crop&w=800&q=80'
+      'https://images.unsplash.com/photo-1583241800698-e8ab01830a07?auto=format&fit=crop&w=800&q=75'
     ],
     volume: '15 ml / 0.5 fl oz',
     skinType: 'All Skin Types',
@@ -653,9 +653,9 @@ export const BEAUTY_PRODUCTS: BeautyProduct[] = [
     originalPrice: 950,
     rating: 4.7,
     reviewsCount: 180,
-    image: 'https://images.unsplash.com/photo-1503236823255-94609f598e71?auto=format&fit=crop&w=800&q=80',
+    image: 'https://images.unsplash.com/photo-1503236823255-94609f598e71?auto=format&fit=crop&w=800&q=75',
     galleryImages: [
-      'https://images.unsplash.com/photo-1503236823255-94609f598e71?auto=format&fit=crop&w=800&q=80'
+      'https://images.unsplash.com/photo-1503236823255-94609f598e71?auto=format&fit=crop&w=800&q=75'
     ],
     volume: '10 g / 0.35 oz',
     skinType: 'All Skin Types',
@@ -677,9 +677,9 @@ export const BEAUTY_PRODUCTS: BeautyProduct[] = [
     originalPrice: 1999,
     rating: 4.9,
     reviewsCount: 450,
-    image: 'https://images.unsplash.com/photo-1583241477543-577e923e595b?auto=format&fit=crop&w=800&q=80',
+    image: 'https://images.unsplash.com/photo-1583241477543-577e923e595b?auto=format&fit=crop&w=800&q=75',
     galleryImages: [
-      'https://images.unsplash.com/photo-1583241477543-577e923e595b?auto=format&fit=crop&w=800&q=80'
+      'https://images.unsplash.com/photo-1583241477543-577e923e595b?auto=format&fit=crop&w=800&q=75'
     ],
     volume: '12 Shades / 18 g',
     skinType: 'All Skin Types',
@@ -701,9 +701,9 @@ export const BEAUTY_PRODUCTS: BeautyProduct[] = [
     originalPrice: 699,
     rating: 4.8,
     reviewsCount: 520,
-    image: 'https://images.unsplash.com/photo-1631214500115-598fc2cb8d2d?auto=format&fit=crop&w=800&q=80',
+    image: 'https://images.unsplash.com/photo-1631214500115-598fc2cb8d2d?auto=format&fit=crop&w=800&q=75',
     galleryImages: [
-      'https://images.unsplash.com/photo-1631214500115-598fc2cb8d2d?auto=format&fit=crop&w=800&q=80'
+      'https://images.unsplash.com/photo-1631214500115-598fc2cb8d2d?auto=format&fit=crop&w=800&q=75'
     ],
     volume: '1.2 ml / 0.04 fl oz',
     skinType: 'All Skin Types',
@@ -725,9 +725,9 @@ export const BEAUTY_PRODUCTS: BeautyProduct[] = [
     originalPrice: 899,
     rating: 4.9,
     reviewsCount: 470,
-    image: 'https://images.unsplash.com/photo-1587754256282-a11d04e3472d?auto=format&fit=crop&w=800&q=80',
+    image: 'https://images.unsplash.com/photo-1587754256282-a11d04e3472d?auto=format&fit=crop&w=800&q=75',
     galleryImages: [
-      'https://images.unsplash.com/photo-1587754256282-a11d04e3472d?auto=format&fit=crop&w=800&q=80'
+      'https://images.unsplash.com/photo-1587754256282-a11d04e3472d?auto=format&fit=crop&w=800&q=75'
     ],
     volume: '9 ml / 0.3 fl oz',
     skinType: 'All Skin Types',
@@ -749,9 +749,9 @@ export const BEAUTY_PRODUCTS: BeautyProduct[] = [
     originalPrice: 499,
     rating: 4.8,
     reviewsCount: 390,
-    image: 'https://images.unsplash.com/photo-1590393802698-33439975768e?auto=format&fit=crop&w=800&q=80',
+    image: 'https://images.unsplash.com/photo-1590393802698-33439975768e?auto=format&fit=crop&w=800&q=75',
     galleryImages: [
-      'https://images.unsplash.com/photo-1590393802698-33439975768e?auto=format&fit=crop&w=800&q=80'
+      'https://images.unsplash.com/photo-1590393802698-33439975768e?auto=format&fit=crop&w=800&q=75'
     ],
     volume: '0.35 g / 0.01 oz',
     skinType: 'Sensitive',
@@ -773,9 +773,9 @@ export const BEAUTY_PRODUCTS: BeautyProduct[] = [
     originalPrice: 999,
     rating: 4.9,
     reviewsCount: 560,
-    image: 'https://images.unsplash.com/photo-1586495777744-4413f21062fa?auto=format&fit=crop&w=800&q=80',
+    image: 'https://images.unsplash.com/photo-1586495777744-4413f21062fa?auto=format&fit=crop&w=800&q=75',
     galleryImages: [
-      'https://images.unsplash.com/photo-1586495777744-4413f21062fa?auto=format&fit=crop&w=800&q=80'
+      'https://images.unsplash.com/photo-1586495777744-4413f21062fa?auto=format&fit=crop&w=800&q=75'
     ],
     volume: '3.8 g / 0.13 oz',
     skinType: 'All Skin Types',
@@ -804,9 +804,9 @@ export const BEAUTY_PRODUCTS: BeautyProduct[] = [
     originalPrice: 799,
     rating: 4.8,
     reviewsCount: 340,
-    image: 'https://images.unsplash.com/photo-1625093742435-6fa192b6fb10?auto=format&fit=crop&w=800&q=80',
+    image: 'https://images.unsplash.com/photo-1625093742435-6fa192b6fb10?auto=format&fit=crop&w=800&q=75',
     galleryImages: [
-      'https://images.unsplash.com/photo-1625093742435-6fa192b6fb10?auto=format&fit=crop&w=800&q=80'
+      'https://images.unsplash.com/photo-1625093742435-6fa192b6fb10?auto=format&fit=crop&w=800&q=75'
     ],
     volume: '10 ml / 0.34 fl oz',
     skinType: 'All Skin Types',
@@ -833,9 +833,9 @@ export const BEAUTY_PRODUCTS: BeautyProduct[] = [
     originalPrice: 550,
     rating: 4.7,
     reviewsCount: 210,
-    image: 'https://images.unsplash.com/photo-1590393802613-cf854497042a?auto=format&fit=crop&w=800&q=80',
+    image: 'https://images.unsplash.com/photo-1590393802613-cf854497042a?auto=format&fit=crop&w=800&q=75',
     galleryImages: [
-      'https://images.unsplash.com/photo-1590393802613-cf854497042a?auto=format&fit=crop&w=800&q=80'
+      'https://images.unsplash.com/photo-1590393802613-cf854497042a?auto=format&fit=crop&w=800&q=75'
     ],
     volume: '1.1 g / 0.04 oz',
     skinType: 'All Skin Types',
@@ -862,9 +862,9 @@ export const BEAUTY_PRODUCTS: BeautyProduct[] = [
     originalPrice: 999,
     rating: 4.9,
     reviewsCount: 430,
-    image: 'https://images.unsplash.com/photo-1607604276583-eef5d076aa5f?auto=format&fit=crop&w=800&q=80',
+    image: 'https://images.unsplash.com/photo-1607604276583-eef5d076aa5f?auto=format&fit=crop&w=800&q=75',
     galleryImages: [
-      'https://images.unsplash.com/photo-1607604276583-eef5d076aa5f?auto=format&fit=crop&w=800&q=80'
+      'https://images.unsplash.com/photo-1607604276583-eef5d076aa5f?auto=format&fit=crop&w=800&q=75'
     ],
     volume: '100 ml / 3.4 fl oz',
     skinType: 'All Skin Types',
@@ -890,9 +890,9 @@ export const BEAUTY_PRODUCTS: BeautyProduct[] = [
     originalPrice: 899,
     rating: 4.8,
     reviewsCount: 310,
-    image: 'https://images.unsplash.com/photo-1527799820374-dcf8d9d4a388?auto=format&fit=crop&w=800&q=80',
+    image: 'https://images.unsplash.com/photo-1527799820374-dcf8d9d4a388?auto=format&fit=crop&w=800&q=75',
     galleryImages: [
-      'https://images.unsplash.com/photo-1527799820374-dcf8d9d4a388?auto=format&fit=crop&w=800&q=80'
+      'https://images.unsplash.com/photo-1527799820374-dcf8d9d4a388?auto=format&fit=crop&w=800&q=75'
     ],
     volume: '250 ml / 8.5 fl oz',
     skinType: 'All Skin Types',
@@ -915,9 +915,9 @@ export const BEAUTY_PRODUCTS: BeautyProduct[] = [
     originalPrice: 950,
     rating: 4.9,
     reviewsCount: 280,
-    image: 'https://images.unsplash.com/photo-1519735777090-ec97162dc266?auto=format&fit=crop&w=800&q=80',
+    image: 'https://images.unsplash.com/photo-1519735777090-ec97162dc266?auto=format&fit=crop&w=800&q=75',
     galleryImages: [
-      'https://images.unsplash.com/photo-1519735777090-ec97162dc266?auto=format&fit=crop&w=800&q=80'
+      'https://images.unsplash.com/photo-1519735777090-ec97162dc266?auto=format&fit=crop&w=800&q=75'
     ],
     volume: '250 ml / 8.5 fl oz',
     skinType: 'Dry & Dehydrated',
@@ -939,9 +939,9 @@ export const BEAUTY_PRODUCTS: BeautyProduct[] = [
     originalPrice: 1199,
     rating: 4.9,
     reviewsCount: 540,
-    image: 'https://images.unsplash.com/photo-1608248543803-ba4f8c70ae0b?auto=format&fit=crop&w=800&q=80',
+    image: 'https://images.unsplash.com/photo-1608248543803-ba4f8c70ae0b?auto=format&fit=crop&w=800&q=75',
     galleryImages: [
-      'https://images.unsplash.com/photo-1608248543803-ba4f8c70ae0b?auto=format&fit=crop&w=800&q=80'
+      'https://images.unsplash.com/photo-1608248543803-ba4f8c70ae0b?auto=format&fit=crop&w=800&q=75'
     ],
     volume: '100 ml / 3.4 fl oz',
     skinType: 'All Skin Types',
@@ -964,9 +964,9 @@ export const BEAUTY_PRODUCTS: BeautyProduct[] = [
     originalPrice: 1100,
     rating: 4.8,
     reviewsCount: 320,
-    image: 'https://images.unsplash.com/photo-1617897903246-719242758050?auto=format&fit=crop&w=800&q=80',
+    image: 'https://images.unsplash.com/photo-1617897903246-719242758050?auto=format&fit=crop&w=800&q=75',
     galleryImages: [
-      'https://images.unsplash.com/photo-1617897903246-719242758050?auto=format&fit=crop&w=800&q=80'
+      'https://images.unsplash.com/photo-1617897903246-719242758050?auto=format&fit=crop&w=800&q=75'
     ],
     volume: '50 ml / 1.7 fl oz',
     skinType: 'All Skin Types',
@@ -988,9 +988,9 @@ export const BEAUTY_PRODUCTS: BeautyProduct[] = [
     originalPrice: 1350,
     rating: 4.9,
     reviewsCount: 260,
-    image: 'https://images.unsplash.com/photo-1526947425960-945c6e72858f?auto=format&fit=crop&w=800&q=80',
+    image: 'https://images.unsplash.com/photo-1526947425960-945c6e72858f?auto=format&fit=crop&w=800&q=75',
     galleryImages: [
-      'https://images.unsplash.com/photo-1526947425960-945c6e72858f?auto=format&fit=crop&w=800&q=80'
+      'https://images.unsplash.com/photo-1526947425960-945c6e72858f?auto=format&fit=crop&w=800&q=75'
     ],
     volume: '200 g / 7.0 oz',
     skinType: 'Dry & Dehydrated',
@@ -1012,9 +1012,9 @@ export const BEAUTY_PRODUCTS: BeautyProduct[] = [
     originalPrice: 1050,
     rating: 4.8,
     reviewsCount: 190,
-    image: 'https://images.unsplash.com/photo-1547887537-6158d64c35b3?auto=format&fit=crop&w=800&q=80',
+    image: 'https://images.unsplash.com/photo-1547887537-6158d64c35b3?auto=format&fit=crop&w=800&q=75',
     galleryImages: [
-      'https://images.unsplash.com/photo-1547887537-6158d64c35b3?auto=format&fit=crop&w=800&q=80'
+      'https://images.unsplash.com/photo-1547887537-6158d64c35b3?auto=format&fit=crop&w=800&q=75'
     ],
     volume: '150 g / 5.3 oz',
     skinType: 'Oily & Acne-Prone',
@@ -1036,9 +1036,9 @@ export const BEAUTY_PRODUCTS: BeautyProduct[] = [
     originalPrice: 850,
     rating: 4.7,
     reviewsCount: 150,
-    image: 'https://images.unsplash.com/photo-1515377905703-c4788e51af15?auto=format&fit=crop&w=800&q=80',
+    image: 'https://images.unsplash.com/photo-1515377905703-c4788e51af15?auto=format&fit=crop&w=800&q=75',
     galleryImages: [
-      'https://images.unsplash.com/photo-1515377905703-c4788e51af15?auto=format&fit=crop&w=800&q=80'
+      'https://images.unsplash.com/photo-1515377905703-c4788e51af15?auto=format&fit=crop&w=800&q=75'
     ],
     volume: '150 ml / 5.1 fl oz',
     skinType: 'All Skin Types',
@@ -1064,9 +1064,9 @@ export const BEAUTY_PRODUCTS: BeautyProduct[] = [
     originalPrice: 1199,
     rating: 4.9,
     reviewsCount: 420,
-    image: 'https://images.unsplash.com/photo-1584308666744-24d5c474f2ae?auto=format&fit=crop&w=800&q=80',
+    image: 'https://images.unsplash.com/photo-1584308666744-24d5c474f2ae?auto=format&fit=crop&w=800&q=75',
     galleryImages: [
-      'https://images.unsplash.com/photo-1584308666744-24d5c474f2ae?auto=format&fit=crop&w=800&q=80'
+      'https://images.unsplash.com/photo-1584308666744-24d5c474f2ae?auto=format&fit=crop&w=800&q=75'
     ],
     volume: '200 g / 7.0 oz',
     skinType: 'Dry & Dehydrated',
@@ -1089,9 +1089,9 @@ export const BEAUTY_PRODUCTS: BeautyProduct[] = [
     originalPrice: 899,
     rating: 4.8,
     reviewsCount: 310,
-    image: 'https://images.unsplash.com/photo-1556228578-0d85b1a4d571?auto=format&fit=crop&w=800&q=80',
+    image: 'https://images.unsplash.com/photo-1556228578-0d85b1a4d571?auto=format&fit=crop&w=800&q=75',
     galleryImages: [
-      'https://images.unsplash.com/photo-1556228578-0d85b1a4d571?auto=format&fit=crop&w=800&q=80'
+      'https://images.unsplash.com/photo-1556228578-0d85b1a4d571?auto=format&fit=crop&w=800&q=75'
     ],
     volume: '300 ml / 10.1 fl oz',
     skinType: 'All Skin Types',
@@ -1113,9 +1113,9 @@ export const BEAUTY_PRODUCTS: BeautyProduct[] = [
     originalPrice: 999,
     rating: 4.8,
     reviewsCount: 230,
-    image: 'https://images.unsplash.com/photo-1540555700478-4be289fbecef?auto=format&fit=crop&w=800&q=80',
+    image: 'https://images.unsplash.com/photo-1540555700478-4be289fbecef?auto=format&fit=crop&w=800&q=75',
     galleryImages: [
-      'https://images.unsplash.com/photo-1540555700478-4be289fbecef?auto=format&fit=crop&w=800&q=80'
+      'https://images.unsplash.com/photo-1540555700478-4be289fbecef?auto=format&fit=crop&w=800&q=75'
     ],
     volume: '250 g / 8.8 oz',
     skinType: 'All Skin Types',
@@ -1137,9 +1137,9 @@ export const BEAUTY_PRODUCTS: BeautyProduct[] = [
     originalPrice: 550,
     rating: 4.9,
     reviewsCount: 380,
-    image: 'https://images.unsplash.com/photo-1598440947619-2c35fc9aa908?auto=format&fit=crop&w=800&q=80',
+    image: 'https://images.unsplash.com/photo-1598440947619-2c35fc9aa908?auto=format&fit=crop&w=800&q=75',
     galleryImages: [
-      'https://images.unsplash.com/photo-1598440947619-2c35fc9aa908?auto=format&fit=crop&w=800&q=80'
+      'https://images.unsplash.com/photo-1598440947619-2c35fc9aa908?auto=format&fit=crop&w=800&q=75'
     ],
     volume: '50 ml / 1.7 fl oz',
     skinType: 'Dry & Dehydrated',
@@ -1161,9 +1161,9 @@ export const BEAUTY_PRODUCTS: BeautyProduct[] = [
     originalPrice: 750,
     rating: 4.8,
     reviewsCount: 195,
-    image: 'https://images.unsplash.com/photo-1584308666744-24d5c474f2ae?auto=format&fit=crop&w=800&q=80',
+    image: 'https://images.unsplash.com/photo-1584308666744-24d5c474f2ae?auto=format&fit=crop&w=800&q=75',
     galleryImages: [
-      'https://images.unsplash.com/photo-1584308666744-24d5c474f2ae?auto=format&fit=crop&w=800&q=80'
+      'https://images.unsplash.com/photo-1584308666744-24d5c474f2ae?auto=format&fit=crop&w=800&q=75'
     ],
     volume: '250 ml / 8.5 fl oz',
     skinType: 'All Skin Types',
@@ -1185,9 +1185,9 @@ export const BEAUTY_PRODUCTS: BeautyProduct[] = [
     originalPrice: 799,
     rating: 4.7,
     reviewsCount: 160,
-    image: 'https://images.unsplash.com/photo-1535585209827-a15fcdbc4c2d?auto=format&fit=crop&w=800&q=80',
+    image: 'https://images.unsplash.com/photo-1535585209827-a15fcdbc4c2d?auto=format&fit=crop&w=800&q=75',
     galleryImages: [
-      'https://images.unsplash.com/photo-1535585209827-a15fcdbc4c2d?auto=format&fit=crop&w=800&q=80'
+      'https://images.unsplash.com/photo-1535585209827-a15fcdbc4c2d?auto=format&fit=crop&w=800&q=75'
     ],
     volume: '250 ml / 8.5 fl oz',
     skinType: 'Sensitive',
@@ -1213,9 +1213,9 @@ export const BEAUTY_PRODUCTS: BeautyProduct[] = [
     originalPrice: 3200,
     rating: 4.9,
     reviewsCount: 410,
-    image: 'https://images.unsplash.com/photo-1592945403244-b3fbafd7f539?auto=format&fit=crop&w=800&q=80',
+    image: 'https://images.unsplash.com/photo-1592945403244-b3fbafd7f539?auto=format&fit=crop&w=800&q=75',
     galleryImages: [
-      'https://images.unsplash.com/photo-1592945403244-b3fbafd7f539?auto=format&fit=crop&w=800&q=80'
+      'https://images.unsplash.com/photo-1592945403244-b3fbafd7f539?auto=format&fit=crop&w=800&q=75'
     ],
     volume: '50 ml / 1.7 fl oz',
     skinType: 'All Skin Types',
@@ -1238,9 +1238,9 @@ export const BEAUTY_PRODUCTS: BeautyProduct[] = [
     originalPrice: 2499,
     rating: 4.8,
     reviewsCount: 290,
-    image: 'https://images.unsplash.com/photo-1547887537-6158d64c35b3?auto=format&fit=crop&w=800&q=80',
+    image: 'https://images.unsplash.com/photo-1547887537-6158d64c35b3?auto=format&fit=crop&w=800&q=75',
     galleryImages: [
-      'https://images.unsplash.com/photo-1547887537-6158d64c35b3?auto=format&fit=crop&w=800&q=80'
+      'https://images.unsplash.com/photo-1547887537-6158d64c35b3?auto=format&fit=crop&w=800&q=75'
     ],
     volume: '50 ml / 1.7 fl oz',
     skinType: 'All Skin Types',
@@ -1262,9 +1262,9 @@ export const BEAUTY_PRODUCTS: BeautyProduct[] = [
     originalPrice: 1199,
     rating: 4.8,
     reviewsCount: 360,
-    image: 'https://images.unsplash.com/photo-1615397349754-cfa2066a298e?auto=format&fit=crop&w=800&q=80',
+    image: 'https://images.unsplash.com/photo-1615397349754-cfa2066a298e?auto=format&fit=crop&w=800&q=75',
     galleryImages: [
-      'https://images.unsplash.com/photo-1615397349754-cfa2066a298e?auto=format&fit=crop&w=800&q=80'
+      'https://images.unsplash.com/photo-1615397349754-cfa2066a298e?auto=format&fit=crop&w=800&q=75'
     ],
     volume: '150 ml / 5.1 fl oz',
     skinType: 'All Skin Types',
@@ -1286,9 +1286,9 @@ export const BEAUTY_PRODUCTS: BeautyProduct[] = [
     originalPrice: 2899,
     rating: 4.9,
     reviewsCount: 180,
-    image: 'https://images.unsplash.com/photo-1594035910387-fea47794261f?auto=format&fit=crop&w=800&q=80',
+    image: 'https://images.unsplash.com/photo-1594035910387-fea47794261f?auto=format&fit=crop&w=800&q=75',
     galleryImages: [
-      'https://images.unsplash.com/photo-1594035910387-fea47794261f?auto=format&fit=crop&w=800&q=80'
+      'https://images.unsplash.com/photo-1594035910387-fea47794261f?auto=format&fit=crop&w=800&q=75'
     ],
     volume: '4 x 15 ml / 2.0 fl oz total',
     skinType: 'All Skin Types',
@@ -1314,9 +1314,9 @@ export const BEAUTY_PRODUCTS: BeautyProduct[] = [
     originalPrice: 2299,
     rating: 4.9,
     reviewsCount: 380,
-    image: 'https://images.unsplash.com/photo-1522337360788-8b13dee7a37e?auto=format&fit=crop&w=800&q=80',
+    image: 'https://images.unsplash.com/photo-1522337360788-8b13dee7a37e?auto=format&fit=crop&w=800&q=75',
     galleryImages: [
-      'https://images.unsplash.com/photo-1522337360788-8b13dee7a37e?auto=format&fit=crop&w=800&q=80'
+      'https://images.unsplash.com/photo-1522337360788-8b13dee7a37e?auto=format&fit=crop&w=800&q=75'
     ],
     volume: '12 Pro Brushes',
     skinType: 'All Skin Types',
@@ -1338,9 +1338,9 @@ export const BEAUTY_PRODUCTS: BeautyProduct[] = [
     originalPrice: 699,
     rating: 4.8,
     reviewsCount: 520,
-    image: 'https://images.unsplash.com/photo-1596462502278-27bfdc403348?auto=format&fit=crop&w=800&q=80',
+    image: 'https://images.unsplash.com/photo-1596462502278-27bfdc403348?auto=format&fit=crop&w=800&q=75',
     galleryImages: [
-      'https://images.unsplash.com/photo-1596462502278-27bfdc403348?auto=format&fit=crop&w=800&q=80'
+      'https://images.unsplash.com/photo-1596462502278-27bfdc403348?auto=format&fit=crop&w=800&q=75'
     ],
     volume: 'Pack of 3 Sponges',
     skinType: 'All Skin Types',
@@ -1362,9 +1362,9 @@ export const BEAUTY_PRODUCTS: BeautyProduct[] = [
     originalPrice: 999,
     rating: 4.8,
     reviewsCount: 210,
-    image: 'https://images.unsplash.com/photo-1584917865442-de89df76afd3?auto=format&fit=crop&w=800&q=80',
+    image: 'https://images.unsplash.com/photo-1584917865442-de89df76afd3?auto=format&fit=crop&w=800&q=75',
     galleryImages: [
-      'https://images.unsplash.com/photo-1584917865442-de89df76afd3?auto=format&fit=crop&w=800&q=80'
+      'https://images.unsplash.com/photo-1584917865442-de89df76afd3?auto=format&fit=crop&w=800&q=75'
     ],
     volume: '24 x 14 x 12 cm',
     skinType: 'All Skin Types',
@@ -1386,9 +1386,9 @@ export const BEAUTY_PRODUCTS: BeautyProduct[] = [
     originalPrice: 1299,
     rating: 4.9,
     reviewsCount: 340,
-    image: 'https://images.unsplash.com/photo-1608248597359-299f187a550c?auto=format&fit=crop&w=800&q=80',
+    image: 'https://images.unsplash.com/photo-1608248597359-299f187a550c?auto=format&fit=crop&w=800&q=75',
     galleryImages: [
-      'https://images.unsplash.com/photo-1608248597359-299f187a550c?auto=format&fit=crop&w=800&q=80'
+      'https://images.unsplash.com/photo-1608248597359-299f187a550c?auto=format&fit=crop&w=800&q=75'
     ],
     volume: '100% Genuine Rose Quartz',
     skinType: 'All Skin Types',
@@ -1410,9 +1410,9 @@ export const BEAUTY_PRODUCTS: BeautyProduct[] = [
     originalPrice: 850,
     rating: 4.8,
     reviewsCount: 290,
-    image: 'https://images.unsplash.com/photo-1571781926291-c477ebfd024b?auto=format&fit=crop&w=800&q=80',
+    image: 'https://images.unsplash.com/photo-1571781926291-c477ebfd024b?auto=format&fit=crop&w=800&q=75',
     galleryImages: [
-      'https://images.unsplash.com/photo-1571781926291-c477ebfd024b?auto=format&fit=crop&w=800&q=80'
+      'https://images.unsplash.com/photo-1571781926291-c477ebfd024b?auto=format&fit=crop&w=800&q=75'
     ],
     volume: '100% Natural Aventurine Stone',
     skinType: 'All Skin Types',
@@ -1434,9 +1434,9 @@ export const BEAUTY_PRODUCTS: BeautyProduct[] = [
     originalPrice: 999,
     rating: 4.8,
     reviewsCount: 215,
-    image: 'https://images.unsplash.com/photo-1527799820374-dcf8d9d4a388?auto=format&fit=crop&w=800&q=80',
+    image: 'https://images.unsplash.com/photo-1527799820374-dcf8d9d4a388?auto=format&fit=crop&w=800&q=75',
     galleryImages: [
-      'https://images.unsplash.com/photo-1527799820374-dcf8d9d4a388?auto=format&fit=crop&w=800&q=80'
+      'https://images.unsplash.com/photo-1527799820374-dcf8d9d4a388?auto=format&fit=crop&w=800&q=75'
     ],
     volume: 'FSC Bamboo Paddle Brush',
     skinType: 'All Skin Types',
@@ -1461,7 +1461,7 @@ export const BEAUTY_REVIEWS: ReviewItem[] = [
     comment: 'I was skeptical about facial oils because of my combination skin, but the Rose Gold Radiance Elixir absorbs within seconds and gives the most incredible healthy glow. My makeup sits so smoothly now!',
     productName: 'Rose Gold Radiance Elixir',
     verified: true,
-    avatar: 'https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&w=200&q=80',
+    avatar: 'https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&w=200&q=75',
     skinType: 'Combination / Sensitive'
   },
   {
@@ -1473,7 +1473,7 @@ export const BEAUTY_REVIEWS: ReviewItem[] = [
     comment: 'The Ceramide Cloud Barrier Moisturizer repaired my damaged moisture barrier in less than 5 days. It feels like expensive silk on the skin without any greasy residue.',
     productName: 'Ceramide Cloud Barrier Face Moisturizer',
     verified: true,
-    avatar: 'https://images.unsplash.com/photo-1517841905240-472988babdf9?auto=format&fit=crop&w=200&q=80',
+    avatar: 'https://images.unsplash.com/photo-1517841905240-472988babdf9?auto=format&fit=crop&w=200&q=75',
     skinType: 'Dry & Dehydrated'
   },
   {
@@ -1485,7 +1485,7 @@ export const BEAUTY_REVIEWS: ReviewItem[] = [
     comment: 'I receive compliments every single day at work. The jasmine and green pear blend is so sophisticated, not overpowering, and lasts from 9am till late evening.',
     productName: 'Fleur Royale Haute Eau De Parfum',
     verified: true,
-    avatar: 'https://images.unsplash.com/photo-1544005313-94ddf0286df2?auto=format&fit=crop&w=200&q=80',
+    avatar: 'https://images.unsplash.com/photo-1544005313-94ddf0286df2?auto=format&fit=crop&w=200&q=75',
     skinType: 'Normal'
   },
   {
@@ -1497,7 +1497,7 @@ export const BEAUTY_REVIEWS: ReviewItem[] = [
     comment: 'The Warm Sand shade is an exact match for Indian undertones. It does not oxidize, stays luminous all through 10-hour humid days, and does not settle into fine lines.',
     productName: 'Second Skin Luminous Silk Foundation',
     verified: true,
-    avatar: 'https://images.unsplash.com/photo-1524504388940-b1c1722653e1?auto=format&fit=crop&w=200&q=80',
+    avatar: 'https://images.unsplash.com/photo-1524504388940-b1c1722653e1?auto=format&fit=crop&w=200&q=75',
     skinType: 'All Skin Types'
   },
   {
@@ -1509,7 +1509,7 @@ export const BEAUTY_REVIEWS: ReviewItem[] = [
     comment: 'I have been using this rosemary oil twice weekly for 2 months. My temple thinning has reversed with fresh baby hairs. Smells like an upscale spa!',
     productName: 'Rosemary & Bhringraj Scalp Root Treatment Oil',
     verified: true,
-    avatar: 'https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&w=200&q=80',
+    avatar: 'https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&w=200&q=75',
     skinType: 'Normal'
   }
 ];
@@ -1520,7 +1520,7 @@ export const BEAUTY_BLOGS: BlogPost[] = [
     title: 'The 7-Step Clean Skincare Ritual for Glass-Like Radiance',
     category: 'Skincare Rituals',
     readTime: '4 min read',
-    image: 'https://images.unsplash.com/photo-1598440947619-2c35fc9aa908?auto=format&fit=crop&w=800&q=80',
+    image: 'https://images.unsplash.com/photo-1598440947619-2c35fc9aa908?auto=format&fit=crop&w=800&q=75',
     excerpt: 'Discover the exact layering technique used by dermatologists to achieve deeply hydrated, luminous skin all season long.',
     author: 'Dr. Evelyn Vance, Dermatologist',
     date: 'Aug 18, 2026',
@@ -1531,7 +1531,7 @@ export const BEAUTY_BLOGS: BlogPost[] = [
     title: 'Why Bakuchiol is the Gentle Secret to Timeless Aging',
     category: 'Ingredient Spotlight',
     readTime: '3 min read',
-    image: 'https://images.unsplash.com/photo-1620916566398-39f1143ab7be?auto=format&fit=crop&w=800&q=80',
+    image: 'https://images.unsplash.com/photo-1620916566398-39f1143ab7be?auto=format&fit=crop&w=800&q=75',
     excerpt: 'Everything you need to know about the Ayurvedic plant-derived retinol alternative that delivers all the firming results without irritation.',
     author: 'Maya Lin, Formulation Chemist',
     date: 'Aug 12, 2026',
@@ -1542,7 +1542,7 @@ export const BEAUTY_BLOGS: BlogPost[] = [
     title: 'The Art of Hair Oiling: How Rosemary Oil Transforms Follicles',
     category: 'Hair Wellness',
     readTime: '5 min read',
-    image: 'https://images.unsplash.com/photo-1527799820374-dcf8d9d4a388?auto=format&fit=crop&w=800&q=80',
+    image: 'https://images.unsplash.com/photo-1527799820374-dcf8d9d4a388?auto=format&fit=crop&w=800&q=75',
     excerpt: 'Ancient Ayurvedic head massage meets modern trichology: learn the correct method to stimulate micro-circulation and density.',
     author: 'Kavita Verma, Ayurvedic Practitioner',
     date: 'Aug 05, 2026',
@@ -1578,28 +1578,28 @@ export const INSTAGRAM_POSTS = [
   {
     id: 'ig-1',
     user: '@claire_glow',
-    image: 'https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&w=500&q=80',
+    image: 'https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&w=500&q=75',
     likes: '2.4k',
     productTagged: 'Rose Gold Radiance Elixir'
   },
   {
     id: 'ig-2',
     user: '@serena.beauty',
-    image: 'https://images.unsplash.com/photo-1517841905240-472988babdf9?auto=format&fit=crop&w=500&q=80',
+    image: 'https://images.unsplash.com/photo-1517841905240-472988babdf9?auto=format&fit=crop&w=500&q=75',
     likes: '1.8k',
     productTagged: 'Second Skin Foundation'
   },
   {
     id: 'ig-3',
     user: '@cleanbeauty_diary',
-    image: 'https://images.unsplash.com/photo-1524504388940-b1c1722653e1?auto=format&fit=crop&w=500&q=80',
+    image: 'https://images.unsplash.com/photo-1524504388940-b1c1722653e1?auto=format&fit=crop&w=500&q=75',
     likes: '3.1k',
     productTagged: 'Ceramide Cloud Barrier Cream'
   },
   {
     id: 'ig-4',
     user: '@arora.glows',
-    image: 'https://images.unsplash.com/photo-1544005313-94ddf0286df2?auto=format&fit=crop&w=500&q=80',
+    image: 'https://images.unsplash.com/photo-1544005313-94ddf0286df2?auto=format&fit=crop&w=500&q=75',
     likes: '4.2k',
     productTagged: 'Damask Rose Mist'
   }

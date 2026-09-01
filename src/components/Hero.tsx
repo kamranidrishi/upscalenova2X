@@ -22,13 +22,12 @@ export const Hero: React.FC<HeroProps> = ({ onOpenQuoteModal }) => {
           </div>
 
           {/* Main Title */}
-          <h1 className="text-[clamp(2.5rem,4.5vw,5rem)] font-extrabold text-slate-900 tracking-tight leading-[1.15]">
-            Build Your <span className="text-transparent bg-clip-text bg-gradient-to-r from-indigo-600 via-purple-600 to-indigo-800">Business</span> Beyond Limits.
-          </h1>
+          <h1 className="text-5xl md:text-7xl font-black tracking-tight leading-[0.95]">
+  Build Your <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-500 to-purple-600">Business</span> Beyond Limits with Digital Solutions.</h1>
 
           {/* Subtitle */}
           <p className="text-[clamp(1.125rem,1.5vw,1.375rem)] text-slate-600 font-medium leading-relaxed max-w-2xl mx-auto">
-            From powerful custom websites to smart digital business solutions, Upscale Nova helps businesses build a stronger, high-converting online presence.
+            From powerful custom websites to smart digital solutions, Upscale Nova helps businesses in Mumbai and across India build modern, high-converting websites and grow their online presence.
           </p>
 
           {/* CTA Buttons */}

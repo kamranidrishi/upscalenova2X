@@ -182,8 +182,9 @@ Thank you.`;
                 <form onSubmit={handleSubmit} className="space-y-4">
                   <div className="space-y-4">
                     <div>
-                      <label className="block text-sm font-semibold text-slate-700 mb-1.5">Full Name *</label>
+                      <label htmlFor="contact-full-name" className="block text-sm font-semibold text-slate-700 mb-1.5">Full Name *</label>
                       <input
+                        id="contact-full-name"
                         type="text"
                         required
                         value={formData.name}
@@ -194,9 +195,11 @@ Thank you.`;
                     </div>
 
                     <div>
-                      <label className="block text-sm font-semibold text-slate-700 mb-1.5">Phone Number *</label>
+                      <label htmlFor="contact-phone-number" className="block text-sm font-semibold text-slate-700 mb-1.5">Phone Number *</label>
                       <div className="flex gap-2">
                         <select
+                          id="contact-country-code"
+                          aria-label="Country Code"
                           value={formData.countryCode}
                           onChange={(e) => setFormData({ ...formData, countryCode: e.target.value })}
                           className="bg-white border border-slate-300 rounded-xl px-3 py-3 text-sm text-slate-900 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500 transition-shadow max-w-[100px]"
@@ -204,6 +207,7 @@ Thank you.`;
                           <option value="+91">🇮🇳 +91</option>
                         </select>
                         <input
+                          id="contact-phone-number"
                           type="tel"
                           required
                           maxLength={10}
@@ -221,8 +225,9 @@ Thank you.`;
                     </div>
 
                     <div>
-                      <label className="block text-sm font-semibold text-slate-700 mb-1.5">Service Interested In</label>
+                      <label htmlFor="contact-service-select" className="block text-sm font-semibold text-slate-700 mb-1.5">Service Interested In</label>
                       <select
+                        id="contact-service-select"
                         value={formData.service}
                         onChange={(e) => setFormData({ ...formData, service: e.target.value })}
                         className="w-full bg-white border border-slate-300 rounded-xl px-4 py-3 text-sm text-slate-900 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500 transition-shadow"

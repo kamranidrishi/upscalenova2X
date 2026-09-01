@@ -29,57 +29,57 @@ export const INDUSTRIES: IndustryItem[] = [
 export const SERVICES: ServiceItem[] = [
   {
     id: 'web-design',
-    title: 'Website Design',
-    description: 'Stunning, responsive UI/UX designs crafted to represent your unique brand identity.',
+    title: 'Website Design & UI/UX',
+    description: 'Custom, responsive website designs crafted with high-converting layouts, modern aesthetics, and seamless mobile usability.',
     iconName: 'Smartphone',
     color: 'bg-blue-500 text-white'
   },
   {
     id: 'custom-dev',
     title: 'Custom Web Development',
-    description: 'Fully customized websites built from the ground up to meet your specific business requirements.',
+    description: 'Fast, secure business websites and web applications built from scratch with clean code and built-in SEO foundation.',
     iconName: 'Globe',
     color: 'bg-indigo-600 text-white'
   },
   {
     id: 'google-maps',
-    title: 'Google Maps Listing',
-    description: 'Establish and optimize your local presence so customers can easily find you on maps.',
+    title: 'Google Maps & Local SEO',
+    description: 'Local presence optimization on Google Maps to help nearby customers in Mumbai and beyond discover your business easily.',
     iconName: 'MapPin',
     color: 'bg-rose-500 text-white'
   },
   {
     id: 'google-profile',
-    title: 'Google Business Profile',
-    description: 'Complete setup and management of your Google profile for maximum visibility and customer trust.',
+    title: 'Google Business Profile Setup',
+    description: 'Complete setup, verification guidance, and profile optimization to maximize visibility, trust, and local search inquiries.',
     iconName: 'Star',
     color: 'bg-amber-500 text-white'
   },
   {
     id: 'qr-review',
     title: 'Google Review QR Solutions',
-    description: 'Smart QR codes that direct customers directly to leave 5-star Google reviews seamlessly.',
+    description: 'Custom-designed QR codes and tabletop stands that direct happy customers directly to your Google 5-star review page.',
     iconName: 'QrCode',
     color: 'bg-emerald-500 text-white'
   },
   {
     id: 'nfc-cards',
-    title: 'NFC Review Cards',
-    description: 'A simple tap opens your review page. No typing required for instant Google feedback.',
+    title: 'NFC Google Review Cards',
+    description: 'Smart contactless NFC cards where a single smartphone tap opens your review link instantly with zero typing needed.',
     iconName: 'CreditCard',
     color: 'bg-purple-600 text-white'
   },
   {
     id: 'digital-menu',
-    title: 'Digital Menu Solutions',
-    description: 'Mobile-friendly digital menus for cafes and restaurants with easy QR access and instant updates.',
+    title: 'Digital Menu for Restaurants',
+    description: 'Interactive, mobile-friendly digital menus for cafes and restaurants featuring instant updates and seamless QR access.',
     iconName: 'Menu',
     color: 'bg-pink-500 text-white'
   },
   {
     id: 'hosting-mgmt',
-    title: 'Website Hosting & Management',
-    description: 'Reliable hosting, ongoing maintenance, and security management to keep your site fast and safe.',
+    title: 'Website Hosting & Maintenance',
+    description: 'High-speed cloud hosting, SSL certificates, regular backups, and dedicated technical maintenance to keep your site running smoothly.',
     iconName: 'Settings',
     color: 'bg-slate-700 text-white'
   }
@@ -89,7 +89,7 @@ export const PRODUCTS: ProductItem[] = [
   {
     id: 'nfc-review-card',
     title: 'Google Review NFC Card',
-    description: 'Customers simply tap their phone to instantly open your Google review page. No typing required.',
+    description: 'Customers simply tap their smartphone to instantly open your Google review page. Boost 5-star ratings with frictionless contactless feedback.',
     customization: ['Logo', 'Brand Colors', 'Custom URL', 'Custom Text'],
     badgeColor: 'bg-blue-500',
     iconName: 'Contactless',
@@ -98,7 +98,7 @@ export const PRODUCTS: ProductItem[] = [
   {
     id: 'google-qr-stand',
     title: 'Google Review QR Stand',
-    description: "Perfect for counters and tables. 'Loved Our Service? Leave Us a Review.' Tap or Scan.",
+    description: "Premium acrylic tabletop stands designed for checkout counters and reception desks. 'Loved Our Service? Leave Us a Review.'",
     customization: ['Logo', 'Brand Colors', 'Custom URL', 'Custom Text'],
     badgeColor: 'bg-emerald-500',
     iconName: 'QrCode',
@@ -107,7 +107,7 @@ export const PRODUCTS: ProductItem[] = [
   {
     id: 'social-qr-stand',
     title: 'Social Media QR Stand',
-    description: 'Scan to Connect. Direct customers to your Instagram, Facebook, WhatsApp, or Website.',
+    description: 'Connect with customers in real-time. Direct visitors to your Instagram, WhatsApp, website, and social channels with a single scan.',
     customization: ['Logo', 'Brand Colors', 'Custom URL', 'Custom Text'],
     badgeColor: 'bg-pink-500',
     iconName: 'Share2',
@@ -116,7 +116,7 @@ export const PRODUCTS: ProductItem[] = [
   {
     id: 'digital-menu-stand',
     title: 'Digital Menu QR Stand',
-    description: 'Scan to View Our Menu. A seamless dining experience for cafes and restaurants.',
+    description: 'Durable contactless QR display stands for dining tables and counters, delivering an instant digital menu experience for cafes and restaurants.',
     customization: ['Logo', 'Brand Colors', 'Custom URL', 'Custom Text'],
     badgeColor: 'bg-amber-500',
     iconName: 'Utensils',

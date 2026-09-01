@@ -12,6 +12,7 @@ import { AgencyDemo } from './AgencyDemo';
 import { RepairDemo } from './RepairDemo';
 import { CognitaDemo } from './CognitaDemo';
 import { BeautyDemo } from './BeautyDemo';
+import { FashionDemo } from './FashionDemo';
 import { FinFlowBaseDemo } from './finance/FinFlowBaseDemo';
 import { FinFlowProDemo } from './finance/FinFlowProDemo';
 import { FinFlowMaxDemo } from './finance/FinFlowMaxDemo';
@@ -226,6 +227,15 @@ export const WebsiteDemoRenderer: React.FC<RendererProps> = ({
     case "beauty":
       return (
         <BeautyDemo
+          demo={demo}
+          isMobile={isMobile}
+          isTablet={isTablet}
+          onPlanChange={onPlanChange}
+        />
+      );
+    case "fashion":
+      return (
+        <FashionDemo
           demo={demo}
           isMobile={isMobile}
           isTablet={isTablet}

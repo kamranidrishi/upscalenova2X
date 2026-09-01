@@ -52,22 +52,22 @@ export const SchoolProDemo: React.FC<SchoolProDemoProps> = ({ isMobile, isTablet
   ];
 
   const galleryItems = [
-    { title: 'STEM & Robotics Arena', url: 'https://images.unsplash.com/photo-1497633762265-9d179a990aa6?auto=format&fit=crop&w=800&q=80', tag: 'Labs' },
-    { title: 'Interactive Smart Lecture Hall', url: 'https://images.unsplash.com/photo-1577896851231-70ef18881754?auto=format&fit=crop&w=800&q=80', tag: 'Classrooms' },
-    { title: 'Junior Play Wing', url: 'https://images.unsplash.com/photo-1587691592099-24045742c181?auto=format&fit=crop&w=800&q=80', tag: 'Pre-Primary' },
-    { title: 'Main Academic Quadrangle', url: 'https://images.unsplash.com/photo-1541339907198-e08756dedf3f?auto=format&fit=crop&w=800&q=80', tag: 'Campus' },
-    { title: 'Olympic Size Turf & Track', url: 'https://images.unsplash.com/photo-1461896836934-ffe607ba8211?auto=format&fit=crop&w=800&q=80', tag: 'Sports' },
-    { title: 'Advanced Chemistry Lab', url: 'https://images.unsplash.com/photo-1573164713988-8665fc963095?auto=format&fit=crop&w=800&q=80', tag: 'Labs' },
-    { title: 'Central Digital Library', url: 'https://images.unsplash.com/photo-1523050854058-8df90110c9f1?auto=format&fit=crop&w=800&q=80', tag: 'Campus' },
-    { title: 'Annual Cultural Festival', url: 'https://images.unsplash.com/photo-1511578314322-379afb476865?auto=format&fit=crop&w=800&q=80', tag: 'Events' },
-    { title: 'Fine Arts & Clay Studio', url: 'https://images.unsplash.com/photo-1503676260728-1c00da094a0b?auto=format&fit=crop&w=800&q=80', tag: 'Activities' },
+    { title: 'STEM & Robotics Arena', url: 'https://images.unsplash.com/photo-1497633762265-9d179a990aa6?auto=format&fit=crop&w=800&q=75', tag: 'Labs' },
+    { title: 'Interactive Smart Lecture Hall', url: 'https://images.unsplash.com/photo-1577896851231-70ef18881754?auto=format&fit=crop&w=800&q=75', tag: 'Classrooms' },
+    { title: 'Junior Play Wing', url: 'https://images.unsplash.com/photo-1587691592099-24045742c181?auto=format&fit=crop&w=800&q=75', tag: 'Pre-Primary' },
+    { title: 'Main Academic Quadrangle', url: 'https://images.unsplash.com/photo-1541339907198-e08756dedf3f?auto=format&fit=crop&w=800&q=75', tag: 'Campus' },
+    { title: 'Olympic Size Turf & Track', url: 'https://images.unsplash.com/photo-1461896836934-ffe607ba8211?auto=format&fit=crop&w=800&q=75', tag: 'Sports' },
+    { title: 'Advanced Chemistry Lab', url: 'https://images.unsplash.com/photo-1573164713988-8665fc963095?auto=format&fit=crop&w=800&q=75', tag: 'Labs' },
+    { title: 'Central Digital Library', url: 'https://images.unsplash.com/photo-1523050854058-8df90110c9f1?auto=format&fit=crop&w=800&q=75', tag: 'Campus' },
+    { title: 'Annual Cultural Festival', url: 'https://images.unsplash.com/photo-1511578314322-379afb476865?auto=format&fit=crop&w=800&q=75', tag: 'Events' },
+    { title: 'Fine Arts & Clay Studio', url: 'https://images.unsplash.com/photo-1503676260728-1c00da094a0b?auto=format&fit=crop&w=800&q=75', tag: 'Activities' },
   ];
 
   const facultyList = [
-    { name: 'Dr. Sunita Sharma', role: 'Principal & Academic Director', exp: '25+ Yrs Exp', degree: 'Ph.D. in Education (Gold Medalist)', img: 'https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?auto=format&fit=crop&w=400&q=80', badge: 'Leadership' },
-    { name: 'Prof. Rajesh Nair', role: 'Head of Senior Science (Physics)', exp: '18+ Yrs Exp', degree: 'M.Sc., B.Ed. (IIT Bombay Alum)', img: 'https://images.unsplash.com/photo-1560250097-0b93528c311a?auto=format&fit=crop&w=400&q=80', badge: 'Science Lead' },
-    { name: 'Mrs. Ananya Sengupta', role: 'Head of Commerce & Economics', exp: '15+ Yrs Exp', degree: 'M.Com, M.Phil, UGC-NET', img: 'https://images.unsplash.com/photo-1573497019940-1c28c88b4f3e?auto=format&fit=crop&w=400&q=80', badge: 'Commerce' },
-    { name: 'Mr. David Fernandez', role: 'Director of Athletics & Sports', exp: '14+ Yrs Exp', degree: 'M.P.Ed., NIS Certified Coach', img: 'https://images.unsplash.com/photo-1519085360753-af0119f7cbe7?auto=format&fit=crop&w=400&q=80', badge: 'Sports Wing' }
+    { name: 'Dr. Sunita Sharma', role: 'Principal & Academic Director', exp: '25+ Yrs Exp', degree: 'Ph.D. in Education (Gold Medalist)', img: 'https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?auto=format&fit=crop&w=400&q=75', badge: 'Leadership' },
+    { name: 'Prof. Rajesh Nair', role: 'Head of Senior Science (Physics)', exp: '18+ Yrs Exp', degree: 'M.Sc., B.Ed. (IIT Bombay Alum)', img: 'https://images.unsplash.com/photo-1560250097-0b93528c311a?auto=format&fit=crop&w=400&q=75', badge: 'Science Lead' },
+    { name: 'Mrs. Ananya Sengupta', role: 'Head of Commerce & Economics', exp: '15+ Yrs Exp', degree: 'M.Com, M.Phil, UGC-NET', img: 'https://images.unsplash.com/photo-1573497019940-1c28c88b4f3e?auto=format&fit=crop&w=400&q=75', badge: 'Commerce' },
+    { name: 'Mr. David Fernandez', role: 'Director of Athletics & Sports', exp: '14+ Yrs Exp', degree: 'M.P.Ed., NIS Certified Coach', img: 'https://images.unsplash.com/photo-1519085360753-af0119f7cbe7?auto=format&fit=crop&w=400&q=75', badge: 'Sports Wing' }
   ];
 
   const awardsList = [
@@ -113,7 +113,7 @@ export const SchoolProDemo: React.FC<SchoolProDemoProps> = ({ isMobile, isTablet
             >
               <X className="w-8 h-8" />
             </button>
-            <img src={lightboxImg.url} alt={lightboxImg.title} className="w-full h-auto max-h-[80vh] object-contain rounded-xl" />
+            <img loading="lazy" src={lightboxImg.url} alt={lightboxImg.title} className="w-full h-auto max-h-[80vh] object-contain rounded-xl" />
             <div className="p-3 text-white flex justify-between items-center text-sm">
               <span className="font-bold text-emerald-300">{lightboxImg.title}</span>
               <span className="text-xs bg-emerald-800 text-emerald-100 px-3 py-1 rounded-full">{lightboxImg.tag}</span>
@@ -353,8 +353,8 @@ export const SchoolProDemo: React.FC<SchoolProDemoProps> = ({ isMobile, isTablet
               {/* Visual Card Grid */}
               <div className="lg:col-span-5 relative">
                 <div className="relative z-10 rounded-3xl overflow-hidden shadow-2xl border-4 border-white/20 aspect-[4/3]">
-                  <img 
-                    src="https://images.unsplash.com/photo-1541829070764-84a7d30dd3f3?auto=format&fit=crop&w=1000&q=80" 
+                  <img loading="lazy" 
+                    src="https://images.unsplash.com/photo-1541829070764-84a7d30dd3f3?auto=format&fit=crop&w=1000&q=75" 
                     alt="School campus life" 
                     className="w-full h-full object-cover"
                   />
@@ -441,7 +441,7 @@ export const SchoolProDemo: React.FC<SchoolProDemoProps> = ({ isMobile, isTablet
               <div className="bg-gradient-to-br from-emerald-900 to-teal-950 text-white p-8 rounded-3xl shadow-2xl relative overflow-hidden space-y-6">
                 <div className="flex items-center gap-4">
                   <div className="w-20 h-20 rounded-2xl overflow-hidden border-2 border-amber-400 shrink-0">
-                    <img src="https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?auto=format&fit=crop&w=300&q=80" alt="Principal" className="w-full h-full object-cover" />
+                    <img loading="lazy" src="https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?auto=format&fit=crop&w=300&q=75" alt="Principal" className="w-full h-full object-cover" />
                   </div>
                   <div>
                     <h4 className="text-lg font-black text-white">Dr. Sunita Sharma</h4>
@@ -520,7 +520,7 @@ export const SchoolProDemo: React.FC<SchoolProDemoProps> = ({ isMobile, isTablet
                       </div>
                     </div>
                     <div className="h-52 rounded-2xl overflow-hidden border border-slate-200">
-                      <img src="https://images.unsplash.com/photo-1573164713988-8665fc963095?auto=format&fit=crop&w=600&q=80" alt="Science Lab" className="w-full h-full object-cover" />
+                      <img loading="lazy" src="https://images.unsplash.com/photo-1573164713988-8665fc963095?auto=format&fit=crop&w=600&q=75" alt="Science Lab" className="w-full h-full object-cover" />
                     </div>
                   </div>
                 )}
@@ -540,7 +540,7 @@ export const SchoolProDemo: React.FC<SchoolProDemoProps> = ({ isMobile, isTablet
                       </div>
                     </div>
                     <div className="h-52 rounded-2xl overflow-hidden border border-slate-200">
-                      <img src="https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?auto=format&fit=crop&w=600&q=80" alt="Commerce Class" className="w-full h-full object-cover" />
+                      <img loading="lazy" src="https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?auto=format&fit=crop&w=600&q=75" alt="Commerce Class" className="w-full h-full object-cover" />
                     </div>
                   </div>
                 )}
@@ -560,7 +560,7 @@ export const SchoolProDemo: React.FC<SchoolProDemoProps> = ({ isMobile, isTablet
                       </div>
                     </div>
                     <div className="h-52 rounded-2xl overflow-hidden border border-slate-200">
-                      <img src="https://images.unsplash.com/photo-1523240795612-9a054b0db644?auto=format&fit=crop&w=600&q=80" alt="Humanities Class" className="w-full h-full object-cover" />
+                      <img loading="lazy" src="https://images.unsplash.com/photo-1523240795612-9a054b0db644?auto=format&fit=crop&w=600&q=75" alt="Humanities Class" className="w-full h-full object-cover" />
                     </div>
                   </div>
                 )}
@@ -580,16 +580,16 @@ export const SchoolProDemo: React.FC<SchoolProDemoProps> = ({ isMobile, isTablet
 
             <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
               {[
-                { title: 'Interactive Smart Touch Classrooms', desc: 'Audio-visual smart touchscreens, digital lesson repositories, and climate control.', img: 'https://images.unsplash.com/photo-1577896851231-70ef18881754?auto=format&fit=crop&w=600&q=80' },
-                { title: 'Robotics, IoT & AI Labs', desc: 'Hands-on training with Arduino kits, microcontrollers, and Python coding workstations.', img: 'https://images.unsplash.com/photo-1497633762265-9d179a990aa6?auto=format&fit=crop&w=600&q=80' },
-                { title: 'Composite Physics & Chemistry Labs', desc: 'Advanced laboratory stations meeting national standards with complete safety equipment.', img: 'https://images.unsplash.com/photo-1573164713988-8665fc963095?auto=format&fit=crop&w=600&q=80' },
-                { title: 'Central Knowledge & E-Library', desc: '20,000+ physical volumes, international research periodicals, and Kindle reading pods.', img: 'https://images.unsplash.com/photo-1523050854058-8df90110c9f1?auto=format&fit=crop&w=600&q=80' },
-                { title: 'Multi-Sport Turf & Athletics Stadium', desc: 'Floodlit football pitch, synthetic basketball courts, cricket nets, and 400m track.', img: 'https://images.unsplash.com/photo-1461896836934-ffe607ba8211?auto=format&fit=crop&w=600&q=80' },
-                { title: 'GPS Safe Fleet with Mobile App', desc: '28 air-conditioned buses with real-time GPS route tracking and trained lady attendants.', img: 'https://images.unsplash.com/photo-1544620347-c4fd4a3d5957?auto=format&fit=crop&w=600&q=80' }
+                { title: 'Interactive Smart Touch Classrooms', desc: 'Audio-visual smart touchscreens, digital lesson repositories, and climate control.', img: 'https://images.unsplash.com/photo-1577896851231-70ef18881754?auto=format&fit=crop&w=600&q=75' },
+                { title: 'Robotics, IoT & AI Labs', desc: 'Hands-on training with Arduino kits, microcontrollers, and Python coding workstations.', img: 'https://images.unsplash.com/photo-1497633762265-9d179a990aa6?auto=format&fit=crop&w=600&q=75' },
+                { title: 'Composite Physics & Chemistry Labs', desc: 'Advanced laboratory stations meeting national standards with complete safety equipment.', img: 'https://images.unsplash.com/photo-1573164713988-8665fc963095?auto=format&fit=crop&w=600&q=75' },
+                { title: 'Central Knowledge & E-Library', desc: '20,000+ physical volumes, international research periodicals, and Kindle reading pods.', img: 'https://images.unsplash.com/photo-1523050854058-8df90110c9f1?auto=format&fit=crop&w=600&q=75' },
+                { title: 'Multi-Sport Turf & Athletics Stadium', desc: 'Floodlit football pitch, synthetic basketball courts, cricket nets, and 400m track.', img: 'https://images.unsplash.com/photo-1461896836934-ffe607ba8211?auto=format&fit=crop&w=600&q=75' },
+                { title: 'GPS Safe Fleet with Mobile App', desc: '28 air-conditioned buses with real-time GPS route tracking and trained lady attendants.', img: 'https://images.unsplash.com/photo-1544620347-c4fd4a3d5957?auto=format&fit=crop&w=600&q=75' }
               ].map((item, i) => (
                 <div key={i} className="bg-white rounded-2xl overflow-hidden border border-slate-200 shadow-sm hover:shadow-xl transition-all group">
                   <div className="h-44 overflow-hidden relative">
-                    <img src={item.img} alt={item.title} className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" />
+                    <img loading="lazy" src={item.img} alt={item.title} className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" />
                     <div className="absolute inset-0 bg-gradient-to-t from-slate-900/60 to-transparent"></div>
                   </div>
                   <div className="p-5">
@@ -668,7 +668,7 @@ export const SchoolProDemo: React.FC<SchoolProDemoProps> = ({ isMobile, isTablet
               {facultyList.map((fac, i) => (
                 <div key={i} className="bg-white rounded-2xl overflow-hidden border border-slate-200 shadow-sm hover:shadow-lg transition-all text-center p-5 space-y-3">
                   <div className="w-24 h-24 rounded-full overflow-hidden mx-auto border-2 border-emerald-500 shadow-md">
-                    <img src={fac.img} alt={fac.name} className="w-full h-full object-cover" />
+                    <img loading="lazy" src={fac.img} alt={fac.name} className="w-full h-full object-cover" />
                   </div>
                   <div>
                     <span className="text-[10px] bg-emerald-100 text-emerald-900 font-bold px-2 py-0.5 rounded-full">{fac.badge}</span>
@@ -716,7 +716,7 @@ export const SchoolProDemo: React.FC<SchoolProDemoProps> = ({ isMobile, isTablet
                       onClick={() => setLightboxImg(item)}
                       className="group relative h-48 rounded-2xl overflow-hidden cursor-pointer shadow-sm border border-slate-200"
                     >
-                      <img src={item.url} alt={item.title} className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" />
+                      <img loading="lazy" src={item.url} alt={item.title} className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" />
                       <div className="absolute inset-0 bg-gradient-to-t from-slate-950/80 via-transparent to-transparent flex flex-col justify-end p-3 text-white">
                         <span className="text-[10px] text-amber-300 font-bold uppercase">{item.tag}</span>
                         <p className="text-xs font-bold leading-tight">{item.title}</p>
@@ -926,7 +926,7 @@ export const SchoolProDemo: React.FC<SchoolProDemoProps> = ({ isMobile, isTablet
               <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
                 {facultyList.map((fac, i) => (
                   <div key={i} className="bg-slate-50 p-5 rounded-2xl border border-slate-200 text-center space-y-3">
-                    <img src={fac.img} alt={fac.name} className="w-20 h-20 rounded-full mx-auto object-cover border-2 border-emerald-600 shadow-sm" />
+                    <img loading="lazy" src={fac.img} alt={fac.name} className="w-20 h-20 rounded-full mx-auto object-cover border-2 border-emerald-600 shadow-sm" />
                     <div>
                       <h5 className="font-bold text-sm text-slate-900">{fac.name}</h5>
                       <p className="text-xs text-emerald-800 font-semibold">{fac.role}</p>
@@ -1026,7 +1026,7 @@ export const SchoolProDemo: React.FC<SchoolProDemoProps> = ({ isMobile, isTablet
               {galleryItems.map((item, i) => (
                 <div key={i} onClick={() => setLightboxImg(item)} className="rounded-2xl overflow-hidden border border-slate-200 bg-slate-50 cursor-pointer group shadow-xs">
                   <div className="h-48 overflow-hidden relative">
-                    <img src={item.url} alt={item.title} className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" />
+                    <img loading="lazy" src={item.url} alt={item.title} className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" />
                     <span className="absolute top-3 left-3 bg-emerald-950/80 text-amber-300 text-[10px] font-bold px-2.5 py-1 rounded-full">
                       {item.tag}
                     </span>
@@ -1131,7 +1131,7 @@ export const SchoolProDemo: React.FC<SchoolProDemoProps> = ({ isMobile, isTablet
                     onClick={() => setLightboxImg(item)}
                     className="group relative h-56 rounded-2xl overflow-hidden cursor-pointer shadow-sm border border-slate-200"
                   >
-                    <img src={item.url} alt={item.title} className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" />
+                    <img loading="lazy" src={item.url} alt={item.title} className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" />
                     <div className="absolute inset-0 bg-gradient-to-t from-slate-950/80 via-transparent to-transparent flex flex-col justify-end p-4 text-white">
                       <span className="text-[10px] text-amber-300 font-black uppercase">{item.tag}</span>
                       <p className="text-xs font-bold">{item.title}</p>
