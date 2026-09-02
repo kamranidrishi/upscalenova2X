@@ -232,13 +232,12 @@ Thank you.`;
                         onChange={(e) => setFormData({ ...formData, service: e.target.value })}
                         className="w-full bg-white border border-slate-300 rounded-xl px-4 py-3 text-sm text-slate-900 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500 transition-shadow"
                       >
-                        <option value="Custom Website Design">Custom Website Design</option>
-                        <option value="Google Review NFC Card">Google Review NFC Card</option>
-                        <option value="Google Review QR Stand">Google Review QR Stand</option>
-                        <option value="Digital Menu Solution">Digital Menu Solution</option>
-                        <option value="Google Business Profile Optimization">Google Business Profile Optimization</option>
+                        <option value="Website Design & UI/UX">Website Design & UI/UX</option>
+                        <option value="Custom Web Development">Custom Web Development</option>
+                        <option value="Google Maps & Local SEO">Google Maps & Local SEO</option>
+                        <option value="Google Business Profile Setup">Google Business Profile Setup</option>
                         <option value="Website Hosting & Maintenance">Website Hosting & Maintenance</option>
-                        <option value="Custom Enterprise App">Custom Enterprise App</option>
+                        <option value="Custom Enterprise Solution">Custom Enterprise Solution</option>
                       </select>
                     </div>
                   </div>

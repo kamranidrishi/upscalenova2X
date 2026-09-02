@@ -23,17 +23,17 @@ export const Footer: React.FC<FooterProps> = ({
           {/* Brand Info */}
           <div className="lg:col-span-5 space-y-4">
             <div className="flex items-center gap-3">
-              <div className="w-10 h-10 flex items-center justify-center shrink-0">
+              <div className="w-12 h-12 flex items-center justify-center shrink-0 p-1.5 rounded-xl bg-white border border-slate-700 shadow-xs overflow-hidden">
                 <img 
                   loading="lazy" 
                   src="/logo.png" 
-                  alt="Upscale Nova" 
-                  width="40"
-                  height="40"
-                  className="w-10 h-10 object-contain rounded-full" 
+                  alt="Upscale Nova - Ideas into Digital Experiences" 
+                  width="48"
+                  height="48"
+                  className="w-full h-full object-contain" 
                 />
               </div>
-              <span className="text-xl font-extrabold text-white tracking-tight">Upscale Nova</span>
+              <span className="text-2xl font-extrabold text-white tracking-tight">Upscale Nova</span>
             </div>
 
             <p className="text-slate-400 text-sm leading-relaxed max-w-sm">
@@ -66,7 +66,6 @@ export const Footer: React.FC<FooterProps> = ({
             <ul className="space-y-2 text-sm font-semibold">
               <li><a href="#home" className="hover:text-indigo-400 transition-colors">Home</a></li>
               <li><a href="#services" className="hover:text-indigo-400 transition-colors">Services</a></li>
-              <li><a href="#products" className="hover:text-indigo-400 transition-colors">Products & QR Stands</a></li>
               <li><a href="#pricing" className="hover:text-indigo-400 transition-colors">Pricing Plans</a></li>
               <li><a href="#website-demo" className="hover:text-indigo-400 transition-colors">Website Demo</a></li>
               <li><a href="#about" className="hover:text-indigo-400 transition-colors">About Us</a></li>

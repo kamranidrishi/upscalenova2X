@@ -5,7 +5,6 @@ import { Hero } from './components/Hero';
 // Lazy load below-the-fold components to improve initial page load performance
 const IndustriesSection = lazy(() => import('./components/IndustriesSection').then(m => ({ default: m.IndustriesSection })));
 const ServicesSection = lazy(() => import('./components/ServicesSection').then(m => ({ default: m.ServicesSection })));
-const ProductsSection = lazy(() => import('./components/ProductsSection').then(m => ({ default: m.ProductsSection })));
 const HowItWorksSection = lazy(() => import('./components/HowItWorksSection').then(m => ({ default: m.HowItWorksSection })));
 const WhyChooseUsSection = lazy(() => import('./components/WhyChooseUsSection').then(m => ({ default: m.WhyChooseUsSection })));
 const PricingSection = lazy(() => import('./components/PricingSection').then(m => ({ default: m.PricingSection })));
@@ -48,9 +47,6 @@ export default function App() {
 
           {/* Services Section */}
           <ServicesSection onOpenQuoteModal={handleOpenQuoteModal} />
-
-          {/* Products & QR/NFC Stands */}
-          <ProductsSection onOpenQuoteModal={handleOpenQuoteModal} />
 
           {/* Process - How It Works */}
           <HowItWorksSection />

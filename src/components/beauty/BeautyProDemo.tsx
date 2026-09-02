@@ -383,7 +383,7 @@ export const BeautyProDemo: React.FC<BeautyProDemoProps> = () => {
                 <p className="text-xs text-stone-500 mt-1">Damask Rose & Hyaluronic Hydration</p>
                 <button
                   onClick={() => {
-                    const prod = BEAUTY_PRODUCTS.find((p) => p.id === 'skin-13') || BEAUTY_PRODUCTS[2];
+                    const prod = BEAUTY_PRODUCTS.find((p) => p.id === 'prod-3');
                     if (prod) setSelectedProduct(prod);
                   }}
                   className="mt-3 text-xs font-bold text-rose-700 hover:text-rose-800 flex items-center gap-1"
@@ -408,7 +408,7 @@ export const BeautyProDemo: React.FC<BeautyProDemoProps> = () => {
                 <p className="text-xs text-stone-500 mt-1">Gentle Retinol Alternative</p>
                 <button
                   onClick={() => {
-                    const prod = BEAUTY_PRODUCTS.find((p) => p.id === 'skin-4') || BEAUTY_PRODUCTS[3];
+                    const prod = BEAUTY_PRODUCTS.find((p) => p.id === 'prod-5');
                     if (prod) setSelectedProduct(prod);
                   }}
                   className="mt-3 text-xs font-bold text-indigo-700 hover:text-indigo-800 flex items-center gap-1"
@@ -433,7 +433,7 @@ export const BeautyProDemo: React.FC<BeautyProDemoProps> = () => {
                 <p className="text-xs text-stone-500 mt-1">Grasse Jasmine & Amber</p>
                 <button
                   onClick={() => {
-                    const prod = BEAUTY_PRODUCTS.find((p) => p.id === 'frag-1') || BEAUTY_PRODUCTS[4];
+                    const prod = BEAUTY_PRODUCTS.find((p) => p.id === 'prod-6');
                     if (prod) setSelectedProduct(prod);
                   }}
                   className="mt-3 text-xs font-bold text-amber-800 hover:text-amber-900 flex items-center gap-1"

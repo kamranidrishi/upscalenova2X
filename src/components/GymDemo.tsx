@@ -429,7 +429,7 @@ export const GymDemo: React.FC<GymDemoProps> = ({
                   Upscale Nova
                 </span>
                 <span className="text-[10px] text-cyan-400 font-medium">
-                  Digital Business Solutions
+                  Ideas into Digital Experiences
                 </span>
               </div>
               <p className="text-[10px] text-slate-400 hidden md:block">
@@ -2195,7 +2195,7 @@ export const GymDemo: React.FC<GymDemoProps> = ({
         <div className="max-w-3xl mx-auto space-y-6">
           <div className="inline-flex items-center gap-2 bg-[#0D1A30] border border-cyan-500/40 text-cyan-300 px-4 py-1 rounded-full text-xs font-bold">
             <Sparkles className="w-3.5 h-3.5 text-cyan-400" />
-            <span>Upscale Nova • Digital Business Solutions</span>
+            <span>Upscale Nova • Ideas into Digital Experiences</span>
           </div>
 
           <h2 className="text-3xl sm:text-5xl font-black uppercase italic text-white tracking-tight leading-tight">
@@ -2232,7 +2232,7 @@ export const GymDemo: React.FC<GymDemoProps> = ({
 
           <footer className="pt-12 text-[11px] text-slate-500 border-t border-slate-900 mt-12">
             <div className="font-bold text-slate-400">
-              Upscale Nova — Digital Business Solutions
+              Upscale Nova — Ideas into Digital Experiences
             </div>
             <div>© 2026 Upscale Nova. All Rights Reserved.</div>
           </footer>

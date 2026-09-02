@@ -76,46 +76,34 @@ interface CartItem {
 
 export const SIDEBAR_CATEGORIES = [
   {
-    name: 'Skincare',
-    icon: Droplets,
-    subtext: 'Serums, SPF & Creams',
-    count: '15 Products'
-  },
-  {
-    name: 'Hair Care',
-    icon: Waves,
-    subtext: 'Oils, masks & tonics',
-    count: '7 Products'
-  },
-  {
-    name: 'Makeup',
-    icon: Sparkles,
-    subtext: 'Lip oils & tinted glow',
-    count: '15 Products'
-  },
-  {
-    name: 'Body Care',
-    icon: Heart,
-    subtext: 'Whipped butters & scrubs',
-    count: '6 Products'
-  },
-  {
-    name: 'Fragrance',
-    icon: Sparkles,
-    subtext: 'Artisan mists & perfumes',
-    count: '4 Fragrances'
-  },
-  {
-    name: 'Accessories',
+    name: 'Shop All',
     icon: LayoutGrid,
-    subtext: 'Gua Sha, rollers & tools',
-    count: '6 Tools'
+    subtext: 'Explore full catalog'
   },
   {
     name: 'Best Sellers',
     icon: Star,
-    subtext: 'Award-winning formulas',
-    count: 'Top Rated'
+    subtext: 'Award-winning formulas'
+  },
+  {
+    name: 'Skincare',
+    icon: Droplets,
+    subtext: 'Serums, SPF & Creams'
+  },
+  {
+    name: 'Hair Care',
+    icon: Waves,
+    subtext: 'Oils, masks & tonics'
+  },
+  {
+    name: 'Makeup',
+    icon: Sparkles,
+    subtext: 'Lip oils & tinted glow'
+  },
+  {
+    name: 'Korean Skincare',
+    icon: Heart,
+    subtext: 'Glass skin & barrier dew'
   }
 ];
 
@@ -149,7 +137,7 @@ export const BeautyMaxDemo: React.FC<BeautyMaxDemoProps> = ({ demo, isMobile, is
   const [couponScratchSuccess, setCouponScratchSuccess] = useState(false);
 
   // State Management
-  const [wishlist, setWishlist] = useState<string[]>(['skin-1', 'skin-4']);
+  const [wishlist, setWishlist] = useState<string[]>(['prod-1', 'prod-4']);
   const [cart, setCart] = useState<CartItem[]>([
     {
       product: BEAUTY_PRODUCTS[0],
@@ -275,13 +263,6 @@ export const BeautyMaxDemo: React.FC<BeautyMaxDemoProps> = ({ demo, isMobile, is
     );
   };
 
-  // Single Source of Truth for Wishlist items
-  const wishlistedProducts = useMemo(() => {
-    return wishlist
-      .map((id) => BEAUTY_PRODUCTS.find((p) => p.id === id))
-      .filter((p): p is BeautyProduct => Boolean(p));
-  }, [wishlist]);
-
   // Filtered & Sorted Products
   const filteredProducts = useMemo(() => {
     let list = BEAUTY_PRODUCTS.filter((prod) => {
@@ -304,32 +285,6 @@ export const BeautyMaxDemo: React.FC<BeautyMaxDemoProps> = ({ demo, isMobile, is
     return list;
   }, [activeCategory, activeSkinType, activeBenefit, sortBy, searchQuery]);
 
-  // Get products for sidebar category grids
-  const getCategoryProducts = (categoryName: string) => {
-    switch (categoryName) {
-      case 'Skincare':
-        return BEAUTY_PRODUCTS.filter((p) => p.category === 'Skincare').slice(0, 6);
-      case 'Hair Care':
-      case 'Haircare':
-        return BEAUTY_PRODUCTS.filter((p) => p.category === 'Haircare').slice(0, 6);
-      case 'Makeup':
-        return BEAUTY_PRODUCTS.filter((p) => p.category === 'Makeup').slice(0, 6);
-      case 'Body Care':
-        return BEAUTY_PRODUCTS.filter((p) => p.category === 'Body Care').slice(0, 6);
-      case 'Fragrance':
-        return BEAUTY_PRODUCTS.filter((p) => p.category === 'Fragrance').slice(0, 6);
-      case 'Accessories':
-        return BEAUTY_PRODUCTS.filter((p) => p.category === 'Accessories').slice(0, 6);
-      case 'Best Sellers':
-        return BEAUTY_PRODUCTS.filter((p) => p.isBestSeller || p.badge === 'Best Seller' || p.rating >= 4.9).slice(0, 6);
-      case 'Korean Skincare':
-        return BEAUTY_PRODUCTS.filter((p) => p.category === 'Skincare' && (p.benefit === 'Brightening' || p.benefit === 'Deep Hydration' || p.benefit === 'Barrier Repair')).slice(0, 6);
-      case 'Shop All':
-      default:
-        return BEAUTY_PRODUCTS.slice(0, 6);
-    }
-  };
-
   // Handle category navigation from slide-in sidebar
   const handleSidebarCategorySelect = (categoryName: string) => {
     setActiveSidebarCategory(categoryName);
@@ -351,28 +306,13 @@ export const BeautyMaxDemo: React.FC<BeautyMaxDemoProps> = ({ demo, isMobile, is
       setActiveSkinType('All');
       setActiveBenefit('All');
       setSearchQuery('');
-    } else if (categoryName === 'Hair Care' || categoryName === 'Haircare') {
+    } else if (categoryName === 'Hair Care') {
       setActiveCategory('Haircare');
       setActiveSkinType('All');
       setActiveBenefit('All');
       setSearchQuery('');
     } else if (categoryName === 'Makeup') {
       setActiveCategory('Makeup');
-      setActiveSkinType('All');
-      setActiveBenefit('All');
-      setSearchQuery('');
-    } else if (categoryName === 'Body Care') {
-      setActiveCategory('Body Care');
-      setActiveSkinType('All');
-      setActiveBenefit('All');
-      setSearchQuery('');
-    } else if (categoryName === 'Fragrance') {
-      setActiveCategory('Fragrance');
-      setActiveSkinType('All');
-      setActiveBenefit('All');
-      setSearchQuery('');
-    } else if (categoryName === 'Accessories') {
-      setActiveCategory('Accessories');
       setActiveSkinType('All');
       setActiveBenefit('All');
       setSearchQuery('');
@@ -667,9 +607,9 @@ export const BeautyMaxDemo: React.FC<BeautyMaxDemoProps> = ({ demo, isMobile, is
               title="Wishlist"
             >
               <Heart className="w-5 h-5" />
-              {wishlistedProducts.length > 0 && (
+              {wishlist.length > 0 && (
                 <span className="absolute top-1 right-1 w-4 h-4 rounded-full bg-rose-600 text-white text-[9px] font-black flex items-center justify-center shadow-xs">
-                  {wishlistedProducts.length}
+                  {wishlist.length}
                 </span>
               )}
             </button>
@@ -716,13 +656,13 @@ export const BeautyMaxDemo: React.FC<BeautyMaxDemoProps> = ({ demo, isMobile, is
 
       {isMaxPlan && (
         <aside
-          className={`fixed inset-y-0 left-0 z-50 w-[92vw] sm:w-[440px] md:w-[460px] max-w-[480px] bg-white shadow-2xl border-r border-rose-100 flex flex-col justify-between transform transition-transform duration-300 ease-in-out ${
+          className={`fixed inset-y-0 left-0 z-50 w-72 sm:w-80 bg-white shadow-2xl border-r border-rose-100 flex flex-col justify-between transform transition-transform duration-300 ease-in-out ${
             sidebarOpen ? 'translate-x-0' : '-translate-x-full'
           }`}
           aria-label="Category Sidebar Navigation"
         >
         {/* Sidebar Header */}
-        <div className="p-4 sm:p-5 border-b border-rose-100 bg-gradient-to-r from-rose-50/90 via-white to-rose-50/40 flex items-center justify-between">
+        <div className="p-4 sm:p-5 border-b border-rose-100 bg-gradient-to-r from-rose-50/80 to-white flex items-center justify-between">
           <div className="flex items-center gap-2.5">
             <div className="w-9 h-9 rounded-full bg-rose-600 text-white flex items-center justify-center shadow-xs">
               <Sparkles className="w-4 h-4" />
@@ -745,123 +685,51 @@ export const BeautyMaxDemo: React.FC<BeautyMaxDemoProps> = ({ demo, isMobile, is
           </button>
         </div>
 
-        {/* Scrollable Categories & Product Thumbnails Mega-Menu */}
-        <div className="flex-1 overflow-y-auto divide-y divide-rose-100/70 py-2">
+        {/* Scrollable Categories & Account Area */}
+        <div className="flex-1 overflow-y-auto divide-y divide-rose-50/90 py-2">
           
-          {/* Quick Action: Shop All Full Catalog */}
-          <div className="px-3.5 pt-1.5 pb-2.5">
-            <button
-              onClick={() => handleSidebarCategorySelect('Shop All')}
-              className="w-full p-3 rounded-2xl bg-stone-900 hover:bg-stone-800 text-white flex items-center justify-between shadow-xs transition-all group cursor-pointer"
-            >
-              <div className="flex items-center gap-2.5">
-                <div className="w-8 h-8 rounded-xl bg-white/10 flex items-center justify-center text-rose-300">
-                  <LayoutGrid className="w-4 h-4" />
-                </div>
-                <div className="text-left">
-                  <div className="text-xs font-bold font-serif flex items-center gap-1.5">
-                    <span>Shop Full Catalog</span>
-                    <span className="text-[9px] px-1.5 py-0.5 rounded-full bg-rose-500/30 text-rose-300 font-sans font-bold">
-                      {BEAUTY_PRODUCTS.length}+ Items
-                    </span>
-                  </div>
-                  <div className="text-[10px] text-stone-300">Explore all clean beauty botanicals</div>
-                </div>
-              </div>
-              <ArrowRight className="w-4 h-4 text-rose-300 group-hover:translate-x-1 transition-transform" />
-            </button>
-          </div>
+          {/* Vertical List of Category Items */}
+          <div className="py-2">
+            <div className="px-4 pb-2">
+              <span className="text-[10px] font-extrabold uppercase tracking-widest text-stone-400">
+                Categories
+              </span>
+            </div>
 
-          {/* Category Sections with 3-Column Product Grid */}
-          <div className="divide-y divide-rose-100/60">
-            {SIDEBAR_CATEGORIES.map((cat) => {
-              const Icon = cat.icon;
-              const products = getCategoryProducts(cat.name);
-              const isActive = activeSidebarCategory === cat.name;
+            <div className="space-y-1.5 px-2">
+              {SIDEBAR_CATEGORIES.map((cat) => {
+                const Icon = cat.icon;
+                const isActive = activeSidebarCategory === cat.name;
+                return (
+                  <button
+                    key={cat.name}
+                    onClick={() => handleSidebarCategorySelect(cat.name)}
+                    className={`w-full py-2.5 px-3 rounded-r-xl transition-all text-left flex flex-col items-start gap-1 group cursor-pointer ${
+                      isActive
+                        ? 'border-l-4 border-rose-600 bg-rose-50/90 text-rose-900 font-bold shadow-2xs'
+                        : 'border-l-4 border-transparent text-stone-700 hover:bg-stone-50 hover:text-rose-700 font-medium'
+                    }`}
+                  >
+                    {/* Small Icon on Top */}
+                    <div className={`p-1.5 rounded-lg flex items-center justify-center transition-all ${
+                      isActive ? 'bg-rose-600 text-white shadow-xs' : 'bg-rose-100/70 text-rose-600 group-hover:bg-rose-200/80'
+                    }`}>
+                      <Icon className="w-4 h-4" />
+                    </div>
 
-              return (
-                <div key={cat.name} className="p-3.5 sm:p-4 space-y-2.5">
-                  {/* Category Header Row with View All */}
-                  <div className="flex items-center justify-between gap-2">
-                    <button
-                      onClick={() => handleSidebarCategorySelect(cat.name)}
-                      className="flex items-center gap-2.5 text-left group cursor-pointer flex-1 min-w-0"
-                    >
-                      <div className={`w-8 h-8 rounded-xl flex items-center justify-center shrink-0 transition-all shadow-2xs ${
-                        isActive
-                          ? 'bg-rose-600 text-white'
-                          : 'bg-rose-50 border border-rose-100 text-rose-600 group-hover:bg-rose-600 group-hover:text-white'
-                      }`}>
-                        <Icon className="w-4 h-4" />
-                      </div>
-                      <div className="min-w-0">
-                        <div className="flex items-center gap-1.5">
-                          <h4 className="font-serif text-sm font-bold text-stone-900 group-hover:text-rose-600 transition-colors truncate">
-                            {cat.name}
-                          </h4>
-                          <span className="text-[10px] text-rose-600 font-bold px-1.5 py-0.5 rounded-md bg-rose-50 border border-rose-100/60 shrink-0">
-                            {cat.count}
-                          </span>
-                        </div>
-                        <p className="text-[10px] text-stone-400 truncate">
-                          {cat.subtext}
-                        </p>
-                      </div>
-                    </button>
-
-                    {/* View All Link */}
-                    <button
-                      onClick={() => handleSidebarCategorySelect(cat.name)}
-                      className="text-[11px] font-bold text-rose-700 hover:text-rose-900 flex items-center gap-0.5 hover:underline shrink-0 px-2 py-1 rounded-lg hover:bg-rose-50 transition-colors cursor-pointer"
-                    >
-                      <span>View All</span>
-                      <ChevronRight className="w-3.5 h-3.5" />
-                    </button>
-                  </div>
-
-                  {/* 3-Column Product Thumbnails Grid */}
-                  <div className="grid grid-cols-3 gap-2">
-                    {products.map((prod) => (
-                      <div
-                        key={prod.id}
-                        onClick={() => {
-                          setSelectedProduct(prod);
-                          setActiveGalleryImgIndex(0);
-                          setActiveProductTab('overview');
-                          setSidebarOpen(false);
-                        }}
-                        className="group cursor-pointer rounded-xl bg-[#FCFAF8] hover:bg-white border border-rose-100/80 hover:border-rose-300 hover:shadow-xs p-1.5 transition-all flex flex-col items-center text-center"
-                      >
-                        {/* Thumbnail Image */}
-                        <div className="aspect-square w-full rounded-lg overflow-hidden bg-white relative border border-rose-100/50">
-                          <img
-                            loading="lazy"
-                            src={prod.image}
-                            alt={prod.name}
-                            className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
-                          />
-                          {prod.badge && (
-                            <span className="absolute top-1 left-1 px-1 py-0.5 text-[8px] font-bold rounded bg-stone-900/80 text-white backdrop-blur-xs leading-none">
-                              {prod.badge}
-                            </span>
-                          )}
-                        </div>
-
-                        {/* Product Name */}
-                        <p className="text-[10px] sm:text-[11px] font-medium text-stone-800 line-clamp-2 leading-tight mt-1.5 group-hover:text-rose-600 transition-colors w-full">
-                          {prod.name}
-                        </p>
-
-                        {/* Price */}
-                        <span className="text-[10px] font-bold text-stone-900 mt-1">
-                          ₹{prod.price.toLocaleString()}
-                        </span>
-                      </div>
-                    ))}
-                  </div>
-                </div>
-              );
-            })}
+                    {/* Label Below It */}
+                    <div className="flex flex-col">
+                      <span className={`text-xs ${isActive ? 'font-bold text-rose-900' : 'font-semibold text-stone-800'}`}>
+                        {cat.name}
+                      </span>
+                      <span className="text-[10px] text-stone-400 font-normal leading-tight">
+                        {cat.subtext}
+                      </span>
+                    </div>
+                  </button>
+                );
+              })}
+            </div>
           </div>
 
           {/* ACCOUNT Section Header */}
@@ -919,7 +787,7 @@ export const BeautyMaxDemo: React.FC<BeautyMaxDemoProps> = ({ demo, isMobile, is
                 </div>
                 <div className="flex-1 text-left">
                   <div>My Wishlist</div>
-                  <div className="text-[10px] text-stone-400 font-normal">{wishlistedProducts.length} Saved Items</div>
+                  <div className="text-[10px] text-stone-400 font-normal">{wishlist.length} Saved Items</div>
                 </div>
                 <ChevronRight className="w-3.5 h-3.5 text-stone-400" />
               </button>
@@ -1080,7 +948,7 @@ export const BeautyMaxDemo: React.FC<BeautyMaxDemoProps> = ({ demo, isMobile, is
             </div>
             <button
               onClick={() => {
-                const prod = BEAUTY_PRODUCTS.find((p) => p.id === 'skin-14') || BEAUTY_PRODUCTS[0];
+                const prod = BEAUTY_PRODUCTS.find((p) => p.id === 'prod-11');
                 if (prod) addToCart(prod);
                 setCartOpen(true);
               }}
@@ -1738,19 +1606,8 @@ export const BeautyMaxDemo: React.FC<BeautyMaxDemoProps> = ({ demo, isMobile, is
                 )}
               </div>
 
-              {/* Add to Cart & Wishlist Footer */}
+              {/* Add to Cart Footer */}
               <div className="pt-4 border-t border-rose-100 flex gap-3">
-                <button
-                  onClick={() => toggleWishlist(selectedProduct.id)}
-                  className={`p-3.5 rounded-full border transition-all flex items-center justify-center ${
-                    wishlist.includes(selectedProduct.id)
-                      ? 'bg-rose-50 border-rose-300 text-rose-600 shadow-xs'
-                      : 'border-stone-200 text-stone-600 hover:border-rose-300 hover:text-rose-600'
-                  }`}
-                  title={wishlist.includes(selectedProduct.id) ? 'Remove from Wishlist' : 'Add to Wishlist'}
-                >
-                  <Heart className={`w-5 h-5 ${wishlist.includes(selectedProduct.id) ? 'fill-current' : ''}`} />
-                </button>
                 <button
                   onClick={() => {
                     addToCart(selectedProduct, selectedProduct.volume, selectedShade || undefined);
@@ -2208,129 +2065,35 @@ export const BeautyMaxDemo: React.FC<BeautyMaxDemoProps> = ({ demo, isMobile, is
         <div className="fixed inset-0 z-50 flex justify-end bg-stone-950/75 backdrop-blur-xs animate-in fade-in">
           <div className="bg-white w-full max-w-md h-full shadow-2xl flex flex-col justify-between overflow-hidden animate-in slide-in-from-right duration-300 border-l border-rose-100">
             
-            {/* Header */}
             <div className="p-5 border-b border-rose-100 flex items-center justify-between bg-[#FAF7F5]">
               <div className="flex items-center gap-2">
-                <div className="w-8 h-8 rounded-full bg-rose-100 text-rose-600 flex items-center justify-center">
-                  <Heart className="w-4 h-4 fill-rose-600" />
-                </div>
-                <div>
-                  <h3 className="font-serif text-base sm:text-lg font-bold text-stone-900 leading-tight">
-                    Saved Wishlist
-                  </h3>
-                  <span className="text-[11px] text-stone-500 font-medium">
-                    {wishlistedProducts.length} {wishlistedProducts.length === 1 ? 'item' : 'items'} saved
-                  </span>
-                </div>
+                <Heart className="w-5 h-5 text-rose-600 fill-rose-600" />
+                <h3 className="font-serif text-lg font-bold text-stone-900">Saved Wishlist ({wishlist.length})</h3>
               </div>
-              <div className="flex items-center gap-2">
-                {wishlistedProducts.length > 0 && (
-                  <button
-                    onClick={() => setWishlist([])}
-                    className="text-[11px] font-bold text-stone-400 hover:text-rose-600 transition-colors px-2 py-1"
-                    title="Clear All Wishlist Items"
-                  >
-                    Clear All
-                  </button>
-                )}
-                <button
-                  onClick={() => setWishlistOpen(false)}
-                  className="p-1.5 rounded-full hover:bg-rose-100 text-stone-500 transition-colors"
-                  aria-label="Close Wishlist"
-                >
-                  <X className="w-5 h-5" />
-                </button>
-              </div>
+              <button onClick={() => setWishlistOpen(false)} className="p-1.5 rounded-full hover:bg-rose-100 text-stone-500">
+                <X className="w-5 h-5" />
+              </button>
             </div>
 
-            {/* Product Cards List */}
-            <div className="flex-1 overflow-y-auto p-4 sm:p-5 space-y-3">
-              {wishlistedProducts.length === 0 ? (
-                <div className="text-center py-16 px-4 space-y-4">
-                  <div className="w-16 h-16 rounded-full bg-rose-50 border border-rose-200 flex items-center justify-center mx-auto text-rose-400">
-                    <Heart className="w-8 h-8" />
-                  </div>
-                  <div>
-                    <p className="font-serif text-base font-bold text-stone-900">Your wishlist is empty</p>
-                    <p className="text-xs text-stone-500 mt-1 max-w-xs mx-auto">
-                      Explore our botanical formulas and click the heart icon on any product to save your favorites!
-                    </p>
-                  </div>
-                  <button
-                    onClick={() => {
-                      setWishlistOpen(false);
-                      const catalogElem = document.getElementById('catalog-section');
-                      if (catalogElem) catalogElem.scrollIntoView({ behavior: 'smooth' });
-                    }}
-                    className="mt-2 px-5 py-2.5 rounded-full bg-stone-900 hover:bg-stone-800 text-white text-xs font-bold transition-all shadow-xs"
-                  >
-                    Explore Catalog
-                  </button>
+            <div className="flex-1 overflow-y-auto p-5 space-y-3">
+              {wishlist.length === 0 ? (
+                <div className="text-center py-16 space-y-2">
+                  <Heart className="w-12 h-12 text-rose-200 mx-auto" />
+                  <p className="font-serif text-sm font-bold">Your wishlist is empty</p>
                 </div>
               ) : (
-                wishlistedProducts.map((prod) => (
-                  <div
-                    key={prod.id}
-                    className="p-3.5 rounded-2xl bg-[#FCF9F7] border border-rose-100/90 hover:border-rose-200 transition-all flex gap-3.5 items-center group shadow-2xs"
-                  >
-                    {/* Thumbnail */}
-                    <div
-                      onClick={() => {
-                        setSelectedProduct(prod);
-                        setActiveGalleryImgIndex(0);
-                        setActiveProductTab('overview');
-                        setWishlistOpen(false);
-                      }}
-                      className="w-18 h-18 rounded-xl overflow-hidden bg-white border border-rose-200/80 shrink-0 cursor-pointer relative"
-                    >
-                      <img
-                        loading="lazy"
-                        src={prod.image}
-                        alt={prod.name}
-                        className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
-                      />
-                    </div>
-
-                    {/* Product Details */}
-                    <div className="flex-1 min-w-0">
-                      <div className="flex items-center justify-between gap-1">
-                        <span className="text-[10px] font-bold uppercase tracking-wider text-rose-600">
-                          {prod.category}
-                        </span>
-                        {/* Remove button */}
-                        <button
-                          onClick={() => toggleWishlist(prod.id)}
-                          className="text-stone-400 hover:text-rose-600 p-1 rounded-lg hover:bg-rose-50 transition-colors"
-                          title="Remove from Wishlist"
-                        >
-                          <Trash2 className="w-3.5 h-3.5" />
-                        </button>
+                wishlist.map((id) => {
+                  const prod = BEAUTY_PRODUCTS.find((p) => p.id === id);
+                  if (!prod) return null;
+                  return (
+                    <div key={prod.id} className="p-3 rounded-2xl bg-[#FCF9F7] border border-rose-100 flex items-center justify-between gap-3">
+                      <div className="w-14 h-14 rounded-xl overflow-hidden bg-white border border-rose-200 shrink-0">
+                        <img loading="lazy" src={prod.image} alt={prod.name} className="w-full h-full object-cover" />
                       </div>
-
-                      <h4
-                        onClick={() => {
-                          setSelectedProduct(prod);
-                          setActiveGalleryImgIndex(0);
-                          setActiveProductTab('overview');
-                          setWishlistOpen(false);
-                        }}
-                        className="font-serif text-xs font-bold text-stone-900 truncate mt-0.5 cursor-pointer hover:text-rose-600 transition-colors"
-                      >
-                        {prod.name}
-                      </h4>
-
-                      <div className="flex items-center gap-2 mt-1">
-                        <span className="text-xs font-bold text-stone-900">
-                          ₹{prod.price.toLocaleString()}
-                        </span>
-                        {prod.originalPrice > prod.price && (
-                          <span className="text-[11px] text-stone-400 line-through">
-                            ₹{prod.originalPrice.toLocaleString()}
-                          </span>
-                        )}
+                      <div className="flex-1 min-w-0">
+                        <h4 className="font-serif text-xs font-bold text-stone-900 truncate">{prod.name}</h4>
+                        <span className="text-xs font-bold text-rose-700">₹{prod.price.toLocaleString()}</span>
                       </div>
-
-                      {/* Add to Cart button */}
                       <button
                         onClick={() => {
                           addToCart(prod);
@@ -2338,22 +2101,20 @@ export const BeautyMaxDemo: React.FC<BeautyMaxDemoProps> = ({ demo, isMobile, is
                           setWishlistOpen(false);
                           setCartOpen(true);
                         }}
-                        className="mt-2.5 w-full py-1.5 px-3 rounded-xl bg-stone-900 hover:bg-rose-600 text-white text-[11px] font-bold transition-colors flex items-center justify-center gap-1.5 shadow-2xs cursor-pointer active:scale-98"
+                        className="px-3 py-1.5 rounded-xl bg-stone-900 text-white text-[11px] font-bold"
                       >
-                        <ShoppingBag className="w-3 h-3" />
-                        <span>Move to Bag</span>
+                        Move to Bag
                       </button>
                     </div>
-                  </div>
-                ))
+                  );
+                })
               )}
             </div>
 
-            {/* Footer */}
             <div className="p-5 border-t border-rose-100 bg-[#FAF7F5]">
               <button
                 onClick={() => setWishlistOpen(false)}
-                className="w-full py-2.5 rounded-full bg-stone-900 hover:bg-stone-800 text-white text-xs font-bold transition-all shadow-sm"
+                className="w-full py-2.5 rounded-full bg-stone-900 text-white text-xs font-bold"
               >
                 Continue Shopping
               </button>

@@ -56,27 +56,6 @@ export const SERVICES: ServiceItem[] = [
     color: 'bg-amber-500 text-white'
   },
   {
-    id: 'qr-review',
-    title: 'Google Review QR Solutions',
-    description: 'Custom-designed QR codes and tabletop stands that direct happy customers directly to your Google 5-star review page.',
-    iconName: 'QrCode',
-    color: 'bg-emerald-500 text-white'
-  },
-  {
-    id: 'nfc-cards',
-    title: 'NFC Google Review Cards',
-    description: 'Smart contactless NFC cards where a single smartphone tap opens your review link instantly with zero typing needed.',
-    iconName: 'CreditCard',
-    color: 'bg-purple-600 text-white'
-  },
-  {
-    id: 'digital-menu',
-    title: 'Digital Menu for Restaurants',
-    description: 'Interactive, mobile-friendly digital menus for cafes and restaurants featuring instant updates and seamless QR access.',
-    iconName: 'Menu',
-    color: 'bg-pink-500 text-white'
-  },
-  {
     id: 'hosting-mgmt',
     title: 'Website Hosting & Maintenance',
     description: 'High-speed cloud hosting, SSL certificates, regular backups, and dedicated technical maintenance to keep your site running smoothly.',
